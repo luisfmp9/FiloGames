@@ -50,7 +50,7 @@ nav {
 .hero {
     text-align: center;
     padding: 60px 20px;
-    background: url('/IMG/ChuterSplash.webp') no-repeat center/cover;
+    background: url('../IMG/ChuterSplash.webp') no-repeat center/cover;
     color: white;
 }
 

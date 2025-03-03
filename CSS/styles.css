@@ -19,6 +19,14 @@ header {
     text-align: center;
 }
 
+h1 {
+    font-family: "Uncial Antiqua", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.9);
+}
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -48,19 +56,27 @@ nav {
 
 /* Hero Section */
 .hero {
+    position: relative;
     text-align: center;
     padding: 60px 20px;
-    background: url('../IMG/ChuterSplash.webp') no-repeat center/cover;
-    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1)),
+    url('../IMG/ChuterSplash.webp') no-repeat center/cover;
+    color: #202020;
+    min-height: 600px;
 }
 
 .hero .btn {
     display: inline-block;
-    padding: 10px 20px;
-    background: #ff6600;
+    padding: 20px 40px;
+    background: #202020;
     color: white;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 15px;
+    position: absolute;
+    bottom: 40px;
+    margin: 0 auto;
+    transform: translateX(-50%);
+    display: inline-block;
 }
 
 /* Características */

@@ -28,7 +28,7 @@ h3 {
     color: black;
     text-align: center;
     padding: 14px; /* Espaciado interno */
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 30px;
     border-radius: 25px;
     margin-left: 15%;
@@ -49,6 +49,7 @@ h3 {
     border-radius: 14px;
     margin: 12px;
     padding: 4px;
+    color: white;
 }
     
 .custom-divCreditos:hover {
@@ -94,7 +95,7 @@ h3 {
 .custom-aTeam {
     display: flex;
     width: 230px;
-    height: 26px;
+    height: 46px;
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
     text-align: center;

@@ -1,0 +1,192 @@
+body {
+    background-color: #191919;
+}
+
+main {
+    justify-content: space-between; /* Ajusta alineación horizontal */
+    gap: 10px; /* Espacio entre elementos */
+    text-align: center;
+}
+    
+main div {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se acomoden en varias líneas */
+    justify-content: center;
+}
+
+.Contact {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: 30px auto;
+}
+
+h3 {
+    background-color: #FFFFFF;
+    color: black;
+    text-align: center;
+    padding: 14px; /* Espaciado interno */
+    margin-top: 10px;
+    margin-bottom: 30px;
+    border-radius: 25px;
+    margin-left: 15%;
+    margin-right: 15%;
+    flex-basis: 100%;
+    flex-grow: 1;
+}
+
+.custom-divCreditos {
+    display: flex;
+    flex: 1 1 150px; /* Permite que se ajusten sin ocupar toda la línea */
+    flex-direction: column;
+    max-width: 270px;
+    text-align: center;
+    justify-content: start;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 14px;
+    margin: 12px;
+    padding: 4px;
+}
+    
+.custom-divCreditos:hover {
+    background-color: #ffffff; /* Fondo blanco al pasar el mouse */
+    color: #000000; /* Color del texto en negro */
+}
+    
+.custom-pCreditos {
+    margin-top: 16px;
+}
+    
+.custom-divCreditos:hover a {
+    background-color: #000000;
+    color: #ffffff;
+}
+    
+.custom-divRRSS {
+    display: flex;
+    flex: 1 1 150px; /* Permite que se ajusten sin ocupar toda la línea */
+    max-width: 250px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 14px;
+    margin: 10px;
+    padding: 4px;
+    background-color: transparent;
+}
+    
+.custom-aRRSS {
+    border-radius: 14px;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s;
+}
+    
+.custom-aRRSS:hover {
+    background-color: #ffffff;
+}
+    
+.custom-aRRSS:hover>img, .custom-aRRSS:focus>img {
+    box-shadow: none;
+}
+    
+.custom-aTeam {
+    display: flex;
+    width: 230px;
+    height: 26px;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 18px;
+}
+    
+.custom-a {
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s; /* Transiciones suaves */
+    text-align: center;
+    width: 100%;
+}
+    
+.custom-imgRS {
+    outline: none; /* Elimina el contorno al enfocar */
+    border: none;  /* Elimina cualquier borde */
+}
+    
+.custom-imgCreditos {
+    object-fit: cover;
+    height: 300px;
+    width: 250px;
+    object-position: top;
+    margin-top: 10px;
+}
+    
+.custom-divFondo {
+    background-color: #FFFFFF;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 14px;
+    color: white;
+    text-align: center;
+    border-radius: 25px;
+    margin-left: auto; /* Centrar horizontalmente */
+    margin-right: auto;
+    width: 100%;
+}
+    
+div .custom-colorTexto{
+    color: #060606;
+}
+    
+main a strong, a b {
+    padding: 30px;
+    font-size: 20px;
+}
+    
+main a {
+    display: inline-block;
+    background-color: #ffffff; /* Fondo blanco para los enlaces */
+    color: #000000; /* Texto negro */
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 6px;
+    margin: 5px;
+    transition: background-color 0.3s, color 0.3s; /* Transiciones suaves */
+    text-align: center;
+    line-height: normal;
+}
+    
+.custom-a:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+    
+main a:hover {
+    background-color: #000000; /* Fondo negro al hacer hover */
+    color: #ffffff; /* Texto blanco al hacer hover */
+}
+    
+.custom-imgNarrative {
+    background-color: #FFFFFF;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    border-radius: 25px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+    
+.custom-imgResponsive {
+    width: 60%;
+}
+    
+@media (max-width: 768px) {
+    .custom-imgResponsive{
+        width: 100%;
+    }
+}

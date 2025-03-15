@@ -70,8 +70,7 @@ class Features extends HTMLElement {
                 <div class="feature">
                     <img src="IMG/FiloGamesCertificado.png" alt="Certificado de fase de aceleración">
                     <h3>Finalistas Game Jam Plus 23/24</h3>
-                    <p>Tuvimos la grandiosa experiencia de pasar por las distintas fases de la Game Jam Plus hasta la final, 
-                        donde aprendimos muchas cosas como equipo con el proyecto Chuter.</p>
+                    <p>Tuvimos la grandiosa experiencia de pasar por las distintas fases de la Game Jam Plus hasta la final, donde aprendimos muchas cosas como equipo con el proyecto Chuter.</p>
                 </div>
                 <div class="feature">
                     <h3>+10 Años de Experiencia en la Industria</h3>

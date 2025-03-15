@@ -12,15 +12,18 @@ main div {
     display: flex;
     flex-wrap: wrap; /* Permite que los elementos se acomoden en varias líneas */
     justify-content: center;
+    align-items: center; /* Centrar verticalmente */
+    text-align: center; /* Asegurar que el texto también se centre */
 }
 
 .Contact {
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 80%;
     margin: 30px auto;
+    gap: 6px; /* Espacio entre elementos */
 }
 
 h3 {
@@ -94,7 +97,7 @@ h3 {
     
 .custom-aTeam {
     display: flex;
-    width: 230px;
+    width: 96%;
     height: 46px;
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */

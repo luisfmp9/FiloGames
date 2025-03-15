@@ -14,10 +14,10 @@ class Header extends HTMLElement {
                         <h1 class="logoTexto">Filo Games</h1>
                     </div>
                     <ul class="nav-links">
-                        <li><a href="/FiloGames">Inicio</a></li>
-                        <li><a href="#">Sobre Nosotros</a></li>
-                        <li><a href="#">Servicios</a></li>
-                        <li><a href="contacto">Contacto</a></li>
+                        <li><a href="/FiloGames">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="contacto">Contact</a></li>
                     </ul>
                     <div class="menu-toggle">&#9776;</div>
                 </nav>
@@ -33,8 +33,8 @@ class Footer extends HTMLElement {
                 <div class="container">
                     <div class="row center">
                         <div class="col l6 s12">
-                            <h5 class="white-text">Contáctame</h5>
-                            <p class="grey-text text-lighten-4">Puedes contactarme por estos medios :)</p>
+                            <h5 class="white-text">Contact Me</h5>
+                            <p class="grey-text text-lighten-4">You can contact me through these means :)</p>
                             <p>luisfermepa9@gmail.com</p>
                         </div>
                         <div class="col l4 offset-l2 s12">
@@ -69,20 +69,20 @@ class Features extends HTMLElement {
             <section class="features">
                 <div class="feature">
                     <img src="IMG/FiloGamesCertificado.png" alt="Certificado de fase de aceleración">
-                    <h3>Finalistas Game Jam Plus 23/24</h3>
-                    <p>Tuvimos la grandiosa experiencia de pasar por las distintas fases de la Game Jam Plus hasta la final, donde aprendimos muchas cosas como equipo con el proyecto Chuter.</p>
+                    <h3>Game Jam Plus 23/24 Finalists</h3>
+                    <p>We had the great experience of going through the different phases of the Game Jam Plus until the final, where we learned many things as a team with the Chuter project.</p>
                 </div>
                 <div class="feature">
-                    <h3>+10 Años de Experiencia en la Industria</h3>
-                    <p>Tenemos más de 10 años de experiencia en el desarrollo de videojuegos, software y más. Habiendo desarrollado más de 10 videojuegos, innumerables prototipos, softwares y proyectos</p>
+                    <h3>+10 Years of Experience in the Industry</h3>
+                    <p>We have over 10 years of experience developing video games, software, and more. We've developed over 10 video games, countless prototypes, software projects, and more.</p>
                 </div>
                 <div class="feature">
-                    <h3>Enfoque filosófico en Videojuegos</h3>
-                    <p>Nos gusta la profundidad cultural, social, artística y filosófica en nuestros videojuegos y productos.</p>
+                    <h3>Philosophical Approach to Video Games</h3>
+                    <p>We love cultural, social, artistic and philosophical depth in our video games and products.</p>
                 </div>
                 <div class="feature">
-                    <h3>Innovación y calidad</h3>
-                    <p>Nos preocupamos por la calidad y aporte de nuestros videojuegos, como la jugabilidad, narrativa y artes distintivos.</p>
+                    <h3>Innovation & Quality</h3>
+                    <p>We care about the quality and contribution of our video games, such as gameplay, narrative and distinctive art.</p>
                 </div>
             </section>
         `

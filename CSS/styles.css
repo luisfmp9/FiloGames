@@ -71,6 +71,7 @@ header nav ul{
     margin: 0;
     padding: 0;
     height: 100%;
+    transition: all 0.3s ease-in-out;
 }
 
 .nav-links li {
@@ -187,6 +188,12 @@ footer {
 
 /* Responsividad */
 @media (max-width: 768px) {
+
+    header {
+        height: auto;
+        max-height: 300px;
+    }
+
     .nav-links {
         display: none;
         flex-direction: column;

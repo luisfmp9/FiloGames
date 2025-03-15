@@ -189,11 +189,6 @@ footer {
 /* Responsividad */
 @media (max-width: 768px) {
 
-    header {
-        height: auto;
-        max-height: 300px;
-    }
-
     .nav-links {
         display: none;
         flex-direction: column;

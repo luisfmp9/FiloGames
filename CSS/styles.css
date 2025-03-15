@@ -208,7 +208,7 @@ footer {
 
     .hero {
         background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0)),
-        url('../IMG/ChuterS.webp') no-repeat center/cover;
+        url('../IMG/ChuterS.webp') no-repeat center/contain;
         color: #202020;
         min-height: 400px;
     }

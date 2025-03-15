@@ -14,7 +14,7 @@ class Header extends HTMLElement {
                         <h1 class="logoTexto">Filo Games</h1>
                     </div>
                     <ul class="nav-links">
-                        <li><a href="#hero">Inicio</a></li>
+                        <li><a href="/">Inicio</a></li>
                         <li><a href="#">Sobre Nosotros</a></li>
                         <li><a href="#">Servicios</a></li>
                         <li><a href="contacto">Contacto</a></li>

@@ -205,4 +205,11 @@ footer {
     .menu-toggle {
         display: block;
     }
+
+    .hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0)),
+        url('../IMG/ChuterSplash.webp') no-repeat center/cover;
+        color: #202020;
+        min-height: 400px;
+    }
 }

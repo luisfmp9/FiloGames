@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let cuerpo = `Nombre: ${nombre}\nEmail: ${email}\n\nMensaje:\n${mensaje}`;
 
             // Crear el enlace mailto con los datos del formulario
-            let mailtoLink = `mailto:nathalykalantar@gmail.com?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+            let mailtoLink = `mailto:filogamesteam@gmail.com?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
             // Redirigir al enlace mailto
             window.location.href = mailtoLink;
         }

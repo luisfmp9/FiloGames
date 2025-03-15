@@ -177,6 +177,58 @@ header nav ul{
     border-radius: 10px;
 }
 
+h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #d63384; /* Un tono rosa vibrante */
+    margin-bottom: 32px;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: text;
+    z-index: 2000;
+}
+
+input:hover, textarea:hover {
+    border-color: var(--primary-red); /* Resalta el borde al hacer hover */
+    box-shadow: 0 0 5px rgba(255, 45, 85, 0.5); /* Efecto de resplandor */
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-red);
+}
+
+button {
+    padding: 15px 30px;
+    background-color: var(--primary-red);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    transform: scale(1.2);
+    border: 2px solid #ff4d4d; /* Rojo más vibrante para destacar el borde */
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.5); /* Efecto de resplandor */
+}
+
 /* Footer */
 footer {
     text-align: center;

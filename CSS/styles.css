@@ -197,6 +197,10 @@ footer {
         background: #333;
     }
 
+    .nav-links a {
+        width: 100%;
+    }
+
     .nav-links.active {
         display: flex;
     }

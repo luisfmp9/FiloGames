@@ -257,6 +257,7 @@ button {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    flex-basis: 100%;
 }
 
 button:hover {

@@ -59,6 +59,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    document.querySelectorAll('.dynamic-placeholder').forEach(input => {
+        input.addEventListener('focus', function() {
+            this.dataset.placeholder = this.placeholder; // Guardar el placeholder original
+            this.placeholder = ''; // Vaciar el placeholder
+        });
+
+        input.addEventListener('blur', function() {
+            if (this.value.trim() === '') {
+                this.placeholder = this.dataset.placeholder; // Restaurar el placeholder si no hay texto
+            }
+        });
+    });
+
     // Crear la onda al hacer clic
     document.addEventListener("click", function (event) {
         createWaveEffect(event);

@@ -266,7 +266,7 @@ button {
     flex-basis: 100%;
 }
 
-button:hover {
+button:hover, .btn:hover {
     transform: scale(1.2);
     border: 2px solid #ff4d4d; /* Rojo más vibrante para destacar el borde */
     box-shadow: 0 0 10px rgba(255, 77, 77, 0.5); /* Efecto de resplandor */

@@ -51,16 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Scroll suave al hacer click en el botón
-    document.querySelectorAll('button').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
     document.querySelectorAll('.dynamic-placeholder').forEach(input => {
         input.addEventListener('focus', function() {
             this.dataset.placeholder = this.placeholder; // Guardar el placeholder original

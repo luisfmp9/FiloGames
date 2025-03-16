@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let nombre = document.querySelector("input[type='text']").value;
         let email = document.querySelector("input[type='email']").value;
         let mensaje = document.querySelector("textarea").value;
-    
+        console.log("Formulario cargado")
         if (nombre === "" || email === "" || mensaje === "") {
             alert("Por favor, llena todos los campos.");
             event.preventDefault();

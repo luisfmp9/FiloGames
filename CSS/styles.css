@@ -70,7 +70,6 @@ header nav ul{
     gap: 0;
     margin: 0;
     padding: 0;
-    height: 100%;
     transition: all 0.3s ease-in-out;
 }
 
@@ -296,6 +295,31 @@ button:hover {
     box-shadow: 0 0 10px rgba(255, 77, 77, 0.5); /* Efecto de resplandor */
     color: black;
     background-color: white;
+}
+
+.about {
+    background: #101010; /* Fondo oscuro */
+    color: white;
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.about-content {
+    max-width: 800px;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    opacity: 0.8;
 }
 
 /* Footer */

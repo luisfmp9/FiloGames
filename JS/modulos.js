@@ -15,7 +15,7 @@ class Header extends HTMLElement {
                     </div>
                     <ul class="nav-links">
                         <li><a href="/FiloGames">Home</a></li>
-                        <li><a href="#">About</a></li>
+                        <li><a href="about">About</a></li>
                         <li><a href="#">Services</a></li>
                         <li><a href="contacto">Contact</a></li>
                     </ul>

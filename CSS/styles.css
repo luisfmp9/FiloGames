@@ -50,12 +50,6 @@ h1 {
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.9);
 }
 
-.featureText {
-    font-family: system-ui;
-    color: black;
-    text-shadow: none;
-}
-
 header nav {
     display: flex;
     justify-content: space-between;
@@ -204,6 +198,13 @@ header nav ul{
     text-align: center;
     width: 300px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.featureText {
+    font-family: system-ui;
+    color: black;
+    text-shadow: none;
+    font-weight: auto;
 }
 
 .feature img {

@@ -131,6 +131,17 @@ header nav ul{
 }
 
 /* Hero Section */
+.contacto {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    text-align: center; /* Asegurar que el texto también se centre */
+    width: 80%;
+    margin: 30px auto;
+    gap: 6px; /* Espacio entre elementos */
+}
+
 .hero {
     position: relative;
     text-align: center;
@@ -178,6 +189,12 @@ header nav ul{
 }
 
 .container {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    margin: 30px auto;
+    gap: 6px; /* Espacio entre elementos */
     max-width: 1200px;
     margin: 0 auto;
     padding: 50px 20px;
@@ -187,11 +204,21 @@ form {
     max-width: 600px;
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 15px;
+    text-align: center;    
+    width: 80%;
 }
 
 input, textarea {
+    display: flex;
+    flex: 1 1 150px; /* Permite que se ajusten sin ocupar toda la línea */
+    flex-direction: column;
+    max-width: 270px;
+    text-align: center;
+    justify-content: start;
+    align-items: center;
     padding: 12px;
     border: 2px solid #000;
     border-radius: 8px;

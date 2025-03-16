@@ -4,7 +4,6 @@ body {
 
 main {
     justify-content: space-between; /* Ajusta alineación horizontal */
-    gap: 10px; /* Espacio entre elementos */
     text-align: center;
 }
     

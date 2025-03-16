@@ -52,10 +52,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Scroll suave al hacer click en el botón
-    document.querySelector('button').addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector('#productos').scrollIntoView({
-            behavior: 'smooth'
+    document.querySelectorAll('button').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
         });
     });
 

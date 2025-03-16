@@ -9,10 +9,23 @@ main {
     
 main div {
     display: flex;
-    flex-wrap: wrap; /* Permite que los elementos se acomoden en varias líneas */
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center; /* Centrar verticalmente */
-    text-align: center; /* Asegurar que el texto también se centre */
+    text-align: center;
+}
+
+.Team {
+    background-color: #191919;
+    width: 100%;
+    padding: 30px 0;
+    padding-bottom: 44px;
+}
+
+.RRSS {
+    background-color: #101010;
+    width: 100%;
+    padding: 30px 0;
+    padding-bottom: 44px;
 }
 
 .Contact {
@@ -20,14 +33,12 @@ main div {
     flex-wrap: wrap;
     text-align: center;
     justify-content: center;
-    width: 80%;
-    margin: 30px auto;
+    width: 100%;
+    margin: 0 auto;
     gap: 6px; /* Espacio entre elementos */
 }
 
 h3 {
-    background-color: #FFFFFF;
-    color: black;
     text-align: center;
     padding: 14px; /* Espaciado interno */
     margin-top: 20px;
@@ -37,6 +48,11 @@ h3 {
     margin-right: 15%;
     flex-basis: 100%;
     flex-grow: 1;
+    font-family: "Uncial Antiqua", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.9);
 }
 
 .custom-divCreditos {

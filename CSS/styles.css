@@ -322,6 +322,49 @@ button:hover {
     opacity: 0.8;
 }
 
+.services, .portfolio {
+    text-align: center;
+    padding: 80px 20px;
+    background: #111;
+    color: white;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.grid-item {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px black;
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.grid-item:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+.large {
+    height: 300px;
+}
+
+.wide {
+    grid-column: span 2;
+}
+
 /* Footer */
 footer {
     text-align: center;

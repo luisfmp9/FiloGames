@@ -324,7 +324,7 @@ button:hover {
 
 .services, .portfolio {
     text-align: center;
-    padding: 80px 20px;
+    padding: 0;
     background: #111;
     color: white;
 }

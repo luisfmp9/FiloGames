@@ -170,6 +170,7 @@ header nav ul{
     margin: 0 auto;
     margin-top: 360px;
     justify-self: end;
+    transition: all 0.3s ease;
 }
 
 .btn:hover {

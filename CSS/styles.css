@@ -203,7 +203,7 @@ header nav ul{
     font-family: system-ui;
     color: black;
     text-shadow: none;
-    font-weight: auto;
+    font-weight: 600;
 }
 
 .feature img {

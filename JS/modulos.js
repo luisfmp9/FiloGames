@@ -69,19 +69,19 @@ class Features extends HTMLElement {
             <section class="features">
                 <div class="feature">
                     <img src="IMG/FiloGamesCertificado.png" alt="Certificado de fase de aceleración">
-                    <h3>Game Jam Plus 23/24 Finalists</h3>
+                    <h3 class="featureText">Game Jam Plus 23/24 Finalists</h3>
                     <p>We had the great experience of going through the different phases of the Game Jam Plus until the final, where we learned many things as a team with the Chuter project.</p>
                 </div>
                 <div class="feature">
-                    <h3>+10 Years of Experience in the Industry</h3>
+                    <h3 class="featureText">+10 Years of Experience in the Industry</h3>
                     <p>We have over 10 years of experience developing video games, software, and more. We've developed over 10 video games, countless prototypes, software projects, and more.</p>
                 </div>
                 <div class="feature">
-                    <h3>Philosophical Approach to Video Games</h3>
+                    <h3 class="featureText">Philosophical Approach to Video Games</h3>
                     <p>We love cultural, social, artistic and philosophical depth in our video games and products.</p>
                 </div>
                 <div class="feature">
-                    <h3>Innovation & Quality</h3>
+                    <h3 class="featureText">Innovation & Quality</h3>
                     <p>We care about the quality and contribution of our video games, such as gameplay, narrative and distinctive art.</p>
                 </div>
             </section>

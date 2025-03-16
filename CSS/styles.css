@@ -50,6 +50,11 @@ h1 {
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.9);
 }
 
+.featureText {
+    color: black;
+    text-shadow: none;
+}
+
 header nav {
     display: flex;
     justify-content: space-between;

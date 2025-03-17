@@ -359,7 +359,7 @@ button:hover {
 
 .large {
     height: 400px;
-    width: 100%;
+    width: auto;
 }
 
 .wide {

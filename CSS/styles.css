@@ -334,7 +334,7 @@ button:hover {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 15px;
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 0;
 }
 
 .grid-item {

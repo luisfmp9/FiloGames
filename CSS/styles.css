@@ -412,4 +412,20 @@ footer {
         margin-top: 126px;
         padding: 20px 40px;
     }
+
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Se adapta mejor a móviles */
+    }
+
+    .large, .wide {
+        height: 250px; /* Reduce aún más en móviles */
+    }
+
+    .large {
+        grid-column: span 2;
+    }
+
+    .wide {
+        grid-column: span 4;
+    }
 }

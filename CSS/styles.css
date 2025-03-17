@@ -332,7 +332,7 @@ button:hover {
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
+    gap: 4px;
     max-width: 1000px;
     margin: 0;
 }
@@ -358,11 +358,12 @@ button:hover {
 }
 
 .large {
-    height: 300px;
+    height: 400px;
 }
 
 .wide {
-    grid-column: span 2;
+    grid-column: span 3;
+    height: 600px;
 }
 
 /* Footer */

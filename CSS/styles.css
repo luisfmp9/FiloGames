@@ -364,7 +364,7 @@ button:hover {
 
 .wide {
     grid-column: span 3;
-    height: 600px;
+    height: 800px;
 }
 
 /* Footer */

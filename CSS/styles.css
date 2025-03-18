@@ -418,7 +418,7 @@ footer {
     }
 
     .large, .wide {
-        height: 250px; /* Reduce aún más en móviles */
+        height: 600px; /* Reduce aún más en móviles */
     }
 
     .large {
@@ -426,6 +426,6 @@ footer {
     }
 
     .wide {
-        grid-column: span 4;
+        grid-column: span 2;
     }
 }

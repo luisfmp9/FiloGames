@@ -162,23 +162,30 @@ header nav ul{
 
 .hero .btn {
     display: flex;
-    padding: 30px 54px;
-    background: #202020;
-    color: white;
-    text-decoration: none;
-    border-radius: 15px;
     margin: 0 auto;
     margin-top: 360px;
     justify-self: end;
+    padding: 14px 32px;
+    background: linear-gradient(145deg, #222, #111);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     transition: all 0.3s ease;
+    letter-spacing: 1px;
+    cursor: pointer;
 }
 
 .btn:hover {
     transform: scale(1.2);
     border: 2px solid #ff4d4d; /* Rojo más vibrante para destacar el borde */
-    box-shadow: 0 0 10px rgba(255, 77, 77, 0.5); /* Efecto de resplandor */
     color: black;
     background-color: white;
+    transform: translateY(-3px) scale(1.2);
+    box-shadow: 0 8px 20px rgba(255, 77, 77, 0.4);
 }
 
 /* Características */
@@ -402,7 +409,7 @@ footer {
     }
 
     .hero {
-        background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0)),
+        background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)),
         url('../IMG/ChuterS.webp') no-repeat center/contain;
         color: #202020;
         min-height: 400px;

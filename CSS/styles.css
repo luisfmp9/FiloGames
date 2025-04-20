@@ -149,7 +149,7 @@ header nav ul{
     height: auto; /* O ajusta según necesidad */
     width: 100%;
     text-align: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0)),
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.02)),
     url('../IMG/ChuterSplash.webp') no-repeat center/cover;
     color: #202020;
     min-height: 600px;
@@ -163,9 +163,9 @@ header nav ul{
 .hero .btn {
     display: flex;
     margin: 0 auto;
-    margin-top: 360px;
+    margin-top: 364px;
     justify-self: end;
-    padding: 14px 32px;
+    padding: 20px 40px;
     background: linear-gradient(145deg, #222, #111);
     color: #fff;
     font-size: 1.1rem;
@@ -409,7 +409,7 @@ footer {
     }
 
     .hero {
-        background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)),
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.02)),
         url('../IMG/ChuterS.webp') no-repeat center/contain;
         color: #202020;
         min-height: 400px;
@@ -417,7 +417,7 @@ footer {
 
     .hero .btn {
         margin-top: 126px;
-        padding: 20px 40px;
+        padding: 14px 32px;
     }
 
     .grid {

@@ -14,6 +14,7 @@ class Header extends HTMLElement {
                             <li class="nav-item"><a href="services" class="nav-link">Servicios</a></li>
                             <li class="nav-item"><a href="team" class="nav-link">Equipo</a></li>
                             <li class="nav-item"><a href="contact" class="nav-link">Contacto</a></li>
+                            <li class="nav-item"><a href="about.html" class="nav-link">Sobre Nosotros</a></li>
                         </ul>
                     </nav>
                     <div class="hamburger">
@@ -89,28 +90,27 @@ class Team extends HTMLElement {
     }
 }
 
-class RRSS extends HTMLElement {
+class SocialMedia extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-        <section class="Contact">
-            <div class="RRSS">
-                <h3 class="text-center">Follow Us | Síguenos</h3>
-                <div class="custom-divRRSS">
-                    <a href="https://www.instagram.com/filogamesofficial/" target="_blank" class="custom-aRRSS">
-                        <img style="max-width: 200px" src="https://img.itch.zone/aW1nLzE3ODcwOTQ2LnBuZw==/original/m59VQd.png" class="custom-imgRS">
+            <section class="container">
+                <h2 class="section-title">Síguenos</h2>
+                <p class="section-subtitle">Únete a nuestra comunidad y sé el primero en conocer nuestras últimas noticias, proyectos y reflexiones.</p>
+                <div class="social-media-grid">
+                    <a href="https://www.instagram.com/filogamesofficial/" target="_blank" class="social-card">
+                        <img src="https://img.itch.zone/aW1nLzE3ODcwOTQ2LnBuZw==/original/m59VQd.png" class="social-image" alt="Instagram">
+                    </a>
+                    <a href="https://www.youtube.com/@FiloGamesTeam" target="_blank" class="social-card">
+                        <img src="https://img.itch.zone/aW1nLzE3ODcxMjkxLnBuZw==/original/ATgXa3.png" class="social-image" alt="YouTube">
+                    </a>
+                    <a href="https://www.tiktok.com/@filogamesofficial" target="_blank" class="social-card">
+                        <img src="https://img.itch.zone/aW1nLzE3ODcxMTI0LnBuZw==/original/VlWP9i.png" class="social-image" alt="TikTok">
+                    </a>
+                    <a href="https://www.linkedin.com/company/filo-games/" target="_blank" class="social-card">
+                        <img src="https://img.itch.zone/aW1nLzE3ODcxMTY2LnBuZw==/original/16l8Dg.png" class="social-image" alt="LinkedIn">
                     </a>
                 </div>
-                <div class="custom-divRRSS">
-                    <a href="https://www.youtube.com/@FiloGamesTeam" target="_blank" class="custom-aRRSS"><img style="max-width: 200px" src="https://img.itch.zone/aW1nLzE3ODcxMjkxLnBuZw==/original/ATgXa3.png" class="custom-imgRS"></a>
-                </div>
-                <div class="custom-divRRSS">
-                    <a href="https://www.tiktok.com/@filogamesofficial" target="_blank" class="custom-aRRSS"><img style="max-width: 200px" src="https://img.itch.zone/aW1nLzE3ODcxMTI0LnBuZw==/original/VlWP9i.png" class="custom-imgRS"></a>
-                </div>
-                <div class="custom-divRRSS">
-                    <a href="https://www.linkedin.com/company/filo-games/" target="_blank" class="custom-aRRSS"><img style="max-width: 200px" src="https://img.itch.zone/aW1nLzE3ODcxMTY2LnBuZw==/original/16l8Dg.png" class="custom-imgRS"></a>
-                </div>
-            </div>
-        </section>
+            </section>
         `
     }
 }
@@ -151,5 +151,5 @@ customElements.define('mi-header', Header);
 customElements.define('mi-footer', Footer);
 customElements.define('mi-features', Features);
 customElements.define('mi-team', Team);
-customElements.define('mi-rrss', RRSS);
+customElements.define('mi-social-media', RRSS);
 customElements.define('mi-contact', Contact);

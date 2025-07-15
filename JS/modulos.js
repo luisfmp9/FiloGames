@@ -10,10 +10,10 @@ class Header extends HTMLElement {
                     <nav>
                         <ul class="nav-menu">
                             <li class="nav-item"><a href="/" class="nav-link active">Inicio</a></li>
-                            <li class="nav-item"><a href="portafolio" class="nav-link">Portafolio</a></li>
-                            <li class="nav-item"><a href="servicios" class="nav-link">Servicios</a></li>
-                            <li class="nav-item"><a href="equipo" class="nav-link">Equipo</a></li>
-                            <li class="nav-item"><a href="contacto" class="nav-link">Contacto</a></li>
+                            <li class="nav-item"><a href="portfolio" class="nav-link">Portafolio</a></li>
+                            <li class="nav-item"><a href="services" class="nav-link">Servicios</a></li>
+                            <li class="nav-item"><a href="team" class="nav-link">Equipo</a></li>
+                            <li class="nav-item"><a href="contact" class="nav-link">Contacto</a></li>
                         </ul>
                     </nav>
                     <div class="hamburger">

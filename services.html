@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filo Games Services</title>
+    <title>Servicios - Filo Games</title>
     <meta name="description" content="Filo Games Services. Philosophy and Video Games">
     <meta name="keywords" content="filosofía, videojuegos, juegos, arte, tecnología">
     <meta name="author" content="Luis Mercado">
@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <link rel="icon" href="IMG/logoFilo.ico" sizes="16x16 32x32 48x48" type="image/x-icon">
     <link rel="icon" type="image/png" sizes="192x192" href="IMG/logoFilo.png">
@@ -37,20 +38,14 @@
     <mi-header></mi-header>
 
     <main>
-        <section class="services">
-            <div class="grid">
-                <a href="https://lens.snap.com/experience/197f7cb2-c3ac-423e-a477-17b1a3a0f9d0" target="_blank" class="aClean grid-item large" style="background: url('IMG/VR.jpg') no-repeat center/cover;">
-                    <h1>AR & VR</h1>
-                </a>
-                <a href="https://luisfmp.itch.io/chuter" target="_blank" class="aClean grid-item large" style="background-color: black; background-image: url('IMG/CaballoNegro.png'); background-repeat: no-repeat; background-position: center; background-size: contain;">
-                    <h1>Game Development</h1>
-                </a>
-                <a href="https://lens.snap.com/experience/197f7cb2-c3ac-423e-a477-17b1a3a0f9d0" target="_blank" class="aClean grid-item large" style="background: url('IMG/APP.jpg') no-repeat center/cover;">
-                    <h1>APP Development</h1>
-                </a>
-                <a href="https://grescala.com/" target="_blank" class="aClean grid-item wide" style="background: url('IMG/webGrescala.jpg') no-repeat center/cover;">
-                    <h1>Web Development</h1>
-                </a>
+        <section id="services" class="container">
+            <h2>Servicios</h2>
+            <p class="section-subtitle">Ofrecemos nuestra experiencia y pasión para dar vida a tus ideas. Desde el concepto inicial hasta el producto final.</p>
+            <div class="team-grid">
+                <div class="team-card"><h3>Desarrollo de Videojuegos</h3><p class="bio">Ciclo completo de producción: conceptualización, diseño, programación, arte y lanzamiento para PC, consolas y móviles.</p></div>
+                <div class="team-card"><h3>Gamificación</h3><p class="bio">Aplicamos mecánicas de juego en contextos no lúdicos (educación, marketing, RRHH) para aumentar la participación y motivación.</p></div>
+                <div class="team-card"><h3>Desarrollo Web y Apps</h3><p class="bio">Creamos sitios web y aplicaciones interactivas, robustas y escalables, centradas en la experiencia de usuario.</p></div>
+                <div class="team-card"><h3>Experiencias AR/VR</h3><p class="bio">Diseñamos y desarrollamos aplicaciones inmersivas de Realidad Aumentada y Realidad Virtual para diversos sectores.</p></div>
             </div>
         </section>
         <section id="contacto">
@@ -65,24 +60,6 @@
         </section>
 
         <section class="Contact">
-            <div class="Team">
-                <h3 class="text-center">Current Team | Equipo Actual</h3>
-                <div class="custom-divCreditos">
-                    <img style="max-width: 300px;" src="https://img.itch.zone/aW1nLzE3NzMxNjYzLnBuZw==/original/Srr8WF.png" class="custom-imgCreditos">
-                    <a href="https://supergamer15.itch.io/" target="_blank" class="custom-aTeam">Alvaro Racchumi</a>
-                    <p class="custom-pCreditos">Engineering Director, Integration Engineer, UI Engineer | Líder de Ingeniería, Ingeniero de Integración, Programador UI</p>
-                </div>
-                <div class="custom-divCreditos">
-                    <img style="max-width: 300px;" src="https://img.itch.zone/aW1nLzE3NzMxNjY0LnBuZw==/original/gnCMSn.png" class="custom-imgCreditos">
-                    <a href="https://luisfmp9.github.io/" target="_blank" style="font-family: inherit; font-size: inherit;" class="custom-aTeam">Luisfmp</a>
-                    <p class="custom-pCreditos">General Director, Productor, Game Designer | Director General, Productor, Game Designer</p>
-                </div>
-                <div class="custom-divCreditos">
-                    <img style="max-width: 300px;" src="https://img.itch.zone/aW1nLzE3NzMxNjgwLnBuZw==/original/G8u81%2B.png" class="custom-imgCreditos">
-                    <a href="https://www.instagram.com/daigoro_ventura/" target="_blank" class="custom-aTeam">Dáigoro Ventura</a>
-                    <p class="custom-pCreditos">Sound Designer, Musician composer | Diseñador de Sonido, Compositor Musical</p>
-                </div>
-            </div>
             <div class="RRSS">
                 <h3 class="text-center">Follow Us | Síguenos</h3>
                 <div class="custom-divRRSS">
@@ -105,9 +82,7 @@
         <mi-features></mi-features>
     </main>
 
-    <footer>
-        <p>&copy; 2025 Filo Games Website. All rights reserved</p>
-    </footer>
+    <mi-footer></mi-footer>
 
     <script src="JS/script.js"></script>
 </body>

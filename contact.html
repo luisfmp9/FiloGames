@@ -9,10 +9,10 @@
     <meta name="author" content="Luis Mercado">
 
     <link rel="stylesheet" href="CSS/styles.css">
-    <link rel="stylesheet" href="CSS/chuter.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <link rel="icon" href="IMG/logoFilo.ico" sizes="16x16 32x32 48x48" type="image/x-icon">
     <link rel="icon" type="image/png" sizes="192x192" href="IMG/logoFilo.png">
@@ -37,15 +37,16 @@
     <mi-header></mi-header>
 
     <main>
-        <section id="contacto">
-            <div class="container">
-                <form>
-                    <input type="text" placeholder="Name" class="dynamic-placeholder">
-                    <input type="email" placeholder="Email" class="dynamic-placeholder">
-                    <textarea placeholder="Message" class="dynamic-placeholder"></textarea>
-                    <button type="submit">Contact Me</button>
-                </form>
-            </div>
+        <section id="contact" class="container">
+            <h2>Hablemos</h2>
+            <p class="section-subtitle">¿Tienes un proyecto en mente? ¿Una idea loca? ¿O simplemente quieres hablar de filosofía y videojuegos? Contáctanos.</p>
+            <form class="contact-form">
+                <div class="form-group"><input type="text" class="form-control" placeholder="Tu Nombre"></div>
+                <div class="form-group"><input type="email" class="form-control" placeholder="Tu Correo Electrónico"></div>
+                <div class="form-group"><input type="text" class="form-control" placeholder="Asunto"></div>
+                <div class="form-group"><textarea class="form-control" rows="5" placeholder="Tu Mensaje"></textarea></div>
+                <div style="text-align: center;"><button type="submit" class="cta-button">Enviar Mensaje</button></div>
+            </form>
         </section>
 
         <section class="Contact">
@@ -93,9 +94,7 @@
         <mi-features></mi-features>
     </main>
 
-    <footer>
-        <p>&copy; 2025 Filo Games Website. All rights reserved</p>
-    </footer>
+    <mi-footer></mi-footer>
 
     <script src="JS/script.js"></script>
 </body>

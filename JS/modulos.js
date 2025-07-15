@@ -38,6 +38,24 @@ class Footer extends HTMLElement {
     }
 }
 
+class Contact extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = `
+            <section id="contact" class="container">
+                <h2>Hablemos</h2>
+                <p class="section-subtitle">¿Tienes un proyecto en mente? ¿Una idea loca? ¿O simplemente quieres hablar de filosofía y videojuegos? Contáctanos.</p>
+                <form class="contact-form">
+                    <div class="form-group"><input type="text" class="form-control" placeholder="Tu Nombre"></div>
+                    <div class="form-group"><input type="email" class="form-control" placeholder="Tu Correo Electrónico"></div>
+                    <div class="form-group"><input type="text" class="form-control" placeholder="Asunto"></div>
+                    <div class="form-group"><textarea class="form-control" rows="5" placeholder="Tu Mensaje"></textarea></div>
+                    <div style="text-align: center;"><button type="submit" class="cta-button">Enviar Mensaje</button></div>
+                </form>
+            </section>
+        `
+    }
+}
+
 class Team extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
@@ -134,3 +152,4 @@ customElements.define('mi-footer', Footer);
 customElements.define('mi-features', Features);
 customElements.define('mi-team', Team);
 customElements.define('mi-rrss', RRSS);
+customElements.define('mi-contact', Contact);

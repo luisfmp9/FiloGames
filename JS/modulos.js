@@ -42,43 +42,69 @@ class Team extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <section id="team" class="container">
-            <h2>Los Filósofos</h2>
-            <p class="section-subtitle">Las mentes y corazones detrás de cada línea de código, cada nota musical y cada decisión estratégica.</p>
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-image-wrapper">
-                        <img src="https://placehold.co/300x300/EEE/333?text=Foto+Luis" alt="Foto de Luis Mercado" class="team-image team-photo">
-                        <img src="https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+L" alt="Avatar de Luis Mercado" class="team-image team-avatar">
+                <h2>Los Filósofos</h2>
+                <p class="section-subtitle">Las mentes y corazones detrás de cada línea de código, cada nota musical y cada decisión estratégica.</p>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-image-wrapper">
+                            <img src="https://placehold.co/300x300/EEE/333?text=Foto+Luis" alt="Foto de Luis Mercado" class="team-image team-photo">
+                            <img src="https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+L" alt="Avatar de Luis Mercado" class="team-image team-avatar">
+                        </div>
+                        <h3>Luis Mercado</h3><p class="role">Gerente General & Dev</p><p class="bio">Conecta la visión filosófica con la ejecución técnica, liderando el equipo hacia nuevos horizontes creativos.</p>
                     </div>
-                    <h3>Luis Mercado</h3><p class="role">Gerente General & Dev</p><p class="bio">Conecta la visión filosófica con la ejecución técnica, liderando el equipo hacia nuevos horizontes creativos.</p>
+                    <div class="team-card">
+                        <div class="team-image-wrapper">
+                            <img src="https://placehold.co/300x300/EEE/333?text=Foto+Dáigoro" alt="Foto de Dáigoro" class="team-image team-photo">
+                            <img src="https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+D" alt="Avatar de Dáigoro" class="team-image team-avatar">
+                        </div>
+                        <h3>Dáigoro</h3><p class="role">Músico y Compositor</p><p class="bio">El alma sonora de Filo Games. Crea las atmósferas que dan vida y emoción a nuestros mundos.</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-image-wrapper">
+                            <img src="https://placehold.co/300x300/EEE/333?text=Foto+Alvaro" alt="Foto de Alvaro" class="team-image team-photo">
+                            <img src="https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+A" alt="Avatar de Alvaro" class="team-image team-avatar">
+                        </div>
+                        <h3>Alvaro</h3><p class="role">Programador Principal</p><p class="bio">El arquitecto de la lógica. Transforma ideas complejas en código limpio, eficiente y funcional.</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-image-wrapper">
+                            <img src="https://placehold.co/300x300/EEE/333?text=Foto+Joaquin" alt="Foto de Joaquin" class="team-image team-photo">
+                            <img src="https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+J" alt="Avatar de Joaquin" class="team-image team-avatar">
+                        </div>
+                        <h3>Joaquin</h3><p class="role">Finanzas y Estrategia</p><p class="bio">Asegura que la creatividad tenga una base sólida, gestionando los recursos para garantizar la viabilidad de los proyectos.</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-image-wrapper">
+                            <img src="https://placehold.co/300x300/EEE/333?text=Foto+Mafer" alt="Foto de María Fernanda" class="team-image team-photo">
+                            <img src="https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+M" alt="Avatar de María Fernanda" class="team-image team-avatar">
+                        </div>
+                        <h3>María Fernanda</h3><p class="role">Gerente de Ventas</p><p class="bio">Crea los puentes entre nuestros proyectos y el mundo, forjando alianzas y oportunidades de negocio.</p>
+                    </div>
                 </div>
-                <div class="team-card">
-                    <div class="team-image-wrapper">
-                        <img src="https://placehold.co/300x300/EEE/333?text=Foto+Dáigoro" alt="Foto de Dáigoro" class="team-image team-photo">
-                        <img src="https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+D" alt="Avatar de Dáigoro" class="team-image team-avatar">
-                    </div>
-                    <h3>Dáigoro</h3><p class="role">Músico y Compositor</p><p class="bio">El alma sonora de Filo Games. Crea las atmósferas que dan vida y emoción a nuestros mundos.</p>
+            </section>
+        `
+    }
+}
+
+class RRSS extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = `
+        <section class="Contact">
+            <div class="RRSS">
+                <h3 class="text-center">Follow Us | Síguenos</h3>
+                <div class="custom-divRRSS">
+                    <a href="https://www.instagram.com/filogamesofficial/" target="_blank" class="custom-aRRSS">
+                        <img style="max-width: 200px" src="https://img.itch.zone/aW1nLzE3ODcwOTQ2LnBuZw==/original/m59VQd.png" class="custom-imgRS">
+                    </a>
                 </div>
-                <div class="team-card">
-                    <div class="team-image-wrapper">
-                        <img src="https://placehold.co/300x300/EEE/333?text=Foto+Alvaro" alt="Foto de Alvaro" class="team-image team-photo">
-                        <img src="https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+A" alt="Avatar de Alvaro" class="team-image team-avatar">
-                    </div>
-                    <h3>Alvaro</h3><p class="role">Programador Principal</p><p class="bio">El arquitecto de la lógica. Transforma ideas complejas en código limpio, eficiente y funcional.</p>
+                <div class="custom-divRRSS">
+                    <a href="https://www.youtube.com/@FiloGamesTeam" target="_blank" class="custom-aRRSS"><img style="max-width: 200px" src="https://img.itch.zone/aW1nLzE3ODcxMjkxLnBuZw==/original/ATgXa3.png" class="custom-imgRS"></a>
                 </div>
-                <div class="team-card">
-                    <div class="team-image-wrapper">
-                        <img src="https://placehold.co/300x300/EEE/333?text=Foto+Joaquin" alt="Foto de Joaquin" class="team-image team-photo">
-                        <img src="https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+J" alt="Avatar de Joaquin" class="team-image team-avatar">
-                    </div>
-                    <h3>Joaquin</h3><p class="role">Finanzas y Estrategia</p><p class="bio">Asegura que la creatividad tenga una base sólida, gestionando los recursos para garantizar la viabilidad de los proyectos.</p>
+                <div class="custom-divRRSS">
+                    <a href="https://www.tiktok.com/@filogamesofficial" target="_blank" class="custom-aRRSS"><img style="max-width: 200px" src="https://img.itch.zone/aW1nLzE3ODcxMTI0LnBuZw==/original/VlWP9i.png" class="custom-imgRS"></a>
                 </div>
-                <div class="team-card">
-                    <div class="team-image-wrapper">
-                        <img src="https://placehold.co/300x300/EEE/333?text=Foto+Mafer" alt="Foto de María Fernanda" class="team-image team-photo">
-                        <img src="https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+M" alt="Avatar de María Fernanda" class="team-image team-avatar">
-                    </div>
-                    <h3>María Fernanda</h3><p class="role">Gerente de Ventas</p><p class="bio">Crea los puentes entre nuestros proyectos y el mundo, forjando alianzas y oportunidades de negocio.</p>
+                <div class="custom-divRRSS">
+                    <a href="https://www.linkedin.com/company/filo-games/" target="_blank" class="custom-aRRSS"><img style="max-width: 200px" src="https://img.itch.zone/aW1nLzE3ODcxMTY2LnBuZw==/original/16l8Dg.png" class="custom-imgRS"></a>
                 </div>
             </div>
         </section>
@@ -145,3 +171,4 @@ customElements.define('mi-header', Header);
 customElements.define('mi-footer', Footer);
 customElements.define('mi-features', Features);
 customElements.define('team', team);
+customElements.define('RRSS', rrss);

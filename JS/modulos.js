@@ -151,5 +151,5 @@ customElements.define('mi-header', Header);
 customElements.define('mi-footer', Footer);
 customElements.define('mi-features', Features);
 customElements.define('mi-team', Team);
-customElements.define('mi-social-media', RRSS);
+customElements.define('mi-social-media', SocialMedia);
 customElements.define('mi-contact', Contact);

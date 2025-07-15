@@ -28,7 +28,7 @@ class Header extends HTMLElement {
 class Footer extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-            <footer class="footer" style="padding: 40px 0;">
+            <footer class="footer">
                 <div class="container" style="padding: 40px 0;">
                     <p>&copy; ${añoActual} Filo Games. Todos los derechos reservados.</p>
                     <p style="color: var(--color-text-secondary); font-size: 0.9rem;">Hecho con ☕ y 🤔 en Perú.</p>
@@ -170,5 +170,5 @@ class Features extends HTMLElement {
 customElements.define('mi-header', Header);
 customElements.define('mi-footer', Footer);
 customElements.define('mi-features', Features);
-customElements.define('team', Team);
-customElements.define('RRSS', RRSS);
+customElements.define('mi-team', Team);
+customElements.define('mi-RRSS', RRSS);

@@ -337,6 +337,44 @@ h2 {
     margin-bottom: 15px;
 }
 
+/* --- ESTILOS PARA LA SECCIÓN DE REDES SOCIALES (MEJORADA) --- */
+
+.social-media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 25px;
+    max-width: 900px;
+    margin: 40px auto 0 auto;
+}
+
+.social-card {
+    background-color: var(--color-surface);
+    border-radius: 12px;
+    border: 1px solid #2a2a2a;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.social-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 80px; /* Limita la altura de las imágenes para consistencia */
+    filter: grayscale(1) brightness(1.5); /* Efecto blanco y negro elegante */
+    transition: filter 0.3s ease;
+}
+
+.social-card:hover .social-image {
+    filter: grayscale(0) brightness(1); /* Devuelve el color al pasar el mouse */
+}
+
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
     .nav-menu {

@@ -1,72 +1,38 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
-
-    menuToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-    });
-});
-
-function createWaveEffect(event) {
-    const wave = document.createElement("div");
-    wave.className = "wave-effect";
-    wave.style.left = `${event.pageX - 25}px`; // Centrado de la onda (ajustado para el tamaño)
-    wave.style.top = `${event.pageY - 25}px`; // Centrado de la onda (ajustado para el tamaño)
-    document.body.appendChild(wave);
-
-    setTimeout(() => wave.remove(), 3000); // Duración de la onda
-}
-
 document.addEventListener('DOMContentLoaded', function() {
+    // --- Lógica del Menú Hamburguesa (para todas las páginas) ---
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
 
-    document.querySelector("form").addEventListener("submit", function(event) {
-        let nombre = document.querySelector("input[type='text']").value;
-        let email = document.querySelector("input[type='email']").value;
-        let mensaje = document.querySelector("textarea").value;
-        console.log("Formulario cargado")
-        if (nombre === "" || email === "" || mensaje === "") {
-            alert("Por favor, llena todos los campos.");
-            event.preventDefault();
-        } else if (!email.includes("@")) {
-            alert("Ingresa un correo válido.");
-            event.preventDefault();
-        } else {
-            let asunto = `Mensaje de ${nombre}`;
-            let cuerpo = `Nombre: ${nombre}\nEmail: ${email}\n\nMensaje:\n${mensaje}`;
+    if (hamburger) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    }
 
-            // Crear el enlace mailto con los datos del formulario
-            let mailtoLink = `mailto:filogamesteam@gmail.com?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
-            // Redirigir al enlace mailto
-            window.location.href = mailtoLink;
-        }
-    });
+    // --- Lógica de las Pestañas del Portafolio (solo se ejecuta si encuentra los elementos) ---
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
 
-    // Suavizar scroll al hacer click en los enlaces de navegación
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+    if (tabButtons.length > 0 && portfolioItems.length > 0) {
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Manejar clase activa en botones
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filter = button.getAttribute('data-filter');
+
+                // Mostrar/ocultar items del portafolio
+                portfolioItems.forEach(item => {
+                    // Usamos display: none/block para la lógica de filtrado
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
             });
         });
-    });
-
-    document.querySelectorAll('.dynamic-placeholder').forEach(input => {
-        input.addEventListener('focus', function() {
-            this.dataset.placeholder = this.placeholder; // Guardar el placeholder original
-            this.placeholder = ''; // Vaciar el placeholder
-        });
-
-        input.addEventListener('blur', function() {
-            if (this.value.trim() === '') {
-                this.placeholder = this.dataset.placeholder; // Restaurar el placeholder si no hay texto
-            }
-        });
-    });
-
-    // Crear la onda al hacer clic
-    document.addEventListener("click", function (event) {
-        createWaveEffect(event);
-    });
-    
+    }
 });

@@ -9,11 +9,11 @@ class Header extends HTMLElement {
                     <a href="index.html" class="logo">FiloGames</a>
                     <nav>
                         <ul class="nav-menu">
-                            <li class="nav-item"><a href="index.html" class="nav-link active">Inicio</a></li>
-                            <li class="nav-item"><a href="portafolio.html" class="nav-link">Portafolio</a></li>
-                            <li class="nav-item"><a href="servicios.html" class="nav-link">Servicios</a></li>
-                            <li class="nav-item"><a href="equipo.html" class="nav-link">Equipo</a></li>
-                            <li class="nav-item"><a href="contacto.html" class="nav-link">Contacto</a></li>
+                            <li class="nav-item"><a href="/" class="nav-link active">Inicio</a></li>
+                            <li class="nav-item"><a href="portafolio" class="nav-link">Portafolio</a></li>
+                            <li class="nav-item"><a href="servicios" class="nav-link">Servicios</a></li>
+                            <li class="nav-item"><a href="equipo" class="nav-link">Equipo</a></li>
+                            <li class="nav-item"><a href="contacto" class="nav-link">Contacto</a></li>
                         </ul>
                     </nav>
                     <div class="hamburger">

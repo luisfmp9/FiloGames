@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    
     // --- Lógica del Menú Hamburguesa ---
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
@@ -10,20 +11,44 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- Lógica para marcar el enlace activo en el menú ---
+    // --- Lógica para marcar el enlace activo en el menú (CORREGIDA) ---
     const navLinks = document.querySelectorAll('.nav-link');
-    const currentPage = window.location.pathname.split('/').pop(); // Obtiene el nombre del archivo actual (ej. "portfolio.html")
+    const currentPath = window.location.pathname; // Obtiene la ruta completa (ej. "/FiloGames/portfolio.html")
 
     navLinks.forEach(link => {
-        const linkPage = link.getAttribute('href');
-        // Quita la clase 'active' que pueda estar en el HTML
-        link.classList.remove('active'); 
+        const linkPath = new URL(link.href).pathname;
+        link.classList.remove('active');
 
-        // Si el enlace apunta a la página actual, o si estamos en index.html y el enlace es a "Inicio"
-        if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+        // Compara la ruta del enlace con la ruta actual
+        if (currentPath === linkPath) {
             link.classList.add('active');
         }
     });
 
-    // ... (El código del filtro del portafolio, si lo tienes, iría aquí) ...
+    // --- Lógica para el Filtro del Portafolio ---
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+    if (tabButtons.length > 0 && portfolioItems.length > 0) {
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // 1. Quita la clase 'active' de todos los botones
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                // 2. Añade la clase 'active' al botón clickeado
+                button.classList.add('active');
+
+                const filter = button.getAttribute('data-filter');
+
+                // 3. Muestra u oculta los items del portafolio
+                portfolioItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        item.style.display = 'block'; // Muestra el item
+                    } else {
+                        item.style.display = 'none'; // Oculta el item
+                    }
+                });
+            });
+        });
+    }
 });

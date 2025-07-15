@@ -170,5 +170,5 @@ class Features extends HTMLElement {
 customElements.define('mi-header', Header);
 customElements.define('mi-footer', Footer);
 customElements.define('mi-features', Features);
-customElements.define('team', team);
-customElements.define('RRSS', rrss);
+customElements.define('team', Team);
+customElements.define('RRSS', RRSS);

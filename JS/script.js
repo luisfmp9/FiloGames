@@ -1,38 +1,29 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // --- Lógica del Menú Hamburguesa (para todas las páginas) ---
+    // --- Lógica del Menú Hamburguesa ---
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
 
-    if (hamburger) {
+    if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
     }
 
-    // --- Lógica de las Pestañas del Portafolio (solo se ejecuta si encuentra los elementos) ---
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    // --- Lógica para marcar el enlace activo en el menú ---
+    const navLinks = document.querySelectorAll('.nav-link');
+    const currentPage = window.location.pathname.split('/').pop(); // Obtiene el nombre del archivo actual (ej. "portfolio.html")
 
-    if (tabButtons.length > 0 && portfolioItems.length > 0) {
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Manejar clase activa en botones
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
+    navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        // Quita la clase 'active' que pueda estar en el HTML
+        link.classList.remove('active'); 
 
-                const filter = button.getAttribute('data-filter');
+        // Si el enlace apunta a la página actual, o si estamos en index.html y el enlace es a "Inicio"
+        if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+            link.classList.add('active');
+        }
+    });
 
-                // Mostrar/ocultar items del portafolio
-                portfolioItems.forEach(item => {
-                    // Usamos display: none/block para la lógica de filtrado
-                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-    }
+    // ... (El código del filtro del portafolio, si lo tienes, iría aquí) ...
 });

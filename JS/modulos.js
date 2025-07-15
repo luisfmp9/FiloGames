@@ -14,7 +14,7 @@ class Header extends HTMLElement {
                             <li class="nav-item"><a href="services" class="nav-link">Servicios</a></li>
                             <li class="nav-item"><a href="team" class="nav-link">Equipo</a></li>
                             <li class="nav-item"><a href="contact" class="nav-link">Contacto</a></li>
-                            <li class="nav-item"><a href="about.html" class="nav-link">Sobre Nosotros</a></li>
+                            <li class="nav-item"><a href="about" class="nav-link">Sobre Nosotros</a></li>
                         </ul>
                     </nav>
                     <div class="hamburger">

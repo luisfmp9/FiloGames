@@ -171,4 +171,4 @@ customElements.define('mi-header', Header);
 customElements.define('mi-footer', Footer);
 customElements.define('mi-features', Features);
 customElements.define('mi-team', Team);
-customElements.define('mi-RRSS', RRSS);
+customElements.define('mi-rrss', RRSS);

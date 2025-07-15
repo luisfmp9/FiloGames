@@ -4,23 +4,22 @@ const añoActual = fechaActual.getFullYear();
 class Header extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-            <header>
-                <nav>
-                    <div class="logo">
-                        <picture>
-                            <source srcset="IMG/logoFilo.webp" type="image/webp">
-                            <img src="IMG/logoFilo.png" alt="Filosofía y Videojuegos" class="logo">
-                        </picture>
-                        <h1 class="logoTexto">Filo Games</h1>
+            <header class="header">
+                <div class="nav-container">
+                    <a href="index.html" class="logo">FiloGames</a>
+                    <nav>
+                        <ul class="nav-menu">
+                            <li class="nav-item"><a href="index.html" class="nav-link active">Inicio</a></li>
+                            <li class="nav-item"><a href="portafolio.html" class="nav-link">Portafolio</a></li>
+                            <li class="nav-item"><a href="servicios.html" class="nav-link">Servicios</a></li>
+                            <li class="nav-item"><a href="equipo.html" class="nav-link">Equipo</a></li>
+                            <li class="nav-item"><a href="contacto.html" class="nav-link">Contacto</a></li>
+                        </ul>
+                    </nav>
+                    <div class="hamburger">
+                        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
                     </div>
-                    <ul class="nav-links">
-                        <li><a href="/FiloGames">Home</a></li>
-                        <li><a href="about">About</a></li>
-                        <li><a href="services">Services</a></li>
-                        <li><a href="contacto">Contact</a></li>
-                    </ul>
-                    <div class="menu-toggle">&#9776;</div>
-                </nav>
+                </div>
             </header>
         `
     }
@@ -29,34 +28,10 @@ class Header extends HTMLElement {
 class Footer extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-            <footer class="page-footer blue darken-4">
-                <div class="container">
-                    <div class="row center">
-                        <div class="col l6 s12">
-                            <h5 class="white-text">Contact Me</h5>
-                            <p class="grey-text text-lighten-4">You can contact me through these means :)</p>
-                            <p>luisfermepa9@gmail.com</p>
-                        </div>
-                        <div class="col l4 offset-l2 s12">
-                            <h5 class="white-text">Enlaces</h5>
-                            <ul>
-                                <li><a class="grey-text text-lighten-3" href="https://www.linkedin.com/in/luisfmp9" target="_blank">Linkedin</a></li>
-                                <li><a class="grey-text text-lighten-3" href="https://luisfmp.itch.io/" target="_blank">Itch (Videojuegos)</a></li>
-                                <li><a class="grey-text text-lighten-3" href="https://www.instagram.com/luisfmp9/" target="_blank">Instagram</a></li>
-                                <li><a class="grey-text text-lighten-3" href="https://www.youtube.com/@Luisfmp" target="_blank">Youtube</a></li>
-                                <li><a class="grey-text text-lighten-3" href="/">Sitio Web</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-copyright grey darken-4">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col s12">
-                                <p class="grey-text text-lighten-4 center">© ${añoActual} Luis Fernando Mercado Paredes</p>
-                            </div>
-                        </div>
-                    </div>
+            <footer class="footer" style="padding: 40px 0;>
+                <div class="container" style="padding: 40px 0;">
+                    <p>&copy; ${añoActual} Filo Games. Todos los derechos reservados.</p>
+                    <p style="color: var(--color-text-secondary); font-size: 0.9rem;">Hecho con ☕ y 🤔 en Perú.</p>
                 </div>
             </footer>
         `

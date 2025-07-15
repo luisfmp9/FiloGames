@@ -95,10 +95,33 @@ h2 {
     font-weight: 600;
     transition: color 0.3s ease;
     cursor: pointer;
+    position: relative; /* Necesario para el pseudo-elemento */
+    padding-bottom: 5px; /* Espacio para el subrayado */
 }
 
-.nav-link:hover, .nav-link.active {
-    color: var(--color-primary);
+/* El subrayado animado */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary);
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0); /* Empieza sin ancho */
+    transform-origin: center; /* La animación crece desde el centro */
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1); /* Transición suave */
+}
+
+/* Al pasar el mouse o si el link está activo */
+.nav-link:hover, 
+.nav-link.active {
+    color: var(--color-primary); /* Mantenemos el cambio de color del texto */
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    transform: scaleX(1); /* El subrayado crece a su tamaño completo */
 }
 
 .hamburger {

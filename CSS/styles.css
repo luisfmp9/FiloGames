@@ -1,438 +1,297 @@
-/* Reset básico */
+/* --- Reset y Variables Globales --- */
+:root {
+    --color-background: #0a0a0a;
+    --color-surface: #1a1a1a;
+    --color-primary: #ffffff; /* Blanco como color principal de acción */
+    --color-secondary: #00BFFF; /* Azul para acentos sutiles o futuros */
+    --color-text-primary: #f5f5f5;
+    --color-text-secondary: #a0a0a0;
+    --font-family-main: 'Poppins', sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+    font-family: var(--font-family-main);
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    line-height: 1.7;
 }
 
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #333;
-    color: white;
-    padding: 0;
-    text-align: center;
-    width: 100%;
-    height: 80px;
-    transition: all 0.3s ease-in-out;
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.logo {
-    height: 70px;
-    transition: height 0.3s;
-    display: flex;
-    align-items: center;
-    margin-left: 6px;
-}
-
-.logoTexto {
-    margin-left: 8px;
-}
-
-h1 {
-    font-family: "Uncial Antiqua", system-ui;
-    font-weight: 400;
-    font-style: normal;
-    color: white;
-    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.9);
-}
-
-header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    height: 100%;
-    width: 100%;
-}
-
-header nav ul{
-    height: 100%;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    height: 100%;
-    gap: 0;
-    margin: 0;
-    padding: 0;
-    transition: all 0.3s ease-in-out;
-}
-
-.nav-links li {
-    display: flex;
-    position: relative;
-    margin: 0;
-    color: white;
-    text-decoration: none;
-    transition: background-color 0.3s, color 0.3s;
-    background-color: transparent;
-    height: 100%;
-    padding: 0 40px; /* Espaciado lateral */
-    align-items: center; /* Centrar texto verticalmente */
-    justify-content: space-between;
-}
-
-.nav-links a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: white;
-    text-decoration: none;
-    transition: background-color 0.3s, color 0.3s;
-    background-color: transparent;
-    position: relative;
-}
-
-.nav-links li:hover {
-    background-color: white;
-    color: #202020;
-    height: 100%;
-}
-
-.nav-links li:hover a {
-    color: #202020;
-}
-
-.nav-links a::after {
-    content: ""; 
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 2px; /* Grosor de la línea */
-    background-color: #202020; /* Color de la línea */
-    transition: width 0.3s ease-in-out; /* Animación suave */
-}
-
-.nav-links li:hover a::after {
-    width: 100%;
-}
-
-.menu-toggle {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-/* Hero Section */
-.contacto {
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-    margin: 30px auto;
-    gap: 6px;
-}
-
-.hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centra horizontalmente */
-    justify-content: center; /* Centra verticalmente */
-    height: auto; /* O ajusta según necesidad */
-    width: 100%;
-    text-align: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.02)),
-    url('../IMG/ChuterSplash.webp') no-repeat center/cover;
-    color: #202020;
-    min-height: 600px;
-}
-
-.heroTitle {
-    margin-top: 0px;
-    justify-self: end;
-}
-
-.hero .btn {
-    display: flex;
-    margin: 0 auto;
-    margin-top: 364px;
-    justify-self: end;
-    padding: 20px 40px;
-    background: linear-gradient(145deg, #222, #111);
-    color: #fff;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border: 2px solid transparent;
-    border-radius: 12px;
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    transition: all 0.3s ease;
-    letter-spacing: 1px;
-    cursor: pointer;
-}
-
-.btn:hover {
-    transform: scale(1.2);
-    border: 2px solid #ff4d4d; /* Rojo más vibrante para destacar el borde */
-    color: black;
-    background-color: white;
-    transform: translateY(-3px) scale(1.2);
-    box-shadow: 0 8px 20px rgba(255, 77, 77, 0.4);
-}
-
-/* Características */
-.features {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 20px;
-}
-
-.feature {
-    background: white;
-    padding: 15px;
-    margin: 10px;
-    border-radius: 10px;
-    text-align: center;
-    width: 300px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.featureText {
-    font-family: system-ui;
-    color: black;
-    text-shadow: none;
-    font-weight: 600;
-}
-
-.feature img {
-    width: 100%;
-    border-radius: 10px;
-}
-
+/* --- Contenedor Principal y Utilidades --- */
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-    justify-content: center;
-    margin: 0;
-    gap: 6px; /* Espacio entre elementos */
-    padding: 50px 20px;
-    background-color: #101010;
-    width: 100%;
-}
-
-form {
-    max-width: 600px;
+    width: 90%;
+    max-width: 1100px;
     margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    text-align: center;    
-    width: 80%;
+    padding: 80px 0;
 }
 
-input, textarea {
-    display: flex;
-    flex: 1 1 150px; /* Permite que se ajusten sin ocupar toda la línea */
-    flex-direction: column;
-    max-width: 270px;
-    text-align: center;
-    justify-content: start;
-    align-items: center;
-    padding: 12px;
-    border: 2px solid #000;
-    border-radius: 8px;
-    font-size: 1rem;
-    background: white;
-    color: black;
-    cursor: text;
-    z-index: 2000;
-    transition: all 0.3s ease;
-}
-
-input:hover, textarea:hover {
-    border-color: #555;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-    /*box-shadow: 0 0 5px rgba(255, 45, 85, 0.5); Efecto de resplandor */
-}
-
-input:focus, textarea:focus {
-    outline: none;
-    border-color: black;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-textarea {
-    min-height: 80px;
-}
-
-button {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: start;
-    align-items: center;
-    z-index: 2000;
-    padding: 20px 70px;
-    color: #101010;
-    background-color: #f8f8f8;
-    border: 2px solid rgb(10, 10, 10);
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    flex-basis: 100%;
-}
-
-button:hover {
-    transform: scale(1.2);
-    border: 2px solid #ff4d4d; /* Rojo más vibrante para destacar el borde */
-    box-shadow: 0 0 10px rgba(255, 77, 77, 0.5); /* Efecto de resplandor */
-    color: black;
-    background-color: white;
-}
-
-.about {
-    background: #101010; /* Fondo oscuro */
-    color: white;
-    padding: 80px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.about-content {
-    max-width: 800px;
-}
-
-.about h2 {
-    font-size: 2.5rem;
+h1, h2, h3 {
+    color: var(--color-primary);
+    font-weight: 600;
     margin-bottom: 20px;
 }
 
-.about p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    opacity: 0.8;
-}
-
-.services, .portfolio {
+h2 {
+    font-size: 2.8rem;
     text-align: center;
-    padding: 0;
-    background: #111;
-    color: white;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
 }
 
-.grid {
+.section-subtitle {
+    text-align: center;
+    color: var(--color-text-secondary);
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+    font-size: 1.1rem;
+}
+
+/* --- Header y Navegación --- */
+.header {
+    background-color: rgba(10, 10, 10, 0.75);
+    backdrop-filter: blur(12px);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid #222;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+}
+
+.nav-link {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--color-primary);
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--color-primary);
+}
+
+/* --- Botón CTA --- */
+.cta-button {
+    display: inline-block;
+    background: transparent;
+    color: var(--color-primary);
+    padding: 12px 30px;
+    border: 2px solid var(--color-primary);
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    transform: translateY(-3px);
+}
+
+/* --- Equipo Section: Tarjeta con efecto Hover Foto/Avatar --- */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+.team-card {
+    background-color: var(--color-surface);
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    border: 1px solid #2a2a2a;
+}
+.team-image-wrapper {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px auto;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.team-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.4s ease-in-out;
+}
+.team-photo {
+    opacity: 1;
+}
+.team-avatar {
+    opacity: 0;
+}
+.team-card:hover .team-photo {
+    opacity: 0;
+}
+.team-card:hover .team-avatar {
+    opacity: 1;
+}
+.team-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+.team-card .role {
+    color: var(--color-text-secondary);
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+.team-card .bio {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+}
+
+/* --- Secciones Específicas (Portafolio, Servicios, etc.) --- */
+.portfolio-tabs {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.tab-button {
+    background: none;
+    border: 1px solid #444;
+    color: var(--color-text-secondary);
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.tab-button:hover, .tab-button.active {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    border-color: var(--color-primary);
+}
+.portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 4px;
+    gap: 30px;
+}
+.portfolio-item {
+    display: block; /* Mostrar todos por defecto en la página de portafolio */
+    background-color: var(--color-surface);
+    border-radius: 12px;
+    overflow: hidden;
+}
+.portfolio-item img {
     width: 100%;
-    margin: 0;
-}
-
-.grid-item {
-    position: relative;
-    background-size: cover;
-    background-position: center;
     height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-shadow: 2px 2px 8px black;
-    transition: transform 0.3s, filter 0.3s;
+    object-fit: cover;
+}
+.portfolio-content {
+    padding: 25px;
 }
 
-.grid-item:hover {
-    transform: scale(1.05);
-    filter: brightness(1.2);
+/* --- Contact Form --- */
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-control {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--color-surface);
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: var(--color-text-primary);
+    font-family: var(--font-family-main);
+}
+.form-control:focus {
+    outline: none;
+    border-color: var(--color-primary);
 }
 
-.large {
-    height: 400px;
-    width: auto;
-}
-
-.wide {
-    grid-column: span 3;
-    height: 800px;
-}
-
-/* Footer */
-footer {
+/* --- Footer --- */
+.footer {
+    background-color: #000;
     text-align: center;
-    padding: 40px;
-    background: #333;
-    color: white;
+    padding: 40px 0;
+    border-top: 1px solid #222;
 }
 
-/* Responsividad */
+/* --- Responsive Design --- */
 @media (max-width: 768px) {
-
-    .nav-links {
-        display: none;
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 85px; /* Altura del header */
         flex-direction: column;
-        position: absolute;
-        top: 80px;
+        background-color: var(--color-background);
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        transition: 0.3s;
+        gap: 0;
+    }
+    .nav-menu.active {
         left: 0;
-        width: 100%;
-        background: #333;
-        height: 200px;
     }
-
-    .nav-links a {
-        width: 100%;
+    .nav-item {
+        padding: 20px 0;
     }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .menu-toggle {
+    .hamburger {
         display: block;
     }
-
-    .hero {
-        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.02)),
-        url('../IMG/ChuterS.webp') no-repeat center/contain;
-        color: #202020;
-        min-height: 400px;
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
     }
-
-    .hero .btn {
-        margin-top: 126px;
-        padding: 14px 32px;
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
     }
-
-    .grid {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Se adapta mejor a móviles */
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
     }
-
-    .large, .wide {
-        height: 600px; /* Reduce aún más en móviles */
-    }
-
-    .large {
-        grid-column: span 2;
-    }
-
-    .wide {
-        grid-column: span 2;
-    }
+    h2 { font-size: 2.2rem; }
 }

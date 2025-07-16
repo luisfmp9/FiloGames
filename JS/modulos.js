@@ -65,15 +65,15 @@ class Team extends HTMLElement {
                 <p class="section-subtitle">Las mentes y corazones detrás de cada línea de código, cada nota musical y cada decisión estratégica.</p>
                 <div class="team-grid">
                     <div class="team-card">
-                        <div class="team-image-wrapper"><img src="https://placehold.co/300x300/EEE/333?text=Foto+Luis" alt="Foto de Luis Mercado" class="team-image team-photo"><img src="https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+L" alt="Avatar de Luis Mercado" class="team-image team-avatar"></div>
+                        <div class="team-image-wrapper"><img src="IMG/Team/luisfmp.webp" alt="Foto de Luis Mercado" class="team-image team-photo"><img src="IMG/Team/luisfmpAvatar.webp" alt="Avatar de Luis Mercado" class="team-image team-avatar"></div>
                         <h3>Luis Mercado</h3><p class="role">Gerente General & Dev</p><p class="bio">Conecta la visión filosófica con la ejecución técnica, liderando el equipo hacia nuevos horizontes creativos.</p>
                     </div>
                     <div class="team-card">
-                        <div class="team-image-wrapper"><img src="https://placehold.co/300x300/EEE/333?text=Foto+Dáigoro" alt="Foto de Dáigoro" class="team-image team-photo"><img src="https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+D" alt="Avatar de Dáigoro" class="team-image team-avatar"></div>
+                        <div class="team-image-wrapper"><img src="https://placehold.co/300x300/EEE/333?text=Foto+Dáigoro" alt="Foto de Dáigoro" class="team-image team-photo"><img src="IMG/Team/DaigoroAvatar.webp" alt="Avatar de Dáigoro" class="team-image team-avatar"></div>
                         <h3>Dáigoro</h3><p class="role">Músico y Compositor</p><p class="bio">El alma sonora de Filo Games. Crea las atmósferas que dan vida y emoción a nuestros mundos.</p>
                     </div>
                     <div class="team-card">
-                        <div class="team-image-wrapper"><img src="https://placehold.co/300x300/EEE/333?text=Foto+Alvaro" alt="Foto de Alvaro" class="team-image team-photo"><img src="https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+A" alt="Avatar de Alvaro" class="team-image team-avatar"></div>
+                        <div class="team-image-wrapper"><img src="https://placehold.co/300x300/EEE/333?text=Foto+Alvaro" alt="Foto de Alvaro" class="team-image team-photo"><img src="IMG/Team/AlvaroAvatar.webp" alt="Avatar de Alvaro" class="team-image team-avatar"></div>
                         <h3>Alvaro</h3><p class="role">Programador Principal</p><p class="bio">El arquitecto de la lógica. Transforma ideas complejas en código limpio, eficiente y funcional.</p>
                     </div>
                     <div class="team-card">
@@ -98,16 +98,16 @@ class SocialMedia extends HTMLElement {
                 <p class="section-subtitle">Únete a nuestra comunidad y sé el primero en conocer nuestras últimas noticias, proyectos y reflexiones.</p>
                 <div class="social-media-grid">
                     <a href="https://www.instagram.com/filogamesofficial/" target="_blank" class="social-card">
-                        <img src="https://img.itch.zone/aW1nLzE3ODcwOTQ2LnBuZw==/original/m59VQd.png" class="social-image" alt="Instagram">
+                        <img src="IMG/SocialMedia/Instagram.svg" class="social-image" alt="Instagram">
                     </a>
                     <a href="https://www.youtube.com/@FiloGamesTeam" target="_blank" class="social-card">
-                        <img src="https://img.itch.zone/aW1nLzE3ODcxMjkxLnBuZw==/original/ATgXa3.png" class="social-image" alt="YouTube">
+                        <img src="IMG/SocialMedia/Youtube.svg" class="social-image" alt="YouTube">
                     </a>
                     <a href="https://www.tiktok.com/@filogamesofficial" target="_blank" class="social-card">
-                        <img src="https://img.itch.zone/aW1nLzE3ODcxMTI0LnBuZw==/original/VlWP9i.png" class="social-image" alt="TikTok">
+                        <img src="IMG/SocialMedia/TikTok.svg" class="social-image" alt="TikTok">
                     </a>
                     <a href="https://www.linkedin.com/company/filo-games/" target="_blank" class="social-card">
-                        <img src="https://img.itch.zone/aW1nLzE3ODcxMTY2LnBuZw==/original/16l8Dg.png" class="social-image" alt="LinkedIn">
+                        <img src="IMG/SocialMedia/Instagram.svg" class="social-image" alt="LinkedIn">
                     </a>
                 </div>
             </section>

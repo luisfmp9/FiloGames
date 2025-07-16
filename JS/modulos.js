@@ -107,7 +107,7 @@ class SocialMedia extends HTMLElement {
                         <img src="IMG/SocialMedia/TikTok.svg" class="social-image" alt="TikTok">
                     </a>
                     <a href="https://www.linkedin.com/company/filo-games/" target="_blank" class="social-card">
-                        <img src="IMG/SocialMedia/Instagram.svg" class="social-image" alt="LinkedIn">
+                        <img src="IMG/SocialMedia/Linkdin.svg" class="social-image" alt="LinkedIn">
                     </a>
                 </div>
             </section>

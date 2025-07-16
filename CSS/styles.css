@@ -32,6 +32,10 @@ body {
     padding-bottom: 100px;
 }
 
+.home .container h1{
+    line-height: 1.5;
+}
+
 /* --- Contenedor Principal y Utilidades --- */
 .container {
     width: 90%;

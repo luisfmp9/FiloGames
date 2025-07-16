@@ -26,6 +26,12 @@ body {
     line-height: 1.7;
 }
 
+.home .container{
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
 /* --- Contenedor Principal y Utilidades --- */
 .container {
     width: 90%;
@@ -407,5 +413,11 @@ h2 {
     .hamburger.active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
+
     h2 { font-size: 2.2rem; }
+
+    .home .container{
+        padding-top: 60px;
+        padding-bottom: 100px;
+    }
 }

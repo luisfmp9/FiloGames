@@ -385,6 +385,40 @@ h2 {
     filter: grayscale(0) brightness(1); /* Devuelve el color al pasar el mouse */
 }
 
+.about-hero {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Le da un poco más de espacio al texto */
+    align-items: center;
+    gap: 60px;
+    padding: 80px 5%; /* Usa padding en lugar de un .container para ocupar más espacio */
+    background-color: var(--color-background);
+    min-height: 80vh; /* Asegura que la sección tenga una buena altura */
+}
+
+.about-hero-content .about-title {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    /* Usamos Poppins para el título principal para máxima legibilidad y estilo moderno */
+    font-family: 'Poppins', sans-serif; 
+}
+
+.about-hero-content .about-text {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    max-width: 600px; /* Mejora la legibilidad de los párrafos */
+}
+
+.about-hero-image img {
+    width: 100%;
+    height: 100%;
+    max-height: 70vh;
+    border-radius: 12px;
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+}
+
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
     .nav-menu {
@@ -423,5 +457,26 @@ h2 {
     .home .container{
         padding-top: 60px;
         padding-bottom: 100px;
+    }
+
+    .about-hero {
+        grid-template-columns: 1fr; /* Cambia a una sola columna */
+        gap: 40px;
+        padding: 60px 5%;
+        text-align: center; /* Centra el texto en móvil */
+    }
+
+    .about-hero-content .about-title {
+        font-size: 2.5rem;
+    }
+    
+    .about-hero-content .about-text {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .about-hero-image {
+        order: -1; /* Mueve la imagen arriba del texto en móvil */
+        max-height: 40vh;
     }
 }

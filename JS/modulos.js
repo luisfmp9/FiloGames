@@ -81,8 +81,12 @@ class Team extends HTMLElement {
                         <h3>Joaquin</h3><p class="role">Finanzas y Estrategia</p><p class="bio">Asegura que la creatividad tenga una base sólida, gestionando los recursos para garantizar la viabilidad de los proyectos.</p>
                     </div>
                     <div class="team-card">
-                        <div class="team-image-wrapper"><img src="https://placehold.co/300x300/EEE/333?text=Foto+Mafer" alt="Foto de María Fernanda" class="team-image team-photo"><img src="https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+M" alt="Avatar de María Fernanda" class="team-image team-avatar"></div>
+                        <div class="team-image-wrapper"><img src="https://placehold.co/300x300/EEE/333?text=Foto+Mafer" alt="Foto de María Fernanda" class="team-image team-photo"><img src="https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+F" alt="Avatar de María Fernanda" class="team-image team-avatar"></div>
                         <h3>María Fernanda</h3><p class="role">Gerente de Ventas</p><p class="bio">Crea los puentes entre nuestros proyectos y el mundo, forjando alianzas y oportunidades de negocio.</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-image-wrapper"><img src="https://placehold.co/300x300/EEE/333?text=Foto+Milagros" alt="Foto de Milagros" class="team-image team-photo"><img src="https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+M" alt="Avatar de María Fernanda" class="team-image team-avatar"></div>
+                        <h3>Milagros Santillan</h3><p class="role">Representante Comercial</p><p class="bio">Forja alianzas estratégicas y oportunidades de negocio.</p>
                     </div>
                 </div>
             </section>

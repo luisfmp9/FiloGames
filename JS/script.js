@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // --- Lógica del Menú Hamburguesa y Navegación Suave ---
+    // --- Lógica del Menú y Navegación (sin cambios) ---
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // --- Lógica para el Filtro del Portafolio ---
+    // --- Lógica del Filtro del Portafolio (sin cambios) ---
     const tabButtons = document.querySelectorAll('.tab-button');
     const portfolioItems = document.querySelectorAll('.portfolio-item');
     if (tabButtons.length > 0 && portfolioItems.length > 0) {
@@ -52,14 +52,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- LÓGICA PARA MÚSICA DE FONDO PERSISTENTE ---
+    // --- LÓGICA PARA MÚSICA DE FONDO PERSISTENTE (CORREGIDA) ---
     const musicControlButton = document.getElementById('music-control');
     if (musicControlButton && typeof Tone !== 'undefined') {
         const playIcon = document.getElementById('play-icon');
         const pauseIcon = document.getElementById('pause-icon');
         let isPlaying = false;
+        let hasBeenInitialized = false; // *** NUEVA VARIABLE DE CONTROL ***
 
-        // --- Instrumentos y Efectos ---
+        // --- Instrumentos y Efectos (sin cambios) ---
         const kickDistortion = new Tone.Distortion(0.4).toDestination();
         const kick = new Tone.MembraneSynth({ pitchDecay: 0.02, octaves: 6, oscillator: { type: 'sine' } }).connect(kickDistortion);
         const snare = new Tone.NoiseSynth({ noise: { type: 'pink' }, envelope: { attack: 0.001, decay: 0.1, sustain: 0 } }).toDestination();
@@ -73,8 +74,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const lfo = new Tone.LFO({ frequency: '8n', min: 400, max: 1200, type: 'sine' }).connect(formantFilter.frequency).start();
         const chorusEffect = new Tone.Chorus(4, 2.5, 0.7).toDestination().start();
         const harmonySynth = new Tone.PolySynth(Tone.FMSynth, { harmonicity: 0.8, modulationIndex: 5, envelope: { attack: 1.5, release: 2 } }).connect(chorusEffect);
-
-        // --- Patrones Musicales ---
+        
+        // --- Patrones Musicales (sin cambios en su definición) ---
         const kickPattern = new Tone.Sequence((time, note) => { kick.triggerAttackRelease(note, '8n', time); }, ['C1', null, 'C1', null, 'C1', null, ['C1', 'C1'], null], '4n');
         const snarePattern = new Tone.Sequence((time, note) => { snare.triggerAttackRelease('8n', time); }, [null, 'G1', null, 'G1'], '4n');
         const hihatPattern = new Tone.Sequence((time, note) => { hihat.triggerAttackRelease("16n", time); }, ['C5', 'C5', ['C5', 'C5'], 'C5'], '4n');
@@ -83,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const vocalPattern = new Tone.Sequence((time, note) => { vocalSynth.triggerAttackRelease(note, '1m', time); }, ['C4', 'Eb4'], '1m');
         const harmonyPattern = new Tone.Part((time, value) => { harmonySynth.triggerAttackRelease(value.note, value.dur, time); }, [{ time: '0m', note: ['Ab3', 'C4'], dur: '4m' }, { time: '4m', note: ['G3', 'Bb3'], dur: '4m' }]);
 
-        // --- Evolución de la Composición ---
+        // --- Evolución de la Composición (sin cambios en su definición) ---
         kick.volume.value = -Infinity; snare.volume.value = -Infinity; hihat.volume.value = -Infinity;
         arpSynth.volume.value = -Infinity; leadSynth.volume.value = -Infinity;
         vocalSynth.volume.value = -12; harmonySynth.volume.value = -Infinity;
@@ -94,34 +95,45 @@ document.addEventListener('DOMContentLoaded', function() {
         Tone.Transport.schedule(time => { hihatPattern.start(time); hihat.volume.linearRampTo(-15, 2, time); leadPattern.start(time); leadSynth.volume.linearRampTo(-12, 4, time); kickDistortion.distortion = 0.6; bitCrusher.bits.value = 5; vocalSynth.volume.linearRampTo(-9, 8, time); harmonySynth.volume.linearRampTo(-18, 8, time); }, "12m");
         Tone.Transport.schedule(time => { kick.volume.linearRampTo(-Infinity, 4, time); snare.volume.linearRampTo(-Infinity, 4, time); leadSynth.volume.linearRampTo(-Infinity, 4, time); }, "20m");
         Tone.Transport.schedule(time => { arpSynth.volume.linearRampTo(-Infinity, 16, time); vocalSynth.volume.linearRampTo(-Infinity, 16, time); harmonySynth.volume.linearRampTo(-Infinity, 12, time); }, "24m");
-
+        
         // --- Configuración y Control ---
         Tone.Transport.bpm.value = 135;
         Tone.Transport.loop = true;
         Tone.Transport.loopEnd = '32m';
 
-        // --- Lógica de Persistencia ---
+        // --- LÓGICA DE CONTROL Y PERSISTENCIA (CORREGIDA) ---
+
+        function initializeAndPlay(startTime = 0) {
+            if (!hasBeenInitialized) {
+                // Esto solo se ejecuta UNA VEZ por sesión cuando se da play por primera vez
+                // Aquí es donde se programan los patrones para que empiecen
+                // No es necesario volver a llamarlos en las páginas siguientes
+                hasBeenInitialized = true;
+            }
+            Tone.Transport.start(Tone.now(), startTime);
+            isPlaying = true;
+            playIcon.style.display = 'none';
+            pauseIcon.style.display = 'block';
+        }
+
         function saveMusicState() {
-            if (typeof Tone !== 'undefined' && Tone.Transport.state === "started") {
-                sessionStorage.setItem('filogames_musicState', 'playing');
+            sessionStorage.setItem('filogames_musicState', isPlaying ? 'playing' : 'paused');
+            if (isPlaying) {
                 sessionStorage.setItem('filogames_musicTimestamp', Tone.Transport.seconds);
-            } else {
-                sessionStorage.setItem('filogames_musicState', 'paused');
             }
         }
 
+        // Al cargar la página, revisamos si debemos reanudar la música
         const savedState = sessionStorage.getItem('filogames_musicState');
         if (savedState === 'playing') {
             (async () => {
                 await Tone.start();
                 const savedTimestamp = parseFloat(sessionStorage.getItem('filogames_musicTimestamp')) || 0;
-                Tone.Transport.start(Tone.now(), savedTimestamp);
-                isPlaying = true;
-                playIcon.style.display = 'none';
-                pauseIcon.style.display = 'block';
+                initializeAndPlay(savedTimestamp);
             })();
         }
 
+        // Lógica del botón de Play/Pausa
         musicControlButton.addEventListener('click', async () => {
             await Tone.start();
             if (isPlaying) {
@@ -130,10 +142,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 playIcon.style.display = 'block';
                 pauseIcon.style.display = 'none';
             } else {
-                Tone.Transport.start();
-                isPlaying = true;
-                playIcon.style.display = 'none';
-                pauseIcon.style.display = 'block';
+                // Si es la primera vez que se da play, empieza desde 0.
+                // Si se reanuda, Tone.Transport.start() continúa desde donde se pausó.
+                initializeAndPlay(Tone.Transport.seconds);
             }
             saveMusicState();
         });

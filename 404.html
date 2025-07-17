@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 404: Página No Encontrada - Filo Games</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-background: #0a0a0a;
+            --color-surface: #1a1a1a;
+            --color-primary: #ffffff;
+            --color-secondary: #00BFFF;
+            --color-danger: #CF6679;
+            --font-family-main: 'Poppins', sans-serif;
+            --font-family-pixel: 'VT323', monospace;
+        }
+        body {
+            background-color: var(--color-background);
+            color: var(--color-primary);
+            font-family: var(--font-family-main);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 600px;
+        }
+        h1 {
+            font-family: var(--font-family-pixel);
+            font-size: 6rem;
+            color: var(--color-danger);
+            margin: 0;
+            line-height: 1;
+            text-shadow: 0 0 10px var(--color-danger);
+        }
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: var(--color-text-secondary);
+        }
+        #gameCanvas {
+            background-color: var(--color-surface);
+            border: 2px solid #333;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 191, 255, 0.2);
+        }
+        .cta-button {
+            display: inline-block;
+            background: transparent;
+            color: var(--color-primary);
+            padding: 12px 30px;
+            border: 2px solid var(--color-primary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        .cta-button:hover {
+            background-color: var(--color-primary);
+            color: var(--color-background);
+        }
+        #instructions {
+            color: var(--color-text-secondary);
+            font-family: var(--font-family-pixel);
+            font-size: 1.2rem;
+            margin-top: 15px;
+        }
+        #score {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--font-family-pixel);
+            font-size: 3rem;
+            color: var(--color-secondary);
+            text-shadow: 0 0 5px var(--color-secondary);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        #gameOverScreen {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            display: none;
+            background-color: rgba(10, 10, 10, 0.8);
+            padding: 40px;
+            border-radius: 12px;
+            backdrop-filter: blur(5px);
+        }
+        #gameOverScreen h3 {
+            font-family: var(--font-family-pixel);
+            font-size: 4rem;
+            margin: 0;
+            color: var(--color-danger);
+        }
+        #gameOverScreen p {
+            font-size: 1.5rem;
+            margin: 10px 0 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>404</h1>
+        <h2>PÁGINA PERDIDA EN EL GLITCH</h2>
+        <canvas id="gameCanvas" width="500" height="300"></canvas>
+        <p id="instructions">Usa las flechas ◀ ▶ para esquivar los errores.</p>
+        <a href="/FiloGames/" class="cta-button">Volver al Inicio</a>
+    </div>
+
+    <div id="score">0</div>
+
+    <div id="gameOverScreen">
+        <h3>GAME OVER</h3>
+        <p>Puntuación Final: <span id="finalScore">0</span></p>
+        <a href="#" onclick="restartGame(event)" class="cta-button">Reintentar</a>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const scoreElement = document.getElementById('score');
+        const gameOverScreen = document.getElementById('gameOverScreen');
+        const finalScoreElement = document.getElementById('finalScore');
+        const instructionsElement = document.getElementById('instructions');
+
+        let player, obstacles, score, gameSpeed, gameOver, animationId;
+
+        function init() {
+            player = {
+                x: canvas.width / 2 - 15,
+                y: canvas.height - 40,
+                width: 30,
+                height: 30,
+                speed: 7
+            };
+            obstacles = [];
+            score = 0;
+            gameSpeed = 2;
+            gameOver = false;
+            scoreElement.style.opacity = '1';
+            instructionsElement.style.display = 'block';
+            gameOverScreen.style.display = 'none';
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+            }
+            gameLoop();
+        }
+
+        const keys = {
+            ArrowLeft: false,
+            ArrowRight: false
+        };
+
+        window.addEventListener('keydown', (e) => {
+            if (keys.hasOwnProperty(e.key)) keys[e.key] = true;
+        });
+        window.addEventListener('keyup', (e) => {
+            if (keys.hasOwnProperty(e.key)) keys[e.key] = false;
+        });
+
+        function createObstacle() {
+            const size = Math.random() * 30 + 20;
+            obstacles.push({
+                x: Math.random() * (canvas.width - size),
+                y: -size,
+                width: size,
+                height: size,
+                speed: Math.random() * 1.5 + gameSpeed
+            });
+        }
+
+        function update() {
+            if (gameOver) return;
+
+            // Mover jugador
+            if (keys.ArrowLeft && player.x > 0) player.x -= player.speed;
+            if (keys.ArrowRight && player.x < canvas.width - player.width) player.x += player.speed;
+
+            // Crear y mover obstáculos
+            if (Math.random() < 0.05) createObstacle();
+
+            obstacles.forEach((obstacle, index) => {
+                obstacle.y += obstacle.speed;
+                if (obstacle.y > canvas.height) {
+                    obstacles.splice(index, 1);
+                    score++;
+                    scoreElement.textContent = score;
+                    if (score % 10 === 0) gameSpeed += 0.2;
+                }
+
+                // Detección de colisión
+                if (
+                    player.x < obstacle.x + obstacle.width &&
+                    player.x + player.width > obstacle.x &&
+                    player.y < obstacle.y + obstacle.height &&
+                    player.y + player.height > obstacle.y
+                ) {
+                    endGame();
+                }
+            });
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Dibujar jugador
+            ctx.fillStyle = 'var(--color-primary)';
+            ctx.fillRect(player.x, player.y, player.width, player.height);
+            ctx.strokeStyle = 'var(--color-secondary)';
+            ctx.strokeRect(player.x, player.y, player.width, player.height);
+
+            // Dibujar obstáculos
+            obstacles.forEach(obstacle => {
+                ctx.fillStyle = 'var(--color-danger)';
+                ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+                ctx.font = `${obstacle.width * 0.6}px VT323`;
+                ctx.fillStyle = 'var(--color-background)';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('404', obstacle.x + obstacle.width / 2, obstacle.y + obstacle.height / 2);
+            });
+        }
+
+        function gameLoop() {
+            update();
+            draw();
+            if (!gameOver) {
+                animationId = requestAnimationFrame(gameLoop);
+            }
+        }
+
+        function endGame() {
+            gameOver = true;
+            cancelAnimationFrame(animationId);
+            scoreElement.style.opacity = '0';
+            instructionsElement.style.display = 'none';
+            finalScoreElement.textContent = score;
+            gameOverScreen.style.display = 'block';
+        }
+
+        function restartGame(e) {
+            e.preventDefault();
+            init();
+        }
+
+        // Iniciar el juego
+        init();
+    </script>
+</body>
+</html>

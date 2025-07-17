@@ -542,6 +542,56 @@ h2 {
     margin-top: auto; /* Empuja el botón al final de la tarjeta */
 }
 
+/* --- ESTILOS PARA LA SECCIÓN DE VISTAZO A SERVICIOS --- */
+.services-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.service-card {
+    background-color: var(--color-surface);
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    padding: 35px 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.service-icon {
+    margin-bottom: 20px;
+    /* Centra el ícono */
+    display: inline-block;
+    background-color: #0a0a0a;
+    padding: 15px;
+    border-radius: 50%;
+    border: 1px solid #333;
+}
+
+.service-icon svg {
+    width: 40px;
+    height: 40px;
+    color: var(--color-secondary); /* Usa tu color de acento azul */
+}
+
+.service-card h3 {
+    font-size: 1.4rem;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
 @media (min-width: 1024px) {
     .pricing-grid {
         grid-template-columns: repeat(4, 1fr);

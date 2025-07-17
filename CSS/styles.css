@@ -179,6 +179,8 @@ h2 {
     padding: 30px;
     text-align: center;
     border: 1px solid #2a2a2a;
+    display: flex;
+    flex-direction: column;
 }
 .team-image-wrapper {
     position: relative;
@@ -222,6 +224,7 @@ h2 {
 .team-card .bio {
     font-size: 0.95rem;
     color: var(--color-text-secondary);
+    flex-grow: 1;
 }
 
 /* --- Secciones Específicas (Portafolio, Servicios, etc.) --- */
@@ -302,15 +305,6 @@ h2 {
     margin-top: 50px;
 }
 
-.feature-card {
-    background-color: var(--color-surface);
-    border: 1px solid #2a2a2a;
-    border-radius: 12px;
-    padding: 35px 30px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
 .feature-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -331,12 +325,6 @@ h2 {
     font-size: 1.25rem;
     color: var(--color-primary);
     margin-bottom: 10px;
-}
-
-.feature-description {
-    font-size: 0.95rem;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
 }
 
 /* --- Ajustes para el título de la sección --- */
@@ -469,6 +457,8 @@ h2 {
     display: flex;
     flex-direction: column; /* Alinea el contenido verticalmente */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column; 
 }
 
 .pricing-card.featured {
@@ -550,13 +540,15 @@ h2 {
     margin-top: 50px;
 }
 
-.service-card {
+.feature-card, .service-card {
     background-color: var(--color-surface);
     border: 1px solid #2a2a2a;
     border-radius: 12px;
     padding: 35px 30px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 .service-card:hover {
@@ -586,10 +578,13 @@ h2 {
     margin-bottom: 10px;
 }
 
-.service-card p {
+.feature-description, .service-card p {
     font-size: 0.95rem;
     color: var(--color-text-secondary);
     line-height: 1.6;
+    text-align: justify;
+    hyphens: auto;
+    flex-grow: 1;
 }
 
 /* --- ESTILOS PARA LA NUEVA SECCIÓN CTA (index.html) --- */

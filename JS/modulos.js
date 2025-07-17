@@ -115,6 +115,19 @@ class SocialMedia extends HTMLElement {
     }
 }
 
+class Music extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = `
+            <div id="music-control" class="music-control-button">
+                <!-- Ícono de Play -->
+                <svg id="play-icon" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                <!-- Ícono de Pausa (inicialmente oculto) -->
+                <svg id="pause-icon" viewBox="0 0 24 24" style="display: none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+            </div>
+        `
+    }
+}
+
 class Features extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
@@ -153,3 +166,4 @@ customElements.define('mi-features', Features);
 customElements.define('mi-team', Team);
 customElements.define('mi-social-media', SocialMedia);
 customElements.define('mi-contact', Contact);
+customElements.define('mi-music', Music);

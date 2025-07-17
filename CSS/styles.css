@@ -450,6 +450,104 @@ h2 {
     fill: var(--color-primary);
 }
 
+/* --- ESTILOS PARA LA SECCIÓN DE PRECIOS Y PAQUETES --- */
+.pricing-grid {
+    display: grid;
+    /* En pantallas pequeñas 1 columna, en medianas 2, en grandes hasta 4 */
+    grid-template-columns: 1fr;
+    gap: 30px;
+    align-items: stretch; /* Asegura que todas las tarjetas tengan la misma altura si están en la misma fila */
+    margin-top: 50px;
+}
+
+.pricing-card {
+    background-color: var(--color-surface);
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    border: 1px solid #2a2a2a;
+    display: flex;
+    flex-direction: column; /* Alinea el contenido verticalmente */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card.featured {
+    transform: scale(1.05);
+    border-color: var(--color-secondary);
+    position: relative;
+    overflow: hidden;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.popular-badge {
+    position: absolute;
+    top: 15px;
+    right: -45px;
+    background-color: var(--color-secondary);
+    color: var(--color-background);
+    padding: 8px 40px;
+    transform: rotate(45deg);
+    font-weight: 700;
+    font-size: 0.9rem;
+    z-index: 2;
+}
+
+.pricing-header {
+    flex-grow: 0;
+}
+
+.pricing-header h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--color-primary);
+}
+
+.pricing-header .price {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 25px;
+}
+
+.pricing-header .price span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    flex-grow: 1; /* Hace que esta sección ocupe el espacio disponible */
+}
+
+.pricing-features li {
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+    color: var(--color-text-secondary);
+}
+
+.pricing-features li:first-child {
+    border-top: 1px solid #333;
+}
+
+.pricing-card .cta-button {
+    margin-top: auto; /* Empuja el botón al final de la tarjeta */
+}
+
+@media (min-width: 1024px) {
+    .pricing-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
     .nav-menu {
@@ -509,5 +607,9 @@ h2 {
     .about-hero-image {
         order: -1; /* Mueve la imagen arriba del texto en móvil */
         max-height: 40vh;
+    }
+
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }

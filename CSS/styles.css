@@ -683,6 +683,17 @@ h2 {
     hyphens: auto; /* Permite la división de palabras para un mejor justificado */
 }
 
+.legal-page { padding-top: 40px; padding-bottom: 40px; }
+.legal-page h2 { font-size: 2.2rem; margin-bottom: 10px; }
+.legal-page h3 { font-size: 1.5rem; margin-top: 30px; margin-bottom: 15px; color: var(--color-secondary); }
+.legal-page p, .legal-page li { color: var(--color-text-secondary); line-height: 1.8; }
+.legal-page ul { list-style-position: inside; padding-left: 20px; }
+.legal-page .last-updated { font-size: 0.9rem; color: #888; margin-bottom: 30px; text-align: center; }
+
+.footer-links { margin-bottom: 20px; }
+.footer-links a { color: var(--color-text-secondary); text-decoration: none; margin: 0 10px; }
+.footer-links a:hover { color: var(--color-primary); }
+
 @media (min-width: 768px) {
     .cta-text {
         margin-left: 0;

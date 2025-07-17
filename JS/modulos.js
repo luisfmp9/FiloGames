@@ -31,6 +31,11 @@ class Footer extends HTMLElement {
         this.innerHTML = `
             <footer class="footer">
                 <div class="container" style="padding: 40px 0;">
+                    <div class="footer-links">
+                        <a href="politica-privacidad.html">Política de Privacidad</a>
+                        <span>|</span>
+                        <a href="terminos-condiciones.html">Términos y Condiciones</a>
+                    </div>
                     <p>&copy; ${añoActual} Filo Games. Todos los derechos reservados.</p>
                     <p style="color: var(--color-text-secondary); font-size: 0.9rem;">Hecho con ☕ y 🤔 en Perú.</p>
                 </div>
@@ -45,11 +50,11 @@ class Contact extends HTMLElement {
             <section id="contact" class="container">
                 <h2>Hablemos</h2>
                 <p class="section-subtitle">¿Tienes un proyecto en mente? ¿Una idea loca? ¿O simplemente quieres hablar de filosofía y videojuegos? Contáctanos.</p>
-                <form class="contact-form">
-                    <div class="form-group"><input type="text" class="form-control" placeholder="Tu Nombre"></div>
-                    <div class="form-group"><input type="email" class="form-control" placeholder="Tu Correo Electrónico"></div>
-                    <div class="form-group"><input type="text" class="form-control" placeholder="Asunto"></div>
-                    <div class="form-group"><textarea class="form-control" rows="5" placeholder="Tu Mensaje"></textarea></div>
+                <form action="https://formspree.io/f/manbneaa" method="POST" class="contact-form">
+                    <div class="form-group"><input type="text" name="nombre" class="form-control" placeholder="Tu Nombre" required></div>
+                    <div class="form-group"><input type="email" name="email" class="form-control" placeholder="Tu Correo Electrónico" required></div>
+                    <div class="form-group"><input type="text" name="asunto" class="form-control" placeholder="Asunto"></div>
+                    <div class="form-group"><textarea name="mensaje" class="form-control" rows="5" placeholder="Tu Mensaje" required></textarea></div>
                     <div style="text-align: center;"><button type="submit" class="cta-button">Enviar Mensaje</button></div>
                 </form>
             </section>

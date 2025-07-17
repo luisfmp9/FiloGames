@@ -624,6 +624,30 @@ h2 {
     object-fit: cover;
 }
 
+/* --- CORRECCIÓN GLOBAL DE ALINEACIÓN PARA TARJETAS --- */
+
+/* Aplicamos Flexbox a todas las tarjetas para un control total */
+.feature-card, .service-card, .pricing-card, .team-card {
+    display: flex;
+    flex-direction: column; /* Organiza el contenido en una columna vertical */
+}
+
+/* Hacemos que la sección de descripción o características crezca */
+.feature-description, .service-card p, .pricing-features, .team-card .bio {
+    flex-grow: 1; /* Esta es la clave: el contenido principal se estira */
+}
+
+/* Nos aseguramos de que el botón en las tarjetas de precios siempre esté al final */
+.pricing-card .cta-button {
+    margin-top: auto; /* Empuja el botón al fondo de la tarjeta */
+}
+
+/* Corrección de alineación del texto en las descripciones */
+.feature-description, .service-card p, .team-card .bio {
+    text-align: justify;
+    hyphens: auto; /* Permite la división de palabras para un mejor justificado */
+}
+
 @media (min-width: 768px) {
     .cta-text {
         margin-left: 0;

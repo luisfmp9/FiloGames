@@ -32,9 +32,9 @@ class Footer extends HTMLElement {
             <footer class="footer">
                 <div class="container" style="padding: 40px 0;">
                     <div class="footer-links">
-                        <a href="politica-privacidad.html">Política de Privacidad</a>
+                        <a href="politicas-privacidad">Política de Privacidad</a>
                         <span>|</span>
-                        <a href="terminos-condiciones.html">Términos y Condiciones</a>
+                        <a href="terminos-condiciones">Términos y Condiciones</a>
                     </div>
                     <p>&copy; ${añoActual} Filo Games. Todos los derechos reservados.</p>
                     <p style="color: var(--color-text-secondary); font-size: 0.9rem;">Hecho con ☕ y 🤔 en Perú.</p>

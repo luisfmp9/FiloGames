@@ -523,92 +523,6 @@ h2 {
     fill: var(--color-primary);
 }
 
-/* --- ESTILOS CORREGIDOS PARA EL CARRUSEL DE PRECIOS --- */
-
-.pricing-carousel-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 100%;
-    margin-top: 50px;
-}
-
-.pricing-carousel {
-    overflow: hidden;
-    width: 100%;
-    /* Añadimos padding vertical para dar espacio al efecto hover y la insignia */
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.pricing-grid {
-    display: flex;
-    gap: 30px;
-    /* Hacemos que se desplace suavemente */
-    scroll-behavior: smooth;
-    /* Ocultamos la barra de scroll */
-    -ms-overflow-style: none;  
-    scrollbar-width: none;
-}
-.pricing-grid::-webkit-scrollbar {
-    display: none;
-}
-
-.pricing-card {
-    /* Forzamos un ancho fijo para cada tarjeta */
-    flex: 0 0 100%;
-    max-width: 100%;
-    background-color: var(--color-surface);
-    border-radius: 12px;
-    padding: 30px;
-    text-align: center;
-    border: 1px solid #2a2a2a;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* CORRECCIÓN DE ALINEACIÓN: Aplicamos Flexbox */
-    display: flex;
-    flex-direction: column;
-}
-
-/* Tamaños de tarjeta para diferentes pantallas */
-@media (min-width: 640px) {
-    .pricing-card {
-        flex-basis: calc(50% - 15px);
-        max-width: calc(50% - 15px);
-    }
-}
-@media (min-width: 1024px) {
-    .pricing-card {
-        flex-basis: calc(33.333% - 20px);
-        max-width: calc(33.333% - 20px);
-    }
-}
-
-.pricing-card.featured {
-    border-color: var(--color-secondary);
-    position: relative;
-    /* El transform se aplica en el hover para evitar problemas iniciales */
-}
-
-.pricing-card:hover {
-    transform: translateY(-10px) scale(1.05); /* Escala un poco más para que resalte */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    z-index: 10; /* Asegura que la tarjeta se ponga por encima de las demás */
-}
-
-.popular-badge {
-    position: absolute;
-    top: 15px;
-    right: -45px;
-    background-color: var(--color-secondary);
-    color: var(--color-background);
-    padding: 8px 40px;
-    transform: rotate(45deg);
-    font-weight: 700;
-    font-size: 0.9rem;
-    z-index: 5;
-}
-
 .pricing-header { flex-grow: 0; }
 .pricing-header h3 { font-size: 1.5rem; margin-bottom: 10px; color: var(--color-primary); }
 .pricing-header .price { font-size: 3rem; font-weight: 800; color: var(--color-primary); margin-bottom: 25px; }
@@ -634,31 +548,8 @@ h2 {
     margin-top: auto; /* El botón siempre se alinea al fondo */
 }
 
-/* Estilos para los botones de navegación del carrusel */
-.carousel-button {
-    background-color: var(--color-surface);
-    border: 1px solid #333;
-    border-radius: 50%;
-    width: 44px;
-    height: 44px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    color: var(--color-primary);
-    position: absolute;
-    z-index: 5;
-}
-.carousel-button:hover { background-color: var(--color-primary); color: var(--color-background); }
-.carousel-button:disabled { opacity: 0.3; cursor: not-allowed; }
 #prev-button { left: -22px; }
 #next-button { right: -22px; }
-
-@media (max-width: 639px) {
-    .carousel-button { display: none; }
-    .pricing-carousel { overflow-x: auto; }
-}
 
 #prev-button {
     left: -22px;
@@ -666,19 +557,6 @@ h2 {
 
 #next-button {
     right: -22px;
-}
-
-.popular-badge {
-    position: absolute;
-    top: 15px;
-    right: -45px;
-    background-color: var(--color-secondary);
-    color: var(--color-background);
-    padding: 8px 40px;
-    transform: rotate(45deg);
-    font-weight: 700;
-    font-size: 0.9rem;
-    z-index: 2;
 }
 
 .pricing-header {
@@ -721,10 +599,6 @@ h2 {
 
 .pricing-features li:first-child {
     border-top: 1px solid #333;
-}
-
-.pricing-card .cta-button {
-    margin-top: auto; /* Empuja el botón al final de la tarjeta */
 }
 
 /* --- ESTILOS PARA LA SECCIÓN DE VISTAZO A SERVICIOS --- */
@@ -781,6 +655,181 @@ h2 {
     hyphens: auto;
     flex-grow: 1;
 }
+
+/* --- ESTILOS CORREGIDOS Y MEJORADOS PARA SERVICIOS --- */
+
+/* Contenedor del Carrusel */
+.pricing-carousel-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    margin-top: 50px;
+    /* Espacio extra para que el hover y la insignia no se corten */
+    padding: 20px 0;
+}
+
+.pricing-carousel {
+    overflow: hidden;
+    width: 100%;
+}
+
+.pricing-grid {
+    display: flex;
+    gap: 30px;
+    padding: 20px; /* Padding para que la sombra y la escala del hover no se corten */
+    margin: -20px; /* Contrarresta el padding para mantener la alineación */
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;  
+    scrollbar-width: none;
+}
+.pricing-grid::-webkit-scrollbar {
+    display: none;
+}
+
+/* Tarjeta de Precios */
+.pricing-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+    background-color: var(--color-surface);
+    border-radius: 12px;
+    padding: 30px;
+    border: 1px solid #2a2a2a;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Necesario para la insignia */
+}
+
+/* Tamaños de tarjeta para diferentes pantallas */
+@media (min-width: 640px) {
+    .pricing-card {
+        flex-basis: calc(50% - 15px);
+        max-width: calc(50% - 15px);
+    }
+}
+@media (min-width: 1200px) {
+    .pricing-card {
+        flex-basis: calc(33.333% - 20px);
+        max-width: calc(33.333% - 20px);
+    }
+}
+
+.pricing-card.featured {
+    border-color: var(--color-secondary);
+    overflow: visible; /* Permite que la insignia se salga */
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+/* Insignia "Más Popular" Rediseñada */
+.popular-badge {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: linear-gradient(45deg, var(--color-secondary), #0077c2);
+    color: var(--color-primary);
+    padding: 30px 10px 5px 10px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 10px rgba(0, 191, 255, 0.3);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.pricing-header {
+    flex-grow: 0;
+    /* CORRECCIÓN DE ALINEACIÓN: Altura mínima para alinear los precios */
+    min-height: 150px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pricing-header h3 { font-size: 1.5rem; margin-bottom: 10px; color: var(--color-primary); }
+.pricing-header .price { font-size: 3rem; font-weight: 800; color: var(--color-primary); margin-bottom: 25px; }
+.pricing-header .price span { font-size: 1rem; font-weight: 400; color: var(--color-text-secondary); vertical-align: middle; margin-right: 5px; }
+
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    text-align: left;
+    flex-grow: 1;
+}
+.pricing-features li { padding: 10px 0; border-bottom: 1px solid #333; color: var(--color-text-secondary); }
+.pricing-features li:first-child { border-top: 1px solid #333; }
+
+.pricing-card .cta-button { margin-top: auto; }
+
+/* Estilos para los botones de navegación del carrusel */
+.carousel-button {
+    background-color: var(--color-surface);
+    border: 1px solid #333;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--color-primary);
+    position: absolute;
+    z-index: 5;
+}
+.carousel-button:hover { background-color: var(--color-primary); color: var(--color-background); }
+.carousel-button:disabled { opacity: 0.3; cursor: not-allowed; }
+#prev-button { left: -22px; }
+#next-button { right: -22px; }
+
+@media (max-width: 767px) {
+    .carousel-button { display: none; }
+    .pricing-carousel { overflow-x: auto; }
+}
+
+/* --- ESTILOS PARA LAS SECCIONES DE VENTAJAS --- */
+.advantages-container {
+    border-top: 1px solid #2a2a2a;
+    margin-top: 60px;
+    padding-top: 20px;
+}
+
+.advantage-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+@media (min-width: 768px) {
+    .advantage-section {
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+    }
+    .advantage-section.reverse .advantage-text { order: 2; }
+    .advantage-section.reverse .advantage-image { order: 1; }
+}
+
+.advantage-text h3 { font-size: 2.5rem; margin-bottom: 20px; line-height: 1.2; }
+.advantage-text p { color: var(--color-text-secondary); font-size: 1.1rem; margin-bottom: 30px; }
+.advantage-cards-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
+
+@media (min-width: 500px) {
+    .advantage-cards-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+}
+
+.advantage-card { background-color: var(--color-surface); padding: 15px 20px; border-radius: 8px; border-left: 3px solid var(--color-secondary); font-weight: 600; }
+.advantage-image img { width: 100%; height: auto; max-height: 500px; border-radius: 12px; object-fit: cover; }
 
 /* --- ESTILOS PARA LA NUEVA SECCIÓN CTA (index.html) --- */
 .cta-section {
@@ -867,64 +916,10 @@ h2 {
     flex-grow: 1; /* Esta es la clave: el contenido principal se estira */
 }
 
-/* Nos aseguramos de que el botón en las tarjetas de precios siempre esté al final */
-.pricing-card .cta-button {
-    margin-top: auto; /* Empuja el botón al fondo de la tarjeta */
-}
-
 /* Corrección de alineación del texto en las descripciones */
 .feature-description, .service-card p, .team-card .bio {
     text-align: justify;
     hyphens: auto; /* Permite la división de palabras para un mejor justificado */
-}
-
-/* --- ESTILOS PARA LAS NUEVAS SECCIONES DE VENTAJAS --- */
-.advantages-container {
-    padding: 60px 0;
-    border-top: 1px solid #2a2a2a;
-    margin-top: 60px;
-}
-
-.advantage-section {
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
-    gap: 40px;
-    margin-bottom: 80px;
-}
-
-.advantage-text h3 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    line-height: 1.2;
-}
-
-.advantage-text p {
-    color: var(--color-text-secondary);
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-}
-
-.advantage-cards-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 15px;
-}
-
-.advantage-card {
-    background-color: var(--color-surface);
-    padding: 15px 20px;
-    border-radius: 8px;
-    border-left: 3px solid var(--color-secondary);
-    font-weight: 600;
-}
-
-.advantage-image img {
-    width: 100%;
-    height: auto;
-    max-height: 500px;
-    border-radius: 12px;
-    object-fit: cover;
 }
 
 .legal-page { padding-top: 40px; padding-bottom: 40px; }
@@ -937,22 +932,6 @@ h2 {
 .footer-links { margin-bottom: 20px; }
 .footer-links a { color: var(--color-text-secondary); text-decoration: none; margin: 0 10px; }
 .footer-links a:hover { color: var(--color-primary); }
-
-/* En tablets, mostramos 2 tarjetas */
-@media (min-width: 640px) {
-    .pricing-card {
-        flex-basis: calc(50% - 15px);
-        max-width: calc(50% - 15px);
-    }
-}
-
-/* En desktop, mostramos 3 tarjetas */
-@media (min-width: 1024px) {
-    .pricing-card {
-        flex-basis: calc(33.333% - 20px);
-        max-width: calc(33.333% - 20px);
-    }
-}
 
 @media (min-width: 500px) {
     .advantage-cards-grid {
@@ -975,28 +954,10 @@ h2 {
         grid-template-columns: 1fr 1fr;
         gap: 60px;
     }
-
-    .advantage-section {
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
-    }
-    /* Invierte el orden de imagen y texto para variedad visual */
-    .advantage-section.reverse {
-        grid-template-columns: 1fr 1fr;
-    }
-    .advantage-section.reverse .advantage-text {
-        order: 2;
-    }
-    .advantage-section.reverse .advantage-image {
-        order: 1;
-    }
 }
 
 /* Ocultar botones en móvil donde el swipe es más natural */
 @media (max-width: 639px) {
-    .carousel-button {
-        display: none;
-    }
     .pricing-carousel {
         /* Permitimos el scroll táctil en móvil */
         overflow-x: auto;

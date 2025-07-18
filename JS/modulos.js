@@ -73,28 +73,23 @@ class Portfolio extends HTMLElement {
             let buttonsHTML = '';
             if (project.playUrl) {
                 const playText = project.category === 'games' ? 'Jugar' : 'Probar';
-                buttonsHTML = `
-                    <a href="${project.playUrl}" target="_blank" class="cta-button primary">${playText}</a>
-                    <a href="${project.detailsUrl}" class="cta-button secondary">Detalles</a>
-                `;
+                buttonsHTML = `<a href="${project.playUrl}" target="_blank" class="cta-button primary">${playText}</a><a href="${project.detailsUrl}" class="cta-button secondary">Detalles</a>`;
             } else {
                 buttonsHTML = `<a href="${project.detailsUrl}" class="cta-button secondary full-width">Detalles del Proyecto</a>`;
             }
 
-            // **LA MAGIA OCURRE AQUÍ**
-            // Leemos la propiedad imageFit. Si no existe, usamos 'cover' por defecto.
             const imageFitStyle = project.imageFit || 'cover';
+            // **NUEVA LÍNEA**: Leemos el color de fondo. Si no existe, usamos el color de la tarjeta.
+            const imageBgStyle = project.imageBg || 'var(--color-surface)';
 
             card.innerHTML = `
-                <div class="portfolio-image-container">
+                <div class="portfolio-image-container" style="background-color: ${imageBgStyle};">
                     <img src="${project.image}" alt="Imagen de ${project.title}" style="object-fit: ${imageFitStyle};" onerror="this.onerror=null;this.src='https://placehold.co/600x400/000/FFF?text=Imagen+Rota';">
                 </div>
                 <div class="portfolio-content">
                     <h3>${project.title}</h3>
                     <p>${project.description}</p>
-                    <div class="portfolio-buttons">
-                        ${buttonsHTML}
-                    </div>
+                    <div class="portfolio-buttons">${buttonsHTML}</div>
                 </div>
             `;
             grid.appendChild(card);
@@ -104,24 +99,16 @@ class Portfolio extends HTMLElement {
     }
 
     addFilterEventListeners() {
-        // ... (el código de los filtros se mantiene igual) ...
         const tabButtons = this.querySelectorAll('.tab-button');
         const portfolioItems = this.querySelectorAll('.portfolio-item');
-
         tabButtons.forEach(button => {
             button.addEventListener('click', () => {
                 tabButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
-
                 const filter = button.getAttribute('data-filter');
-
                 portfolioItems.forEach(item => {
                     const category = item.getAttribute('data-category');
-                    if (filter === 'all' || category === filter) {
-                        item.style.display = 'flex';
-                    } else {
-                        item.style.display = 'none';
-                    }
+                    item.style.display = (filter === 'all' || category === filter) ? 'flex' : 'none';
                 });
             });
         });

@@ -7,7 +7,8 @@
     "description": "Elimina a las piezas de ajedrez enemigas, antes que ellas eliminen a tu rey. Un juego de estrategia por turnos.",
     "playUrl": "https://luisfmp.itch.io/chuter",
     "detailsUrl": "portfolio/chuter",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "imageBg": "#101010"
   },
   {
     "id": "mictlan-challenge",
@@ -17,7 +18,8 @@
     "description": "Debes volver al mundo de los vivos por la ofrenda que darás a Mictlantecuhtli para poder avanzar en el camino de los no vivos.",
     "playUrl": "https://eniergarcia.itch.io/mictlan-challenge",
     "detailsUrl": "portfolio/mictlan-challenge",
-    "imageFit": "contain"
+    "imageFit": "contain",
+    "imageBg": "#101010"
   },
   {
     "id": "latin-vibes",
@@ -27,7 +29,8 @@
     "description": "Ojos que no ven corazón que no siente, ojos que sí ven corazón que sana. Una ficción interactiva sobre relaciones.",
     "playUrl": "https://csilva.itch.io/latin-vibes",
     "detailsUrl": "portfolio/latin-vibes",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "imageBg": "#101010"
   },
   {
     "id": "platmat",
@@ -37,7 +40,8 @@
     "description": "Un robot explora los límites de su programación y libre albedrío en este juego de plataformas y puzzles.",
     "playUrl": "https://luisfmp.itch.io/platmat",
     "detailsUrl": "portfolio/platmat",
-    "imageFit": "contain"
+    "imageFit": "contain",
+    "imageBg": "#101010"
   },
   {
     "id": "foodwar",
@@ -47,7 +51,8 @@
     "description": "Sátira sobre el conflicto y el nacionalismo a través de una guerra de alimentos.",
     "playUrl": "https://marthaescalante.itch.io/food-war",
     "detailsUrl": "portfolio/foodwar",
-    "imageFit": "cover"
+    "imageFit": "cover",
+    "imageBg": "#101010"
   },
   {
     "id": "nasia-beads",
@@ -57,7 +62,8 @@
     "description": "Catálogo digital para Nasia Beads optimizado para ventas por WhatsApp.",
     "playUrl": "https://luisfmp9.github.io/Nasia-Beads/",
     "detailsUrl": "portfolio/nasia-beads",
-    "imageFit": "contain"
+    "imageFit": "contain",
+    "imageBg": "#101010"
   },
   {
     "id": "filogames-web",
@@ -67,7 +73,8 @@
     "description": "Nuestro propio sitio web profesional, construido con Web Components y un diseño moderno.",
     "playUrl": null,
     "detailsUrl": "portfolio/filogames-web",
-    "imageFit": "contain"
+    "imageFit": "contain",
+    "imageBg": "#101010"
   },
   {
     "id": "taypi-ar",
@@ -77,6 +84,7 @@
     "description": "Experiencia de Realidad Aumentada para la visualización y prueba virtual de calzado.",
     "playUrl": "https://lens.snap.com/experience/8fc5f71d-6d1e-4327-aee3-7fdea238191d",
     "detailsUrl": "portfolio/taypi-ar",
-    "imageFit": "contain"
+    "imageFit": "contain",
+    "imageBg": "#101010"
   }
 ]

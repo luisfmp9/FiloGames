@@ -68,8 +68,7 @@
                 <div id="score">SCORE: 0</div>
             </div>
             <div class="header-info">
-                <h1>404</h1>
-                <h2>PORTAL COLLAPSE</h2>
+                <h1>Error 404 | PORTAL COLLAPSE</h1>
                 <a href="#" id="backButton" class="back-button">Volver al Inicio</a>
             </div>
             <div class="mobile-controls">
@@ -95,7 +94,6 @@
         let score, highscore, lives, civilians, gameSpeed, gameOver, animationId;
         let shootCooldown = 0;
         
-        // --- MÚSICA Y SFX (NUEVA VERSIÓN) ---
         let musicManager;
         if (typeof Tone !== 'undefined') {
             const crusher = new Tone.BitCrusher(4).toDestination();
@@ -141,7 +139,7 @@
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             
-            player = { x: canvas.width / 2, y: canvas.height - 80, width: 40, height: 50, speed: 5 };
+            player = { x: canvas.width / 2, y: canvas.height - 80, width: 40, height: 50, speed: 8 }; // Velocidad aumentada
             bullets = []; obstacles = []; particles = []; ripples = []; backgroundRobots = [];
             score = 0; lives = 3; civilians = 3; gameSpeed = 1; gameOver = false;
             
@@ -190,10 +188,18 @@
         }
         
         function update() {
-            if (keys.ArrowLeft && player.x > player.width / 2) player.x -= player.speed;
-            if (keys.ArrowRight && player.x < canvas.width - player.width / 2) player.x += player.speed;
+            // Movimiento
+            if (keys.ArrowLeft) player.x -= player.speed;
+            if (keys.ArrowRight) player.x += player.speed;
             if (touchMoveX !== null) player.x += touchMoveX * player.speed;
-            player.x = Math.max(player.width / 2, Math.min(canvas.width - player.width / 2, player.x));
+            
+            // Lógica de Screen Wrap
+            const halfWidth = player.width / 2;
+            if (player.x < -halfWidth) {
+                player.x = canvas.width + halfWidth;
+            } else if (player.x > canvas.width + halfWidth) {
+                player.x = -halfWidth;
+            }
 
             if (keys[" "] && shootCooldown <= 0) {
                 createBullet();

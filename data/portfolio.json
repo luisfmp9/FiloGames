@@ -1,5 +1,32 @@
 [
   {
+    "id": "chuter",
+    "title": "Chuter",
+    "category": "games",
+    "image": "https://img.itch.zone/aW1nLzE3ODczNTEzLnBuZw==/315x250%23c/sR5E1E.png",
+    "description": "Elimina a las piezas de ajedrez enemigas, antes que ellas eliminen a tu rey. Un juego de estrategia por turnos.",
+    "playUrl": "https://luisfmp.itch.io/chuter",
+    "detailsUrl": "portfolio/chuter"
+  },
+  {
+    "id": "mictlan-challenge",
+    "title": "Mictlán Challenge",
+    "category": "games",
+    "image": "https://img.itch.zone/aW1nLzE3ODczNTQ1LnBuZw==/315x250%23c/4E4E%2B%2B.png",
+    "description": "Debes volver al mundo de los vivos por la ofrenda que darás a Mictlantecuhtli para poder avanzar en el camino de los no vivos.",
+    "playUrl": "https://eniergarcia.itch.io/mictlan-challenge",
+    "detailsUrl": "portfolio/mictlan-challenge"
+  },
+  {
+    "id": "latin-vibes",
+    "title": "Latin Vibes",
+    "category": "games",
+    "image": "https://img.itch.zone/aW1nLzE3ODczNDg5LnBuZw==/315x250%23c/J%2F%2B%2B%2Bw.png",
+    "description": "Ojos que no ven corazón que no siente, ojos que sí ven corazón que sana. Una ficción interactiva sobre relaciones.",
+    "playUrl": "https://csilva.itch.io/latin-vibes",
+    "detailsUrl": "portfolio/latin-vibes"
+  },
+  {
     "id": "platmat",
     "title": "PlatMat",
     "category": "games",

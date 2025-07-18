@@ -152,3 +152,48 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('beforeunload', saveMusicState);
     }
 });
+
+// --- LÓGICA PARA EL CARRUSEL DE PRECIOS ---
+document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.getElementById('pricing-carousel');
+    const prevButton = document.getElementById('prev-button');
+    const nextButton = document.getElementById('next-button');
+
+    // Solo ejecutar si el carrusel existe en la página actual
+    if (carousel && prevButton && nextButton) {
+        
+        const updateButtons = () => {
+            const scrollLeft = carousel.scrollLeft;
+            const scrollWidth = carousel.scrollWidth;
+            const width = carousel.clientWidth;
+
+            prevButton.disabled = scrollLeft <= 0;
+            nextButton.disabled = scrollLeft + width >= scrollWidth - 10; // -10 de margen
+        };
+
+        const scrollToNext = () => {
+            const card = carousel.querySelector('.pricing-card');
+            if (card) {
+                const cardWidth = card.offsetWidth;
+                const gap = 30; // El gap definido en el CSS
+                carousel.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
+            }
+        };
+
+        const scrollToPrev = () => {
+            const card = carousel.querySelector('.pricing-card');
+            if (card) {
+                const cardWidth = card.offsetWidth;
+                const gap = 30;
+                carousel.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
+            }
+        };
+
+        nextButton.addEventListener('click', scrollToNext);
+        prevButton.addEventListener('click', scrollToPrev);
+        carousel.addEventListener('scroll', updateButtons);
+
+        // Llamada inicial para establecer el estado de los botones
+        updateButtons();
+    }
+});

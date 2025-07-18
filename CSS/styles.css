@@ -524,23 +524,39 @@ h2 {
 }
 
 /* --- ESTILOS PARA LA SECCIÓN DE PRECIOS Y PAQUETES --- */
-.pricing-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Por defecto, 1 columna para móviles */
-    gap: 30px;
-    align-items: stretch;
+.pricing-carousel-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
     margin-top: 50px;
 }
 
+.pricing-carousel {
+    overflow: hidden; /* Oculta la barra de scroll */
+    width: 100%;
+}
+
+.pricing-grid {
+    display: flex; /* Cambiamos de grid a flex */
+    gap: 30px;
+    padding-bottom: 20px; /* Espacio para que la sombra no se corte */
+    /* Hacemos que se desplace suavemente */
+    scroll-behavior: smooth;
+    /* Ocultamos la barra de scroll en todos los navegadores */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.pricing-grid::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+}
+
 .pricing-card {
-    background-color: var(--color-surface);
-    border-radius: 12px;
-    padding: 30px;
-    text-align: center;
-    border: 1px solid #2a2a2a;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Forzamos un ancho fijo para cada tarjeta para que el carrusel funcione */
+    flex: 0 0 100%; /* En móvil, cada tarjeta ocupa el 100% */
+    max-width: 100%;
 }
 
 .pricing-card.featured {
@@ -553,6 +569,41 @@ h2 {
 .pricing-card:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para los botones de navegación del carrusel */
+.carousel-button {
+    background-color: var(--color-surface);
+    border: 1px solid #333;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--color-primary);
+    position: absolute;
+    z-index: 5;
+}
+
+.carousel-button:hover {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+}
+
+.carousel-button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+#prev-button {
+    left: -22px;
+}
+
+#next-button {
+    right: -22px;
 }
 
 .popular-badge {
@@ -825,6 +876,22 @@ h2 {
 .footer-links a { color: var(--color-text-secondary); text-decoration: none; margin: 0 10px; }
 .footer-links a:hover { color: var(--color-primary); }
 
+/* En tablets, mostramos 2 tarjetas */
+@media (min-width: 640px) {
+    .pricing-card {
+        flex-basis: calc(50% - 15px);
+        max-width: calc(50% - 15px);
+    }
+}
+
+/* En desktop, mostramos 3 tarjetas */
+@media (min-width: 1024px) {
+    .pricing-card {
+        flex-basis: calc(33.333% - 20px);
+        max-width: calc(33.333% - 20px);
+    }
+}
+
 @media (min-width: 500px) {
     .advantage-cards-grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -847,10 +914,6 @@ h2 {
         gap: 60px;
     }
 
-    .pricing-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
     .advantage-section {
         grid-template-columns: 1fr 1fr;
         gap: 60px;
@@ -867,16 +930,14 @@ h2 {
     }
 }
 
-@media (min-width: 1024px) {
-    .pricing-grid {
-        grid-template-columns: repeat(4, 1fr);
+/* Ocultar botones en móvil donde el swipe es más natural */
+@media (max-width: 639px) {
+    .carousel-button {
+        display: none;
     }
-}
-
-/* 4 columnas en desktop */
-@media (min-width: 1200px) {
-    .pricing-grid {
-        grid-template-columns: repeat(4, 1fr);
+    .pricing-carousel {
+        /* Permitimos el scroll táctil en móvil */
+        overflow-x: auto;
     }
 }
 

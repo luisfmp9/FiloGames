@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error 404: Página No Encontrada - Filo Games</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Error 404: Portal Collapse - Filo Games</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,259 +14,401 @@
     <link rel="icon" type="image/png" sizes="192x192" href="IMG/logoFilo.png">
     <link rel="apple-touch-icon" sizes="180x180" href="img/logoFilo.png">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
+
     <style>
         :root {
-            --color-background: #0a0a0a;
-            --color-surface: #1a1a1a;
-            --color-primary: #ffffff;
-            --color-secondary: #00BFFF;
-            --color-danger: #CF6679;
+            --color-background: #0a0a1a;
+            --color-surface: #1a1a3a;
+            --color-primary: #00f6ff;
+            --color-accent: #ff00ff;
+            --color-danger: #ff1b4b;
             --font-family-main: 'Poppins', sans-serif;
             --font-family-pixel: 'VT323', monospace;
         }
-        body {
-            background-color: var(--color-background);
-            color: var(--color-primary);
+        * { box-sizing: border-box; }
+        html, body {
+            width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+            background-color: var(--color-background); color: var(--color-primary);
             font-family: var(--font-family-main);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            overflow: hidden;
         }
-        .container {
-            text-align: center;
-            padding: 20px;
-            max-width: 600px;
-        }
-        h1 {
-            font-family: var(--font-family-pixel);
-            font-size: 6rem;
-            color: var(--color-danger);
-            margin: 0;
-            line-height: 1;
-            text-shadow: 0 0 10px var(--color-danger);
-        }
-        h2 {
-            font-size: 1.5rem;
-            margin-top: 0;
-            margin-bottom: 20px;
-            color: var(--color-text-secondary);
-        }
-        #gameCanvas {
-            background-color: var(--color-surface);
-            border: 2px solid #333;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 191, 255, 0.2);
-        }
-        .cta-button {
-            display: inline-block;
-            background: transparent;
-            color: var(--color-primary);
-            padding: 12px 30px;
-            border: 2px solid var(--color-primary);
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-        }
-        .cta-button:hover {
-            background-color: var(--color-primary);
-            color: var(--color-background);
-        }
-        #instructions {
-            color: var(--color-text-secondary);
-            font-family: var(--font-family-pixel);
-            font-size: 1.2rem;
-            margin-top: 15px;
-        }
-        #score {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: var(--font-family-pixel);
-            font-size: 3rem;
-            color: var(--color-secondary);
-            text-shadow: 0 0 5px var(--color-secondary);
-            opacity: 0;
-            transition: opacity 0.5s;
-        }
-        #gameOverScreen {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            text-align: center;
-            display: none;
-            background-color: rgba(10, 10, 10, 0.8);
-            padding: 40px;
-            border-radius: 12px;
-            backdrop-filter: blur(5px);
-        }
-        #gameOverScreen h3 {
-            font-family: var(--font-family-pixel);
-            font-size: 4rem;
-            margin: 0;
-            color: var(--color-danger);
-        }
-        #gameOverScreen p {
-            font-size: 1.5rem;
-            margin: 10px 0 20px 0;
+        .game-wrapper { width: 100%; height: 100%; position: relative; }
+        #gameCanvas { display: block; width: 100%; height: 100%; }
+        .ui-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 20px; pointer-events: none; }
+        .header-info { text-align: center; pointer-events: auto; }
+        h1 { font-family: var(--font-family-pixel); font-size: clamp(3rem, 12vw, 5rem); color: var(--color-danger); margin: 0; text-shadow: 0 0 15px var(--color-danger), 0 0 5px #fff; }
+        h2 { font-size: clamp(1rem, 4vw, 1.2rem); margin: 5px 0 15px 0; color: #aaa; }
+        .back-button { display: inline-block; background: transparent; color: var(--color-primary); padding: 10px 25px; border: 2px solid var(--color-primary); border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; text-shadow: 0 0 5px var(--color-primary); }
+        .back-button:hover { background-color: var(--color-primary); color: var(--color-background); box-shadow: 0 0 20px var(--color-primary); }
+        .ui-container { width: 100%; display: flex; justify-content: space-between; font-family: var(--font-family-pixel); font-size: 1.5rem; color: var(--color-primary); text-shadow: 0 0 8px var(--color-primary); }
+        #gameOverScreen { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; display: none; background-color: rgba(13, 13, 43, 0.85); padding: 30px 40px; border-radius: 12px; border: 1px solid var(--color-accent); backdrop-filter: blur(5px); z-index: 10; pointer-events: auto; }
+        #gameOverScreen h3 { font-family: var(--font-family-pixel); font-size: 4rem; margin: 0; color: var(--color-danger); text-shadow: 0 0 10px var(--color-danger); }
+        #gameOverScreen p { font-size: 1.5rem; margin: 10px 0 20px 0; }
+        .mobile-controls { display: none; }
+
+        @media (max-width: 768px) and (pointer: coarse) {
+            .mobile-controls {
+                display: flex; justify-content: space-between; align-items: flex-end; width: 100%;
+                padding: 0 20px 20px 20px; pointer-events: auto;
+            }
+            .joystick-area { width: 120px; height: 120px; display: flex; justify-content: center; align-items: center; background-color: rgba(255,255,255,0.1); border-radius: 50%; border: 2px solid rgba(255,255,255,0.4); }
+            .joystick-thumb { width: 60px; height: 60px; background-color: rgba(255,255,255,0.2); border-radius: 50%; }
+            .shoot-button { width: 80px; height: 80px; background-color: rgba(255, 27, 75, 0.4); border-radius: 50%; border: 2px solid var(--color-danger); }
         }
     </style>
 </head>
 <body>
-
-    <div class="container">
-        <h1>404</h1>
-        <h2>PÁGINA PERDIDA EN EL GLITCH</h2>
-        <canvas id="gameCanvas" width="500" height="300"></canvas>
-        <p id="instructions">Usa las flechas ◀ ▶ para esquivar los errores.</p>
-        <a href="/FiloGames/" class="cta-button">Volver al Inicio</a>
-    </div>
-
-    <div id="score">0</div>
-
-    <div id="gameOverScreen">
-        <h3>GAME OVER</h3>
-        <p>Puntuación Final: <span id="finalScore">0</span></p>
-        <a href="#" onclick="restartGame(event)" class="cta-button">Reintentar</a>
+    <div class="game-wrapper">
+        <canvas id="gameCanvas"></canvas>
+        <div class="ui-layer">
+            <div class="ui-container">
+                <div id="lives">BLINDAJE: |||</div>
+                <div id="civilians">CIVILES: ♥ ♥ ♥</div>
+                <div id="highscore">RECORD: 0</div>
+                <div id="score">SCORE: 0</div>
+            </div>
+            <div class="header-info">
+                <h1>404</h1>
+                <h2>PORTAL COLLAPSE</h2>
+                <a href="#" id="backButton" class="back-button">Volver al Inicio</a>
+            </div>
+            <div class="mobile-controls">
+                <div id="joystick-area" class="joystick-area"><div id="joystick-thumb" class="joystick-thumb"></div></div>
+                <div id="shoot-button" class="shoot-button"></div>
+            </div>
+        </div>
+        <div id="gameOverScreen">
+            <h3>DEFENSA CAÍDA</h3>
+            <p>Puntuación Final: <span id="finalScore">0</span></p>
+            <a href="#" onclick="init()" class="back-button">Reiniciar Protocolo</a>
+        </div>
     </div>
 
     <script>
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
-        const scoreElement = document.getElementById('score');
-        const gameOverScreen = document.getElementById('gameOverScreen');
-        const finalScoreElement = document.getElementById('finalScore');
-        const instructionsElement = document.getElementById('instructions');
+        const scoreEl = document.getElementById('score'), livesEl = document.getElementById('lives'), civiliansEl = document.getElementById('civilians'), highscoreEl = document.getElementById('highscore');
+        const gameOverEl = document.getElementById('gameOverScreen'), finalScoreEl = document.getElementById('finalScore');
+        const backBtn = document.getElementById('backButton');
 
-        let player, obstacles, score, gameSpeed, gameOver, animationId;
+        let player, bullets, obstacles, particles, ripples, backgroundRobots;
+        let score, highscore, lives, civilians, gameSpeed, gameOver, animationId;
+        let shootCooldown = 0;
+        
+        // --- MÚSICA Y SFX (NUEVA VERSIÓN) ---
+        let musicManager;
+        if (typeof Tone !== 'undefined') {
+            const crusher = new Tone.BitCrusher(4).toDestination();
+            const reverb = new Tone.Reverb({ decay: 4, wet: 0.5 }).toDestination();
+            const percussion = new Tone.NoiseSynth({ noise: { type: 'white' }, envelope: { attack: 0.001, decay: 0.1, sustain: 0 }, volume: -15 }).connect(crusher);
+            const shootSfx = new Tone.MetalSynth({ volume: -25, envelope: { attack: 0.001, decay: 0.1, release: 0.05 }, resonance: 9000 }).toDestination();
+            const explosionSfx = new Tone.NoiseSynth({ noise: { type: 'pink' }, envelope: { attack: 0.001, decay: 0.2, sustain: 0 }, volume: -15 }).toDestination();
+            const impactSfx = new Tone.MembraneSynth({ pitchDecay: 0.8, octaves: 2, volume: -8 }).toDestination();
+            const arpSynth = new Tone.FMSynth({ harmonicity: 1.5, modulationIndex: 5, envelope: { attack: 0.01, release: 0.2 }, volume: -18 }).connect(reverb);
+
+            let percussionLoop, arpLoop;
+
+            musicManager = {
+                start: () => {
+                    if (Tone.Transport.state === 'started') return;
+                    percussionLoop = new Tone.Pattern( (time, note) => {
+                        percussion.triggerAttackRelease(time);
+                    }, ["8n", "16n", "8n", ["16n", "16n"]], "4n").start(0);
+                    arpLoop = new Tone.Sequence( (time, note) => {
+                        arpSynth.triggerAttackRelease(note, "16n", time);
+                    }, ["C4", "Eb4", "G4", "Bb4", "G4", "Eb4", "C4", null], "8n").start("0:1");
+                    Tone.Transport.start();
+                },
+                stop: () => {
+                    if (Tone.Transport.state !== 'stopped') {
+                        Tone.Transport.stop();
+                        Tone.Transport.cancel(0);
+                        if (percussionLoop) percussionLoop.dispose();
+                        if (arpLoop) arpLoop.dispose();
+                    }
+                },
+                shoot: () => shootSfx.triggerAttackRelease("C6", "16n", Tone.now()),
+                explode: () => explosionSfx.triggerAttackRelease("8n", Tone.now()),
+                impact: () => impactSfx.triggerAttackRelease("C2", "8n", Tone.now()),
+                updateSpeed: (speed) => {
+                    if(Tone.Transport.state === 'started') Tone.Transport.bpm.value = 120 + speed * 20;
+                }
+            };
+        }
 
         function init() {
-            player = {
-                x: canvas.width / 2 - 15,
-                y: canvas.height - 40,
-                width: 30,
-                height: 30,
-                speed: 7
-            };
-            obstacles = [];
-            score = 0;
-            gameSpeed = 2;
-            gameOver = false;
-            scoreElement.style.opacity = '1';
-            instructionsElement.style.display = 'block';
-            gameOverScreen.style.display = 'none';
-            if (animationId) {
-                cancelAnimationFrame(animationId);
+            musicManager?.stop();
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            player = { x: canvas.width / 2, y: canvas.height - 80, width: 40, height: 50, speed: 5 };
+            bullets = []; obstacles = []; particles = []; ripples = []; backgroundRobots = [];
+            score = 0; lives = 3; civilians = 3; gameSpeed = 1; gameOver = false;
+            
+            highscore = localStorage.getItem('filogames_404_highscore') || 0;
+
+            for (let i = 0; i < 15; i++) {
+                backgroundRobots.push({
+                    x: Math.random() * canvas.width,
+                    y: canvas.height - 100 - Math.random() * 80,
+                    size: Math.random() * 20 + 10,
+                    speed: Math.random() * 0.1 + 0.05
+                });
             }
+
+            updateUI();
+            gameOverEl.style.display = 'none';
+            musicManager?.start();
+            if (animationId) cancelAnimationFrame(animationId);
             gameLoop();
         }
+        
+        const keys = { ArrowLeft: false, ArrowRight: false, " ": false };
+        window.addEventListener('keydown', e => { if (keys.hasOwnProperty(e.key)) { e.preventDefault(); keys[e.key] = true; } });
+        window.addEventListener('keyup', e => { if (keys.hasOwnProperty(e.key)) { e.preventDefault(); keys[e.key] = false; } });
+        
+        let touchMoveX = null;
+        const joystick = document.getElementById('joystick-area');
+        const shootBtn = document.getElementById('shoot-button');
 
-        const keys = {
-            ArrowLeft: false,
-            ArrowRight: false
-        };
-
-        window.addEventListener('keydown', (e) => {
-            if (keys.hasOwnProperty(e.key)) keys[e.key] = true;
+        joystick.addEventListener('touchstart', e => { e.preventDefault(); });
+        joystick.addEventListener('touchmove', e => {
+            e.preventDefault();
+            const rect = joystick.getBoundingClientRect();
+            const touch = e.touches[0];
+            touchMoveX = ((touch.clientX - rect.left) / rect.width) * 2 - 1;
         });
-        window.addEventListener('keyup', (e) => {
-            if (keys.hasOwnProperty(e.key)) keys[e.key] = false;
-        });
+        joystick.addEventListener('touchend', e => { e.preventDefault(); touchMoveX = null; });
+        shootBtn.addEventListener('touchstart', e => { e.preventDefault(); keys[" "] = true; });
+        shootBtn.addEventListener('touchend', e => { e.preventDefault(); keys[" "] = false; });
 
-        function createObstacle() {
-            const size = Math.random() * 30 + 20;
-            obstacles.push({
-                x: Math.random() * (canvas.width - size),
-                y: -size,
-                width: size,
-                height: size,
-                speed: Math.random() * 1.5 + gameSpeed
-            });
-        }
-
-        function update() {
+        function gameLoop() {
             if (gameOver) return;
+            update();
+            draw();
+            animationId = requestAnimationFrame(gameLoop);
+        }
+        
+        function update() {
+            if (keys.ArrowLeft && player.x > player.width / 2) player.x -= player.speed;
+            if (keys.ArrowRight && player.x < canvas.width - player.width / 2) player.x += player.speed;
+            if (touchMoveX !== null) player.x += touchMoveX * player.speed;
+            player.x = Math.max(player.width / 2, Math.min(canvas.width - player.width / 2, player.x));
 
-            // Mover jugador
-            if (keys.ArrowLeft && player.x > 0) player.x -= player.speed;
-            if (keys.ArrowRight && player.x < canvas.width - player.width) player.x += player.speed;
+            if (keys[" "] && shootCooldown <= 0) {
+                createBullet();
+                shootCooldown = 10;
+            }
+            if (shootCooldown > 0) shootCooldown--;
 
-            // Crear y mover obstáculos
-            if (Math.random() < 0.05) createObstacle();
+            if (Math.random() < 0.025 * gameSpeed) createObstacle();
 
-            obstacles.forEach((obstacle, index) => {
-                obstacle.y += obstacle.speed;
-                if (obstacle.y > canvas.height) {
-                    obstacles.splice(index, 1);
-                    score++;
-                    scoreElement.textContent = score;
-                    if (score % 10 === 0) gameSpeed += 0.2;
-                }
-
-                // Detección de colisión
-                if (
-                    player.x < obstacle.x + obstacle.width &&
-                    player.x + player.width > obstacle.x &&
-                    player.y < obstacle.y + obstacle.height &&
-                    player.y + player.height > obstacle.y
-                ) {
-                    endGame();
-                }
+            bullets.forEach((b, i) => {
+                b.y -= b.speed;
+                if (b.y < 0) bullets.splice(i, 1);
             });
+
+            obstacles.forEach((o, i) => {
+                o.y += o.speed * gameSpeed;
+                o.rotation += o.rotationSpeed;
+                
+                if (o.glitchTimer <= 0) {
+                    o.isGlitching = true;
+                    o.glitchDuration = Math.random() * 20 + 10;
+                    o.glitchTimer = Math.random() * 240 + 60;
+                } else {
+                    o.glitchTimer--;
+                }
+
+                if (o.isGlitching) {
+                    o.glitchDuration--;
+                    if (o.glitchDuration <= 0) o.isGlitching = false;
+                }
+
+                if (o.y > canvas.height) {
+                    createExplosion(o.x, canvas.height, 'var(--color-danger)', 50);
+                    createRipple(o.x, canvas.height);
+                    musicManager?.impact();
+                    obstacles.splice(i, 1);
+                    civilians--;
+                    if (civilians < 0) endGame();
+                }
+
+                if (checkCollision(player, o)) {
+                    createExplosion(player.x, player.y, 'var(--color-primary)', 30);
+                    musicManager?.impact();
+                    obstacles.splice(i, 1);
+                    lives--;
+                    if (lives < 0) endGame();
+                }
+
+                bullets.forEach((b, j) => {
+                    if (checkCollision(b, o)) {
+                        createExplosion(o.x, o.y, 'var(--color-danger)', o.points.length * 3);
+                        musicManager?.explode();
+                        obstacles.splice(i, 1);
+                        bullets.splice(j, 1);
+                        score++;
+                        if (score % 5 === 0) gameSpeed += 0.1;
+                        musicManager?.updateSpeed(gameSpeed);
+                    }
+                });
+            });
+
+            particles.forEach((p, i) => { p.update(); if (p.life <= 0) particles.splice(i, 1); });
+            ripples.forEach((r, i) => { r.update(); if (r.life <= 0) ripples.splice(i, 1); });
+            backgroundRobots.forEach(r => { r.x += r.speed; if (r.x > canvas.width + r.size) r.x = -r.size; });
+            
+            updateUI();
         }
 
         function draw() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            // Dibujar jugador
-            ctx.fillStyle = 'var(--color-primary)';
-            ctx.fillRect(player.x, player.y, player.width, player.height);
-            ctx.strokeStyle = 'var(--color-secondary)';
-            ctx.strokeRect(player.x, player.y, player.width, player.height);
-
-            // Dibujar obstáculos
-            obstacles.forEach(obstacle => {
-                ctx.fillStyle = 'var(--color-danger)';
-                ctx.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
-                ctx.font = `${obstacle.width * 0.6}px VT323`;
-                ctx.fillStyle = 'var(--color-background)';
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'middle';
-                ctx.fillText('404', obstacle.x + obstacle.width / 2, obstacle.y + obstacle.height / 2);
+            ctx.fillStyle = 'rgba(10, 10, 26, 0.25)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            drawBackground();
+            ripples.forEach(r => r.draw());
+            
+            bullets.forEach(b => {
+                ctx.fillStyle = 'var(--color-accent)';
+                ctx.shadowColor = 'var(--color-accent)';
+                ctx.shadowBlur = 15;
+                ctx.fillRect(b.x - b.width / 2, b.y - b.height / 2, b.width, b.height);
+                ctx.shadowBlur = 0;
             });
+
+            obstacles.forEach(o => drawGlitchedPolygon(o));
+            drawPlayer();
+            particles.forEach(p => p.draw());
+        }
+        
+        function drawPlayer() {
+            ctx.save();
+            ctx.translate(player.x, player.y);
+            ctx.fillStyle = 'var(--color-primary)';
+            ctx.shadowColor = 'var(--color-primary)';
+            ctx.shadowBlur = 20;
+            ctx.beginPath();
+            ctx.moveTo(0, -player.height/2);
+            ctx.lineTo(-player.width/2, player.height/2);
+            ctx.lineTo(player.width/2, player.height/2);
+            ctx.closePath();
+            ctx.fill();
+            ctx.fillStyle = '#000';
+            ctx.shadowBlur = 0;
+            ctx.beginPath();
+            ctx.moveTo(0, -player.height/4);
+            ctx.lineTo(-player.width/4, player.height/4);
+            ctx.lineTo(player.width/4, player.height/4);
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
         }
 
-        function gameLoop() {
-            update();
-            draw();
-            if (!gameOver) {
-                animationId = requestAnimationFrame(gameLoop);
+        function drawGlitchedPolygon(o) {
+            ctx.save();
+            ctx.translate(o.x, o.y);
+            ctx.rotate(o.rotation);
+            
+            if (o.isGlitching) {
+                const glitchColor = Math.random() > 0.5 ? 'var(--color-primary)' : 'var(--color-accent)';
+                ctx.fillStyle = glitchColor;
+                ctx.shadowColor = glitchColor;
+            } else {
+                ctx.fillStyle = 'var(--color-danger)';
+                ctx.shadowColor = 'var(--color-danger)';
+            }
+            
+            ctx.shadowBlur = 15;
+            ctx.beginPath();
+            const points = o.points;
+            ctx.moveTo(points[0].x, points[0].y);
+            for (let i = 1; i < points.length; i++) {
+                let px = points[i].x;
+                let py = points[i].y;
+                if (o.isGlitching) {
+                    px += (Math.random() - 0.5) * o.glitchAmount;
+                    py += (Math.random() - 0.5) * o.glitchAmount;
+                }
+                ctx.lineTo(px, py);
+            }
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+        }
+
+        function drawBackground() {
+            for (let i = 0; i < 15; i++) {
+                ctx.fillStyle = `rgba(255, 0, 255, ${Math.random() * 0.1})`;
+                ctx.fillRect(Math.random() * canvas.width, canvas.height - 100 - Math.random() * 80, Math.random() * 5, Math.random() * 50);
+            }
+            backgroundRobots.forEach(r => {
+                ctx.fillStyle = 'rgba(0, 246, 255, 0.2)';
+                ctx.fillRect(r.x, r.y, r.size, r.size*1.5);
+            });
+            for (let i = 0; i < 50; i++) {
+                ctx.fillStyle = 'rgba(0, 246, 255, 0.5)';
+                ctx.fillRect(Math.random() * canvas.width, Math.random() * canvas.height, 1, 10);
             }
         }
 
+        function createObstacle() {
+            const size = Math.random() * 30 + 30;
+            const x = Math.random() * (canvas.width - size) + size/2;
+            const points = [];
+            const sides = Math.floor(Math.random() * 3) + 4;
+            for (let i = 0; i < sides; i++) {
+                const angle = (i / sides) * Math.PI * 2;
+                points.push({ x: Math.cos(angle) * size / 2, y: Math.sin(angle) * size / 2 });
+            }
+            obstacles.push({ x: x, y: -size, width: size, height: size, speed: Math.random() * 0.5 + 0.5, rotation: 0, rotationSpeed: (Math.random() - 0.5) * 0.02, points: points, glitchAmount: 0, glitchTimer: Math.random() * 180 + 60, isGlitching: false, glitchDuration: 0 });
+        }
+        
+        function createBullet() {
+            musicManager?.shoot();
+            bullets.push({ x: player.x, y: player.y - player.height/2, width: 5, height: 20, speed: 10 });
+        }
+
+        function createExplosion(x, y, color, count = 30) {
+            for (let i = 0; i < count; i++) {
+                particles.push(new Particle(x, y, color));
+            }
+        }
+
+        function createRipple(x, y) { ripples.push(new Ripple(x, y)); }
+
+        class Particle {
+            constructor(x, y, color) { this.x = x; this.y = y; this.color = color; this.size = Math.random() * 3 + 1; this.life = Math.random() * 60 + 30; this.vx = (Math.random() - 0.5) * 6; this.vy = (Math.random() - 0.5) * 6; this.gravity = 0.1; }
+            update() { this.x += this.vx; this.y += this.vy; this.vy += this.gravity; this.life--; }
+            draw() { ctx.fillStyle = this.color; ctx.shadowColor = this.color; ctx.shadowBlur = 10; ctx.globalAlpha = this.life / 60; ctx.fillRect(this.x, this.y, this.size, this.size); ctx.globalAlpha = 1; ctx.shadowBlur = 0;}
+        }
+        class Ripple {
+            constructor(x, y) { this.x = x; this.y = y; this.radius = 1; this.life = 50; this.maxRadius = 150; }
+            update() { this.radius += 3; this.life--; }
+            draw() { ctx.strokeStyle = `rgba(0, 246, 255, ${this.life / 50})`; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2); ctx.stroke(); }
+        }
+
+        function checkCollision(rect1, rect2) { return rect1.x < rect2.x + rect2.width && rect1.x + rect2.width > rect2.x && rect1.y < rect2.y + rect2.height && rect1.y + rect1.height > rect2.y; }
+
         function endGame() {
             gameOver = true;
-            cancelAnimationFrame(animationId);
-            scoreElement.style.opacity = '0';
-            instructionsElement.style.display = 'none';
-            finalScoreElement.textContent = score;
-            gameOverScreen.style.display = 'block';
+            musicManager?.stop();
+            if (score > highscore) {
+                highscore = score;
+                localStorage.setItem('filogames_404_highscore', highscore);
+            }
+            finalScoreEl.textContent = score;
+            gameOverEl.style.display = 'block';
         }
-
-        function restartGame(e) {
-            e.preventDefault();
-            init();
+        function updateUI() {
+            scoreEl.textContent = `SCORE: ${score}`;
+            highscoreEl.textContent = `RECORD: ${highscore > 0 ? highscore : 0}`;
+            livesEl.innerHTML = `BLINDAJE: ${'<span style="color:var(--color-primary)">|</span>'.repeat(Math.max(0, lives))}`;
+            civiliansEl.innerHTML = `CIVILES: ${'♥ '.repeat(Math.max(0, civilians))}`;
         }
+        
+        backBtn.addEventListener('click', e => { e.preventDefault(); window.location.href = '/FiloGames/'; });
+        window.addEventListener('resize', init);
 
-        // Iniciar el juego
         init();
     </script>
 </body>

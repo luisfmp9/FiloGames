@@ -44,6 +44,90 @@ class Footer extends HTMLElement {
     }
 }
 
+class Portfolio extends HTMLElement {
+    async connectedCallback() {
+        // 1. Cargar los datos del archivo JSON
+        const response = await fetch('data/portfolio.json');
+        const projects = await response.json();
+
+        // 2. Construir el HTML base del portafolio
+        this.innerHTML = `
+            <section id="portfolio" class="container">
+                <h2>Nuestro Trabajo</h2>
+                <p class="section-subtitle">Un vistazo a los universos que hemos construido, las historias que hemos contado y los problemas que hemos resuelto.</p>
+                <div class="portfolio-tabs">
+                    <button class="tab-button active" data-filter="all">Todo</button>
+                    <button class="tab-button" data-filter="games">Videojuegos</button>
+                    <button class="tab-button" data-filter="web">Sitios Web</button>
+                    <button class="tab-button" data-filter="arvr">AR/VR</button>
+                </div>
+                <div class="portfolio-grid">
+                    <!-- El contenido se generará aquí -->
+                </div>
+            </section>
+        `;
+
+        const grid = this.querySelector('.portfolio-grid');
+        
+        // 3. Crear una tarjeta HTML para cada proyecto y añadirla al grid
+        projects.forEach(project => {
+            const card = document.createElement('div');
+            card.className = 'portfolio-item';
+            card.setAttribute('data-category', project.category);
+
+            // Determinar qué botones mostrar
+            let buttonsHTML = '';
+            if (project.playUrl) {
+                const playText = project.category === 'games' ? 'Jugar' : 'Probar';
+                buttonsHTML = `
+                    <a href="${project.playUrl}" class="cta-button primary">${playText}</a>
+                    <a href="${project.detailsUrl}" class="cta-button secondary">Detalles</a>
+                `;
+            } else {
+                buttonsHTML = `<a href="${project.detailsUrl}" class="cta-button secondary full-width">Detalles del Proyecto</a>`;
+            }
+
+            card.innerHTML = `
+                <img src="${project.image}" alt="Imagen de ${project.title}" onerror="this.onerror=null;this.src='https://placehold.co/600x400/000/FFF?text=Imagen+Rota';">
+                <div class="portfolio-content">
+                    <h3>${project.title}</h3>
+                    <p>${project.description}</p>
+                    <div class="portfolio-buttons">
+                        ${buttonsHTML}
+                    </div>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+
+        // 4. Añadir la lógica para los botones de filtro
+        this.addFilterEventListeners();
+    }
+
+    addFilterEventListeners() {
+        const tabButtons = this.querySelectorAll('.tab-button');
+        const portfolioItems = this.querySelectorAll('.portfolio-item');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filter = button.getAttribute('data-filter');
+
+                portfolioItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        item.style.display = 'flex'; // Usamos flex para mantener la alineación
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
+}
+
 class Contact extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
@@ -208,6 +292,7 @@ class Features extends HTMLElement {
         `
     }
 }
+
 customElements.define('mi-header', Header);
 customElements.define('mi-footer', Footer);
 customElements.define('mi-features', Features);
@@ -215,3 +300,4 @@ customElements.define('mi-team', Team);
 customElements.define('mi-social-media', SocialMedia);
 customElements.define('mi-contact', Contact);
 customElements.define('mi-music', Music);
+customElements.define('mi-portfolio', Portfolio);

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "platmat",
+    "title": "PlatMat",
+    "category": "games",
+    "image": "https://placehold.co/600x400/000/FFF?text=PlatMat",
+    "description": "Un robot explora los límites de su programación y libre albedrío en este juego de plataformas y puzzles.",
+    "playUrl": "#",
+    "detailsUrl": "portfolio/platmat"
+  },
+  {
+    "id": "foodwar",
+    "title": "FoodWar",
+    "category": "games",
+    "image": "https://placehold.co/600x400/000/FFF?text=FoodWar",
+    "description": "Sátira sobre el conflicto y el nacionalismo a través de una guerra de alimentos.",
+    "playUrl": "#",
+    "detailsUrl": "portfolio/foodwar"
+  },
+  {
+    "id": "nasia-beads",
+    "title": "Sitio Web Nasia Beads",
+    "category": "web",
+    "image": "https://placehold.co/600x400/000/FFF?text=Nasia+Beads",
+    "description": "Catálogo digital para Nasia Beads optimizado para ventas por WhatsApp.",
+    "playUrl": "#",
+    "detailsUrl": "portfolio/nasia-beads"
+  },
+  {
+    "id": "filogames-web",
+    "title": "Sitio Web Filo Games",
+    "category": "web",
+    "image": "IMG/Marca/logoFilo.webp",
+    "description": "Nuestro propio sitio web profesional, construido con Web Components y un diseño moderno.",
+    "playUrl": null,
+    "detailsUrl": "portfolio/filogames-web"
+  },
+  {
+    "id": "taypi-ar",
+    "title": "Taypi - Calzado AR",
+    "category": "arvr",
+    "image": "IMG/Portfolio/AR VR/Taypi/logoTaypi.webp",
+    "description": "Experiencia de Realidad Aumentada para la visualización y prueba virtual de calzado.",
+    "playUrl": "#",
+    "detailsUrl": "portfolio/taypi-ar"
+  }
+]

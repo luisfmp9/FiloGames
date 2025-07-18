@@ -75,12 +75,11 @@ class Portfolio extends HTMLElement {
             card.className = 'portfolio-item';
             card.setAttribute('data-category', project.category);
 
-            // Determinar qué botones mostrar
             let buttonsHTML = '';
             if (project.playUrl) {
                 const playText = project.category === 'games' ? 'Jugar' : 'Probar';
                 buttonsHTML = `
-                    <a href="${project.playUrl}" class="cta-button primary">${playText}</a>
+                    <a href="${project.playUrl}" target="_blank" class="cta-button primary">${playText}</a>
                     <a href="${project.detailsUrl}" class="cta-button secondary">Detalles</a>
                 `;
             } else {
@@ -118,7 +117,9 @@ class Portfolio extends HTMLElement {
                 portfolioItems.forEach(item => {
                     const category = item.getAttribute('data-category');
                     if (filter === 'all' || category === filter) {
-                        item.style.display = 'flex'; // Usamos flex para mantener la alineación
+                        // *** LA CORRECCIÓN CLAVE ESTÁ AQUÍ ***
+                        // Usamos 'display: flex' en lugar de 'display: block' para mantener la alineación.
+                        item.style.display = 'flex'; 
                     } else {
                         item.style.display = 'none';
                     }

@@ -523,7 +523,8 @@ h2 {
     fill: var(--color-primary);
 }
 
-/* --- ESTILOS PARA LA SECCIÓN DE PRECIOS Y PAQUETES --- */
+/* --- ESTILOS CORREGIDOS PARA EL CARRUSEL DE PRECIOS --- */
+
 .pricing-carousel-wrapper {
     display: flex;
     align-items: center;
@@ -534,41 +535,103 @@ h2 {
 }
 
 .pricing-carousel {
-    overflow: hidden; /* Oculta la barra de scroll */
+    overflow: hidden;
     width: 100%;
+    /* Añadimos padding vertical para dar espacio al efecto hover y la insignia */
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .pricing-grid {
-    display: flex; /* Cambiamos de grid a flex */
+    display: flex;
     gap: 30px;
-    padding-bottom: 20px; /* Espacio para que la sombra no se corte */
     /* Hacemos que se desplace suavemente */
     scroll-behavior: smooth;
-    /* Ocultamos la barra de scroll en todos los navegadores */
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    /* Ocultamos la barra de scroll */
+    -ms-overflow-style: none;  
+    scrollbar-width: none;
 }
-
 .pricing-grid::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
+    display: none;
 }
 
 .pricing-card {
-    /* Forzamos un ancho fijo para cada tarjeta para que el carrusel funcione */
-    flex: 0 0 100%; /* En móvil, cada tarjeta ocupa el 100% */
+    /* Forzamos un ancho fijo para cada tarjeta */
+    flex: 0 0 100%;
     max-width: 100%;
+    background-color: var(--color-surface);
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    border: 1px solid #2a2a2a;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* CORRECCIÓN DE ALINEACIÓN: Aplicamos Flexbox */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tamaños de tarjeta para diferentes pantallas */
+@media (min-width: 640px) {
+    .pricing-card {
+        flex-basis: calc(50% - 15px);
+        max-width: calc(50% - 15px);
+    }
+}
+@media (min-width: 1024px) {
+    .pricing-card {
+        flex-basis: calc(33.333% - 20px);
+        max-width: calc(33.333% - 20px);
+    }
 }
 
 .pricing-card.featured {
-    transform: scale(1.05);
     border-color: var(--color-secondary);
     position: relative;
-    overflow: hidden;
+    /* El transform se aplica en el hover para evitar problemas iniciales */
 }
 
 .pricing-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px) scale(1.05); /* Escala un poco más para que resalte */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    z-index: 10; /* Asegura que la tarjeta se ponga por encima de las demás */
+}
+
+.popular-badge {
+    position: absolute;
+    top: 15px;
+    right: -45px;
+    background-color: var(--color-secondary);
+    color: var(--color-background);
+    padding: 8px 40px;
+    transform: rotate(45deg);
+    font-weight: 700;
+    font-size: 0.9rem;
+    z-index: 5;
+}
+
+.pricing-header { flex-grow: 0; }
+.pricing-header h3 { font-size: 1.5rem; margin-bottom: 10px; color: var(--color-primary); }
+.pricing-header .price { font-size: 3rem; font-weight: 800; color: var(--color-primary); margin-bottom: 25px; }
+.pricing-header .price span { font-size: 1rem; font-weight: 400; color: var(--color-text-secondary); vertical-align: middle; margin-right: 5px; }
+
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    text-align: left; /* Mejora la legibilidad de la lista */
+    /* CORRECCIÓN DE ALINEACIÓN: La lista crece para empujar el botón hacia abajo */
+    flex-grow: 1;
+}
+
+.pricing-features li {
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+    color: var(--color-text-secondary);
+}
+.pricing-features li:first-child { border-top: 1px solid #333; }
+
+.pricing-card .cta-button {
+    margin-top: auto; /* El botón siempre se alinea al fondo */
 }
 
 /* Estilos para los botones de navegación del carrusel */
@@ -587,15 +650,14 @@ h2 {
     position: absolute;
     z-index: 5;
 }
+.carousel-button:hover { background-color: var(--color-primary); color: var(--color-background); }
+.carousel-button:disabled { opacity: 0.3; cursor: not-allowed; }
+#prev-button { left: -22px; }
+#next-button { right: -22px; }
 
-.carousel-button:hover {
-    background-color: var(--color-primary);
-    color: var(--color-background);
-}
-
-.carousel-button:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
+@media (max-width: 639px) {
+    .carousel-button { display: none; }
+    .pricing-carousel { overflow-x: auto; }
 }
 
 #prev-button {

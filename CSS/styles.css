@@ -526,10 +526,9 @@ h2 {
 /* --- ESTILOS PARA LA SECCIÓN DE PRECIOS Y PAQUETES --- */
 .pricing-grid {
     display: grid;
-    /* En pantallas pequeñas 1 columna, en medianas 2, en grandes hasta 4 */
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Por defecto, 1 columna para móviles */
     gap: 30px;
-    align-items: stretch; /* Asegura que todas las tarjetas tengan la misma altura si están en la misma fila */
+    align-items: stretch;
     margin-top: 50px;
 }
 
@@ -540,10 +539,8 @@ h2 {
     text-align: center;
     border: 1px solid #2a2a2a;
     display: flex;
-    flex-direction: column; /* Alinea el contenido verticalmente */
+    flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column; 
 }
 
 .pricing-card.featured {
@@ -768,6 +765,55 @@ h2 {
     hyphens: auto; /* Permite la división de palabras para un mejor justificado */
 }
 
+/* --- ESTILOS PARA LAS NUEVAS SECCIONES DE VENTAJAS --- */
+.advantages-container {
+    padding: 60px 0;
+    border-top: 1px solid #2a2a2a;
+    margin-top: 60px;
+}
+
+.advantage-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+.advantage-text h3 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.advantage-text p {
+    color: var(--color-text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.advantage-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.advantage-card {
+    background-color: var(--color-surface);
+    padding: 15px 20px;
+    border-radius: 8px;
+    border-left: 3px solid var(--color-secondary);
+    font-weight: 600;
+}
+
+.advantage-image img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
 .legal-page { padding-top: 40px; padding-bottom: 40px; }
 .legal-page h2 { font-size: 2.2rem; margin-bottom: 10px; }
 .legal-page h3 { font-size: 1.5rem; margin-top: 30px; margin-bottom: 15px; color: var(--color-secondary); }
@@ -778,6 +824,12 @@ h2 {
 .footer-links { margin-bottom: 20px; }
 .footer-links a { color: var(--color-text-secondary); text-decoration: none; margin: 0 10px; }
 .footer-links a:hover { color: var(--color-primary); }
+
+@media (min-width: 500px) {
+    .advantage-cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
 
 @media (min-width: 768px) {
     .cta-text {
@@ -794,9 +846,35 @@ h2 {
         grid-template-columns: 1fr 1fr;
         gap: 60px;
     }
+
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .advantage-section {
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+    }
+    /* Invierte el orden de imagen y texto para variedad visual */
+    .advantage-section.reverse {
+        grid-template-columns: 1fr 1fr;
+    }
+    .advantage-section.reverse .advantage-text {
+        order: 2;
+    }
+    .advantage-section.reverse .advantage-image {
+        order: 1;
+    }
 }
 
 @media (min-width: 1024px) {
+    .pricing-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* 4 columnas en desktop */
+@media (min-width: 1200px) {
     .pricing-grid {
         grid-template-columns: repeat(4, 1fr);
     }
@@ -861,9 +939,5 @@ h2 {
     .about-hero-image {
         order: -1; /* Mueve la imagen arriba del texto en móvil */
         max-height: 40vh;
-    }
-
-    .pricing-grid {
-        grid-template-columns: repeat(2, 1fr);
     }
 }

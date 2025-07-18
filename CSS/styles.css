@@ -730,17 +730,14 @@ h2 {
 /* Insignia "Más Popular" Rediseñada */
 .popular-badge {
     position: absolute;
-    top: -10px;
+    top: -1px; /* Alineado con el borde */
     right: 20px;
     background: linear-gradient(45deg, var(--color-secondary), #0077c2);
     color: var(--color-primary);
-    padding: 30px 10px 5px 10px;
+    padding: 25px 10px 5px 10px;
     font-weight: 700;
     font-size: 0.9rem;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    transform: rotate(180deg);
-    border-radius: 0 0 8px 8px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
     box-shadow: 0 4px 10px rgba(0, 191, 255, 0.3);
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
@@ -748,7 +745,7 @@ h2 {
 .pricing-header {
     flex-grow: 0;
     /* CORRECCIÓN DE ALINEACIÓN: Altura mínima para alinear los precios */
-    min-height: 150px; 
+    min-height: 160px; 
     display: flex;
     flex-direction: column;
     justify-content: center;

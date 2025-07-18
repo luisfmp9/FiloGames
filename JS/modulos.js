@@ -158,7 +158,7 @@ class Features extends HTMLElement {
                             </svg>
                         </div>
                         <h3 class="feature-title">Finalistas Game Jam Plus</h3>
-                        <p class="feature-description">Reconocidos en la competencia de desarrollo de juegos más grande del mundo (ed. 23/24), validando nuestra capacidad creativa y técnica a nivel global.</p>
+                        <p class="feature-description">Reconocidos como finalisas en la maratón y aceleración de desarrollo de juegos más grande del mundo Game Jam Plus 23/24, validando nuestra capacidad creativa, técnica y de negocios en videojuegos a nivel global.</p>
                     </div>
 
                     <!-- Tarjeta 2: Años de Experiencia (Ícono Mejorado) -->
@@ -173,7 +173,7 @@ class Features extends HTMLElement {
                             </svg>
                         </div>
                         <h3 class="feature-title">+10 Años de Experiencia</h3>
-                        <p class="feature-description">Nuestro equipo senior acumula más de una década de experiencia real, liderando y ejecutando proyectos de software y videojuegos complejos.</p>
+                        <p class="feature-description">Contamos con equipo senior que acumula más de una década de experiencia, liderando y ejecutando proyectos de software, emprendimientos y videojuegos complejos.</p>
                     </div>
 
                     <!-- Tarjeta 3: Proyectos Lanzados (Ícono Mejorado) -->
@@ -187,7 +187,7 @@ class Features extends HTMLElement {
                             </svg>
                         </div>
                         <h3 class="feature-title">+20 Proyectos Trabajados</h3>
-                        <p class="feature-description">Desde videojuegos completos y prototipos hasta software empresarial y experiencias interactivas que han llegado al mercado y a los usuarios.</p>
+                        <p class="feature-description">Desde videojuegos independientes, Game Jams, emprendimientos, proyectos para clientes y prototipos hasta experiencia en softwares empresariales y experiencias interactivas que han llegado al mercado y a los usuarios.</p>
                     </div>
 
                     <!-- Tarjeta 4: Jugadores (Ícono Mejorado) -->
@@ -201,9 +201,8 @@ class Features extends HTMLElement {
                             </svg>
                         </div>
                         <h3 class="feature-title">+1000 Jugadores</h3>
-                        <p class="feature-description">Nuestras creaciones han sido disfrutadas y validadas por una comunidad creciente de más de mil jugadores en diversas plataformas.</p>
+                        <p class="feature-description">Nuestras creaciones han sido experimentadas, analizadas, disfrutadas y validadas por una comunidad creciente de más de mil jugadores.</p>
                     </div>
-
                 </div>
             </div>
         `

@@ -45,7 +45,7 @@
     "category": "games",
     "image": "IMG/Portfolio/VideoGames/FoodWar/FoodWarLogo.webp",
     "description": "Sátira sobre el conflicto y el nacionalismo a través de una guerra de alimentos.",
-    "playUrl": "#",
+    "playUrl": "https://marthaescalante.itch.io/food-war",
     "detailsUrl": "portfolio/foodwar",
     "imageFit": "cover"
   },
@@ -75,7 +75,7 @@
     "category": "arvr",
     "image": "IMG/Portfolio/AR VR/Taypi/logoTaypi.webp",
     "description": "Experiencia de Realidad Aumentada para la visualización y prueba virtual de calzado.",
-    "playUrl": "#",
+    "playUrl": "https://lens.snap.com/experience/8fc5f71d-6d1e-4327-aee3-7fdea238191d",
     "detailsUrl": "portfolio/taypi-ar",
     "imageFit": "contain"
   }

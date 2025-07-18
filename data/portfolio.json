@@ -17,7 +17,7 @@
     "description": "Debes volver al mundo de los vivos por la ofrenda que darás a Mictlantecuhtli para poder avanzar en el camino de los no vivos.",
     "playUrl": "https://eniergarcia.itch.io/mictlan-challenge",
     "detailsUrl": "portfolio/mictlan-challenge",
-    "imageFit": "cover"
+    "imageFit": "contain"
   },
   {
     "id": "latin-vibes",
@@ -37,7 +37,7 @@
     "description": "Un robot explora los límites de su programación y libre albedrío en este juego de plataformas y puzzles.",
     "playUrl": "https://luisfmp.itch.io/platmat",
     "detailsUrl": "portfolio/platmat",
-    "imageFit": "cover"
+    "imageFit": "contain"
   },
   {
     "id": "foodwar",
@@ -51,17 +51,17 @@
   },
   {
     "id": "nasia-beads",
-    "title": "Sitio Web Nasia Beads",
+    "title": "Nasia Beads - Web",
     "category": "web",
     "image": "IMG/Portfolio/Webs/Nasia-Beads/NasiaBeadsLogo.webp",
     "description": "Catálogo digital para Nasia Beads optimizado para ventas por WhatsApp.",
     "playUrl": "https://luisfmp9.github.io/Nasia-Beads/",
     "detailsUrl": "portfolio/nasia-beads",
-    "imageFit": "cover"
+    "imageFit": "contain"
   },
   {
     "id": "filogames-web",
-    "title": "Sitio Web Filo Games",
+    "title": "Filo Games - Web",
     "category": "web",
     "image": "IMG/Marca/logoFilo.webp",
     "description": "Nuestro propio sitio web profesional, construido con Web Components y un diseño moderno.",

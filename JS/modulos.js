@@ -46,11 +46,9 @@ class Footer extends HTMLElement {
 
 class Portfolio extends HTMLElement {
     async connectedCallback() {
-        // 1. Cargar los datos del archivo JSON
         const response = await fetch('data/portfolio.json');
         const projects = await response.json();
 
-        // 2. Construir el HTML base del portafolio
         this.innerHTML = `
             <section id="portfolio" class="container">
                 <h2>Nuestro Trabajo</h2>
@@ -61,15 +59,12 @@ class Portfolio extends HTMLElement {
                     <button class="tab-button" data-filter="web">Sitios Web</button>
                     <button class="tab-button" data-filter="arvr">AR/VR</button>
                 </div>
-                <div class="portfolio-grid">
-                    <!-- El contenido se generará aquí -->
-                </div>
+                <div class="portfolio-grid"></div>
             </section>
         `;
 
         const grid = this.querySelector('.portfolio-grid');
         
-        // 3. Crear una tarjeta HTML para cada proyecto y añadirla al grid
         projects.forEach(project => {
             const card = document.createElement('div');
             card.className = 'portfolio-item';
@@ -86,8 +81,14 @@ class Portfolio extends HTMLElement {
                 buttonsHTML = `<a href="${project.detailsUrl}" class="cta-button secondary full-width">Detalles del Proyecto</a>`;
             }
 
+            // **LA MAGIA OCURRE AQUÍ**
+            // Leemos la propiedad imageFit. Si no existe, usamos 'cover' por defecto.
+            const imageFitStyle = project.imageFit || 'cover';
+
             card.innerHTML = `
-                <img src="${project.image}" alt="Imagen de ${project.title}" onerror="this.onerror=null;this.src='https://placehold.co/600x400/000/FFF?text=Imagen+Rota';">
+                <div class="portfolio-image-container">
+                    <img src="${project.image}" alt="Imagen de ${project.title}" style="object-fit: ${imageFitStyle};" onerror="this.onerror=null;this.src='https://placehold.co/600x400/000/FFF?text=Imagen+Rota';">
+                </div>
                 <div class="portfolio-content">
                     <h3>${project.title}</h3>
                     <p>${project.description}</p>
@@ -99,11 +100,11 @@ class Portfolio extends HTMLElement {
             grid.appendChild(card);
         });
 
-        // 4. Añadir la lógica para los botones de filtro
         this.addFilterEventListeners();
     }
 
     addFilterEventListeners() {
+        // ... (el código de los filtros se mantiene igual) ...
         const tabButtons = this.querySelectorAll('.tab-button');
         const portfolioItems = this.querySelectorAll('.portfolio-item');
 
@@ -117,9 +118,7 @@ class Portfolio extends HTMLElement {
                 portfolioItems.forEach(item => {
                     const category = item.getAttribute('data-category');
                     if (filter === 'all' || category === filter) {
-                        // *** LA CORRECCIÓN CLAVE ESTÁ AQUÍ ***
-                        // Usamos 'display: flex' en lugar de 'display: block' para mantener la alineación.
-                        item.style.display = 'flex'; 
+                        item.style.display = 'flex';
                     } else {
                         item.style.display = 'none';
                     }

@@ -271,6 +271,20 @@ h2 {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
+.portfolio-image-container {
+    width: 100%;
+    height: 200px;
+    background-color: #000; /* Fondo negro para que 'contain' se vea bien */
+    padding: 10px; /* Un pequeño margen para los logos */
+    box-sizing: border-box;
+}
+
+.portfolio-image-container img {
+    width: 100%;
+    height: 100%;
+    /* El object-fit se aplica ahora dinámicamente con JS */
+}
+
 .portfolio-item img {
     width: 100%;
     height: 200px;

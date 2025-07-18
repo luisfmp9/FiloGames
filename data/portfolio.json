@@ -6,7 +6,8 @@
     "image": "IMG/Portfolio/VideoGames/Chuter/ChuterSplash.webp",
     "description": "Elimina a las piezas de ajedrez enemigas, antes que ellas eliminen a tu rey. Un juego de estrategia por turnos.",
     "playUrl": "https://luisfmp.itch.io/chuter",
-    "detailsUrl": "portfolio/chuter"
+    "detailsUrl": "portfolio/chuter",
+    "imageFit": "cover"
   },
   {
     "id": "mictlan-challenge",
@@ -15,7 +16,8 @@
     "image": "IMG/Portfolio/VideoGames/MictlanChallenge/MictlanChallengeLogo.webp",
     "description": "Debes volver al mundo de los vivos por la ofrenda que darás a Mictlantecuhtli para poder avanzar en el camino de los no vivos.",
     "playUrl": "https://eniergarcia.itch.io/mictlan-challenge",
-    "detailsUrl": "portfolio/mictlan-challenge"
+    "detailsUrl": "portfolio/mictlan-challenge",
+    "imageFit": "cover"
   },
   {
     "id": "latin-vibes",
@@ -24,7 +26,8 @@
     "image": "IMG/Portfolio/VideoGames/Latin Vibes/latinVibes.webp",
     "description": "Ojos que no ven corazón que no siente, ojos que sí ven corazón que sana. Una ficción interactiva sobre relaciones.",
     "playUrl": "https://csilva.itch.io/latin-vibes",
-    "detailsUrl": "portfolio/latin-vibes"
+    "detailsUrl": "portfolio/latin-vibes",
+    "imageFit": "cover"
   },
   {
     "id": "platmat",
@@ -33,7 +36,8 @@
     "image": "IMG/Portfolio/VideoGames/PlatMat/PlatMatLogo.webp",
     "description": "Un robot explora los límites de su programación y libre albedrío en este juego de plataformas y puzzles.",
     "playUrl": "https://luisfmp.itch.io/platmat",
-    "detailsUrl": "portfolio/platmat"
+    "detailsUrl": "portfolio/platmat",
+    "imageFit": "cover"
   },
   {
     "id": "foodwar",
@@ -42,7 +46,8 @@
     "image": "IMG/Portfolio/VideoGames/FoodWar/FoodWarLogo.webp",
     "description": "Sátira sobre el conflicto y el nacionalismo a través de una guerra de alimentos.",
     "playUrl": "#",
-    "detailsUrl": "portfolio/foodwar"
+    "detailsUrl": "portfolio/foodwar",
+    "imageFit": "cover"
   },
   {
     "id": "nasia-beads",
@@ -51,7 +56,8 @@
     "image": "IMG/Portfolio/Webs/Nasia-Beads/NasiaBeadsLogo.webp",
     "description": "Catálogo digital para Nasia Beads optimizado para ventas por WhatsApp.",
     "playUrl": "https://luisfmp9.github.io/Nasia-Beads/",
-    "detailsUrl": "portfolio/nasia-beads"
+    "detailsUrl": "portfolio/nasia-beads",
+    "imageFit": "cover"
   },
   {
     "id": "filogames-web",
@@ -60,7 +66,8 @@
     "image": "IMG/Marca/logoFilo.webp",
     "description": "Nuestro propio sitio web profesional, construido con Web Components y un diseño moderno.",
     "playUrl": null,
-    "detailsUrl": "portfolio/filogames-web"
+    "detailsUrl": "portfolio/filogames-web",
+    "imageFit": "contain"
   },
   {
     "id": "taypi-ar",
@@ -69,6 +76,7 @@
     "image": "IMG/Portfolio/AR VR/Taypi/logoTaypi.webp",
     "description": "Experiencia de Realidad Aumentada para la visualización y prueba virtual de calzado.",
     "playUrl": "#",
-    "detailsUrl": "portfolio/taypi-ar"
+    "detailsUrl": "portfolio/taypi-ar",
+    "imageFit": "contain"
   }
 ]

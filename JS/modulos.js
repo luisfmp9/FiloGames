@@ -9,7 +9,7 @@ class Header extends HTMLElement {
                     <a href="/FiloGames" class="logo">FiloGames</a>
                     <nav>
                         <ul class="nav-menu">
-                            <li class="nav-item"><a href="/FiloGames" class="nav-link active">Inicio</a></li>
+                            <li class="nav-item"><a href="/" class="nav-link active">Inicio</a></li>
                             <li class="nav-item"><a href="portfolio" class="nav-link">Portafolio</a></li>
                             <li class="nav-item"><a href="services" class="nav-link">Servicios</a></li>
                             <li class="nav-item"><a href="team" class="nav-link">Equipo</a></li>

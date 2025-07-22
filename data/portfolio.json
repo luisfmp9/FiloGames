@@ -11,7 +11,11 @@
     "imageBg": "#101010",
     "priority": 90,
     "show": true,
-    "teamIds": ["luisfmp", "alvaro-r", "daigoro"]
+    "team": [
+      { "id": "luisfmp", "role": "Dirección & Producción & Game Design" },
+      { "id": "alvaro-r", "role": "Líder Programación & Programador UI/UX" },
+      { "id": "dventuram", "role": "Compositor Musical" }
+    ]
   },
   {
     "id": "mictlan-challenge",
@@ -24,7 +28,8 @@
     "imageFit": "contain",
     "imageBg": "#101010",
     "priority": 50,
-    "show": false
+    "show": false,
+    "team": []
   },
   {
     "id": "latin-vibes",
@@ -38,7 +43,13 @@
     "imageBg": "#101010",
     "priority": 100,
     "show": true,
-    "teamIds": ["csilva", "enier-art", "luisfmp", "alvaro-r", "dventuram"]
+    "team": [
+      { "id": "csilva", "role": "Artista Líder, Artista UI & Storytelling" },
+      { "id": "enier-art", "role": "Artista, Ensamblador & Animador" },
+      { "id": "luisfmp", "role": "Producción & Ingeniería de Software" },
+      { "id": "alvaro-r", "role": "Líder Programación & Programador UI/UX" },
+      { "id": "dventuram", "role": "Músico & Efectos de Sonido" }
+    ]
   },
   {
     "id": "platmat",
@@ -51,7 +62,8 @@
     "imageFit": "contain",
     "imageBg": "#101010",
     "priority": 70,
-    "show": true
+    "show": true,
+    "team": []
   },
   {
     "id": "foodwar",
@@ -64,7 +76,8 @@
     "imageFit": "cover",
     "imageBg": "#101010",
     "priority": 40,
-    "show": false
+    "show": false,
+    "team": []
   },
   {
     "id": "nasia-beads",
@@ -77,7 +90,8 @@
     "imageFit": "contain",
     "imageBg": "#101010",
     "priority": 60,
-    "show": true
+    "show": true,
+    "team": []
   },
   {
     "id": "filogames-web",
@@ -91,7 +105,9 @@
     "imageBg": "#101010",
     "priority": 80,
     "show": true,
-    "teamIds": ["luisfmp"]
+    "team": [
+      { "id": "luisfmp", "role": "Diseñador & Desarrollador Web" }
+    ]
   },
   {
     "id": "taypi-ar",
@@ -104,6 +120,7 @@
     "imageFit": "contain",
     "imageBg": "#101010",
     "priority": 70,
-    "show": true
+    "show": true,
+    "team": []
   }
 ]

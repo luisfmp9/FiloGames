@@ -871,6 +871,18 @@ h2 {
 .metadata-list .label { color: var(--color-text-secondary); }
 .metadata-list .value { font-weight: 600; text-align: right; }
 
+/* --- ESTILOS PARA EL ENLACE EN LA LISTA DE METADATOS --- */
+.metadata-list .value a.metadata-link {
+    color: inherit; /* Hereda el color del texto normal */
+    text-decoration: underline;
+    text-decoration-style: dotted; /* Un subrayado más sutil */
+    transition: color 0.3s ease;
+}
+
+.metadata-list .value a.metadata-link:hover {
+    color: var(--color-secondary); /* Cambia a color de acento al pasar el mouse */
+}
+
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

@@ -10,7 +10,8 @@
     "imageFit": "cover",
     "imageBg": "#101010",
     "priority": 90,
-    "show": true
+    "show": true,
+    "teamIds": ["luisfmp", "alvaro-r", "daigoro"]
   },
   {
     "id": "mictlan-challenge",
@@ -36,7 +37,8 @@
     "imageFit": "cover",
     "imageBg": "#101010",
     "priority": 100,
-    "show": true
+    "show": true,
+    "teamIds": ["csilva", "enier-art", "luisfmp", "alvaro-r", "dventuram"]
   },
   {
     "id": "platmat",
@@ -88,7 +90,8 @@
     "imageFit": "contain",
     "imageBg": "#101010",
     "priority": 80,
-    "show": true
+    "show": true,
+    "teamIds": ["luisfmp"]
   },
   {
     "id": "taypi-ar",

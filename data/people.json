@@ -1,0 +1,90 @@
+[
+  {
+    "id": "luisfmp",
+    "fullName": "Luis Mercado",
+    "nickname": "Luisfmp",
+    "role": "Gerente General & Desarrollador",
+    "bio": "Conecta la visión filosófica con la ejecución técnica, liderando el equipo hacia nuevos horizontes creativos.",
+    "photoUrl": "IMG/Team/luisfmp.webp",
+    "avatarUrl": "IMG/Team/luisfmpAvatar.webp",
+    "externalUrl": "https://luisfmp.itch.io/",
+    "type": "core"
+  },
+  {
+    "id": "daigoro",
+    "fullName": "Dáigoro Ventura",
+    "nickname": "Dáigoro",
+    "role": "Músico y Compositor",
+    "bio": "El alma sonora de Filo Games. Crea las atmósferas que dan vida y emoción a nuestros mundos.",
+    "photoUrl": "https://placehold.co/300x300/EEE/333?text=Foto+D",
+    "avatarUrl": "IMG/Team/DaigoroAvatar.webp",
+    "externalUrl": null,
+    "type": "core"
+  },
+  {
+    "id": "alvaro-r",
+    "fullName": "Alvaro Racchumi",
+    "nickname": "Alvaro",
+    "role": "Programador Principal",
+    "bio": "El arquitecto de la lógica. Transforma ideas complejas en código limpio, eficiente y funcional.",
+    "photoUrl": "IMG/Team/Alvaro.webp",
+    "avatarUrl": "IMG/Team/AlvaroAvatar.webp",
+    "externalUrl": "https://supergamer15.itch.io/",
+    "type": "core"
+  },
+  {
+    "id": "joaquin",
+    "fullName": "Joaquin Ordinola",
+    "nickname": "Joaquin",
+    "role": "Finanzas y Estrategia",
+    "bio": "Asegura que la creatividad tenga una base sólida, gestionando los recursos para garantizar la viabilidad de los proyectos.",
+    "photoUrl": "https://placehold.co/300x300/EEE/333?text=Foto+J",
+    "avatarUrl": "https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+J",
+    "externalUrl": null,
+    "type": "core"
+  },
+  {
+    "id": "fernanda",
+    "fullName": "María Fernanda Floriano",
+    "nickname": "Fernanda",
+    "role": "Gerente de Ventas",
+    "bio": "Crea los puentes entre nuestros proyectos y el mundo, forjando alianzas y oportunidades de negocio.",
+    "photoUrl": "https://placehold.co/300x300/EEE/333?text=Foto+F",
+    "avatarUrl": "https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+F",
+    "externalUrl": null,
+    "type": "core"
+  },
+  {
+    "id": "milagros-s",
+    "fullName": "Milagros Santillan",
+    "nickname": "Milagros",
+    "role": "Representante Comercial",
+    "bio": "Forja alianzas estratégicas y oportunidades de negocio.",
+    "photoUrl": "https://placehold.co/300x300/EEE/333?text=Foto+M",
+    "avatarUrl": "https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+M",
+    "externalUrl": null,
+    "type": "core"
+  },
+  {
+    "id": "csilva",
+    "fullName": "Csilva",
+    "nickname": "Csilva",
+    "role": "Artista Líder, Artista UI, Storytelling",
+    "bio": "Artista y narradora visual, experta en crear la identidad y la interfaz de mundos interactivos.",
+    "photoUrl": "https://placehold.co/300x300/EEE/333?text=Foto+CS",
+    "avatarUrl": "https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+CS",
+    "externalUrl": "https://csilva.itch.io",
+    "type": "ally"
+  },
+  {
+    "id": "enier-art",
+    "fullName": "Enier Art",
+    "nickname": "Enier Art",
+    "role": "Artista, Ensamblador y Animador",
+    "bio": "Da vida a los personajes y escenarios, combinando talento artístico con habilidades técnicas de animación.",
+    "photoUrl": "https://placehold.co/300x300/EEE/333?text=Foto+EA",
+    "avatarUrl": "https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+EA",
+    "externalUrl": "https://eniergarcia.itch.io/",
+    "type": "ally"
+  }
+]

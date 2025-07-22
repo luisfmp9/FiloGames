@@ -6,15 +6,15 @@ class Header extends HTMLElement {
         this.innerHTML = `
             <header class="header">
                 <div class="nav-container">
-                    <a href="/FiloGames" class="logo">FiloGames</a>
+                    <a href="/FiloGames/" class="logo">FiloGames</a>
                     <nav>
                         <ul class="nav-menu">
                             <li class="nav-item"><a href="/" class="nav-link active">Inicio</a></li>
-                            <li class="nav-item"><a href="portfolio" class="nav-link">Portafolio</a></li>
-                            <li class="nav-item"><a href="services" class="nav-link">Servicios</a></li>
-                            <li class="nav-item"><a href="team" class="nav-link">Equipo</a></li>
-                            <li class="nav-item"><a href="contact" class="nav-link">Contacto</a></li>
-                            <li class="nav-item"><a href="about" class="nav-link">Sobre Nosotros</a></li>
+                            <li class="nav-item"><a href="/portfolio" class="nav-link">Portafolio</a></li>
+                            <li class="nav-item"><a href="/services" class="nav-link">Servicios</a></li>
+                            <li class="nav-item"><a href="/team" class="nav-link">Equipo</a></li>
+                            <li class="nav-item"><a href="/contact" class="nav-link">Contacto</a></li>
+                            <li class="nav-item"><a href="/about" class="nav-link">Sobre Nosotros</a></li>
                         </ul>
                     </nav>
                     <div class="hamburger">
@@ -176,39 +176,80 @@ class Contact extends HTMLElement {
 }
 
 class Team extends HTMLElement {
-    connectedCallback() {
+    async connectedCallback() {
+        const response = await fetch('data/people.json');
+        const people = await response.json();
+        
+        // Filtra solo a los miembros del equipo principal
+        const coreTeam = people.filter(person => person.type === 'core');
+
+        let teamCardsHTML = '';
+        coreTeam.forEach(person => {
+            teamCardsHTML += `
+                <div class="team-card">
+                    <div class="team-image-wrapper">
+                        <img src="${person.photoUrl}" alt="Foto de ${person.fullName}" class="team-image team-photo">
+                        <img src="${person.avatarUrl}" alt="Avatar de ${person.fullName}" class="team-image team-avatar">
+                    </div>
+                    <h3>${person.fullName}</h3>
+                    <p class="role">${person.role}</p>
+                    <p class="bio">${person.bio}</p>
+                </div>
+            `;
+        });
+
         this.innerHTML = `
             <section class="container">
                 <h2>Los Filósofos</h2>
                 <p class="section-subtitle">Las mentes y corazones detrás de cada línea de código, cada nota musical y cada decisión estratégica.</p>
                 <div class="team-grid">
-                    <div class="team-card">
-                        <div class="team-image-wrapper"><img src="IMG/Team/luisfmp.webp" alt="Foto de Luis Mercado" class="team-image team-photo"><img src="IMG/Team/luisfmpAvatar.webp" alt="Avatar de Luis Mercado" class="team-image team-avatar"></div>
-                        <h3>Luis Mercado</h3><p class="role">Gerente General & Dev</p><p class="bio">Conecta la visión filosófica con la ejecución técnica, liderando el equipo hacia nuevos horizontes creativos.</p>
-                    </div>
-                    <div class="team-card">
-                        <div class="team-image-wrapper"><img src="https://placehold.co/300x300/EEE/333?text=Foto+Dáigoro" alt="Foto de Dáigoro" class="team-image team-photo"><img src="IMG/Team/DaigoroAvatar.webp" alt="Avatar de Dáigoro" class="team-image team-avatar"></div>
-                        <h3>Dáigoro</h3><p class="role">Músico y Compositor</p><p class="bio">El alma sonora de Filo Games. Crea las atmósferas que dan vida y emoción a nuestros mundos.</p>
-                    </div>
-                    <div class="team-card">
-                        <div class="team-image-wrapper"><img src="https://placehold.co/300x300/EEE/333?text=Foto+Alvaro" alt="Foto de Alvaro" class="team-image team-photo"><img src="IMG/Team/AlvaroAvatar.webp" alt="Avatar de Alvaro" class="team-image team-avatar"></div>
-                        <h3>Alvaro</h3><p class="role">Programador Principal</p><p class="bio">El arquitecto de la lógica. Transforma ideas complejas en código limpio, eficiente y funcional.</p>
-                    </div>
-                    <div class="team-card">
-                        <div class="team-image-wrapper"><img src="https://placehold.co/300x300/EEE/333?text=Foto+Joaquin" alt="Foto de Joaquin" class="team-image team-photo"><img src="https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+J" alt="Avatar de Joaquin" class="team-image team-avatar"></div>
-                        <h3>Joaquin</h3><p class="role">Finanzas y Estrategia</p><p class="bio">Asegura que la creatividad tenga una base sólida, gestionando los recursos para garantizar la viabilidad de los proyectos.</p>
-                    </div>
-                    <div class="team-card">
-                        <div class="team-image-wrapper"><img src="https://placehold.co/300x300/EEE/333?text=Foto+Mafer" alt="Foto de María Fernanda" class="team-image team-photo"><img src="https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+F" alt="Avatar de María Fernanda" class="team-image team-avatar"></div>
-                        <h3>María Fernanda</h3><p class="role">Gerente de Ventas</p><p class="bio">Crea los puentes entre nuestros proyectos y el mundo, forjando alianzas y oportunidades de negocio.</p>
-                    </div>
-                    <div class="team-card">
-                        <div class="team-image-wrapper"><img src="https://placehold.co/300x300/EEE/333?text=Foto+Milagros" alt="Foto de Milagros" class="team-image team-photo"><img src="https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+M" alt="Avatar de María Fernanda" class="team-image team-avatar"></div>
-                        <h3>Milagros Santillan</h3><p class="role">Representante Comercial</p><p class="bio">Forja alianzas estratégicas y oportunidades de negocio.</p>
-                    </div>
+                    ${teamCardsHTML}
                 </div>
             </section>
-        `
+        `;
+    }
+}
+
+class ProjectTeam extends HTMLElement {
+    async connectedCallback() {
+        const teamIds = this.getAttribute('team-ids').split(',');
+
+        // CORRECCIÓN: La ruta ahora sube un nivel para encontrar el archivo JSON
+        const peopleResponse = await fetch('../data/people.json'); 
+        const allPeople = await peopleResponse.json();
+        
+        const projectTeam = allPeople.filter(person => teamIds.includes(person.id));
+
+        let teamCardsHTML = '';
+        projectTeam.forEach(person => {
+            // CORRECCIÓN: Se crea un botón para el enlace externo
+            const linkButton = person.externalUrl 
+                ? `<a href="${person.externalUrl}" target="_blank" class="cta-button secondary team-link-button">Ver Perfil</a>` 
+                : '';
+
+            teamCardsHTML += `
+                <div class="team-card">
+                    <div class="team-image-wrapper">
+                        <img src="../${person.photoUrl}" alt="Foto de ${person.fullName}" class="team-image team-photo" onerror="this.src='https://placehold.co/300x300/EEE/333?text=Foto'">
+                        <img src="../${person.avatarUrl}" alt="Avatar de ${person.fullName}" class="team-image team-avatar" onerror="this.src='https://placehold.co/300x300/1a1a1a/FFF?text=Avatar'">
+                    </div>
+                    <h3>${person.nickname}</h3>
+                    <p class="role">${person.role}</p>
+                    <div class="team-card-footer">
+                        ${linkButton}
+                    </div>
+                </div>
+            `;
+        });
+
+        this.innerHTML = `
+            <section class="container">
+                <h2>Equipo del Proyecto</h2>
+                <div class="team-grid">
+                    ${teamCardsHTML}
+                </div>
+            </section>
+        `;
     }
 }
 
@@ -326,6 +367,7 @@ customElements.define('mi-header', Header);
 customElements.define('mi-footer', Footer);
 customElements.define('mi-features', Features);
 customElements.define('mi-team', Team);
+customElements.define('mi-project-team', ProjectTeam);
 customElements.define('mi-social-media', SocialMedia);
 customElements.define('mi-contact', Contact);
 customElements.define('mi-music', Music);

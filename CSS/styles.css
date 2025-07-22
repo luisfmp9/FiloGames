@@ -902,6 +902,26 @@ h2 {
     height: 100%;
 }
 
+/* --- ESTILOS PARA LAS TARJETAS DE EQUIPO DEL PROYECTO --- */
+
+/* Hacemos que la biografía (si existe) o el rol crezcan */
+.team-card .bio, .team-card .role {
+    flex-grow: 1;
+}
+
+/* Contenedor para el botón, asegura que esté al final */
+.team-card-footer {
+    margin-top: 20px; /* Espacio entre el rol y el botón */
+}
+
+/* Estilo para el botón de perfil */
+.team-link-button {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    display: inline-block; /* Asegura que el botón no ocupe todo el ancho */
+    width: auto;
+}
+
 /* Estilos para los botones de navegación del carrusel */
 .carousel-button {
     background-color: var(--color-surface);

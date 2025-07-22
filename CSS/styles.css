@@ -924,11 +924,12 @@ h2 {
 /* Contenedor para el botón, asegura que esté al final */
 .team-card-footer {
     margin-top: 20px; /* Espacio entre el rol y el botón */
+    height: 45px;
 }
 
 /* Estilo para el botón de perfil */
 .team-link-button {
-    padding: 10px 15px;
+    padding: 10px 20px;
     font-size: 0.9rem;
     display: inline-block; /* Asegura que el botón no ocupe todo el ancho */
     width: auto;

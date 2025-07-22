@@ -213,25 +213,21 @@ class Team extends HTMLElement {
 class ProjectTeam extends HTMLElement {
     async connectedCallback() {
         const projectId = this.getAttribute('project-id');
-        const sortOrder = this.getAttribute('sort-order'); // Leemos el nuevo atributo
+        const sortOrder = this.getAttribute('sort-order');
 
-        // Cargar ambas bases de datos
         const peopleResponse = await fetch('../data/people.json');
         const allPeople = await peopleResponse.json();
         
         const portfolioResponse = await fetch('../data/portfolio.json');
         const portfolio = await portfolioResponse.json();
 
-        // Encontrar el proyecto actual y su equipo
         const currentProject = portfolio.find(p => p.id === projectId);
         let projectTeam = [];
         if (currentProject && currentProject.team) {
             projectTeam = currentProject.team;
         }
 
-        // Si sort-order NO es "fixed", barajamos el equipo
         if (sortOrder !== 'fixed') {
-            // Algoritmo de Fisher-Yates para barajar el array
             for (let i = projectTeam.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [projectTeam[i], projectTeam[j]] = [projectTeam[j], projectTeam[i]];
@@ -243,16 +239,24 @@ class ProjectTeam extends HTMLElement {
             const personData = allPeople.find(p => p.id === teamMember.id);
             if (!personData) return;
 
-            const link = personData.externalUrl ? `<a href="${personData.externalUrl}" target="_blank">${personData.nickname}</a>` : personData.nickname;
+            const linkButton = personData.externalUrl 
+                ? `<a href="${personData.externalUrl}" target="_blank" class="cta-button secondary team-link-button">Ver Perfil</a>` 
+                : '';
             
+            // Lógica para el nombre: usa el override, si no existe usa el nickname, y si no, el nombre completo.
+            const displayName = teamMember.displayName || personData.nickname || personData.fullName;
+
             teamCardsHTML += `
                 <div class="team-card">
                     <div class="team-image-wrapper">
                         <img src="../${personData.photoUrl}" alt="Foto de ${personData.fullName}" class="team-image team-photo" onerror="this.src='https://placehold.co/300x300/EEE/333?text=Foto'">
                         <img src="../${personData.avatarUrl}" alt="Avatar de ${personData.fullName}" class="team-image team-avatar" onerror="this.src='https://placehold.co/300x300/1a1a1a/FFF?text=Avatar'">
                     </div>
-                    <h3>${link}</h3>
+                    <h3>${displayName}</h3>
                     <p class="role">${teamMember.role}</p>
+                    <div class="team-card-footer">
+                        ${linkButton}
+                    </div>
                 </div>
             `;
         });

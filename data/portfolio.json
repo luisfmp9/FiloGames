@@ -12,7 +12,7 @@
     "priority": 90,
     "show": true,
     "team": [
-      { "id": "luisfmp", "role": "Dirección & Producción & Game Design" },
+      { "id": "luisfmp", "role": "Dirección & Producción & Game Design", "displayName": "Luis Mercado (Luisfmp)" },
       { "id": "alvaro-r", "role": "Líder Programación & Programador UI/UX" },
       { "id": "dventuram", "role": "Compositor Musical" }
     ]
@@ -46,7 +46,7 @@
     "team": [
       { "id": "csilva", "role": "Artista Líder, Artista UI & Storytelling" },
       { "id": "enier-art", "role": "Artista, Ensamblador & Animador" },
-      { "id": "luisfmp", "role": "Producción & Ingeniería de Software" },
+      { "id": "luisfmp", "role": "Producción & Ingeniería de Software", "displayName": "Luis Mercado (Luisfmp)" },
       { "id": "alvaro-r", "role": "Líder Programación & Programador UI/UX" },
       { "id": "dventuram", "role": "Músico & Efectos de Sonido" }
     ]

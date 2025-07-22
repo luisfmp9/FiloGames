@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título y Metadatos Específicos para el Juego -->
+    <title>Latin Vibes - Un Proyecto de Filo Games</title>
+    <meta name="description" content="Explora Latin Vibes, una ficción interactiva sobre relaciones, amor y sanación. Un proyecto destacado en el portafolio de Filo Games.">
+    
+    <!-- Enlaces a CSS y Fonts (Asegúrate de que las rutas relativas sean correctas) -->
+    <link rel="stylesheet" href="../CSS/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="../IMG/logoFilo.ico" type="image/x-icon">
+
+    <!-- Web Components -->
+    <script type="module" src="../JS/modulos.js"></script>
+</head>
+<body>
+    <!-- El header se carga desde modulos.js -->
+    <mi-header></mi-header>
+
+    <main>
+        <!-- Header específico del juego con su imagen -->
+        <header class="game-header" style="background-image: linear-gradient(rgba(10, 10, 26, 0.8), rgba(10, 10, 26, 0.6)), url('https://img.itch.zone/aW1nLzE3ODczNDg5LnBuZw==/original/J%2F%2B%2B%2Bw.png');">
+            <h1>Latin Vibes</h1>
+            <p class="tagline">"Ojos que no ven corazón que no siente, ojos que sí ven corazón que sana."</p>
+        </header>
+
+        <div class="container game-page-container">
+            <!-- Columna Principal de Contenido -->
+            <div class="main-content">
+                <h3>Sobre el Juego</h3>
+                <p>Latin Vibes es una ficción interactiva que sumerge al jugador en una narrativa profunda sobre las complejidades de las relaciones humanas. A través de decisiones significativas, la historia explora temas de amor, desamor y el proceso de sanación emocional, todo ello envuelto en una atmósfera con un distintivo toque cultural latino.</p>
+                
+                <h4>Galería</h4>
+                <div class="gallery-grid">
+                    <img src="https://img.itch.zone/aW1nLzE3ODczNDg5LnBuZw==/original/J%2F%2B%2B%2Bw.png" alt="Escena de Latin Vibes 1">
+                    <img src="https://placehold.co/600x400/1a1a3a/ffffff?text=Gameplay+2" alt="Placeholder para Gameplay">
+                    <img src="https://placehold.co/600x400/1a1a3a/ffffff?text=Gameplay+3" alt="Placeholder para Gameplay">
+                </div>
+
+                <h4>Video de Gameplay</h4>
+                <div class="video-container">
+                    <!-- Reemplaza el 'src' con tu video de YouTube cuando lo tengas -->
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- Columna Lateral (Sidebar) con Metadatos -->
+            <aside class="sidebar">
+                <div class="metadata-box action-buttons">
+                    <a href="https://csilva.itch.io/latin-vibes" target="_blank" class="cta-button primary">Jugar en Navegador</a>
+                </div>
+
+                <div class="metadata-box">
+                    <ul class="metadata-list">
+                        <li><span class="label">Estado</span> <span class="value">Terminado</span></li>
+                        <li><span class="label">Plataformas</span> <span class="value">Web, Móvil</span></li>
+                        <li><span class="label">Autor Principal</span> <span class="value">C. Silva</span></li>
+                        <li><span class="label">Género</span> <span class="value">Ficción Interactiva</span></li>
+                        <li><span class="label">Etiquetas</span> <span class="value">Narrativa, Drama, Relaciones</span></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Sección de Equipo del Proyecto (Personalizada) -->
+        <section class="container">
+            <h2>Equipo del Proyecto</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image-wrapper">
+                        <img src="https://placehold.co/300x300/EEE/333?text=Foto" alt="Foto de C. Silva" class="team-image team-photo">
+                        <img src="https://placehold.co/300x300/1a1a1a/FFF?text=Avatar" alt="Avatar de C. Silva" class="team-image team-avatar">
+                    </div>
+                    <h3>C. Silva</h3><p class="role">Escritora y Desarrolladora Principal</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-image-wrapper">
+                        <img src="IMG/Marca/logoFilo.webp" alt="Logo de Filo Games" class="team-image team-photo" style="object-fit: contain; padding: 20px;">
+                        <img src="IMG/Marca/logoFilo.webp" alt="Logo de Filo Games" class="team-image team-avatar" style="object-fit: contain; padding: 20px;">
+                    </div>
+                    <h3>Filo Games</h3><p class="role">Producción y Colaboración</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <mi-footer></mi-footer>
+</body>
+</html>

@@ -782,6 +782,126 @@ h2 {
 
 .pricing-card .cta-button { margin-top: auto; }
 
+/* --- ESTILOS PARA LA PÁGINA DE DETALLE DE PROYECTO --- */
+
+.game-header {
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+    position: relative;
+}
+
+.game-header h1 {
+    font-size: 4rem;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    margin: 0;
+}
+
+.game-header .tagline {
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    max-width: 600px;
+}
+
+.game-page-container {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 columna por defecto para móviles */
+    gap: 40px;
+    margin-top: -80px; /* Solapa ligeramente con el header */
+    position: relative;
+    z-index: 2;
+}
+
+@media (min-width: 992px) {
+    .game-page-container {
+        grid-template-columns: 2fr 1fr; /* 2 columnas en desktop */
+    }
+}
+
+.main-content {
+    background-color: var(--color-surface);
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid #2a2a2a;
+}
+
+.sidebar {
+    position: sticky;
+    top: 120px; /* Ajusta según la altura de tu header */
+    align-self: start;
+}
+
+.metadata-box {
+    background-color: var(--color-surface);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #2a2a2a;
+    margin-bottom: 30px;
+}
+
+.action-buttons .cta-button.primary {
+    display: block;
+    text-align: center;
+    margin-bottom: 15px;
+    background-color: var(--color-primary);
+    color: var(--color-background);
+}
+.action-buttons .cta-button.primary:hover {
+    background-color: #ccc;
+}
+
+.metadata-list { list-style: none; padding: 0; }
+.metadata-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+    font-size: 0.95rem;
+}
+.metadata-list li:last-child { border-bottom: none; }
+.metadata-list .label { color: var(--color-text-secondary); }
+.metadata-list .value { font-weight: 600; text-align: right; }
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 30px 0;
+}
+.gallery-grid img { 
+    width: 100%; 
+    border-radius: 8px; 
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Proporción 16:9 */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 /* Estilos para los botones de navegación del carrusel */
 .carousel-button {
     background-color: var(--color-surface);

@@ -231,6 +231,10 @@ h2 {
 .portfolio-tabs {
     text-align: center;
     margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
 .tab-button {
@@ -700,6 +704,17 @@ h2 {
     display: flex;
     flex-direction: column;
     position: relative; /* Necesario para la insignia */
+}
+
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Tamaños de tarjeta para diferentes pantallas */

@@ -2,89 +2,105 @@
   {
     "id": "chuter",
     "title": "Chuter",
-    "category": "games",
+    "categories": ["games", "web"],
     "image": "IMG/Portfolio/VideoGames/Chuter/ChuterSplash.webp",
     "description": "Elimina a las piezas de ajedrez enemigas, antes que ellas eliminen a tu rey. Un juego de estrategia por turnos.",
     "playUrl": "https://luisfmp.itch.io/chuter",
     "detailsUrl": "portfolio/chuter",
     "imageFit": "cover",
-    "imageBg": "#101010"
+    "imageBg": "#101010",
+    "priority": 90,
+    "show": true
   },
   {
     "id": "mictlan-challenge",
     "title": "Mictlán Challenge",
-    "category": "games",
+    "categories": ["games"],
     "image": "IMG/Portfolio/VideoGames/MictlanChallenge/MictlanChallengeLogo.webp",
     "description": "Debes volver al mundo de los vivos por la ofrenda que darás a Mictlantecuhtli para poder avanzar en el camino de los no vivos.",
     "playUrl": "https://eniergarcia.itch.io/mictlan-challenge",
     "detailsUrl": "portfolio/mictlan-challenge",
     "imageFit": "contain",
-    "imageBg": "#101010"
+    "imageBg": "#101010",
+    "priority": 50,
+    "show": false
   },
   {
     "id": "latin-vibes",
     "title": "Latin Vibes",
-    "category": "games",
+    "categories": ["games", "web", "mobile"],
     "image": "IMG/Portfolio/VideoGames/Latin-Vibes/latinVibes.webp",
     "description": "Ojos que no ven corazón que no siente, ojos que sí ven corazón que sana. Una ficción interactiva sobre relaciones.",
     "playUrl": "https://csilva.itch.io/latin-vibes",
     "detailsUrl": "portfolio/latin-vibes",
     "imageFit": "cover",
-    "imageBg": "#101010"
+    "imageBg": "#101010",
+    "priority": 100,
+    "show": true
   },
   {
     "id": "platmat",
     "title": "PlatMat",
-    "category": "games",
+    "categories": ["games"],
     "image": "IMG/Portfolio/VideoGames/PlatMat/PlatMatLogo.webp",
     "description": "Un robot explora los límites de su programación y libre albedrío en este juego de plataformas y puzzles.",
     "playUrl": "https://luisfmp.itch.io/platmat",
     "detailsUrl": "portfolio/platmat",
     "imageFit": "contain",
-    "imageBg": "#101010"
+    "imageBg": "#101010",
+    "priority": 70,
+    "show": true
   },
   {
     "id": "foodwar",
     "title": "FoodWar",
-    "category": "games",
+    "categories": ["games"],
     "image": "IMG/Portfolio/VideoGames/FoodWar/FoodWarLogo.webp",
     "description": "Sátira sobre el conflicto y el nacionalismo a través de una guerra de alimentos.",
     "playUrl": "https://marthaescalante.itch.io/food-war",
     "detailsUrl": "portfolio/foodwar",
     "imageFit": "cover",
-    "imageBg": "#101010"
+    "imageBg": "#101010",
+    "priority": 40,
+    "show": false
   },
   {
     "id": "nasia-beads",
     "title": "Nasia Beads - Web",
-    "category": "web",
+    "categories": ["web", "mobile"],
     "image": "IMG/Portfolio/Webs/Nasia-Beads/NasiaBeadsLogo.webp",
     "description": "Catálogo digital para Nasia Beads optimizado para ventas por WhatsApp.",
     "playUrl": "https://luisfmp9.github.io/Nasia-Beads/",
     "detailsUrl": "portfolio/nasia-beads",
     "imageFit": "contain",
-    "imageBg": "#101010"
+    "imageBg": "#101010",
+    "priority": 60,
+    "show": true
   },
   {
     "id": "filogames-web",
     "title": "Filo Games - Web",
-    "category": "web",
+    "categories": ["web", "mobile"],
     "image": "IMG/Marca/logoFilo.webp",
     "description": "Nuestro propio sitio web profesional, construido con Web Components y un diseño moderno.",
     "playUrl": null,
     "detailsUrl": "portfolio/filogames-web",
     "imageFit": "contain",
-    "imageBg": "#101010"
+    "imageBg": "#101010",
+    "priority": 80,
+    "show": true
   },
   {
     "id": "taypi-ar",
     "title": "Taypi - Calzado AR",
-    "category": "arvr",
+    "categories": ["web", "arvr", "mobile"],
     "image": "IMG/Portfolio/AR VR/Taypi/logoTaypi.webp",
     "description": "Experiencia de Realidad Aumentada para la visualización y prueba virtual de calzado.",
     "playUrl": "https://lens.snap.com/experience/8fc5f71d-6d1e-4327-aee3-7fdea238191d",
     "detailsUrl": "portfolio/taypi-ar",
     "imageFit": "contain",
-    "imageBg": "#101010"
+    "imageBg": "#101010",
+    "priority": 70,
+    "show": true
   }
 ]

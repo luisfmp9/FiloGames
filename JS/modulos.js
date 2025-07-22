@@ -47,15 +47,21 @@ class Footer extends HTMLElement {
 class Portfolio extends HTMLElement {
     async connectedCallback() {
         const response = await fetch('data/portfolio.json');
-        const projects = await response.json();
+        const allProjects = await response.json();
+
+        const projects = allProjects
+            .filter(project => project.show)
+            .sort((a, b) => b.priority - a.priority);
 
         this.innerHTML = `
             <section id="portfolio" class="container">
                 <h2>Nuestro Trabajo</h2>
-                <p class="section-subtitle">Un vistazo a los universos que hemos construido, las historias que hemos contado y los problemas que hemos resuelto.</p>
+                <p class="section-subtitle">Una selección de los universos que hemos construido, las historias que hemos contado y los problemas que hemos resuelto.</p>
+                
                 <div class="portfolio-tabs">
                     <button class="tab-button active" data-filter="all">Todo</button>
                     <button class="tab-button" data-filter="games">Videojuegos</button>
+                    <button class="tab-button" data-filter="mobile">Móviles</button>
                     <button class="tab-button" data-filter="web">Sitios Web</button>
                     <button class="tab-button" data-filter="arvr">AR/VR</button>
                 </div>
@@ -68,18 +74,18 @@ class Portfolio extends HTMLElement {
         projects.forEach(project => {
             const card = document.createElement('div');
             card.className = 'portfolio-item';
-            card.setAttribute('data-category', project.category);
+            // Guardamos las categorías como un string separado por comas
+            card.dataset.categories = project.categories.join(',');
 
             let buttonsHTML = '';
             if (project.playUrl) {
-                const playText = project.category === 'games' ? 'Jugar' : 'Probar';
+                const playText = project.categories.includes('games') ? 'Jugar' : 'Probar';
                 buttonsHTML = `<a href="${project.playUrl}" target="_blank" class="cta-button primary">${playText}</a><a href="${project.detailsUrl}" class="cta-button secondary">Detalles</a>`;
             } else {
                 buttonsHTML = `<a href="${project.detailsUrl}" class="cta-button secondary full-width">Detalles del Proyecto</a>`;
             }
 
             const imageFitStyle = project.imageFit || 'cover';
-            // **NUEVA LÍNEA**: Leemos el color de fondo. Si no existe, usamos el color de la tarjeta.
             const imageBgStyle = project.imageBg || 'var(--color-surface)';
 
             card.innerHTML = `
@@ -95,21 +101,57 @@ class Portfolio extends HTMLElement {
             grid.appendChild(card);
         });
 
-        this.addFilterEventListeners();
+        this.initializeFilters();
     }
 
-    addFilterEventListeners() {
-        const tabButtons = this.querySelectorAll('.tab-button');
+    initializeFilters() {
+        const filterButtons = this.querySelectorAll('.portfolio-tabs .tab-button');
         const portfolioItems = this.querySelectorAll('.portfolio-item');
-        tabButtons.forEach(button => {
+        const allButton = this.querySelector('[data-filter="all"]');
+        
+        let activeFilters = new Set();
+
+        const applyFilters = () => {
+            portfolioItems.forEach(item => {
+                const itemCategories = new Set(item.dataset.categories.split(','));
+                
+                // Si no hay filtros activos, o el filtro "Todo" está activo, mostrar todo
+                if (activeFilters.size === 0) {
+                    item.style.display = 'flex';
+                    return;
+                }
+                
+                // Comprobar si el item tiene TODAS las categorías activas
+                const isVisible = [...activeFilters].every(filter => itemCategories.has(filter));
+                item.style.display = isVisible ? 'flex' : 'none';
+            });
+        };
+
+        filterButtons.forEach(button => {
             button.addEventListener('click', () => {
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                const filter = button.getAttribute('data-filter');
-                portfolioItems.forEach(item => {
-                    const category = item.getAttribute('data-category');
-                    item.style.display = (filter === 'all' || category === filter) ? 'flex' : 'none';
-                });
+                const filter = button.dataset.filter;
+
+                if (filter === 'all') {
+                    activeFilters.clear();
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    allButton.classList.add('active');
+                } else {
+                    allButton.classList.remove('active');
+                    if (activeFilters.has(filter)) {
+                        activeFilters.delete(filter);
+                        button.classList.remove('active');
+                    } else {
+                        activeFilters.add(filter);
+                        button.classList.add('active');
+                    }
+
+                    // Si no queda ningún filtro, activar "Todo"
+                    if (activeFilters.size === 0) {
+                        allButton.classList.add('active');
+                    }
+                }
+                
+                applyFilters();
             });
         });
     }

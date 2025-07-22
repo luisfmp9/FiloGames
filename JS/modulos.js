@@ -212,32 +212,47 @@ class Team extends HTMLElement {
 
 class ProjectTeam extends HTMLElement {
     async connectedCallback() {
-        const teamIds = this.getAttribute('team-ids').split(',');
+        const projectId = this.getAttribute('project-id');
+        const sortOrder = this.getAttribute('sort-order'); // Leemos el nuevo atributo
 
-        // CORRECCIÓN: La ruta ahora sube un nivel para encontrar el archivo JSON
-        const peopleResponse = await fetch('../data/people.json'); 
+        // Cargar ambas bases de datos
+        const peopleResponse = await fetch('../data/people.json');
         const allPeople = await peopleResponse.json();
         
-        const projectTeam = allPeople.filter(person => teamIds.includes(person.id));
+        const portfolioResponse = await fetch('../data/portfolio.json');
+        const portfolio = await portfolioResponse.json();
+
+        // Encontrar el proyecto actual y su equipo
+        const currentProject = portfolio.find(p => p.id === projectId);
+        let projectTeam = [];
+        if (currentProject && currentProject.team) {
+            projectTeam = currentProject.team;
+        }
+
+        // Si sort-order NO es "fixed", barajamos el equipo
+        if (sortOrder !== 'fixed') {
+            // Algoritmo de Fisher-Yates para barajar el array
+            for (let i = projectTeam.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [projectTeam[i], projectTeam[j]] = [projectTeam[j], projectTeam[i]];
+            }
+        }
 
         let teamCardsHTML = '';
-        projectTeam.forEach(person => {
-            // CORRECCIÓN: Se crea un botón para el enlace externo
-            const linkButton = person.externalUrl 
-                ? `<a href="${person.externalUrl}" target="_blank" class="cta-button secondary team-link-button">Ver Perfil</a>` 
-                : '';
+        projectTeam.forEach(teamMember => {
+            const personData = allPeople.find(p => p.id === teamMember.id);
+            if (!personData) return;
 
+            const link = personData.externalUrl ? `<a href="${personData.externalUrl}" target="_blank">${personData.nickname}</a>` : personData.nickname;
+            
             teamCardsHTML += `
                 <div class="team-card">
                     <div class="team-image-wrapper">
-                        <img src="../${person.photoUrl}" alt="Foto de ${person.fullName}" class="team-image team-photo" onerror="this.src='https://placehold.co/300x300/EEE/333?text=Foto'">
-                        <img src="../${person.avatarUrl}" alt="Avatar de ${person.fullName}" class="team-image team-avatar" onerror="this.src='https://placehold.co/300x300/1a1a1a/FFF?text=Avatar'">
+                        <img src="../${personData.photoUrl}" alt="Foto de ${personData.fullName}" class="team-image team-photo" onerror="this.src='https://placehold.co/300x300/EEE/333?text=Foto'">
+                        <img src="../${personData.avatarUrl}" alt="Avatar de ${personData.fullName}" class="team-image team-avatar" onerror="this.src='https://placehold.co/300x300/1a1a1a/FFF?text=Avatar'">
                     </div>
-                    <h3>${person.nickname}</h3>
-                    <p class="role">${person.role}</p>
-                    <div class="team-card-footer">
-                        ${linkButton}
-                    </div>
+                    <h3>${link}</h3>
+                    <p class="role">${teamMember.role}</p>
                 </div>
             `;
         });

@@ -11,7 +11,7 @@
     "type": "core"
   },
   {
-    "id": "daigoro",
+    "id": "dventuram",
     "fullName": "Dáigoro Ventura",
     "nickname": "Dáigoro",
     "role": "Músico y Compositor",
@@ -33,7 +33,7 @@
     "type": "core"
   },
   {
-    "id": "joaquin",
+    "id": "joaquinO",
     "fullName": "Joaquin Ordinola",
     "nickname": "Joaquin",
     "role": "Finanzas y Estrategia",
@@ -44,7 +44,7 @@
     "type": "core"
   },
   {
-    "id": "fernanda",
+    "id": "fernandaF",
     "fullName": "María Fernanda Floriano",
     "nickname": "Fernanda",
     "role": "Gerente de Ventas",

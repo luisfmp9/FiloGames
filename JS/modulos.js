@@ -6,7 +6,7 @@ class Header extends HTMLElement {
         this.innerHTML = `
             <header class="header">
                 <div class="nav-container">
-                    <a href="/FiloGames/" class="logo">FiloGames</a>
+                    <a href="/" class="logo">FiloGames</a>
                     <nav>
                         <ul class="nav-menu">
                             <li class="nav-item"><a href="/" class="nav-link active">Inicio</a></li>

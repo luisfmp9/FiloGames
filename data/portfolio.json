@@ -102,7 +102,9 @@
     "imageBg": "#101010",
     "priority": 60,
     "show": true,
-    "team": []
+    "team": [
+      { "id": "luisfmp", "role": "Diseñador & Desarrollador Web" }
+    ]
   },
   {
     "id": "filogames-web",

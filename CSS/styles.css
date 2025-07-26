@@ -1102,6 +1102,27 @@ h2 {
 .footer-links a { color: var(--color-text-secondary); text-decoration: none; margin: 0 10px; }
 .footer-links a:hover { color: var(--color-primary); }
 
+/* --- ESTILOS PARA EL ENLACE DE AUTORES EN METADATOS --- */
+
+.metadata-list .value a.metadata-link {
+    /* Reutilizamos los estilos del botón secundario pero más pequeños */
+    background-color: transparent;
+    color: var(--color-text-secondary);
+    border: 1px solid #444;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.metadata-list .value a.metadata-link:hover {
+    background-color: var(--color-surface);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
 @media (min-width: 500px) {
     .advantage-cards-grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

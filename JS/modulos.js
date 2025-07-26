@@ -157,6 +157,63 @@ class Portfolio extends HTMLElement {
     }
 }
 
+class ProjectDetail extends HTMLElement {
+    async connectedCallback() {
+        const projectId = this.getAttribute('project-id');
+        if (!projectId) return;
+
+        const portfolioResponse = await fetch('../data/portfolio.json');
+        const portfolio = await portfolioResponse.json();
+        const project = portfolio.find(p => p.id === projectId);
+
+        if (!project) {
+            this.innerHTML = `<div class="container"><p>Proyecto no encontrado.</p></div>`;
+            return;
+        }
+
+        // Construir la galería de imágenes
+        let galleryHTML = '';
+        if (project.gallery && project.gallery.length > 0) {
+            project.gallery.forEach(imgUrl => {
+                galleryHTML += `<img src="${imgUrl}" alt="Imagen de la galería de ${project.title}">`;
+            });
+        }
+
+        this.innerHTML = `
+            <header class="game-header" style="background-image: linear-gradient(rgba(10, 10, 26, 0.8), rgba(10, 10, 26, 0.6)), url('${project.headerImage}');">
+                <h1>${project.title}</h1>
+                <p class="tagline">${project.tagline}</p>
+            </header>
+
+            <div class="container game-page-container">
+                <div class="main-content">
+                    <h3>Sobre el Juego</h3>
+                    <p>${project.about}</p>
+                    <h4>Galería</h4>
+                    <div class="gallery-grid">${galleryHTML}</div>
+                </div>
+
+                <aside class="sidebar">
+                    <div class="metadata-box action-buttons">
+                        <a href="${project.playUrl}" target="_blank" class="cta-button primary">Jugar (${project.platforms})</a>
+                    </div>
+                    <div class="metadata-box">
+                        <ul class="metadata-list">
+                            <li><span class="label">Estado</span> <span class="value">${project.status}</span></li>
+                            <li><span class="label">Plataformas</span> <span class="value">${project.platforms}</span></li>
+                            <li><span class="label">Autores</span> <span class="value"><a href="#project-team-section" class="cta-button secondary metadata-link">${project.authorText}</a></span></li>
+                            <li><span class="label">Género</span> <span class="value">${project.genre}</span></li>
+                            <li><span class="label">Etiquetas</span> <span class="value">${project.tags}</span></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+            
+            <mi-project-team project-id="${projectId}" id="project-team-section"></mi-project-team>
+        `;
+    }
+}
+
 class Contact extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
@@ -391,3 +448,4 @@ customElements.define('mi-social-media', SocialMedia);
 customElements.define('mi-contact', Contact);
 customElements.define('mi-music', Music);
 customElements.define('mi-portfolio', Portfolio);
+customElements.define('mi-project-detail', ProjectDetail);

@@ -49,7 +49,18 @@
       { "id": "luisfmp", "role": "Producción & Ingeniería de Software", "displayName": "Luis Mercado (Luisfmp)" },
       { "id": "alvaro-r", "role": "Líder Programación & Programador UI/UX" },
       { "id": "dventuram", "role": "Músico & Efectos de Sonido" }
-    ]
+    ],
+    "tagline": "\"Ojos que no ven corazón que no siente, ojos que sí ven corazón que sana.\"",
+    "headerImage": null,
+    "about": "Latin Vibes es una ficción interactiva que sumerge al jugador en una narrativa profunda sobre las complejidades de las relaciones humanas. A través de decisiones significativas, la historia explora temas de amor, desamor y el proceso de sanación emocional, todo ello envuelto en una atmósfera con un distintivo toque cultural latino.",
+    "gallery": [
+        "../IMG/Portfolio/VideoGames/Latin-Vibes/latinVibes.webp"
+    ],
+    "status": "En Desarrollo",
+    "platforms": "Móvil, Web & PC",
+    "authorText": "Jam Rats x Filo Games",
+    "genre": "Ficción Interactiva",
+    "tags": "Narrativa, Drama"
   },
   {
     "id": "platmat",

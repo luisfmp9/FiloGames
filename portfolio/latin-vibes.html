@@ -19,59 +19,10 @@
     <script type="module" src="../JS/modulos.js"></script>
 </head>
 <body>
-    <!-- El header se carga desde modulos.js -->
     <mi-header></mi-header>
 
     <main>
-        <!-- Header específico del juego con su imagen -->
-        <header class="game-header" style="background-image: linear-gradient(rgba(10, 10, 26, 0.8), rgba(10, 10, 26, 0.6)), url('https://img.itch.zone/aW1nLzE3ODczNDg5LnBuZw==/original/J%2F%2B%2B%2Bw.png');">
-            <h1>Latin Vibes</h1>
-            <p class="tagline">"Ojos que no ven corazón que no siente, ojos que sí ven corazón que sana."</p>
-        </header>
-
-        <div class="container game-page-container">
-            <!-- Columna Principal de Contenido -->
-            <div class="main-content">
-                <h3>Sobre el Juego</h3>
-                <p>Latin Vibes es una ficción interactiva que sumerge al jugador en una narrativa profunda sobre las complejidades de las relaciones humanas. A través de decisiones significativas, la historia explora temas de amor, desamor y el proceso de sanación emocional, todo ello envuelto en una atmósfera con un distintivo toque cultural latino.</p>
-                <h4>Galería</h4>
-                <div class="gallery-grid">
-                    <img src="../IMG/Portfolio/VideoGames/Latin-Vibes/latinVibes.webp" alt="Escena de Latin Vibes 1">
-                   <!--
-                    <img src="https://placehold.co/600x400/1a1a3a/ffffff?text=Gameplay+2" alt="Placeholder para Gameplay">
-                    <img src="https://placehold.co/600x400/1a1a3a/ffffff?text=Gameplay+3" alt="Placeholder para Gameplay">
-                    -->
-                </div>
-
-                <!--
-                <h4>Video de Gameplay</h4>
-                <div class="video-container">
-                     Reemplaza el 'src' con tu video de YouTube cuando lo tengas
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-                </div>
-                -->
-            </div>
-
-            <!-- Columna Lateral (Sidebar) con Metadatos -->
-            <aside class="sidebar">
-                <div class="metadata-box action-buttons">
-                    <a href="https://csilva.itch.io/latin-vibes" target="_blank" class="cta-button primary">Jugar (Móvil, Web & PC)</a>
-                </div>
-
-                <div class="metadata-box">
-                    <ul class="metadata-list">
-                        <li><span class="label">Estado</span> <span class="value">En Desarrollo</span></li>
-                        <li><span class="label">Plataformas</span> <span class="value">Móvil, Web & PC</span></li>
-                        <li><span class="label">Autores</span> <span class="value"><a href="#project-team-section" class="metadata-link">Jam Rats x Filo Games</a></span></li>
-                        <li><span class="label">Género</span> <span class="value">Ficción Interactiva</span></li>
-                        <li><span class="label">Etiquetas</span> <span class="value">Narrativa, Drama</span></li>
-                    </ul>
-                </div>
-            </aside>
-        </div>
-
-        <!-- SECCIÓN DE EQUIPO DEL PROYECTO (ACTUALIZADA) -->
-        <mi-project-team project-id="latin-vibes" id="project-team-section"></mi-project-team>
+        <mi-project-detail project-id="latin-vibes"></mi-project-detail>
     </main>
 
     <mi-footer></mi-footer>

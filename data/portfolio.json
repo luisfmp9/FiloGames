@@ -110,6 +110,22 @@
     ]
   },
   {
+    "id": "Error404",
+    "title": "Error 404 | PORTAL COLLAPSE",
+    "categories": ["game", "web", "mobile"],
+    "image": "IMG/Marca/logoFilo.webp",
+    "description": "Videojuego que aparece al entrar en una página que no existe dentro de filogames.com",
+    "playUrl": "https://www.filogames.com/404",
+    "detailsUrl": "portfolio/404-detail",
+    "imageFit": "contain",
+    "imageBg": "#101010",
+    "priority": 71,
+    "show": true,
+    "team": [
+      { "id": "luisfmp", "role": "Diseñador & Desarrollador" }
+    ]
+  },
+  {
     "id": "taypi-ar",
     "title": "Taypi - Calzado AR",
     "categories": ["web", "arvr", "mobile"],
@@ -121,6 +137,9 @@
     "imageBg": "#101010",
     "priority": 70,
     "show": true,
-    "team": []
+    "team": [
+      { "id": "luisfmp", "role": "Producción & Ingeniería de Software & UI"},
+      { "id": "alvaro-r", "role": "Líder Programación & Programador AR" }
+    ]
   }
 ]

@@ -15,7 +15,17 @@
       { "id": "luisfmp", "role": "Dirección & Producción & Game Design", "displayName": "Luis Mercado (Luisfmp)" },
       { "id": "alvaro-r", "role": "Líder Programación & Programador UI/UX" },
       { "id": "dventuram", "role": "Compositor Musical" }
-    ]
+    ],
+    "about": "Chuter reimagina el ajedrez clásico en un campo de batalla dinámico. No solo se trata de estrategia por turnos, sino de posicionamiento y acción. Este proyecto, finalista de la Game Jam Plus 23/24, explora la dualidad entre la lógica fría del ajedrez y el caos inherente del combate.",
+    "gallery": [
+      "../IMG/Portfolio/VideoGames/Chuter/ChuterSplash.webp"
+    ],
+    "tagline": "La estrategia es tu única arma. El jaque mate es solo el principio.",
+    "status": "En Pausa",
+    "platforms": "Web & PC",
+    "authorText": "Filo Games",
+    "genre": "Estrategia, Shooter, Roguelite",
+    "tags": "Ajedrez, Táctico, Estratégico, RogueLite, 2D, Top-Down"
   },
   {
     "id": "mictlan-challenge",
@@ -74,7 +84,18 @@
     "imageBg": "#101010",
     "priority": 70,
     "show": true,
-    "team": []
+    "team": [
+      { "id": "luisfmp", "role": "Diseñador & Desarrollador" }
+    ],
+    "tagline": "Reajusta las constantes universales. Cuestiona tu propia existencia.",
+    "headerImage": "IMG/Portfolio/VideoGames/PlatMat/PlatMatLogo.webp",
+    "about": "PlatMat es un juego de plataformas y puzzles donde un robot debe reajustar las constantes del universo. El juego es una exploración sobre el determinismo, el libre albedrío y la naturaleza de la conciencia programada, todo a través de mecánicas de juego desafiantes.",
+    "gallery": [],
+    "status": "Prototipo",
+    "platforms": "PC",
+    "authorText": "Filo Games",
+    "genre": "Plataformas, Puzzle",
+    "tags": "Filosofía, Robots, 2D"
   },
   {
     "id": "foodwar",
@@ -104,7 +125,16 @@
     "show": true,
     "team": [
       { "id": "luisfmp", "role": "Diseñador & Desarrollador Web" }
-    ]
+    ],
+    "tagline": "Un catálogo digital que convierte la pasión por el arte en ventas.",
+    "headerImage": "IMG/Portfolio/Webs/Nasia-Beads/NasiaBeadsLogo.webp",
+    "about": "Este proyecto es un ejemplo de cómo creamos soluciones web eficientes y directas. Nasia Beads necesitaba una forma sencilla de mostrar sus productos y facilitar las ventas a través de WhatsApp. Desarrollamos un catálogo digital ligero, rápido y perfectamente optimizado para dispositivos móviles.",
+    "gallery": [],
+    "status": "Entregado",
+    "platforms": "Web, Móvil",
+    "authorText": "Nasia Beads x Filo Games",
+    "genre": "Sitio Web, Catálogo",
+    "tags": "Desarrollo Web, E-commerce"
   },
   {
     "id": "filogames-web",
@@ -120,7 +150,16 @@
     "show": true,
     "team": [
       { "id": "luisfmp", "role": "Diseñador & Desarrollador Web" }
-    ]
+    ],
+    "tagline": "Nuestra fortaleza digital, construida con nuestra propia filosofía.",
+    "headerImage": "IMG/Marca/logoFilo.webp",
+    "about": "El sitio web de Filo Games es nuestra carta de presentación al mundo. Desarrollado desde cero con un enfoque en la modularidad (Web Components) y la escalabilidad (datos en JSON), este proyecto es un testimonio de nuestra filosofía: crear tecnología robusta, eficiente y con un diseño limpio que comunique ideas complejas de forma sencilla.",
+    "gallery": [],
+    "status": "En Constante Evolución",
+    "platforms": "Web, Móvil",
+    "authorText": "Filo Games",
+    "genre": "Sitio Web Corporativo",
+    "tags": "Desarrollo Web, JavaScript, Web Components, HTML, CSS, Diseño Web"
   },
   {
     "id": "Error404",
@@ -136,7 +175,16 @@
     "show": true,
     "team": [
       { "id": "luisfmp", "role": "Diseñador & Desarrollador" }
-    ]
+    ],
+    "tagline": "Incluso nuestros errores son una experiencia.",
+    "headerImage": "IMG/Portfolio/VideoGames/PortalCollapse/404.webp",
+    "about": "Transformamos una experiencia frustrante en un momento de marca memorable. 'Portal Collapse' es un minijuego arcade 2.5D con gráficos y música generados por código, que aparece cuando un usuario llega a una página que no existe. Es un ejemplo de cómo aplicamos la creatividad y la habilidad técnica para mejorar cada punto de contacto con el usuario.",
+    "gallery": [],
+    "status": "Terminado",
+    "platforms": "Web, Móvil",
+    "authorText": "Filo Games",
+    "genre": "Arcade, Shooter",
+    "tags": "Juego 404, Cyberpunk, Generativo, Infinito, Música Generativa, 2D, 2.5D"
   },
   {
     "id": "taypi",
@@ -153,6 +201,15 @@
     "team": [
       { "id": "luisfmp", "role": "Producción & Ingeniería de Software & UI"},
       { "id": "alvaro-r", "role": "Líder Programación & Programador AR" }
-    ]
+    ],
+    "tagline": "Pruébate el futuro. La tienda de calzado en tu propia casa.",
+    "headerImage": "IMG/Portfolio/AR VR/Taypi/logoTaypi.webp",
+    "about": "Taypi es una experiencia de Realidad Aumentada desarrollada para la empresa CorAll, es un filtro de Snapchat que se abre dentro de una aplicación móvil que permite a los usuarios probarse calzado de forma virtual, así como saber sus medidas de calzado. Este proyecto demuestra nuestra capacidad para crear soluciones inmersivas que acortan la distancia entre el producto y el cliente, aumentando la interacción y el potencial de conversión para el e-commerce.",
+    "gallery": [],
+    "status": "Prototipo",
+    "platforms": "Web & Móvil (Snapchat)",
+    "authorText": "CorAll & Filo Games",
+    "genre": "Realidad Aumentada, E-commerce",
+    "tags": "AR, Snapchat Lens, Filtro, Móvil, Web"
   }
 ]

@@ -1,9 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // --- Lógica del Menú y Navegación (sin cambios) ---
+    // --- LÓGICA DEL MENÚ HAMBURGUESA ---
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
 
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => {
@@ -12,20 +11,36 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    const currentPath = window.location.pathname.split('/').pop();
+    // --- LÓGICA MEJORADA PARA MARCAR EL ENLACE ACTIVO ---
+    const navLinks = document.querySelectorAll('.nav-menu .nav-link');
+    const currentURL = window.location.href;
+
     navLinks.forEach(link => {
-        const linkPath = link.getAttribute('href');
         link.classList.remove('active');
-        if (linkPath === currentPath || (currentPath === '' && linkPath === 'index.html')) {
+        // Si la URL actual contiene el href del enlace, es la página activa.
+        // Se añade una condición especial para "Inicio" para que no se active en todas las páginas.
+        if (link.href === currentURL || (currentURL.endsWith('/') && link.getAttribute('href') === '/')) {
+             link.classList.add('active');
+        } else if (link.getAttribute('href') !== '/' && currentURL.includes(link.getAttribute('href'))) {
             link.classList.add('active');
         }
     });
-    
+
+    // Asegurarse de que si "Portafolio" está activo, "Inicio" no lo esté.
+    const portfolioLink = document.querySelector('a[href="/portfolio"]');
+    const homeLink = document.querySelector('a[href="/"]');
+    if (portfolioLink && portfolioLink.classList.contains('active') && homeLink) {
+        homeLink.classList.remove('active');
+    }
+
+
+    // --- LÓGICA DE NAVEGACIÓN SUAVE PARA EL MENÚ HAMBURGUESA ---
     document.querySelectorAll('.nav-menu .nav-link').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const destination = this.href;
-            if (hamburger.classList.contains('active')) {
+
+            if (hamburger && hamburger.classList.contains('active')) {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
                 setTimeout(() => { window.location.href = destination; }, 300);
@@ -33,6 +48,59 @@ document.addEventListener('DOMContentLoaded', function() {
                 window.location.href = destination;
             }
         });
+    });
+
+    // --- LÓGICA PARA EL CARRUSEL DE PRECIOS (SI EXISTE) ---
+    const carousel = document.getElementById('pricing-carousel');
+    if (carousel) {
+        const prevButton = document.getElementById('prev-button');
+        const nextButton = document.getElementById('next-button');
+        
+        const updateButtons = () => {
+            const scrollLeft = carousel.scrollLeft;
+            const scrollWidth = carousel.scrollWidth;
+            const width = carousel.clientWidth;
+            prevButton.disabled = scrollLeft <= 0;
+            nextButton.disabled = scrollLeft + width >= scrollWidth - 10;
+        };
+
+        const scrollToNext = () => {
+            const card = carousel.querySelector('.pricing-card');
+            if (card) {
+                const cardWidth = card.offsetWidth;
+                const gap = 30;
+                carousel.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
+            }
+        };
+
+        const scrollToPrev = () => {
+            const card = carousel.querySelector('.pricing-card');
+            if (card) {
+                const cardWidth = card.offsetWidth;
+                const gap = 30;
+                carousel.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
+            }
+        };
+
+        nextButton.addEventListener('click', scrollToNext);
+        prevButton.addEventListener('click', scrollToPrev);
+        carousel.addEventListener('scroll', updateButtons);
+        updateButtons();
+    }
+    
+    // --- LÓGICA PARA ANIMACIONES DE SCROLL ---
+    const sections = document.querySelectorAll('.container, .cta-section, .advantage-section');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+        section.classList.add('fade-in-section');
+        observer.observe(section);
     });
 
     // --- Lógica del Filtro del Portafolio (sin cambios) ---
@@ -151,64 +219,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
         window.addEventListener('beforeunload', saveMusicState);
     }
-});
-
-// --- LÓGICA PARA EL CARRUSEL DE PRECIOS ---
-document.addEventListener('DOMContentLoaded', function() {
-    const carousel = document.getElementById('pricing-carousel');
-    const prevButton = document.getElementById('prev-button');
-    const nextButton = document.getElementById('next-button');
-
-    // Solo ejecutar si el carrusel existe en la página actual
-    if (carousel && prevButton && nextButton) {
-        
-        const updateButtons = () => {
-            const scrollLeft = carousel.scrollLeft;
-            const scrollWidth = carousel.scrollWidth;
-            const width = carousel.clientWidth;
-
-            prevButton.disabled = scrollLeft <= 0;
-            nextButton.disabled = scrollLeft + width >= scrollWidth - 10; // -10 de margen
-        };
-
-        const scrollToNext = () => {
-            const card = carousel.querySelector('.pricing-card');
-            if (card) {
-                const cardWidth = card.offsetWidth;
-                const gap = 30; // El gap definido en el CSS
-                carousel.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
-            }
-        };
-
-        const scrollToPrev = () => {
-            const card = carousel.querySelector('.pricing-card');
-            if (card) {
-                const cardWidth = card.offsetWidth;
-                const gap = 30;
-                carousel.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
-            }
-        };
-
-        nextButton.addEventListener('click', scrollToNext);
-        prevButton.addEventListener('click', scrollToPrev);
-        carousel.addEventListener('scroll', updateButtons);
-
-        // Llamada inicial para establecer el estado de los botones
-        updateButtons();
-    }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    const sections = document.querySelectorAll('.container, .cta-section');
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-            }
-        });
-    }, { threshold: 0.1 });
-    sections.forEach(section => {
-        section.classList.add('fade-in-section');
-        observer.observe(section);
-    });
 });

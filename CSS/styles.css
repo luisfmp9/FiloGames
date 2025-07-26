@@ -129,8 +129,7 @@ h2 {
     color: var(--color-primary); /* Mantenemos el cambio de color del texto */
 }
 
-.nav-link:hover::after,
-.nav-link.active::after {
+.nav-link:hover::after {
     transform: scaleX(1); /* El subrayado crece a su tamaño completo */
 }
 

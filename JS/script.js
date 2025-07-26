@@ -13,26 +13,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- LÓGICA MEJORADA PARA MARCAR EL ENLACE ACTIVO ---
     const navLinks = document.querySelectorAll('.nav-menu .nav-link');
-    const currentURL = window.location.href;
+    const currentPath = window.location.pathname; // Ej: /FiloGames/portfolio/latin-vibes
 
+    let bestMatch = null;
     navLinks.forEach(link => {
-        link.classList.remove('active');
-        // Si la URL actual contiene el href del enlace, es la página activa.
-        // Se añade una condición especial para "Inicio" para que no se active en todas las páginas.
-        if (link.href === currentURL || (currentURL.endsWith('/') && link.getAttribute('href') === '/')) {
-             link.classList.add('active');
-        } else if (link.getAttribute('href') !== '/' && currentURL.includes(link.getAttribute('href'))) {
-            link.classList.add('active');
+        const linkPath = new URL(link.href).pathname; // Obtiene la ruta completa del enlace
+        
+        // Si la ruta actual empieza con la ruta del enlace, es un candidato
+        if (currentPath.startsWith(linkPath)) {
+            // Queremos la coincidencia más específica (la más larga)
+            // Esto asegura que /portfolio/algo active a /portfolio y no a /
+            if (!bestMatch || linkPath.length > new URL(bestMatch.href).pathname.length) {
+                bestMatch = link;
+            }
         }
     });
 
-    // Asegurarse de que si "Portafolio" está activo, "Inicio" no lo esté.
-    const portfolioLink = document.querySelector('a[href="/portfolio"]');
-    const homeLink = document.querySelector('a[href="/"]');
-    if (portfolioLink && portfolioLink.classList.contains('active') && homeLink) {
-        homeLink.classList.remove('active');
+    // Limpiamos todos los enlaces y activamos solo el mejor candidato
+    navLinks.forEach(link => link.classList.remove('active'));
+    if (bestMatch) {
+        bestMatch.classList.add('active');
     }
-
 
     // --- LÓGICA DE NAVEGACIÓN SUAVE PARA EL MENÚ HAMBURGUESA ---
     document.querySelectorAll('.nav-menu .nav-link').forEach(link => {

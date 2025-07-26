@@ -17,9 +17,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let bestMatch = null;
     navLinks.forEach(link => {
-        const linkPath = new URL(link.href).pathname; // Obtiene la ruta completa del enlace
+        const linkPath = new URL(link.href).pathname; // Obtiene la ruta completa del enlace, ej: /FiloGames/portfolio
         
-        // Si la ruta actual empieza con la ruta del enlace, es un candidato
+        // Limpiamos la clase de todos los enlaces primero
+        link.classList.remove('active');
+
+        // Si la ruta actual EMPIEZA con la ruta del enlace, es un candidato
         if (currentPath.startsWith(linkPath)) {
             // Queremos la coincidencia más específica (la más larga)
             // Esto asegura que /portfolio/algo active a /portfolio y no a /
@@ -29,10 +32,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Limpiamos todos los enlaces y activamos solo el mejor candidato
-    navLinks.forEach(link => link.classList.remove('active'));
+    // Si encontramos una coincidencia, la activamos
     if (bestMatch) {
         bestMatch.classList.add('active');
+    } else {
+        // Caso especial para la página de inicio si no hay otra coincidencia
+        const homeLink = document.querySelector('a[href="/"]');
+        if (homeLink && (currentPath === '/FiloGames/' || currentPath === '/')) {
+            homeLink.classList.add('active');
+        }
     }
 
     // --- LÓGICA DE NAVEGACIÓN SUAVE PARA EL MENÚ HAMBURGUESA ---

@@ -34,7 +34,6 @@ body {
 
 .home .container h1{
     line-height: 1.5;
-    font-size: 3.2rem;
 }
 
 /* --- Contenedor Principal y Utilidades --- */
@@ -1158,6 +1157,7 @@ h2 {
 @media (max-width: 768px) {
     .home .container h1 {
         line-height: 1.3;
+        font-size: 3.2rem;
     }
 
     .nav-menu {

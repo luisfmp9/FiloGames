@@ -56,7 +56,7 @@ class Portfolio extends HTMLElement {
         this.innerHTML = `
             <section id="portfolio" class="container">
                 <h2>Nuestro Trabajo</h2>
-                <p class="section-subtitle">Una selección de los universos que hemos construido, las historias que hemos contado y los problemas que hemos resuelto.</p>
+                <p class="section-subtitle">Una selección de los mejores universos que hemos construido, las historias que hemos contado y los problemas que hemos resuelto.</p>
                 
                 <div class="portfolio-tabs">
                     <button class="tab-button active" data-filter="all">Todo</button>
@@ -175,8 +175,17 @@ class ProjectDetail extends HTMLElement {
         let galleryHTML = '';
         if (project.gallery && project.gallery.length > 0) {
             project.gallery.forEach(imgUrl => {
-                galleryHTML += `<img src="${imgUrl}" alt="Imagen de la galería de ${project.title}">`;
+                // Aseguramos que las rutas de la galería también sean relativas a la raíz
+                const correctedUrl = imgUrl.startsWith('../') ? imgUrl : `../${imgUrl}`;
+                galleryHTML += `<img src="${correctedUrl}" alt="Imagen de la galería de ${project.title}">`;
             });
+        }
+
+        // Se añade la lógica para decidir el texto del botón principal
+        let mainButtonHTML = '';
+        if (project.playUrl) {
+            const buttonText = project.categories.includes('games') ? 'Jugar' : 'Probar';
+            mainButtonHTML = `<a href="${project.playUrl}" target="_blank" class="cta-button primary">${buttonText} (${project.platforms})</a>`;
         }
 
         this.innerHTML = `
@@ -188,22 +197,22 @@ class ProjectDetail extends HTMLElement {
             <div class="container game-page-container">
                 <div class="main-content">
                     <h3>Sobre el Juego</h3>
-                    <p>${project.about}</p>
+                    <p>${project.about || project.description}</p>
                     <h4>Galería</h4>
                     <div class="gallery-grid">${galleryHTML}</div>
                 </div>
 
                 <aside class="sidebar">
                     <div class="metadata-box action-buttons">
-                        <a href="${project.playUrl}" target="_blank" class="cta-button primary">Jugar (${project.platforms})</a>
+                        ${mainButtonHTML}
                     </div>
                     <div class="metadata-box">
                         <ul class="metadata-list">
-                            <li><span class="label">Estado</span> <span class="value">${project.status}</span></li>
-                            <li><span class="label">Plataformas</span> <span class="value">${project.platforms}</span></li>
-                            <li><span class="label">Autores</span> <span class="value"><a href="#project-team-section" class="cta-button secondary metadata-link">${project.authorText}</a></span></li>
-                            <li><span class="label">Género</span> <span class="value">${project.genre}</span></li>
-                            <li><span class="label">Etiquetas</span> <span class="value">${project.tags}</span></li>
+                            <li><span class="label">Estado</span> <span class="value">${project.status || 'No Especificado'}</span></li>
+                            <li><span class="label">Plataformas</span> <span class="value">${project.platforms || 'No especificado'}</span></li>
+                            <li><span class="label">Autores</span> <span class="value"><a href="#project-team-section" class="cta-button secondary metadata-link">${project.authorText || 'Ver Equipo'}</a></span></li>
+                            <li><span class="label">Género</span> <span class="value">${project.genre || 'No especificado'}</span></li>
+                            <li><span class="label">Etiquetas</span> <span class="value">${project.tags || 'No especificado'}</span></li>
                         </ul>
                     </div>
                 </aside>

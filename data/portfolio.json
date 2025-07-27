@@ -3,7 +3,7 @@
     "id": "chuter",
     "title": "Chuter",
     "categories": ["games", "web"],
-    "image": "IMG/Portfolio/VideoGames/Chuter/ChuterSplash.webp",
+    "image": "../IMG/Portfolio/VideoGames/Chuter/ChuterSplash.webp",
     "description": "Elimina a las piezas de ajedrez enemigas, antes que ellas eliminen a tu rey. Un juego de estrategia por turnos.",
     "playUrl": "https://luisfmp.itch.io/chuter",
     "detailsUrl": "portfolio/chuter",
@@ -21,6 +21,7 @@
       "../IMG/Portfolio/VideoGames/Chuter/ChuterSplash.webp"
     ],
     "tagline": "La estrategia es tu única arma. El jaque mate es solo el principio.",
+    "headerImage": "../IMG/Portfolio/VideoGames/Chuter/splashArt.webp",
     "status": "En Pausa",
     "platforms": "Web & PC",
     "authorText": "Filo Games",
@@ -154,7 +155,9 @@
     "tagline": "Nuestra fortaleza digital, construida con nuestra propia filosofía.",
     "headerImage": "IMG/Marca/logoFilo.webp",
     "about": "El sitio web de Filo Games es nuestra carta de presentación al mundo. Desarrollado desde cero con un enfoque en la modularidad (Web Components) y la escalabilidad (datos en JSON), este proyecto es un testimonio de nuestra filosofía: crear tecnología robusta, eficiente y con un diseño limpio que comunique ideas complejas de forma sencilla.",
-    "gallery": [],
+    "gallery": [
+      "../IMG/Portfolio/Webs/FiloGames/webFiloGames.webp"
+    ],
     "status": "En Constante Evolución",
     "platforms": "Web, Móvil",
     "authorText": "Filo Games",

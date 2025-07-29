@@ -96,21 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
         carousel.addEventListener('scroll', updateButtons);
         updateButtons();
     }
-    
-    // --- LÓGICA PARA ANIMACIONES DE SCROLL ---
-    const sections = document.querySelectorAll('.container, .cta-section, .advantage-section');
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-            }
-        });
-    }, { threshold: 0.1 });
-
-    sections.forEach(section => {
-        section.classList.add('fade-in-section');
-        observer.observe(section);
-    });
 
     // --- Lógica del Filtro del Portafolio (sin cambios) ---
     const tabButtons = document.querySelectorAll('.tab-button');

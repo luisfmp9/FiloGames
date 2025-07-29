@@ -1123,6 +1123,57 @@ h2 {
     border-color: var(--color-primary);
 }
 
+/* --- ESTILOS PARA LA SECCIÓN DE METODOLOGÍA --- */
+
+.process-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 columna en móvil */
+    gap: 40px;
+    margin-top: 50px;
+}
+
+@media (min-width: 768px) {
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablet */
+    }
+}
+
+@media (min-width: 1024px) {
+    .process-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columnas en desktop */
+    }
+}
+
+.process-step {
+    text-align: center;
+}
+
+.process-number {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--color-secondary);
+    color: var(--color-background);
+    font-size: 1.8rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px auto;
+    font-family: 'Poppins', sans-serif;
+}
+
+.process-step h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.process-step p {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
 @media (min-width: 500px) {
     .advantage-cards-grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

@@ -412,7 +412,7 @@ class Features extends HTMLElement {
                             </svg>
                         </div>
                         <h3 class="feature-title">+10 Años de Experiencia</h3>
-                        <p class="feature-description">Contamos con equipo senior que acumula más de una década de experiencia, liderando y ejecutando proyectos de software, emprendimientos y videojuegos complejos.</p>
+                        <p class="feature-description">Contamos con miembros senior que acumulan más de una década de experiencia, liderando y ejecutando proyectos de software, emprendimientos y videojuegos complejos.</p>
                     </div>
 
                     <!-- Tarjeta 3: Proyectos Lanzados (Ícono Mejorado) -->

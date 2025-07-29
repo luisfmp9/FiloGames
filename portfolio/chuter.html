@@ -14,9 +14,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="../IMG/logoFilo.ico" type="image/x-icon">
-
-    <!-- Web Components -->
-    <script type="module" src="../JS/modulos.js"></script>
 </head>
 <body>
     <mi-header></mi-header>
@@ -26,7 +23,11 @@
     </main>
 
     <mi-footer></mi-footer>
-    <!-- He eliminado el <mi-music> de aquí para evitar duplicados -->
-    <script src="../JS/script.js"></script>
+    <mi-music></mi-music>
+    
+    <script src="../JS/animations.js" defer></script>
+    <script type="module" src="../JS/modulos.js"></script>
+    <script src="../JS/script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js" defer></script>
 </body>
 </html>

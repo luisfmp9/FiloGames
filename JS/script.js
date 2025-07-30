@@ -11,6 +11,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // --- NUEVO: LÓGICA PARA OCULTAR/MOSTRAR HEADER AL HACER SCROLL ---
+    const header = document.querySelector('.header');
+    if (header) {
+        let lastScrollY = window.scrollY; // Almacena la última posición de scroll
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > lastScrollY && currentScrollY > header.offsetHeight) {
+                // Si se hace scroll hacia abajo y se ha pasado la altura del header
+                header.classList.add('header--hidden');
+            } else {
+                // Si se hace scroll hacia arriba
+                header.classList.remove('header--hidden');
+            }
+
+            // Actualiza la última posición de scroll
+            lastScrollY = currentScrollY;
+        });
+
+        // --- OPCIONAL: Mostrar el header si el mouse llega a la parte superior ---
+        document.addEventListener('mousemove', e => {
+            // Si el header está oculto y el cursor del mouse está en los primeros 50px de la pantalla
+            if (header.classList.contains('header--hidden') && e.clientY < 50) {
+                header.classList.remove('header--hidden');
+            }
+        });
+    }
+
     // --- LÓGICA MEJORADA PARA MARCAR EL ENLACE ACTIVO ---
     const navLinks = document.querySelectorAll('.nav-menu .nav-link');
     const currentPath = window.location.pathname; // Ej: /FiloGames/portfolio/latin-vibes

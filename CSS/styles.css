@@ -683,7 +683,6 @@ h2 {
 @media (min-width: 1200px) {
     .pricing-card {
         flex-basis: calc(33.333% - 20px);
-        max-width: calc(33.333% - 20px);
     }
 }
 

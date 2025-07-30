@@ -8,15 +8,23 @@ class Team extends HTMLElement {
 
         let teamCardsHTML = '';
         coreTeam.forEach(person => {
+            // Lógica para crear el botón solo si existe la URL externa
+            const profileButtonHTML = person.externalUrl
+                ? `<a href="${person.externalUrl}" target="_blank" class="cta-button secondary team-link-button">Ver Perfil</a>`
+                : '';
+
             teamCardsHTML += `
                 <div class="team-card">
                     <div class="team-image-wrapper">
-                        <img src="${person.photoUrl}" alt="Foto de ${person.fullName}" class="team-image team-photo">
-                        <img src="${person.avatarUrl}" alt="Avatar de ${person.fullName}" class="team-image team-avatar">
+                        <img src="${person.photoUrl}" alt="Foto de ${person.fullName}" class="team-image team-photo" onerror="this.src='https://placehold.co/300x300/EEE/333?text=Foto'">
+                        <img src="${person.avatarUrl}" alt="Avatar de ${person.fullName}" class="team-image team-avatar" onerror="this.src='https://placehold.co/300x300/1a1a1a/FFF?text=Avatar'">
                     </div>
                     <h3>${person.fullName}</h3>
                     <p class="role">${person.role}</p>
                     <p class="bio">${person.bio}</p>
+                    <div class="team-card-footer">
+                        ${profileButtonHTML}
+                    </div>
                 </div>
             `;
         });

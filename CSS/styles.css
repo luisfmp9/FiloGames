@@ -989,6 +989,14 @@ h2 {
     font-size: 0.9rem;
     display: inline-block; /* Asegura que el botón no ocupe todo el ancho */
     width: auto;
+    border-color: #444;
+    color: var(--color-text-secondary);
+}
+
+.team-link-button:hover {
+    background-color: var(--color-surface);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
 }
 
 /* Estilos para los botones de navegación del carrusel */

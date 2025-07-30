@@ -36,79 +36,7 @@
     <mi-header></mi-header>
 
     <main>
-        <!-- SECCIÓN DE PRECIOS CON CARRUSEL -->
-        <section class="container">
-            <h2>Paquetes y Servicios</h2>
-            <p class="section-subtitle">Soluciones claras y escalables diseñadas para impulsar tu marca. Elige el punto de partida que mejor se adapte a tus objetivos.</p>
-            
-            <div class="pricing-carousel-wrapper">
-                <button id="prev-button" class="carousel-button" aria-label="Anterior">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                </button>
-                
-                <div id="pricing-carousel" class="pricing-carousel">
-                    <div id="pricing-grid" class="pricing-grid">
-                        <!-- Tarjetas de precios aquí... -->
-                        <div class="pricing-card">
-                            <div class="pricing-header"><h3>Paquete Tarjeta NFC</h3><p class="price"><span>$</span>34</p></div>
-                            <ul class="pricing-features">
-                                <li>Tarjeta NFC física de alta calidad</li>
-                                <li>Diseño 100% personalizado</li>
-                                <li>Asesoría tecnológica para tu perfil digital</li>
-                                <li>Configuración de Linktree o enlace de preferencia</li>
-                            </ul>
-                            <a href="#contact-section" class="cta-button">Consultar</a>
-                        </div>
-                        <div class="pricing-card">
-                            <div class="pricing-header"><h3>Landing Page Profesional</h3><p class="price"><span>desde</span> $283</p></div>
-                            <ul class="pricing-features">
-                                <li>Página de presentación única</li>
-                                <li>Diseño impactante y efectivo</li>
-                                <li>Adaptable a móviles (Responsive)</li>
-                                <li>Conexión con WhatsApp y Redes</li>
-                            </ul>
-                            <a href="#contact-section" class="cta-button">Cotizar Proyecto</a>
-                        </div>
-                        <div class="pricing-card featured">
-                            <div class="popular-badge">Más Popular</div>
-                            <div class="pricing-header"><h3>Sitio Web Completo</h3><p class="price"><span>desde</span> $849</p></div>
-                            <ul class="pricing-features">
-                                <li>Plataforma multi-página y E-commerce</li>
-                                <li>Diseño y funcionalidades a medida</li>
-                                <li>Optimización SEO inicial</li>
-                                <li>Panel de administración opcional</li>
-                            </ul>
-                            <a href="#contact-section" class="cta-button">Cotizar Proyecto</a>
-                        </div>
-                        <div class="pricing-card">
-                            <div class="pricing-header"><h3>Experiencias AR/VR</h3><p class="price"><span>desde</span> $1,499</p></div>
-                            <ul class="pricing-features">
-                                <li>Filtros para redes sociales (Instagram, TikTok)</li>
-                                <li>Visualización de productos en 3D</li>
-                                <li>Prototipos de juegos inmersivos</li>
-                                <li>Consultoría en tecnologías inmersivas</li>
-                            </ul>
-                            <a href="#contact-section" class="cta-button">Cotizar Proyecto</a>
-                        </div>
-                        <div class="pricing-card">
-                            <div class="pricing-header"><h3>Videojuego de Marca</h3><p class="price"><span>desde</span> $2,999</p></div>
-                            <ul class="pricing-features">
-                                <li>Desarrollo de juego 2D, 2.5D o 3D a medida</li>
-                                <li>Conceptualización y diseño</li>
-                                <li>Música y arte originales</li>
-                                <li>Estrategia de lanzamiento y narrativa</li>
-                            </ul>
-                            <a href="#contact-section" class="cta-button">Cotizar Proyecto</a>
-                        </div>
-                    </div>
-                </div>
-
-                <button id="next-button" class="carousel-button" aria-label="Siguiente">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </button>
-            </div>
-             <p class="section-subtitle" style="font-size: 0.9rem; margin-top: 40px;">Precios base expresados en Dólares Americanos (USD). Contáctanos para una cotización detallada y personalizada.</p>
-        </section>
+        <mi-services-page></mi-services-page>
 
         <!-- SECCIONES DE VENTAJAS (CORRECCIÓN: AHORA DENTRO DE UN CONTENEDOR) -->
         <div class="container">
@@ -160,16 +88,17 @@
             </div>
         </div>
         
-        <div id="contact-section">
-            <mi-contact></mi-contact>
-        </div>
+        <mi-contact id="contact-section"></mi-contact>
         <mi-social-media></mi-social-media>
     </main>
     <mi-footer></mi-footer>
     <mi-music></mi-music>
 
     <script src="JS/animations.js" defer></script>
+    <script type="module" src="JS/mod-services.js"></script>
     <script type="module" src="JS/modulos.js"></script>
+    <script type="module" src="JS/mod-contact.js"></script>
+    <script type="module" src="JS/mod-social-media.js"></script>
     <script src="JS/services.js" defer></script>
     <script src="JS/script.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js" defer></script>

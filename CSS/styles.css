@@ -148,6 +148,42 @@ h2 {
     background-color: var(--color-primary);
 }
 
+/* --- 4.2. Tarjetas (Clase Base) --- */
+.team-card, .portfolio-item, .feature-card, .service-card, .pricing-card, .pillar-card, .social-card {
+    background-color: var(--color-surface);
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover, .portfolio-item:hover, .feature-card:hover, .service-card:hover, .pricing-card:hover, .social-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* --- 4.3. Rejillas (Grids) --- */
+.team-grid, .portfolio-grid, .features-grid, .services-preview-grid, .pillars-grid, .full-catalog-grid {
+    display: grid;
+    gap: 30px;
+}
+
+/* Utilidad para contenido flexible en tarjetas */
+.team-card .bio, .team-card .role, .portfolio-content, .portfolio-content p, .portfolio-buttons .cta-button.full-width, .portfolio-buttons .cta-button, .feature-description, .service-card p, .pricing-features {
+    flex-grow: 1;
+}
+
+.team-card .bio, .team-card .role, .portfolio-content p, .feature-description, .service-card p, .pricing-features li {
+    color: var(--color-text-secondary);
+}
+
+/* Corrección de alineación del texto en las descripciones */
+.feature-description, .service-card p, .team-card .bio {
+    text-align: justify;
+    hyphens: auto; /* Permite la división de palabras para un mejor justificado */
+}
+
 /* --- Botón CTA --- */
 .cta-button {
     display: inline-block;
@@ -169,19 +205,14 @@ h2 {
 
 /* --- Equipo Section: Tarjeta con efecto Hover Foto/Avatar --- */
 .team-grid {
-    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
 }
+
 .team-card {
-    background-color: var(--color-surface);
-    border-radius: 12px;
     padding: 30px;
     text-align: center;
-    border: 1px solid #2a2a2a;
-    display: flex;
-    flex-direction: column;
 }
+
 .team-image-wrapper {
     position: relative;
     width: 150px;
@@ -205,26 +236,26 @@ h2 {
 .team-avatar {
     opacity: 0;
 }
+
 .team-card:hover .team-photo {
     opacity: 0;
 }
+
 .team-card:hover .team-avatar {
     opacity: 1;
 }
+
 .team-card h3 {
     font-size: 1.4rem;
     margin-bottom: 5px;
 }
 .team-card .role {
-    color: var(--color-text-secondary);
     font-weight: 600;
     margin-bottom: 15px;
     font-size: 0.9rem;
 }
 .team-card .bio {
     font-size: 0.95rem;
-    color: var(--color-text-secondary);
-    flex-grow: 1;
 }
 
 /* --- Secciones Específicas (Portafolio, Servicios, etc.) --- */
@@ -255,24 +286,13 @@ h2 {
 }
 
 .portfolio-grid {
-    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
 }
 
 .portfolio-item {
-    background-color: var(--color-surface);
     border-radius: 12px;
     overflow: hidden;
-    border: 1px solid #2a2a2a;
-    display: flex; /* Mantenemos flex como estado inicial */
-    flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.portfolio-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .portfolio-item:hover .portfolio-image-container img {
@@ -301,7 +321,6 @@ h2 {
     padding: 25px;
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
 }
 
 .portfolio-content h3 {
@@ -309,8 +328,6 @@ h2 {
 }
 
 .portfolio-content p {
-    color: var(--color-text-secondary);
-    flex-grow: 1;
     margin-bottom: 25px; /* Aumentamos el margen inferior del párrafo */
 }
 
@@ -321,7 +338,6 @@ h2 {
 }
 
 .portfolio-buttons .cta-button {
-    flex-grow: 1;
     padding: 12px 15px; /* Un poco más de padding vertical */
     font-size: 0.9rem;
 }
@@ -349,11 +365,6 @@ h2 {
     background-color: var(--color-surface);
     color: var(--color-primary);
     border-color: var(--color-primary);
-}
-
-/* Estilo para cuando solo hay un botón */
-.portfolio-buttons .cta-button.full-width {
-    flex-grow: 1;
 }
 
 /* --- Contact Form --- */
@@ -387,16 +398,9 @@ h2 {
 }
 
 .features-grid {
-    display: grid;
     /* Crea 4 columnas en desktop, y se ajusta automáticamente */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px; /* Espacio entre las tarjetas */
     margin-top: 50px;
-}
-
-.feature-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .feature-icon {
@@ -427,7 +431,6 @@ h2 {
 /* --- ESTILOS PARA LA SECCIÓN DE REDES SOCIALES (MEJORADA) --- */
 
 .social-media-grid {
-    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 25px;
     max-width: 900px;
@@ -435,19 +438,10 @@ h2 {
 }
 
 .social-card {
-    background-color: var(--color-surface);
-    border-radius: 12px;
-    border: 1px solid #2a2a2a;
     padding: 15px;
-    display: flex;
     justify-content: center;
     align-items: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.social-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .social-image {
@@ -537,16 +531,15 @@ h2 {
     padding: 0;
     margin-bottom: 30px;
     text-align: left; /* Mejora la legibilidad de la lista */
-    /* CORRECCIÓN DE ALINEACIÓN: La lista crece para empujar el botón hacia abajo */
-    flex-grow: 1;
 }
 
 .pricing-features li {
     padding: 10px 0;
     border-bottom: 1px solid #333;
-    color: var(--color-text-secondary);
 }
-.pricing-features li:first-child { border-top: 1px solid #333; }
+.pricing-features li:first-child { 
+    border-top: 1px solid #333;
+}
 
 .pricing-card .cta-button {
     margin-top: auto; /* El botón siempre se alinea al fondo */
@@ -588,45 +581,16 @@ h2 {
     margin-right: 5px;
 }
 
-.pricing-features {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 30px;
-    flex-grow: 1; /* Hace que esta sección ocupe el espacio disponible */
-}
-
-.pricing-features li {
-    padding: 10px 0;
-    border-bottom: 1px solid #333;
-    color: var(--color-text-secondary);
-}
-
-.pricing-features li:first-child {
-    border-top: 1px solid #333;
-}
-
 /* --- ESTILOS PARA LA SECCIÓN DE VISTAZO A SERVICIOS --- */
 .services-preview-grid {
-    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
     margin-top: 50px;
 }
 
 .feature-card, .service-card {
-    background-color: var(--color-surface);
-    border: 1px solid #2a2a2a;
-    border-radius: 12px;
     padding: 35px 30px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .service-icon {
@@ -653,11 +617,9 @@ h2 {
 
 .feature-description, .service-card p {
     font-size: 0.95rem;
-    color: var(--color-text-secondary);
     line-height: 1.6;
     text-align: justify;
     hyphens: auto;
-    flex-grow: 1;
 }
 
 /* --- ESTILOS CORREGIDOS Y MEJORADOS PARA SERVICIOS --- */
@@ -696,13 +658,8 @@ h2 {
 .pricing-card {
     flex: 0 0 100%;
     max-width: 100%;
-    background-color: var(--color-surface);
-    border-radius: 12px;
     padding: 30px;
-    border: 1px solid #2a2a2a;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
     position: relative; /* Necesario para la insignia */
 }
 
@@ -737,7 +694,6 @@ h2 {
 }
 
 .pricing-card:hover {
-    transform: translateY(-10px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     z-index: 10;
 }
@@ -769,16 +725,6 @@ h2 {
 .pricing-header h3 { font-size: 1.5rem; margin-bottom: 10px; color: var(--color-primary); }
 .pricing-header .price { font-size: 3rem; font-weight: 800; color: var(--color-primary); margin-bottom: 25px; }
 .pricing-header .price span { font-size: 1rem; font-weight: 400; color: var(--color-text-secondary); vertical-align: middle; margin-right: 5px; }
-
-.pricing-features {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 30px;
-    text-align: left;
-    flex-grow: 1;
-}
-.pricing-features li { padding: 10px 0; border-bottom: 1px solid #333; color: var(--color-text-secondary); }
-.pricing-features li:first-child { border-top: 1px solid #333; }
 
 .pricing-card .cta-button { margin-top: auto; }
 
@@ -920,11 +866,6 @@ h2 {
 
 /* --- ESTILOS PARA LAS TARJETAS DE EQUIPO DEL PROYECTO --- */
 
-/* Hacemos que la biografía (si existe) o el rol crezcan */
-.team-card .bio, .team-card .role {
-    flex-grow: 1;
-}
-
 /* Contenedor para el botón, asegura que esté al final */
 .team-card-footer {
     margin-top: 20px; /* Espacio entre el rol y el botón */
@@ -963,6 +904,12 @@ h2 {
 @media (max-width: 767px) {
     .carousel-button { display: none; }
     .pricing-carousel { overflow-x: auto; }
+}
+
+/* --- ESTILOS PARA EL CATÁLOGO COMPLETO --- */
+.full-catalog-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin-top: 50px;
 }
 
 /* --- ESTILOS PARA LAS SECCIONES DE VENTAJAS --- */
@@ -1039,17 +986,13 @@ h2 {
 
 /* --- ESTILOS PARA LA SECCIÓN DE PILARES (about.html) --- */
 .pillars-grid {
-    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
     margin-top: 50px;
 }
 
 .pillar-card {
-    border: 1px solid #2a2a2a;
-    border-radius: 12px;
     padding: 35px;
-    background-color: var(--color-background); /* Un fondo ligeramente diferente */
+    background-color: var(--color-background);
 }
 
 .pillar-icon {
@@ -1070,25 +1013,6 @@ h2 {
 .pillar-card p {
     color: var(--color-text-secondary);
     line-height: 1.8;
-}
-
-/* --- CORRECCIÓN GLOBAL DE ALINEACIÓN PARA TARJETAS --- */
-
-/* Aplicamos Flexbox a todas las tarjetas para un control total */
-.feature-card, .service-card, .pricing-card, .team-card {
-    display: flex;
-    flex-direction: column; /* Organiza el contenido en una columna vertical */
-}
-
-/* Hacemos que la sección de descripción o características crezca */
-.feature-description, .service-card p, .pricing-features, .team-card .bio {
-    flex-grow: 1; /* Esta es la clave: el contenido principal se estira */
-}
-
-/* Corrección de alineación del texto en las descripciones */
-.feature-description, .service-card p, .team-card .bio {
-    text-align: justify;
-    hyphens: auto; /* Permite la división de palabras para un mejor justificado */
 }
 
 .legal-page { padding-top: 40px; padding-bottom: 40px; }
@@ -1200,8 +1124,29 @@ h2 {
 /* Ocultar botones en móvil donde el swipe es más natural */
 @media (max-width: 639px) {
     .pricing-carousel {
-        /* Permitimos el scroll táctil en móvil */
-        overflow-x: auto;
+        position: relative;
+        /* Efecto de máscara para el pulso de luz */
+        -webkit-mask-image: linear-gradient(to right, black 90%, transparent 100%);
+        mask-image: linear-gradient(to right, black 90%, transparent 100%);
+    }
+
+    .pricing-carousel::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 50px;
+        /* Animación de pulso */
+        background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+        animation: pulse 2s infinite;
+        pointer-events: none; /* Para que no interfiera con el scroll */
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(0.8); opacity: 0.5; }
+        50% { transform: scale(1.2); opacity: 1; }
+        100% { transform: scale(0.8); opacity: 0.5; }
     }
 }
 

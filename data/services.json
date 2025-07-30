@@ -1,0 +1,122 @@
+[
+  {
+    "id": "videojuego-marca",
+    "title": "Videojuego de Marca",
+    "price": 2999,
+    "currency": "USD",
+    "pricePrefix": "desde",
+    "features": [
+      "Desarrollo de juego 2D, 2.5D o 3D a medida",
+      "Conceptualización y diseño",
+      "Música y arte originales",
+      "Estrategia de lanzamiento y narrativa"
+    ],
+    "category": "videojuegos",
+    "featured": true,
+    "priority": 100
+  },
+  {
+    "id": "sitio-web-completo",
+    "title": "Sitio Web Completo Avanzado",
+    "price": 999,
+    "currency": "USD",
+    "pricePrefix": "desde",
+    "features": [
+      "Plataforma multi-página y E-commerce",
+      "Diseño y funcionalidades a medida",
+      "Optimización SEO inicial",
+      "Panel de administración opcional"
+    ],
+    "category": "web",
+    "featured": true,
+    "priority": 90
+  },
+  {
+    "id": "experiencias-ar-vr",
+    "title": "Experiencias AR/VR",
+    "price": 1499,
+    "currency": "USD",
+    "pricePrefix": "desde",
+    "features": [
+      "Filtros para redes sociales (Instagram, TikTok)",
+      "Visualización de productos en 3D",
+      "Prototipos de juegos inmersivos",
+      "Consultoría en tecnologías inmersivas"
+    ],
+    "category": "arvr",
+    "featured": true,
+    "priority": 80
+  },
+  {
+    "id": "landing-page",
+    "title": "Landing Page Profesional",
+    "price": 299,
+    "currency": "USD",
+    "pricePrefix": "desde",
+    "features": [
+      "Página de presentación única",
+      "Diseño impactante y efectivo",
+      "Adaptable a móviles (Responsive)",
+      "Conexión con WhatsApp y Redes"
+    ],
+    "category": "web",
+    "featured": false
+  },
+  {
+    "id": "nfc-premium",
+    "title": "Tarjeta NFC Premium",
+    "price": 419,
+    "currency": "PEN",
+    "pricePrefix": "",
+    "features": [
+      "Diseño premium personalizado",
+      "Múltiples propuestas de diseño",
+      "Tarjeta física de alta calidad",
+      "Configuración y asesoría completa"
+    ],
+    "category": "nfc",
+    "featured": false
+  },
+  {
+    "id": "nfc-intermedio",
+    "title": "Tarjeta NFC Diseño Express",
+    "price": 119,
+    "currency": "PEN",
+    "pricePrefix": "",
+    "features": [
+      "Diseño intermedio personalizado",
+      "Ideal si ya cuentas con tu enlace",
+      "Tarjeta física de alta calidad"
+    ],
+    "category": "nfc",
+    "featured": false
+  },
+  {
+    "id": "nfc-ia",
+    "title": "Tarjeta NFC con Diseño IA",
+    "price": 99,
+    "currency": "PEN",
+    "pricePrefix": "",
+    "features": [
+      "Diseño adaptado con IA o plantilla",
+      "Incluye configuración de Linktree",
+      "Perfecto para estudiantes o inexpertos"
+    ],
+    "category": "nfc",
+    "featured": false
+  },
+  {
+    "id": "nfc-basico",
+    "title": "Tarjeta NFC (Solo Tarjeta)",
+    "price": 49,
+    "currency": "PEN",
+    "pricePrefix": "",
+    "features": [
+      "Para quienes ya tienen su diseño (8x5cm)",
+      "Incluye QR y programación del chip",
+      "Tarjeta física de alta calidad"
+    ],
+    "category": "nfc",
+    "featured": false
+  }
+]

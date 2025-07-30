@@ -1,22 +1,26 @@
 class ServicesPage extends HTMLElement {
+    constructor() {
+        super();
+        this.allServices = [];
+        this.currentFilter = 'all';
+        this.currentSort = 'priority';
+    }
+
     async connectedCallback() {
         const response = await fetch('data/services.json');
-        const allServices = await response.json();
+        this.allServices = await response.json();
+        this.render();
+    }
 
+    render() {
         // --- Lógica para el Carrusel de Destacados ---
-        const featuredServices = allServices
+        const featuredServices = this.allServices
             .filter(service => service.featured)
             .sort((a, b) => b.priority - a.priority);
 
         let featuredCardsHTML = '';
         featuredServices.forEach(service => {
             featuredCardsHTML += this.createPricingCard(service);
-        });
-
-        // --- Lógica para el Catálogo Completo ---
-        let catalogCardsHTML = '';
-        allServices.forEach(service => {
-            catalogCardsHTML += this.createPricingCard(service);
         });
 
         this.innerHTML = `
@@ -38,34 +42,107 @@ class ServicesPage extends HTMLElement {
 
             <section class="container">
                 <h2>Catálogo Completo</h2>
-                <p class="section-subtitle">Todos nuestros productos y servicios. Precios referenciales, quedemos una reunión para conversar sobre tus necesidades y objetivos específicos.</p>
-                <!-- Aquí irían los filtros del catálogo en el futuro -->
-                <div class="full-catalog-grid">
-                    ${catalogCardsHTML}
+                <p class="section-subtitle">Explora todas nuestras soluciones. Precios referenciales, contáctanos para una cotización a medida.</p>
+                
+                <div class="catalog-controls">
+                    <div class="filter-group">
+                        <label for="category-filter">Filtrar por:</label>
+                        <select id="category-filter">
+                            <option value="all">Todo</option>
+                            <option value="videojuegos">Videojuegos</option>
+                            <option value="web">Web</option>
+                            <option value="arvr">AR/VR</option>
+                            <option value="nfc">Tarjetas NFC</option>
+                        </select>
+                    </div>
+                    <div class="sort-group">
+                        <label for="sort-by">Ordenar por:</label>
+                        <select id="sort-by">
+                            <option value="priority">Popularidad</option>
+                            <option value="price-desc">Mayor Precio</option>
+                            <option value="price-asc">Menor Precio</option>
+                            <option value="impact">Impacto</option>
+                        </select>
+                    </div>
                 </div>
+
+                <div id="full-catalog-grid" class="full-catalog-grid"></div>
             </section>
         `;
+        
+        this.renderCatalog();
+        this.addEventListeners();
+    }
+
+    renderCatalog() {
+        const catalogGrid = this.querySelector('#full-catalog-grid');
+        if (!catalogGrid) return;
+
+        // 1. Filtrar
+        let servicesToRender = this.allServices;
+        if (this.currentFilter !== 'all') {
+            servicesToRender = servicesToRender.filter(service => service.category === this.currentFilter);
+        }
+
+        // 2. Ordenar
+        servicesToRender.sort((a, b) => {
+            switch (this.currentSort) {
+                case 'price-asc': return a.price - b.price;
+                case 'price-desc': return b.price - a.price;
+                case 'impact': return (b.impact || 0) - (a.impact || 0);
+                case 'priority':
+                default:
+                    return (b.priority || 0) - (a.priority || 0);
+            }
+        });
+
+        // 3. Renderizar
+        catalogGrid.innerHTML = servicesToRender.map(service => this.createPricingCard(service)).join('');
     }
 
     createPricingCard(service) {
         const priceSymbol = service.currency === 'PEN' ? 'S/' : '$';
-        const priceText = service.pricePrefix ? `${service.pricePrefix} ${priceSymbol}${service.price}` : `${priceSymbol}${service.price}`;
         
-        let featuresHTML = '';
-        service.features.forEach(feature => {
-            featuresHTML += `<li>${feature}</li>`;
-        });
+        let priceHTML = `<span class="price-prefix">${service.pricePrefix || ''}</span> <span class="price-currency">${priceSymbol}</span><span class="price-amount">${service.price}</span>`;
+
+        let featuresHTML = service.features.map(feature => `<li>${feature}</li>`).join('');
+        
+        let badgeHTML = '';
+        if (service.badge) {
+            badgeHTML = `<div class="badge ${service.badge.type}">${service.badge.text}</div>`;
+        }
 
         return `
             <div class="pricing-card" data-category="${service.category}">
+                ${badgeHTML}
                 <div class="pricing-header">
                     <h3>${service.title}</h3>
-                    <p class="price">${priceText}</p>
+                    <div class="price">${priceHTML}</div>
                 </div>
                 <ul class="pricing-features">${featuresHTML}</ul>
                 <a href="#contact-section" class="cta-button">Consultar</a>
             </div>
         `;
+    }
+
+    addEventListeners() {
+        // Lógica del Carrusel
+        const carousel = this.querySelector('#pricing-carousel');
+        if (carousel) { /* ... (lógica del carrusel sin cambios) ... */ }
+
+        // Lógica de Filtros y Ordenamiento del Catálogo
+        const categoryFilter = this.querySelector('#category-filter');
+        const sortBy = this.querySelector('#sort-by');
+
+        categoryFilter.addEventListener('change', (e) => {
+            this.currentFilter = e.target.value;
+            this.renderCatalog();
+        });
+
+        sortBy.addEventListener('change', (e) => {
+            this.currentSort = e.target.value;
+            this.renderCatalog();
+        });
     }
 }
 

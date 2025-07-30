@@ -524,8 +524,31 @@ h2 {
 
 .pricing-header { flex-grow: 0; }
 .pricing-header h3 { font-size: 1.5rem; margin-bottom: 10px; color: var(--color-primary); }
-.pricing-header .price { font-size: 3rem; font-weight: 800; color: var(--color-primary); margin-bottom: 25px; }
+.pricing-header .price { 
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 5px;
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 25px;
+}
 .pricing-header .price span { font-size: 1rem; font-weight: 400; color: var(--color-text-secondary); vertical-align: middle; margin-right: 5px; }
+
+.pricing-header .price-prefix {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+}
+.pricing-header .price-currency {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+.pricing-header .price-amount {
+    font-size: 3rem;
+    font-weight: 800;
+}
 
 .pricing-features {
     list-style: none;
@@ -697,19 +720,26 @@ h2 {
     z-index: 10;
 }
 
-/* Insignia "Más Popular" Rediseñada */
-.popular-badge {
+/* Etiquetas de Destacado/Popular */
+.badge {
     position: absolute;
-    top: -1px; /* Alineado con el borde */
+    top: -1px;
     right: 20px;
-    background: linear-gradient(45deg, var(--color-secondary), #0077c2);
     color: var(--color-primary);
     padding: 25px 10px 5px 10px;
     font-weight: 700;
     font-size: 0.9rem;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
-    box-shadow: 0 4px 10px rgba(0, 191, 255, 0.3);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.badge.popular {
+    background: linear-gradient(45deg, var(--color-secondary), #0077c2);
+}
+
+.badge.featured {
+    background: linear-gradient(45deg, #ff00ff, #8a2be2); /* Ejemplo de color para "Destacado" */
 }
 
 .pricing-header {
@@ -909,6 +939,38 @@ h2 {
 .full-catalog-grid {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     margin-top: 50px;
+}
+
+/* Controles de Filtro y Ordenamiento */
+.catalog-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: var(--color-surface);
+    border-radius: 12px;
+}
+
+.filter-group, .sort-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.catalog-controls label {
+    font-weight: 600;
+    color: var(--color-text-secondary);
+}
+
+.catalog-controls select {
+    background-color: #0a0a0a;
+    color: var(--color-primary);
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-family: var(--font-family-main);
 }
 
 /* --- ESTILOS PARA LAS SECCIONES DE VENTAJAS --- */
@@ -1124,7 +1186,6 @@ h2 {
 @media (max-width: 639px) {
     .pricing-carousel {
         position: relative;
-        /* Efecto de máscara para el pulso de luz */
         -webkit-mask-image: linear-gradient(to right, black 90%, transparent 100%);
         mask-image: linear-gradient(to right, black 90%, transparent 100%);
     }
@@ -1136,16 +1197,14 @@ h2 {
         right: 0;
         bottom: 0;
         width: 50px;
-        /* Animación de pulso */
         background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
         animation: pulse 2s infinite;
         pointer-events: none; /* Para que no interfiera con el scroll */
     }
 
     @keyframes pulse {
-        0% { transform: scale(0.8); opacity: 0.5; }
+        0%, 100% { transform: scale(0.8); opacity: 0.5; }
         50% { transform: scale(1.2); opacity: 1; }
-        100% { transform: scale(0.8); opacity: 0.5; }
     }
 }
 

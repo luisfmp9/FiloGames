@@ -13,7 +13,9 @@
     ],
     "category": "videojuegos",
     "featured": true,
-    "priority": 100
+    "priority": 100,
+    "impact": 95,
+    "badge": { "text": "Destacado", "type": "featured" }
   },
   {
     "id": "sitio-web-completo",
@@ -29,7 +31,9 @@
     ],
     "category": "web",
     "featured": true,
-    "priority": 90
+    "priority": 90,
+    "impact": 90,
+    "badge": { "text": "Más Popular", "type": "popular" }
   },
   {
     "id": "experiencias-ar-vr",
@@ -45,7 +49,9 @@
     ],
     "category": "arvr",
     "featured": true,
-    "priority": 80
+    "priority": 80,
+    "impact": 85,
+    "badge": null
   },
   {
     "id": "landing-page",
@@ -60,7 +66,10 @@
       "Conexión con WhatsApp y Redes"
     ],
     "category": "web",
-    "featured": false
+    "featured": false,
+    "priority": 70,
+    "impact": 70,
+    "badge": null
   },
   {
     "id": "nfc-premium",
@@ -71,11 +80,16 @@
     "features": [
       "Diseño premium personalizado",
       "Múltiples propuestas de diseño",
-      "Tarjeta física de alta calidad",
+      "Análisis de Marca",
+      "Tarjeta física de plástico PVC de alta calidad",
+      "Impresión Full Color",
       "Configuración y asesoría completa"
     ],
     "category": "nfc",
-    "featured": false
+    "featured": false,
+    "priority": 60,
+    "impact": 50,
+    "badge": null
   },
   {
     "id": "nfc-intermedio",
@@ -84,12 +98,16 @@
     "currency": "PEN",
     "pricePrefix": "",
     "features": [
-      "Diseño intermedio personalizado",
-      "Ideal si ya cuentas con tu enlace",
-      "Tarjeta física de alta calidad"
+      "Diseño de propuesta completamente personalizado",
+      "Ideal para hacer Networking",
+      "Impresión Full Color",
+      "Tarjeta física de plástico PVC de alta calidad"
     ],
     "category": "nfc",
-    "featured": false
+    "featured": false,
+    "priority": 50,
+    "impact": 40,
+    "badge": null
   },
   {
     "id": "nfc-ia",
@@ -98,12 +116,16 @@
     "currency": "PEN",
     "pricePrefix": "",
     "features": [
-      "Diseño adaptado con IA o plantilla",
+      "1 propuesta personalizada",
+      "Diseño en base a IA o plantillas",
       "Incluye configuración de Linktree",
-      "Perfecto para estudiantes o inexpertos"
+      "Perfecto para Profesionales y Emprendedores"
     ],
     "category": "nfc",
-    "featured": false
+    "featured": false,
+    "priority": 40,
+    "impact": 30,
+    "badge": null
   },
   {
     "id": "nfc-basico",
@@ -112,11 +134,15 @@
     "currency": "PEN",
     "pricePrefix": "",
     "features": [
-      "Para quienes ya tienen su diseño (8x5cm)",
-      "Incluye QR y programación del chip",
-      "Tarjeta física de alta calidad"
+      "Para quienes ya tienen su diseño (8x5cm) y su enlace a redirigir",
+      "Incluye inserción de QR y programación del chip",
+      "Impresión Full Color",
+      "Tarjeta física de plástico PVC de alta calidad"
     ],
     "category": "nfc",
-    "featured": false
+    "featured": false,
+    "priority": 30,
+    "impact": 20,
+    "badge": null
   }
 ]

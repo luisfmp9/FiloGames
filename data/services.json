@@ -1,7 +1,7 @@
 [
   {
     "id": "videojuego-marca",
-    "title": "Videojuego de Marca",
+    "title": "Tu Videojuego de Marca",
     "price": 2999,
     "currency": "USD",
     "pricePrefix": "desde",
@@ -19,14 +19,14 @@
   },
   {
     "id": "sitio-web-completo",
-    "title": "Sitio Web Completo Avanzado",
+    "title": "Sitio Web Profesional",
     "price": 999,
     "currency": "USD",
     "pricePrefix": "desde",
     "features": [
       "Plataforma multi-página y E-commerce",
       "Diseño y funcionalidades a medida",
-      "Optimización SEO inicial",
+      "Optimización SEO",
       "Panel de administración opcional"
     ],
     "category": "web",
@@ -37,7 +37,7 @@
   },
   {
     "id": "experiencias-ar-vr",
-    "title": "Experiencias AR/VR",
+    "title": "Tus Experiencias AR/VR",
     "price": 1499,
     "currency": "USD",
     "pricePrefix": "desde",

@@ -431,6 +431,7 @@ h2 {
 /* --- ESTILOS PARA LA SECCIÓN DE REDES SOCIALES (MEJORADA) --- */
 
 .social-media-grid {
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 25px;
     max-width: 900px;

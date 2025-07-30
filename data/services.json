@@ -111,15 +111,15 @@
   },
   {
     "id": "nfc-ia",
-    "title": "Tarjeta NFC con Diseño IA",
+    "title": "Tarjeta NFC Personalizada",
     "price": 99,
     "currency": "PEN",
     "pricePrefix": "",
     "features": [
-      "1 propuesta personalizada",
-      "Diseño en base a IA o plantillas",
-      "Incluye configuración de Linktree",
-      "Perfecto para Profesionales y Emprendedores"
+      "1 Diseño adaptado a tus necesidades",
+      "Creación eficiente para resultados impactantes",
+      "Incluye configuración de tu Linktree",
+      "Tu mejor aliado como profesional o emprendedor"
     ],
     "category": "nfc",
     "featured": false,

@@ -42,11 +42,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- LÓGICA MEJORADA PARA MARCAR EL ENLACE ACTIVO ---
     const navLinks = document.querySelectorAll('.nav-menu .nav-link');
-    const currentPath = window.location.pathname; // Ej: /FiloGames/portfolio/latin-vibes
+    const currentPath = window.location.pathname; // Ej: /portfolio/latin-vibes
 
     let bestMatch = null;
     navLinks.forEach(link => {
-        const linkPath = new URL(link.href).pathname; // Obtiene la ruta completa del enlace, ej: /FiloGames/portfolio
+        const linkPath = new URL(link.href).pathname; // Obtiene la ruta completa del enlace, ej: /portfolio
         
         // Limpiamos la clase de todos los enlaces primero
         link.classList.remove('active');
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         // Caso especial para la página de inicio si no hay otra coincidencia
         const homeLink = document.querySelector('a[href="/"]');
-        if (homeLink && (currentPath === '/FiloGames/' || currentPath === '/')) {
+        if (homeLink && (currentPath === '/')) {
             homeLink.classList.add('active');
         }
     }

@@ -26,7 +26,7 @@ class ServicesPage extends HTMLElement {
         this.innerHTML = `
             <section class="container">
                 <h2>Servicios Destacados</h2>
-                <p class="section-subtitle">Nuestras soluciones más solicitadas, diseñadas para generar el máximo impacto.</p>
+                <p class="section-subtitle">Nuestras soluciones más solicitadas y con el máximo impacto. Precios Referenciales.</p>
                 <div class="pricing-carousel-wrapper">
                     <button id="prev-button" class="carousel-button" aria-label="Anterior">
                         <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>

@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Error 404: Portal Collapse - Filo Games</title>
     
-    <link rel="icon" href="IMG/logoFilo.ico" sizes="16x16 32x32 48x48" type="image/x-icon">
-    <link rel="icon" type="image/png" sizes="192x192" href="IMG/logoFilo.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="IMG/logoFilo.png">
+    <link rel="icon" href="../IMG/logoFilo.ico" sizes="16x16 32x32 48x48" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="192x192" href="../IMG/logoFilo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../IMG/logoFilo.png">
     
     <style>
         :root {
@@ -408,7 +408,7 @@
             civiliansEl.innerHTML = `CIVILES: ${'♥ '.repeat(Math.max(0, civilians))}`;
         }
         
-        backBtn.addEventListener('click', e => { e.preventDefault(); window.location.href = '/FiloGames/'; });
+        backBtn.addEventListener('click', e => { e.preventDefault(); window.location.href = '../'; });
         window.addEventListener('resize', init);
 
         init();

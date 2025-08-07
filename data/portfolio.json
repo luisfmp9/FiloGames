@@ -167,7 +167,7 @@
   {
     "id": "Error404",
     "title": "Error 404 | PORTAL COLLAPSE",
-    "categories": ["game", "web", "mobile"],
+    "categories": ["games", "web", "mobile"],
     "image": "../IMG/Portfolio/VideoGames/PortalCollapse/404.webp",
     "description": "Videojuego que aparece al entrar en una página que no existe dentro de filogames.com",
     "playUrl": "https://www.filogames.com/404",

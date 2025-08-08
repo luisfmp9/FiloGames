@@ -9,7 +9,7 @@ class ComunidadPage extends HTMLElement {
     async connectedCallback() {
         try {
             const [postsResponse, peopleResponse] = await Promise.all([
-                fetch('data/posts.json'),
+                fetch('data/comunidad.json'),
                 fetch('data/people.json')
             ]);
             this.allPosts = await postsResponse.json();
@@ -129,7 +129,7 @@ class ComunidadPage extends HTMLElement {
 // COMPONENTE PARA LA LISTA DE POSTS
 class PostList extends HTMLElement {
     async connectedCallback() {
-        const response = await fetch('data/posts.json');
+        const response = await fetch('data/comunidad.json');
         const posts = await response.json();
         
         let postsHTML = '';
@@ -166,13 +166,13 @@ class PostContent extends HTMLElement {
         const postId = this.getAttribute('post-id');
         if (!postId) return;
 
-        const response = await fetch('../data/posts.json');
+        const response = await fetch('../data/comunidad.json');
         const posts = await response.json();
         const post = posts.find(p => p.id === postId);
 
         if (!post) return;
 
-        const postUrl = `https://www.filogames.com/posts/${post.contentFile}`;
+        const postUrl = `https://www.filogames.com/comunidad/${post.contentFile}`;
 
         this.innerHTML = `
             <article class="post-article">

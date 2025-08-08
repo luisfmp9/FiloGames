@@ -7,7 +7,7 @@
     "date": "2025-08-08",
     "imageUrl": "IMG/Portfolio/VideoGames/Chuter/splashArt.webp",
     "tags": ["Anuncio", "Desarrollo Web", "Tecnología"],
-    "contentFile": "lanzamiento-web.html"
+    "contentFile": "lanzamiento-web"
   },
   {
     "id": "post-prueba-2",
@@ -17,7 +17,7 @@
     "date": "2025-08-10",
     "imageUrl": "https://placehold.co/800x400/1a1a1a/ffffff?text=Futuro+Narrativa",
     "tags": ["Filosofía", "Gaming", "Negocios"],
-    "contentFile": "post-prueba-2.html"
+    "contentFile": "post-prueba-2"
   },
   {
     "id": "post-prueba-3",
@@ -27,6 +27,6 @@
     "date": "2025-08-12",
     "imageUrl": "https://placehold.co/800x400/1a1a1a/ffffff?text=Música+Indie",
     "tags": ["Tecnología", "Gaming"],
-    "contentFile": "post-prueba-3.html"
+    "contentFile": "post-prueba-3"
   }
 ]

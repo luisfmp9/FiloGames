@@ -1,0 +1,32 @@
+[
+  {
+    "id": "lanzamiento-web",
+    "title": "¡Estamos online! El Viaje Técnico detrás de FiloGames.com",
+    "summary": "El desarrollo de nuestro nuevo sitio fue una maratón de aprendizaje. Quiero compartir las lecciones clave del proceso: Web Components, optimización, música generativa y más.",
+    "authorId": "luisfmp",
+    "date": "2025-08-08",
+    "imageUrl": "IMG/Portfolio/VideoGames/Chuter/splashArt.webp",
+    "tags": ["Anuncio", "Desarrollo Web", "Tecnología"],
+    "contentFile": "lanzamiento-web.html"
+  },
+  {
+    "id": "post-prueba-2",
+    "title": "El Futuro de la Narrativa en los Videojuegos",
+    "summary": "Un análisis profundo sobre cómo las nuevas tecnologías y enfoques filosóficos están cambiando la forma en que contamos historias en los juegos.",
+    "authorId": "luisfmp",
+    "date": "2025-08-10",
+    "imageUrl": "https://placehold.co/800x400/1a1a1a/ffffff?text=Futuro+Narrativa",
+    "tags": ["Filosofía", "Gaming", "Negocios"],
+    "contentFile": "post-prueba-2.html"
+  },
+  {
+    "id": "post-prueba-3",
+    "title": "La Composición Musical en el Desarrollo Indie",
+    "summary": "Un vistazo al proceso creativo detrás de la música para videojuegos, desde la inspiración inicial hasta la implementación final en el motor de juego.",
+    "authorId": "dventuram",
+    "date": "2025-08-12",
+    "imageUrl": "https://placehold.co/800x400/1a1a1a/ffffff?text=Música+Indie",
+    "tags": ["Tecnología", "Gaming"],
+    "contentFile": "post-prueba-3.html"
+  }
+]

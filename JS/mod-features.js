@@ -19,7 +19,7 @@ class Features extends HTMLElement {
                             </svg>
                         </div>
                         <h3 class="feature-title">Finalistas Game Jam Plus</h3>
-                        <p class="feature-description">Reconocidos como finalisas en la maratón y aceleración de desarrollo de juegos más grande del mundo Game Jam Plus 23/24, validando nuestra capacidad creativa, técnica y de negocios en videojuegos a nivel global.</p>
+                        <p class="feature-description">Reconocidos como finalistas en la maratón y aceleración de desarrollo de juegos más grande del mundo Game Jam Plus 23/24, validando nuestra capacidad creativa, técnica y de negocios en videojuegos a nivel global.</p>
                     </div>
 
                     <!-- Tarjeta 2: Años de Experiencia (Ícono Mejorado) -->

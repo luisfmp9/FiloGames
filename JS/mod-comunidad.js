@@ -94,14 +94,14 @@ class ComunidadPage extends HTMLElement {
             const author = this.allPeople.find(p => p.id === post.authorId);
             return `
                 <div class="post-card">
-                    <a href="posts/${post.contentFile}" class="post-card-image-link">
+                    <a href="comunidad/${post.contentFile}" class="post-card-image-link">
                         <img src="${post.imageUrl}" alt="${post.title}" loading="lazy">
                     </a>
                     <div class="post-card-content">
                         <div class="post-card-tags">
                             ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                         </div>
-                        <h3 class="post-card-title"><a href="posts/${post.contentFile}">${post.title}</a></h3>
+                        <h3 class="post-card-title"><a href="comunidad/${post.contentFile}">${post.title}</a></h3>
                         <p class="post-card-summary">${post.summary}</p>
                         <div class="post-card-meta">
                             <span>Por ${author ? author.fullName : 'Anónimo'}</span>
@@ -136,14 +136,14 @@ class PostList extends HTMLElement {
         posts.forEach(post => {
             postsHTML += `
                 <div class="post-card">
-                    <a href="posts/${post.contentFile}" class="post-card-image-link">
+                    <a href="comunidad/${post.contentFile}" class="post-card-image-link">
                         <img src="${post.imageUrl}" alt="${post.title}" loading="lazy">
                     </a>
                     <div class="post-card-content">
                         <div class="post-card-tags">
                             ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                         </div>
-                        <h3 class="post-card-title"><a href="posts/${post.contentFile}">${post.title}</a></h3>
+                        <h3 class="post-card-title"><a href="comunidad/${post.contentFile}">${post.title}</a></h3>
                         <p class="post-card-summary">${post.summary}</p>
                         <div class="post-card-meta">
                             <span>Por ${post.author}</span>

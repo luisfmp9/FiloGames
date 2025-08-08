@@ -166,44 +166,61 @@ class PostContent extends HTMLElement {
         const postId = this.getAttribute('post-id');
         if (!postId) return;
 
-        const response = await fetch('../data/comunidad.json');
-        const posts = await response.json();
-        const post = posts.find(p => p.id === postId);
+        try {
+            const [postsResponse, peopleResponse] = await Promise.all([
+                fetch('../data/comunidad.json'),
+                fetch('../data/people.json')
+            ]);
+            const posts = await postsResponse.json();
+            const people = await peopleResponse.json();
+            
+            const post = posts.find(p => p.id === postId);
+            if (!post) {
+                this.innerHTML = `<p>Post no encontrado.</p>`;
+                return;
+            }
 
-        if (!post) return;
+            const author = people.find(p => p.id === post.authorId);
+            const authorName = author ? author.fullName : 'Anónimo';
+            const postUrl = `https://www.filogames.com/comunidad/${post.contentFile}`;
+            // Corregimos la ruta de la imagen para que funcione desde la subcarpeta /comunidad/
+            const imageUrl = post.imageUrl.startsWith('../') ? post.imageUrl : `../${post.imageUrl}`;
 
-        const postUrl = `https://www.filogames.com/comunidad/${post.contentFile}`;
-
-        this.innerHTML = `
-            <article class="post-article">
-                <header class="post-header">
-                    <h1>${post.title}</h1>
-                    <div class="post-meta">
-                        <span>Por ${post.author}</span> | 
-                        <span>Publicado el ${new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+            this.innerHTML = `
+                <article class="post-article">
+                    <header class="post-header">
+                        <div class="post-header-tags">${post.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>
+                        <h1>${post.title}</h1>
+                        <div class="post-meta">
+                            <span>Por ${authorName}</span> | 
+                            <span>Publicado el ${new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                        </div>
+                        <img class="post-main-image" src="${imageUrl}" alt="${post.title}">
+                    </header>
+                    
+                    <div class="post-body">
+                        <slot></slot>
                     </div>
-                    <img class="post-main-image" src="${post.imageUrl}" alt="${post.title}">
-                </header>
-                
-                <div class="post-body">
-                    <slot></slot>
-                </div>
 
-                <footer class="post-footer">
-                    <div class="share-buttons">
-                        <span>Compartir:</span>
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=${postUrl}" target="_blank">Facebook</a>
-                        <a href="https://twitter.com/intent/tweet?url=${postUrl}&text=${encodeURIComponent(post.title)}" target="_blank">Twitter</a>
-                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=${postUrl}" target="_blank">LinkedIn</a>
-                        <a href="https://wa.me/?text=${encodeURIComponent(post.title + ' ' + postUrl)}" target="_blank">WhatsApp</a>
-                    </div>
-                </footer>
-            </article>
+                    <footer class="post-footer">
+                        <div class="share-buttons">
+                            <span>Compartir:</span>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(postUrl)}" target="_blank">Facebook</a>
+                            <a href="https://twitter.com/intent/tweet?url=${encodeURIComponent(postUrl)}&text=${encodeURIComponent(post.title)}" target="_blank">Twitter</a>
+                            <a href="https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(postUrl)}" target="_blank">LinkedIn</a>
+                            <a href="https://wa.me/?text=${encodeURIComponent(post.title + ' ' + postUrl)}" target="_blank">WhatsApp</a>
+                        </div>
+                    </footer>
+                </article>
 
-            <section id="comments" class="container">
-                <h2>Comentarios</h2>
+                <section id="comments" class="container">
+                    <h2>Comentarios de la Comunidad</h2>
+                    <!-- El sistema de comentarios de Giscus se insertará aquí -->
                 </section>
-        `;
+            `;
+        } catch (error) {
+            console.error("Error al cargar el contenido del post:", error);
+        }
     }
 }
 

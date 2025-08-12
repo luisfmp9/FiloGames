@@ -1,10 +1,10 @@
 [
   {
     "id": "lanzamiento-web",
-    "title": "¡Estamos online! El Viaje Técnico detrás de FiloGames.com",
+    "title": "¡Estamos online! El Viaje Técnico detrás de https://www.filogames.com/",
     "summary": "El desarrollo de nuestro nuevo sitio fue una maratón de aprendizaje. Quiero compartir las lecciones clave del proceso: Web Components, optimización, música generativa y más.",
     "authorId": "luisfmp",
-    "date": "2025-08-08",
+    "date": "2025-08-12",
     "imageUrl": "../IMG/Portfolio/VideoGames/Chuter/splashArt.webp",
     "tags": ["Anuncio", "Desarrollo Web", "Tecnología"],
     "contentFile": "lanzamiento-web.md",

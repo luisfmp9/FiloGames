@@ -160,13 +160,14 @@ class PostList extends HTMLElement {
     }
 }
 
-// COMPONENTE PARA EL CONTENIDO DE UN POST INDIVIDUAL
+// COMPONENTE PARA EL CONTENIDO DE UN POST INDIVIDUAL (VERSIÓN MEJORADA)
 class PostContent extends HTMLElement {
     async connectedCallback() {
         const postId = this.getAttribute('post-id');
         if (!postId) return;
 
         try {
+            // 1. Carga los datos de todos los posts y personas
             const [postsResponse, peopleResponse] = await Promise.all([
                 fetch('../data/comunidad.json'),
                 fetch('../data/people.json')
@@ -175,15 +176,24 @@ class PostContent extends HTMLElement {
             const people = await peopleResponse.json();
             
             const post = posts.find(p => p.id === postId);
-            if (!post) {
-                this.innerHTML = `<p>Post no encontrado.</p>`;
-                return;
-            }
+            if (!post) { this.innerHTML = `<p>Post no encontrado.</p>`; return; }
 
+            // 2. Actualiza dinámicamente el <head> de la página
+            document.title = `${post.title} - Filo Games`;
+            document.querySelector('meta[name="description"]').setAttribute('content', post.summary);
+            // (Aquí podrías añadir más meta tags como og:title, etc.)
+
+            // 3. Carga el contenido del archivo Markdown
+            const contentResponse = await fetch(post.contentFile);
+            const markdownContent = await contentResponse.text();
+
+            // 4. Convierte el Markdown a HTML usando la librería 'marked'
+            const postHTML = marked.parse(markdownContent);
+
+            // 5. Construye el HTML final del componente
             const author = people.find(p => p.id === post.authorId);
             const authorName = author ? author.fullName : 'Anónimo';
-            const postUrl = `https://www.filogames.com/comunidad/${post.contentFile}`;
-            // Corregimos la ruta de la imagen para que funcione desde la subcarpeta /comunidad/
+            const postUrl = `https://www.filogames.com/comunidad/${post.contentFile.replace('.md', '.html')}`;
             const imageUrl = post.imageUrl.startsWith('../') ? post.imageUrl : `../${post.imageUrl}`;
 
             this.innerHTML = `
@@ -199,23 +209,16 @@ class PostContent extends HTMLElement {
                     </header>
                     
                     <div class="post-body">
-                        <slot></slot>
+                        ${postHTML} <!-- El contenido convertido se inserta aquí -->
                     </div>
 
                     <footer class="post-footer">
-                        <div class="share-buttons">
-                            <span>Compartir:</span>
-                            <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(postUrl)}" target="_blank">Facebook</a>
-                            <a href="https://twitter.com/intent/tweet?url=${encodeURIComponent(postUrl)}&text=${encodeURIComponent(post.title)}" target="_blank">Twitter</a>
-                            <a href="https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(postUrl)}" target="_blank">LinkedIn</a>
-                            <a href="https://wa.me/?text=${encodeURIComponent(post.title + ' ' + postUrl)}" target="_blank">WhatsApp</a>
-                        </div>
+                        <!-- ... (botones de compartir) ... -->
                     </footer>
                 </article>
 
                 <section id="comments" class="container">
                     <h2>Comentarios de la Comunidad</h2>
-                    <!-- El sistema de comentarios de Giscus se insertará aquí -->
                 </section>
             `;
         } catch (error) {

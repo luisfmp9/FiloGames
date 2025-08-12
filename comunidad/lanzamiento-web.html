@@ -4,60 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Meta tags dinámicos (idealmente se generarían desde el JSON) -->
-    <title>¡Estamos online! El Viaje Técnico detrás de FiloGames.com - Filo Games</title>
-    <meta name="description" content="El desarrollo de nuestro nuevo sitio fue una maratón de aprendizaje. Quiero compartir las lecciones clave del proceso: Web Components, optimización, música generativa y más.">
+    <!-- Estos valores serán sobreescritos por el JavaScript -->
+    <title>Comunidad - Filo Games</title>
+    <meta name="description" content="Un artículo de la comunidad de Filo Games.">
     
     <link rel="stylesheet" href="../CSS/styles.css">
     <link rel="icon" href="../IMG/logoFilo.ico" type="image/x-icon">
+    <!-- ... (resto de tus meta tags y links del head, con rutas corregidas a ../) ... -->
 </head>
 <body>
     <mi-header></mi-header>
     <main class="container">
-        <mi-post-content post-id="lanzamiento-web">
-            <!-- ESTE ES EL CONTENIDO REAL DEL POST -->
-            <p>El lanzamiento de nuestro nuevo sitio web, https://www.filogames.com/, ha sido una maratón de aprendizaje. Esta no es la primera versión; la idea nació del CSS que creé para la página de nuestro juego "Chuter" en itch.io. Hace unas semanas, decidí llevarlo a un nivel profesional, y quiero compartir las lecciones técnicas del proceso.</p>
-            
-            <p>La decisión de usar <strong>HTML, CSS y JS nativo con Web Components</strong> se debió en gran parte a la inercia de mis proyectos anteriores y a la facilidad para acoplarme. Sin embargo, este camino, en conjunto con el acompañamiento de la IA Gemini Pro, me forzó a profundizar en los fundamentos de una manera que un framework a veces oculta.</p>
-
-            <h3>Mis Mayores Aprendizajes:</h3>
-            
-            <h4>Optimización "Core Web Vitals"</h4>
-            <p>Me obsesioné con el rendimiento, usando herramientas como PageSpeed Insights. Aprendí a solucionar problemas reales:</p>
-            <ul>
-                <li><strong>CLS (Cumulative Layout Shift):</strong> Eliminé los "saltos" visuales auto-alojando las fuentes y usando <code>font-display: swap</code>.</li>
-                <li><strong>LCP (Largest Contentful Paint):</strong> Implementé <code>loading="lazy"</code> en las imágenes "below the fold" y moví todos los scripts al final del <code>&lt;body&gt;</code> con <code>defer</code>.</li>
-                <li><strong>Optimización de Imágenes:</strong> Profundicé en el uso de formatos como <strong>WebP</strong> para fotos y <strong>SVG</strong> para logos, utilizando herramientas como Inkscape y SVGOMG para mantener los tamaños de archivo al mínimo.</li>
-            </ul>
-
-            <h4>Arquitectura de Servidor</h4>
-            <p>Conectar un dominio de Namecheap a GitHub Pages a través de <strong>Cloudflare</strong> fue una lección magistral sobre infraestructura. Aprendí a configurar registros DNS, reglas de redirección para forzar HTTPS y `www`, y a solucionar errores de SSL (como el 522 y 526).</p>
-
-            <h4>Base de Datos (y la decisión de no usar una)</h4>
-            <p>Aunque tengo experiencia con PostgreSQL, para este proyecto decidí que no era necesaria. Toda la información se gestiona a través de archivos <strong>JSON</strong>, lo que mantiene el sitio estático, ultrarrápido y seguro.</p>
-
-            <p>Curiosamente, este proceso me hizo valorar aún más la utilidad de herramientas como <strong>React o Vue</strong> para proyectos serios y escalables. En el futuro, es posible que migremos a un framework y exploremos el uso de <strong>Sass</strong> para organizar el CSS.</p>
-        </mi-post-content>
+        <!-- El componente ahora construye todo. El contenido de adentro se ignora. -->
+        <mi-post-content post-id="lanzamiento-web"></mi-post-content>
     </main>
     <mi-footer></mi-footer>
     <mi-music></mi-music>
 
+    <!-- SCRIPTS CON RUTAS CORREGIDAS Y LIBRERÍA MARKED -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> <!-- Librería para Markdown -->
     <script src="../JS/animations.js" defer></script>
     <script type="module" src="../JS/modulos.js"></script>
     <script type="module" src="../JS/mod-comunidad.js"></script>
     <script src="../JS/script.js" defer></script>
     
+    <!-- SCRIPT DE GISCUS -->
     <script src="https://giscus.app/client.js"
         data-repo="luisfmp9/FiloGames"
         data-repo-id="R_kgDOOCpOHA"
         data-category="Announcements"
         data-category-id="DIC_kwDOOCpOHM4Ct67Y"
-        data-mapping="title"
+        data-mapping="pathname"
         data-strict="0"
         data-reactions-enabled="1"
         data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="preferred_color_scheme"
+        data-input-position="top"
+        data-theme="transparent_dark"
         data-lang="es"
         crossorigin="anonymous"
         async>

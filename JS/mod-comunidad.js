@@ -105,7 +105,7 @@ class ComunidadPage extends HTMLElement {
                         <p class="post-card-summary">${post.summary}</p>
                         <div class="post-card-meta">
                             <span>Por ${author ? author.fullName : 'Anónimo'}</span>
-                            <span>${new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                            <span>${new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</span>
                         </div>
                     </div>
                 </div>
@@ -147,7 +147,7 @@ class PostList extends HTMLElement {
                         <p class="post-card-summary">${post.summary}</p>
                         <div class="post-card-meta">
                             <span>Por ${post.author}</span>
-                            <span>${new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                            <span>${new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</span>
                         </div>
                     </div>
                 </div>
@@ -203,7 +203,7 @@ class PostContent extends HTMLElement {
                         <h1>${post.title}</h1>
                         <div class="post-meta">
                             <span>Por ${authorName}</span> | 
-                            <span>Publicado el ${new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                            <span>Publicado el ${new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</span>
                         </div>
                         <img class="post-main-image" src="${imageUrl}" alt="${post.title}">
                     </header>

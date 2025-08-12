@@ -7,7 +7,8 @@
     "date": "2025-08-08",
     "imageUrl": "../IMG/Portfolio/VideoGames/Chuter/splashArt.webp",
     "tags": ["Anuncio", "Desarrollo Web", "Tecnología"],
-    "contentFile": "lanzamiento-web.md"
+    "contentFile": "lanzamiento-web.md",
+    "url": "lanzamiento-web"
   },
   {
     "id": "post-narrativa",
@@ -17,6 +18,7 @@
     "date": "2025-08-10",
     "imageUrl": "https://placehold.co/800x400/1a1a1a/ffffff?text=Futuro+Narrativa",
     "tags": ["Filosofía", "Gaming", "Negocios"],
-    "contentFile": "post-narrativa.md"
+    "contentFile": "post-narrativa.md",
+    "url": "ejemplo"
   }
 ]

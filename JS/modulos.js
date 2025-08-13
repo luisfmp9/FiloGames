@@ -13,7 +13,7 @@ class Header extends HTMLElement {
                             <li class="nav-item"><a href="/portfolio" class="nav-link">Portafolio</a></li>
                             <li class="nav-item"><a href="/services" class="nav-link">Servicios</a></li>
                             <li class="nav-item nav-item--has-dropdown">
-                                <a href="/about" class="nav-link">Sobre Nosotros</a>
+                                <a href="/about" class="nav-link">Nosotros</a>
                                 <ul class="submenu">
                                     <li class="submenu-item"><a href="/team" class="nav-link">Equipo</a></li>
                                     </ul>

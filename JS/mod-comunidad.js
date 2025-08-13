@@ -1,19 +1,38 @@
+window.filoGamesDataCache = {};
+
 class ComunidadPage extends HTMLElement {
     constructor() {
         super();
         this.allPosts = [];
         this.allPeople = [];
         this.filteredPosts = [];
+        this.web3formsAccessKey = "0127c141-1e7e-4df1-afb2-12425bb6d3e9";
     }
 
     async connectedCallback() {
         try {
-            const [postsResponse, peopleResponse] = await Promise.all([
-                fetch('data/comunidad.json'),
-                fetch('data/people.json')
-            ]);
-            this.allPosts = await postsResponse.json();
-            this.allPeople = await peopleResponse.json();
+            let posts, people;
+            
+            if (window.filoGamesDataCache.posts) {
+                posts = window.filoGamesDataCache.posts;
+                people = window.filoGamesDataCache.people;
+            } else {
+                const [postsResponse, peopleResponse] = await Promise.all([
+                    fetch('../data/comunidad.json'),
+                    fetch('../data/people.json')
+                ]);
+
+                if (!postsResponse.ok || !peopleResponse.ok) {
+                    throw new Error('Failed to fetch data from one or more sources.');
+                }
+
+                posts = await postsResponse.json();
+                people = await peopleResponse.json();
+                window.filoGamesDataCache = { posts, people };
+            }
+
+            this.allPosts = posts;
+            this.allPeople = people;
             this.filteredPosts = [...this.allPosts];
             this.render();
         } catch (error) {
@@ -28,11 +47,26 @@ class ComunidadPage extends HTMLElement {
             .map(authorId => this.allPeople.find(p => p.id === authorId))
             .filter(Boolean); // Filtra por si algún autor no se encuentra
 
+        // Nuevo: Función auxiliar para generar el HTML del newsletter
+        const newsletterHTML = (idSuffix) => `
+            <div class="newsletter-section">
+                <h3 class="newsletter-title">¡Únete a la comunidad de Filo Games!</h3>
+                <p class="newsletter-text">Recibe noticias, posts y contenido exclusivo directamente en tu correo.</p>
+                <form id="newsletter-form-${idSuffix}" class="newsletter-form">
+                    <input type="email" id="newsletter-email-${idSuffix}" placeholder="Escribe tu correo aquí" required>
+                    <button type="submit" class="newsletter-button">Quiero recibir actualizaciones</button>
+                </form>
+                <p id="newsletter-message-${idSuffix}" class="newsletter-message"></p>
+            </div>
+        `;
+
         this.innerHTML = `
             <section class="container">
                 <h2>Comunidad Filo Games</h2>
                 <p class="section-subtitle">Nuestro espacio para compartir artículos, anuncios y reflexiones sobre tecnología, videojuegos y filosofía.</p>
                 
+                ${newsletterHTML('top')}
+
                 <div class="blog-controls">
                     <input type="search" id="search-input" placeholder="Buscar por título o contenido...">
                     <div class="filter-group">
@@ -52,6 +86,7 @@ class ComunidadPage extends HTMLElement {
                 </div>
 
                 <div id="post-list-grid" class="post-list-grid"></div>
+                ${newsletterHTML('bottom')}
             </section>
         `;
         
@@ -123,64 +158,104 @@ class ComunidadPage extends HTMLElement {
         tagFilter.addEventListener('change', () => this.applyFiltersAndSort());
         authorFilter.addEventListener('change', () => this.applyFiltersAndSort());
         sortOrder.addEventListener('change', () => this.applyFiltersAndSort());
-    }
-}
 
-// COMPONENTE PARA LA LISTA DE POSTS
-class PostList extends HTMLElement {
-    async connectedCallback() {
-        const response = await fetch('data/comunidad.json');
-        const posts = await response.json();
-        
-        let postsHTML = '';
-        posts.forEach(post => {
-            postsHTML += `
-                <div class="post-card">
-                    <a href="comunidad/${post.url}" class="post-card-image-link">
-                        <img src="${post.imageUrl}" alt="${post.title}" loading="lazy">
-                    </a>
-                    <div class="post-card-content">
-                        <div class="post-card-tags">
-                            ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                        </div>
-                        <h3 class="post-card-title"><a href="comunidad/${post.url}">${post.title}</a></h3>
-                        <p class="post-card-summary">${post.summary}</p>
-                        <div class="post-card-meta">
-                            <span>Por ${post.author}</span>
-                            <span>${new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</span>
-                        </div>
-                    </div>
-                </div>
-            `;
+        // Nuevo: Manejadores para ambos formularios de newsletter
+        this.setupNewsletterForm('#newsletter-form-top', '#newsletter-email-top', '#newsletter-message-top');
+        this.setupNewsletterForm('#newsletter-form-bottom', '#newsletter-email-bottom', '#newsletter-message-bottom');
+
+    }
+
+    // Nuevo: Función auxiliar para manejar la lógica de suscripción
+    setupNewsletterForm(formSelector, emailSelector, messageSelector) {
+        const newsletterForm = this.querySelector(formSelector);
+        const newsletterMessage = this.querySelector(messageSelector);
+
+        if (!newsletterForm) return;
+
+        newsletterForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const emailInput = this.querySelector(emailSelector);
+            const email = emailInput.value;
+
+            const endpoint = "https://api.web3forms.com/submit"; 
+
+            try {
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                    },
+                    body: JSON.stringify({ 
+                        access_key: this.web3formsAccessKey,
+                        email: email
+                    })
+                });
+
+                if (response.ok) {
+                    newsletterMessage.textContent = '¡Gracias! Ya estás en la lista. ¡Bienvenido!';
+                    newsletterMessage.style.color = 'green';
+                    emailInput.value = '';
+                } else {
+                    newsletterMessage.textContent = 'Hubo un problema. Por favor, inténtalo de nuevo.';
+                    newsletterMessage.style.color = 'red';
+                }
+            } catch (error) {
+                console.error('Error al enviar el formulario:', error);
+                newsletterMessage.textContent = 'Error de conexión. Verifica tu internet y vuelve a intentarlo.';
+                newsletterMessage.style.color = 'red';
+            }
         });
-
-        this.innerHTML = `
-            <div class="post-list-grid">${postsHTML}</div>
-        `;
     }
 }
 
-// COMPONENTE PARA EL CONTENIDO DE UN POST INDIVIDUAL (VERSIÓN MEJORADA)
+// COMPONENTE PARA EL CONTENIDO DE UN POST INDIVIDUAL
 class PostContent extends HTMLElement {
     async connectedCallback() {
         const postId = this.getAttribute('post-id');
         if (!postId) return;
 
         try {
-            // 1. Carga los datos de todos los posts y personas
-            const [postsResponse, peopleResponse] = await Promise.all([
-                fetch('../data/comunidad.json'),
-                fetch('../data/people.json')
-            ]);
-            const posts = await postsResponse.json();
-            const people = await peopleResponse.json();
+            let posts, people;
+            
+            if (window.filoGamesDataCache.posts) {
+                posts = window.filoGamesDataCache.posts;
+                people = window.filoGamesDataCache.people;
+            } else {
+                const [postsResponse, peopleResponse] = await Promise.all([
+                    fetch('../data/comunidad.json'),
+                    fetch('../data/people.json')
+                ]);
+
+                if (!postsResponse.ok || !peopleResponse.ok) {
+                    throw new Error('Failed to fetch data from one or more sources.');
+                }
+
+                posts = await postsResponse.json();
+                people = await peopleResponse.json();
+                window.filoGamesDataCache = { posts, people };
+            }
             
             const post = posts.find(p => p.id === postId);
             if (!post) { this.innerHTML = `<p>Post no encontrado.</p>`; return; }
+            
+            const author = people.find(p => p.id === post.authorId);
+            const authorName = author ? author.fullName : 'Anónimo';
 
             // 2. Actualiza dinámicamente el <head> de la página
             document.title = `${post.title} - Filo Games`;
             document.querySelector('meta[name="description"]').setAttribute('content', post.summary);
+
+            const keywordsMeta = document.querySelector('meta[name="keywords"]');
+            if (keywordsMeta) {
+                keywordsMeta.setAttribute('content', post.tags.join(', '));
+            }
+
+            const authorMeta = document.querySelector('meta[name="author"]');
+            if (authorMeta) {
+                authorMeta.setAttribute('content', authorName);
+            }
             // (Aquí podrías añadir más meta tags como og:title, etc.)
 
             // 3. Carga el contenido del archivo Markdown
@@ -191,8 +266,6 @@ class PostContent extends HTMLElement {
             const postHTML = marked.parse(markdownContent);
 
             // 5. Construye el HTML final del componente
-            const author = people.find(p => p.id === post.authorId);
-            const authorName = author ? author.fullName : 'Anónimo';
             const postUrl = `https://www.filogames.com/comunidad/${post.contentFile.replace('.md', '.html')}`;
             const imageUrl = post.imageUrl.startsWith('../') ? post.imageUrl : `../${post.imageUrl}`;
 
@@ -227,6 +300,5 @@ class PostContent extends HTMLElement {
     }
 }
 
-customElements.define('mi-post-list', PostList);
 customElements.define('mi-post-content', PostContent);
 customElements.define('mi-comunidad-page', ComunidadPage);

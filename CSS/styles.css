@@ -244,6 +244,73 @@ h2 {
     transform: scaleX(1); /* El subrayado crece a su tamaño completo */
 }
 
+/* --- Navegación con Submenú --- */
+
+/* Contenedor del elemento con submenú */
+.nav-item--has-dropdown {
+    position: relative; /* Clave para posicionar el submenú */
+}
+
+/* Indicador de flecha para el submenú */
+.nav-item--has-dropdown > .nav-link::after {
+    content: ' ▼'; /* Añade una pequeña flecha hacia abajo */
+    font-size: 0.7em;
+    display: inline-block;
+    margin-left: 4px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Gira la flecha cuando el menú está abierto (hover) */
+.nav-item--has-dropdown:hover > .nav-link::after {
+    transform: rotate(180deg);
+}
+
+/* Estilos del submenú (oculto por defecto) */
+.submenu {
+    list-style: none;
+    position: absolute;
+    top: 120%; /* Posición inicial debajo del enlace principal */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px); /* Centra y lo mueve un poco hacia abajo */
+    background-color: var(--color-surface);
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    min-width: 180px; /* Ancho mínimo del desplegable */
+    padding: 8px 0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+
+    /* Transiciones para un efecto suave */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+/* Muestra el submenú al pasar el cursor sobre el elemento padre */
+.nav-item--has-dropdown:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0); /* Lo sube a su posición final */
+}
+
+/* Estilo para los enlaces dentro del submenú */
+.submenu .nav-link {
+    display: block; /* Para que ocupen todo el ancho del contenedor */
+    padding: 10px 20px;
+    white-space: nowrap; /* Evita que el texto se parta en dos líneas */
+}
+
+/* Anula el efecto de subrayado animado para los enlaces del submenú */
+.submenu .nav-link::after {
+    display: none;
+}
+
+/* Efecto hover para los enlaces del submenú */
+.submenu .nav-link:hover {
+    background-color: #252525; /* Un fondo sutil para resaltar */
+    color: var(--color-primary);
+}
+
 .hamburger {
     display: none;
     cursor: pointer;

@@ -1,24 +1,13 @@
 [
   {
     "id": "lanzamiento-web",
-    "title": "¡Estamos online! El Viaje Técnico detrás de https://www.filogames.com/",
-    "summary": "El desarrollo de nuestro nuevo sitio fue una maratón de aprendizaje. Quiero compartir las lecciones clave del proceso: Web Components, optimización, música generativa y más.",
+    "title": "¡Estamos Online! 🚀 Te presentamos nuestro nuevo hogar digital.",
+    "summary": "Como estudio de desarrollo, creemos que nuestro propio sitio web debe ser el mejor ejemplo de nuestra filosofía y trabajo. Por eso, nos enorgullece anunciar el lanzamiento oficial de https://www.filogames.com/ 🌐 ",
     "authorId": "luisfmp",
     "date": "2025-08-12",
-    "imageUrl": "../IMG/Portfolio/VideoGames/Chuter/splashArt.webp",
-    "tags": ["Anuncio", "Desarrollo Web", "Tecnología"],
+    "imageUrl": "../IMG/Portfolio/Webs/FiloGames/webFiloGames.webp",
+    "tags": ["Anuncio", "Desarrollo Web"],
     "contentFile": "lanzamiento-web.md",
     "url": "lanzamiento-web"
-  },
-  {
-    "id": "post-narrativa",
-    "title": "El Futuro de la Narrativa en los Videojuegos",
-    "summary": "Un análisis profundo sobre cómo las nuevas tecnologías y enfoques filosóficos están cambiando la forma en que contamos historias en los juegos.",
-    "authorId": "luisfmp",
-    "date": "2025-08-10",
-    "imageUrl": "https://placehold.co/800x400/1a1a1a/ffffff?text=Futuro+Narrativa",
-    "tags": ["Filosofía", "Gaming", "Negocios"],
-    "contentFile": "post-narrativa.md",
-    "url": "ejemplo"
   }
 ]

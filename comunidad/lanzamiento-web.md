@@ -1,19 +1,11 @@
-El lanzamiento de nuestro nuevo sitio web, https://www.filogames.com/, ha sido una maratón de aprendizaje. Esta no es la primera versión; la idea nació del CSS que creé para la página de nuestro juego "Chuter" en itch.io. Hace unas semanas, decidí llevarlo a un nivel profesional, y quiero compartir las lecciones técnicas del proceso.
+¡Ya estamos online! 🚀 Te presentamos nuestro nuevo hogar digital.
 
-La decisión de usar **HTML, CSS y JS nativo con Web Components** se debió en gran parte a la inercia de mis proyectos anteriores. Sin embargo, este camino, en conjunto con el acompañamiento de la IA Gemini Pro, me forzó a profundizar en los fundamentos de una manera que un framework a veces oculta.
+Como estudio de desarrollo, creemos que nuestro propio sitio web debe ser el mejor ejemplo de nuestra filosofía y trabajo. Por eso, nos enorgullece anunciar el lanzamiento oficial de https://www.filogames.com/ 🌐 
 
-### **Mis Mayores Aprendizajes:**
+Lo hemos construido desde cero para que sea nuestra fortaleza digital: un espacio rápido, profesional y diseñado para comunicar ideas complejas de forma sencilla en múltiples dispositivos.
 
-#### **Optimización "Core Web Vitals"**
+Te invitamos a explorarlo por completo, desde nuestro portafolio de proyectos hasta los servicios que ofrecemos 🎮.
 
-Me obsesioné con el rendimiento, usando herramientas como PageSpeed Insights. Aprendí a solucionar problemas reales:
+Este es solo el comienzo. Próximamente, lanzaremos más contenidos en la sección comunidad, como: devlogs, artículos, novedades y un vistazo a nuestro proceso creativo. Para no perderte nada, síguenos en nuestras redes sociales (encontrarás los enlaces en contacto).
 
-* **CLS (Cumulative Layout Shift):** Eliminé los "saltos" visuales auto-alojando las fuentes y usando font-display: swap.  
-* **LCP (Largest Contentful Paint):** Implementé loading="lazy" en las imágenes "below the fold" y moví todos los scripts al final del \<body\> con defer.  
-* **Optimización de Imágenes:** Profundicé en el uso de formatos como **WebP** para fotos y **SVG** para logos, utilizando herramientas como Inkscape y SVGOMG para mantener los tamaños de archivo al mínimo.
-
-#### **Arquitectura de Servidor**
-
-Conectar un dominio de Namecheap a GitHub Pages a través de **Cloudflare** fue una lelección magistral sobre infraestructura. Aprendí a configurar registros DNS, reglas de redirección para forzar HTTPS y www, y a solucionar errores de SSL (como el 522 y 526).
-
-Curiosamente, este proceso me hizo valorar aún más la utilidad de herramientas como **React o Vue** para proyectos serios y escalables. En el futuro, es posible que migremos a un framework y exploremos el uso de **Sass** para organizar el CSS.
+Descubre los universos que hemos construido 🙂

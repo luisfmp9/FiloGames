@@ -1349,6 +1349,90 @@ h2 {
     color: var(--color-text-secondary);
 }
 
+/* --- ESTILOS PARA LA SECCIÓN DEL NEWSLETTER --- */
+.newsletter-section {
+    background-color: var(--color-surface);
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    padding: 40px;
+    margin: 50px auto;
+    max-width: 700px;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+}
+
+/* Efecto sutil al pasar el mouse */
+.newsletter-section:hover {
+    box-shadow: 0 0 25px rgba(0, 191, 255, 0.15);
+}
+
+.newsletter-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--color-primary);
+}
+
+.newsletter-text {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 30px;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+    gap: 15px;
+    justify-content: center;
+}
+
+.newsletter-form input[type="email"] {
+    flex: 1; /* Ocupa el espacio disponible */
+    padding: 15px 20px;
+    border: 2px solid #4a4a4a;
+    border-radius: 50px;
+    background-color: #1a1a1a;
+    color: var(--color-text-primary);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    min-width: 250px; /* Asegura que el input no se haga demasiado pequeño */
+}
+
+.newsletter-form input[type="email"]:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 8px rgba(0, 191, 255, 0.5);
+}
+
+.newsletter-button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.newsletter-button:hover {
+    background-color: #ccc;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.newsletter-button:active {
+    transform: translateY(0);
+}
+
+.newsletter-message {
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    min-height: 25px; /* Para evitar que el diseño se mueva al mostrar el mensaje */
+}
+
 /* --- ESTILOS PARA LAS SECCIONES DE VENTAJAS --- */
 .advantages-container {
     border-top: 1px solid #2a2a2a;

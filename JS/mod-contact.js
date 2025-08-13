@@ -11,7 +11,7 @@ class Contact extends HTMLElement {
                     <div class="form-group"><input type="text" name="asunto" class="form-control" placeholder="Asunto"></div>
                     <div class="form-group"><textarea name="mensaje" class="form-control" rows="5" placeholder="Tu Mensaje"></textarea></div>
                     <input type="hidden" name="redirect" value="https://www.filogames.com/thanks">
-                    <div style="text-align: center;"><button type="submit" class="cta-button">Enviar Mensaje</button></div>
+                    <div style="text-align: center;"><button type="submit" class="cta-button">Contactar</button></div>
                     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
                 </form>
             </section>

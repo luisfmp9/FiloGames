@@ -9,5 +9,16 @@
     "tags": ["Anuncio", "Desarrollo Web"],
     "contentFile": "lanzamiento-web.md",
     "url": "lanzamiento-web"
+  },
+  {
+    "id": "experiencia-filoweb",
+    "title": "Mi experiencia construyendo el nuevo sitio web de Filo Games",
+    "summary": "El lanzamiento de nuestro nuevo sitio web ha sido una maratón de aprendizaje. La idea nació del CSS y HTML que creé para la página de nuestro juego",
+    "authorId": "luisfmp",
+    "date": "2025-08-14",
+    "imageUrl": "../IMG/comunidad/experiencia-filoweb.png",
+    "tags": ["Anuncio", "Desarrollo Web"],
+    "contentFile": "experiencia-filoweb.md",
+    "url": "experiencia-filoweb"
   }
 ]

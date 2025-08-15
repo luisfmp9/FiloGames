@@ -361,6 +361,10 @@ h2 {
     hyphens: auto; /* Permite la división de palabras para un mejor justificado */
 }
 
+img {
+    max-width: 100%;
+}
+
 /* --- Botón CTA --- */
 .cta-button {
     display: inline-block;

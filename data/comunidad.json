@@ -20,5 +20,16 @@
     "tags": ["Anuncio", "Desarrollo Web"],
     "contentFile": "experiencia-filoweb.md",
     "url": "experiencia-filoweb"
+  },
+  {
+    "id": "devlog-filo-seguro",
+    "title": "1er Devlog de Filo Seguro",
+    "summary": "1ros avances en Unity del proyecto Filo Seguro, con tecnologías para VR y configuración del entorno.",
+    "authorId": "alvaro-r",
+    "date": "2025-09-14",
+    "imageUrl": "",
+    "tags": ["Anuncio", "Desarrollo VR", "Seguridad Laboral"],
+    "contentFile": "devlog-filo-seguro.md",
+    "url": "devlog-filo-seguro"
   }
 ]

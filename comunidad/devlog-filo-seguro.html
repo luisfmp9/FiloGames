@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Estos valores serán sobreescritos por el JavaScript -->
+    <title>Comunidad - Filo Games</title>
+    <meta name="description" content="Un artículo de la comunidad de Filo Games.">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    
+    <link rel="stylesheet" href="../CSS/styles.css">
+    <link rel="icon" href="../IMG/logoFilo.ico" type="image/x-icon">
+</head>
+<body>
+    <mi-header></mi-header>
+    <main class="container">
+        <!-- El componente ahora construye todo. El contenido de adentro se ignora. -->
+        <mi-post-content post-id="devlog-filo-seguro"></mi-post-content>
+    </main>
+    <mi-footer></mi-footer>
+    <mi-music></mi-music>
+
+    <!-- SCRIPTS CON RUTAS CORREGIDAS Y LIBRERÍA MARKED -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> <!-- Librería para Markdown -->
+    <script src="../JS/animations.js" defer></script>
+    <script type="module" src="../JS/modulos.js"></script>
+    <script type="module" src="../JS/mod-comunidad.js"></script>
+    <script src="../JS/script.js" defer></script>
+    
+    <!-- SCRIPT DE GISCUS -->
+    <script src="https://giscus.app/client.js"
+        data-repo="luisfmp9/FiloGames"
+        data-repo-id="R_kgDOOCpOHA"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOOCpOHM4Ct67Y"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="transparent_dark"
+        data-lang="es"
+        crossorigin="anonymous"
+        async>
+    </script>
+</body>
+</html>

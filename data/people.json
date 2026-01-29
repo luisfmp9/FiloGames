@@ -34,8 +34,8 @@
   },
   {
     "id": "joaquinO",
-    "fullName": "Joaquin Ordinola",
-    "nickname": "Joaquin",
+    "fullName": "Joaquín Ordinola",
+    "nickname": "Joaco",
     "role": "Finanzas y Estrategia",
     "bio": "Asegura que la creatividad tenga una base sólida, gestionando los recursos para garantizar la viabilidad de los proyectos.",
     "photoUrl": "IMG/Team/FotoJoaquin.webp",
@@ -85,6 +85,127 @@
     "photoUrl": "https://placehold.co/300x300/EEE/333?text=Foto+EA",
     "avatarUrl": "https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+EA",
     "externalUrl": "https://eniergarcia.itch.io/",
+    "type": "ally"
+  },
+  {
+    "id": "giorgioIlustra",
+    "fullName": "Giorgio",
+    "nickname": "Giorgio Ilustra",
+    "role": "Arte 2D",
+    "bio": "Ilustrador y diseñador gráfico, crea arte conceptual y visuales impactantes.",
+    "photoUrl": "https://placehold.co/300x300/EEE/333?text=Foto+JG",
+    "avatarUrl": "https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+JG",
+    "externalUrl": "https://pixel-jamp.itch.io/",
+    "type": "ally"
+  },
+  {
+    "id": "chuma",
+    "fullName": "Luis Fernandez",
+    "nickname": "Chuma",
+    "role": "Lead QA",
+    "bio": "Especialista en asegurar la calidad y el rendimiento de los juegos a través de diversos tipos de  pruebas exhaustivas.",
+    "photoUrl": "https://placehold.co/300x300/EEE/333?text=Foto+AM",
+    "avatarUrl": "https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+AM",
+    "externalUrl": "https://github.com/ChumaSuey",
+    "type": "ally"
+  },
+  {
+    "id": "sharpWalker14",
+    "fullName": "Ralph Dudley Maura Ayquipa",
+    "nickname": "SharpWalker14",
+    "role": "Programación UX",
+    "bio": "Desarrollador de Videojuegos especializado en crear experiencias de usuario fluidas e intuitivas.",
+    "photoUrl": "https://placehold.co/300x300/EEE/333?text=Foto+AG",
+    "avatarUrl": "https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+AG",
+    "externalUrl": "https://ralphdma14.itch.io/",
+    "type": "ally"
+  },
+  {
+    "id": "peryLoth",
+    "fullName": "Pery Loth",
+    "nickname": "PeryLoth",
+    "role": "Programación de Mecánicas, Personajes y Enemigos",
+    "bio": "Desarrollador de videojuegos especializado en mecánicas de juego y sistemas interactivos.",
+    "photoUrl": "https://placehold.co/300x300/EEE/333?text=Foto+AG",
+    "avatarUrl": "https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+AG",
+    "externalUrl": "https://peryloth.itch.io/",
+    "type": "ally"
+  },
+  {
+    "id": "amauta",
+    "fullName": "Amauta",
+    "nickname": "Amauta",
+    "role": "Programación de Mecánicas",
+    "bio": "Desarrollador de videojuegos especializado en mecánicas de juego y sistemas interactivos.",
+    "photoUrl": "https://placehold.co/300x300/EEE/333?text=Foto+AG",
+    "avatarUrl": "https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+AG",
+    "externalUrl": "https://peryloth.itch.io/",
+    "type": "ally"
+  },
+  {
+    "id": "cristian",
+    "fullName": "Cristian Lavado",
+    "nickname": "Cristian",
+    "role": "Compositor Musical",
+    "bio": "Músico y compositor, crea bandas sonoras que enriquecen la experiencia de juego.",
+    "photoUrl": "https://placehold.co/300x300/EEE/333?text=Foto+TD",
+    "avatarUrl": "https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+TD",
+    "externalUrl": "https://on.soundcloud.com/VEV4TEnDViv3h44j8L",
+    "type": "ally"
+  },
+  {
+    "id": "dec",
+    "fullName": "Dec",
+    "nickname": "Dec",
+    "role": "Arte de Personaje & Fondos",
+    "bio": "Artista 2D especializado en diseño de personajes y creación de fondos inmersivos.",
+    "photoUrl": "https://placehold.co/300x300/EEE/333?text=Foto+AM",
+    "avatarUrl": "https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+AM",
+    "externalUrl": "https://x.com/Detective_Ren",
+    "type": "ally"
+  },
+  {
+    "id": "kike",
+    "fullName": "Kike Portal",
+    "nickname": "Kike Portal",
+    "role": "Director de Marketing & Diseñador de Logos",
+    "bio": "Veterano Estratega de marketing y diseñador.",
+    "photoUrl": "https://placehold.co/300x300/EEE/333?text=Foto+AG",
+    "avatarUrl": "https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+AG",
+    "externalUrl": "https://andresgutierrezsound.itch.io/",
+    "type": "ally"
+  },
+  {
+    "id": "elaias",
+    "fullName": "Elias Espinosa",
+    "nickname": "Elaias",
+    "role": "Arte 3D",
+    "bio": "Artista 3D, egresado de diseño gráfico.",
+    "photoUrl": "https://placehold.co/300x300/EEE/333?text=Foto+AG",
+    "avatarUrl": "https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+AG",
+    "externalUrl": "https://elaas.itch.io/",
+    "type": "ally"
+  },
+  {
+    "id": "luisa",
+    "fullName": "Luisa Zarama",
+    "nickname": "Luisa Zarama",
+    "role": "Audio Design",
+    "bio": "Audio Designer y Compositora Musical.",
+    "photoUrl": "https://placehold.co/300x300/EEE/333?text=Foto+AG",
+    "avatarUrl": "https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+AG",
+    "externalUrl": "https://www.instagram.com/luisazarama",
+    "type": "ally"
+  },
+  {
+    "id": "queenWarrior",
+    "fullName": "Martha Escalante",
+    "nickname": "QueenWarrior",
+    "role": "Game Design y Diseñadora de Narrativa",
+    "bio": "Administradora, Game Designer y Narrativa.",
+    "photoUrl": "https://placehold.co/300x300/EEE/333?text=Foto+AG",
+    "avatarUrl": "https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+AG",
+    "externalUrl": "https://elaas.itch.io/",
     "type": "ally"
   }
 ]

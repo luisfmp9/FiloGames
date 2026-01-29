@@ -5,7 +5,10 @@
     "categories": ["games", "web"],
     "image": "../IMG/Portfolio/VideoGames/Ana/ANA_Logo_azul_1.webp",
     "description": "Un viaje Beat 'em Up, donde tu estilo de pelea impacta en recuperar la consciencia humana.",
-    "playUrl": "https://luisfmp.itch.io/ana",
+    "buttons": [
+      { "text": "Habitar la Comunidad", "url": "https://discord.gg/3nMe29jHzn", "style": "primary" },
+      { "text": "Jugar", "url": "https://luisfmp.itch.io/ana", "style": "secondary" }
+    ],
     "detailsUrl": "portfolio/ana",
     "imageFit": "cover",
     "imageBg": "#101010",
@@ -37,7 +40,7 @@
     "headerImage": "../IMG/Portfolio/VideoGames/Ana/fondo_ANA.webp",
     "status": "En Desarrollo",
     "platforms": "Android, Web & PC",
-    "authorText": "Filo Games",
+    "authors": "Filo Games",
     "genre": "Acción, Beat 'em Up, Cyberpunk, Narrativa",
     "tags": "Beat 'em Up, 2.5D, 2D, Acción, Cyberpunk, Futurista, Distopía, Narrativa, Filosofía, IA, Tecnología"
   },
@@ -47,7 +50,7 @@
     "categories": ["games", "web"],
     "image": "../IMG/Portfolio/VideoGames/Chuter/ChuterSplash.webp",
     "description": "Elimina a las piezas de ajedrez enemigas, antes que ellas eliminen a tu rey. Un juego de estrategia por turnos.",
-    "playUrl": "https://luisfmp.itch.io/chuter",
+    "buttons": "https://luisfmp.itch.io/chuter",
     "detailsUrl": "portfolio/chuter",
     "imageFit": "cover",
     "imageBg": "#101010",
@@ -66,7 +69,7 @@
     "headerImage": "../IMG/Portfolio/VideoGames/Chuter/splashArt.webp",
     "status": "En Pausa",
     "platforms": "Web & PC",
-    "authorText": "Filo Games",
+    "authors": "Filo Games",
     "genre": "Estrategia, Shooter, Roguelite",
     "tags": "Ajedrez, Táctico, Estratégico, RogueLite, 2D, Top-Down"
   },
@@ -76,7 +79,7 @@
     "categories": ["games"],
     "image": "../IMG/Portfolio/VideoGames/MictlanChallenge/MictlanChallengeLogo.webp",
     "description": "Debes volver al mundo de los vivos por la ofrenda que darás a Mictlantecuhtli para poder avanzar en el camino de los no vivos.",
-    "playUrl": "https://eniergarcia.itch.io/mictlan-challenge",
+    "buttons": "https://eniergarcia.itch.io/mictlan-challenge",
     "detailsUrl": "portfolio/mictlan-challenge",
     "imageFit": "contain",
     "imageBg": "#101010",
@@ -90,7 +93,7 @@
     "categories": ["games", "web", "mobile"],
     "image": "../IMG/Portfolio/VideoGames/Latin-Vibes/latinVibes.webp",
     "description": "Ojos que no ven corazón que no siente, ojos que sí ven corazón que sana. Una ficción interactiva sobre relaciones.",
-    "playUrl": "https://csilva.itch.io/latin-vibes",
+    "buttons": "https://csilva.itch.io/latin-vibes",
     "detailsUrl": "portfolio/latin-vibes",
     "imageFit": "cover",
     "imageBg": "#101010",
@@ -111,7 +114,10 @@
     ],
     "status": "En Desarrollo",
     "platforms": "Móvil, Web & PC",
-    "authorText": "Jam Rats x Filo Games",
+    "authors": [
+      {"name": "Filo Games", "url": "#project-team-section"},
+      {"name": "Jam Rats", "url": "https://www.instagram.com/jam_rats_games/"}
+    ],
     "genre": "Ficción Interactiva",
     "tags": "Narrativa, Drama"
   },
@@ -121,7 +127,7 @@
     "categories": ["games"],
     "image": "../IMG/Portfolio/VideoGames/PlatMat/PlatMatLogo.webp",
     "description": "Un robot explora los límites de su programación y libre albedrío en este juego de plataformas y puzzles.",
-    "playUrl": "https://luisfmp.itch.io/platmat",
+    "buttons": "https://luisfmp.itch.io/platmat",
     "detailsUrl": "portfolio/platmat",
     "imageFit": "contain",
     "imageBg": "#101010",
@@ -136,7 +142,7 @@
     "gallery": [],
     "status": "Prototipo",
     "platforms": "PC",
-    "authorText": "Filo Games",
+    "authors": "Filo Games",
     "genre": "Plataformas, Puzzle",
     "tags": "Filosofía, Robots, 2D"
   },
@@ -146,7 +152,7 @@
     "categories": ["games"],
     "image": "../IMG/Portfolio/VideoGames/FoodWar/FoodWarLogo.webp",
     "description": "Sátira sobre el conflicto y el nacionalismo a través de una guerra de alimentos.",
-    "playUrl": "https://marthaescalante.itch.io/food-war",
+    "buttons": "https://marthaescalante.itch.io/food-war",
     "detailsUrl": "portfolio/foodwar",
     "imageFit": "cover",
     "imageBg": "#101010",
@@ -160,7 +166,7 @@
     "categories": ["web", "mobile"],
     "image": "../IMG/Portfolio/Webs/Nasia-Beads/NasiaBeadsLogo.webp",
     "description": "Catálogo digital para Nasia Beads optimizado para ventas por WhatsApp.",
-    "playUrl": "https://luisfmp9.github.io/Nasia-Beads/",
+    "buttons": "https://luisfmp9.github.io/Nasia-Beads/",
     "detailsUrl": "portfolio/nasia-beads",
     "imageFit": "contain",
     "imageBg": "#101010",
@@ -175,7 +181,10 @@
     "gallery": [],
     "status": "Entregado",
     "platforms": "Web, Móvil",
-    "authorText": "Nasia Beads x Filo Games",
+    "authors": [
+      {"name": "Filo Games", "url": "#project-team-section"},
+      {"name": "Nasia Beads", "url": "https://luisfmp9.github.io/Nasia-Beads/"}
+    ],
     "genre": "Sitio Web, Catálogo",
     "tags": "Desarrollo Web, E-commerce"
   },
@@ -185,7 +194,7 @@
     "categories": ["web", "mobile"],
     "image": "../IMG/Marca/logoFilo.webp",
     "description": "Nuestro propio sitio web profesional, construido con Web Components y un diseño moderno.",
-    "playUrl": null,
+    "buttons": null,
     "detailsUrl": "portfolio/filogames-detail",
     "imageFit": "contain",
     "imageBg": "#101010",
@@ -202,7 +211,7 @@
     ],
     "status": "En Constante Evolución",
     "platforms": "Web, Móvil",
-    "authorText": "Filo Games",
+    "authors": "Filo Games",
     "genre": "Sitio Web Corporativo",
     "tags": "Desarrollo Web, JavaScript, Web Components, HTML, CSS, Diseño Web"
   },
@@ -212,7 +221,7 @@
     "categories": ["games", "web", "mobile"],
     "image": "../IMG/Portfolio/VideoGames/PortalCollapse/404.webp",
     "description": "Videojuego que aparece al entrar en una página que no existe dentro de filogames.com",
-    "playUrl": "https://www.filogames.com/404",
+    "buttons": "https://www.filogames.com/404",
     "detailsUrl": "portfolio/404-portal-collapse",
     "imageFit": "contain",
     "imageBg": "#101010",
@@ -229,7 +238,7 @@
     ],
     "status": "Terminado",
     "platforms": "Web, Móvil",
-    "authorText": "Filo Games",
+    "authors": "Filo Games",
     "genre": "Arcade, Shooter",
     "tags": "Juego 404, Cyberpunk, Generativo, Infinito, Música Generativa, 2D, 2.5D"
   },
@@ -239,7 +248,7 @@
     "categories": ["web", "arvr", "mobile"],
     "image": "../IMG/Portfolio/AR VR/Taypi/logoTaypi.webp",
     "description": "Experiencia de Realidad Aumentada para la visualización y prueba virtual de calzado.",
-    "playUrl": "https://lens.snap.com/experience/8fc5f71d-6d1e-4327-aee3-7fdea238191d",
+    "buttons": "https://lens.snap.com/experience/8fc5f71d-6d1e-4327-aee3-7fdea238191d",
     "detailsUrl": "portfolio/taypi",
     "imageFit": "contain",
     "imageBg": "#101010",
@@ -255,7 +264,10 @@
     "gallery": [],
     "status": "Prototipo",
     "platforms": "Web & Móvil (Snapchat)",
-    "authorText": "CorAll x Filo Games",
+    "authors": [
+      {"name": "Filo Games", "url": "#project-team-section"},
+      {"name": "CorAll", "url": "https://coralldar.com/"}
+    ],
     "genre": "Realidad Aumentada, E-commerce",
     "tags": "AR, Snapchat Lens, Filtro, Móvil, Web"
   }

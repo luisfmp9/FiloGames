@@ -32,9 +32,23 @@ class Portfolio extends HTMLElement {
             card.dataset.categories = project.categories.join(',');
 
             let buttonsHTML = '';
-            if (project.playUrl) {
-                const playText = project.categories.includes('games') ? 'Jugar' : 'Probar';
-                buttonsHTML = `<a href="${project.playUrl}" target="_blank" class="cta-button primary">${playText}</a><a href="${project.detailsUrl}" class="cta-button secondary">Detalles</a>`;
+            let mainUrl = '';
+            let mainText = '';
+            
+            if (Array.isArray(project.buttons) && project.buttons.length > 0) {
+                // Buscamos el primario, o usamos el primero
+                const primaryBtn = project.buttons.find(b => b.style === 'primary') || project.buttons[0];
+                mainUrl = primaryBtn.url;
+                mainText = primaryBtn.text;
+            } else if (typeof project.buttons === 'string') {
+                // Es solo un string (URL)
+                mainUrl = project.buttons;
+                mainText = project.categories.includes('games') ? 'Jugar' : 'Probar';
+            }
+
+            // Construcción del HTML de botones
+            if (mainUrl) {
+                buttonsHTML = `<a href="${mainUrl}" target="_blank" class="cta-button primary">${mainText}</a><a href="${project.detailsUrl}" class="cta-button secondary">Detalles</a>`;
             } else {
                 buttonsHTML = `<a href="${project.detailsUrl}" class="cta-button secondary full-width">Detalles del Proyecto</a>`;
             }
@@ -188,7 +202,7 @@ class ProjectDetail extends HTMLElement {
             return;
         }
 
-        // Construir la galería de imágenes
+        // GALERÍA
         let galleryHTML = '';
         if (project.gallery && project.gallery.length > 0) {
             project.gallery.forEach(imgUrl => {
@@ -198,11 +212,34 @@ class ProjectDetail extends HTMLElement {
             });
         }
 
-        // Se añade la lógica para decidir el texto del botón principal
-        let mainButtonHTML = '';
-        if (project.playUrl) {
+        // BOTONES DE ACCIÓN
+        let mainButtonsHTML = '';
+
+        if (Array.isArray(project.buttons) && project.buttons.length > 0) {
+            // CASO A: Array de objetos (Varios botones)
+            mainButtonsHTML = project.buttons.map(btn => 
+                `<a href="${btn.url}" target="_blank" class="cta-button ${btn.style}">${btn.text}</a>`
+            ).join(''); // Quitamos el espacio extra, CSS grid/flex manejará el gap
+        } else if (typeof project.buttons === 'string') {
+            // CASO B: String simple (Un solo botón, lógica antigua compatible)
             const buttonText = project.categories.includes('games') ? 'Jugar' : 'Probar';
-            mainButtonHTML = `<a href="${project.playUrl}" target="_blank" class="cta-button primary">${buttonText} (${project.platforms})</a>`;
+            // Usamos platforms si existe, si no string vacío
+            const platformText = project.platforms ? ` (${project.platforms})` : '';
+            mainButtonsHTML = `<a href="${project.buttons}" target="_blank" class="cta-button primary">${buttonText}${platformText}</a>`;
+        }
+
+        let authorsHTML = '';
+        
+        if (Array.isArray(project.authors) && project.authors.length > 0) {
+            // CASO A: Array de objetos
+            authorsHTML = project.authors.map(author => {
+                const target = author.url.startsWith('#') ? '_self' : '_blank';
+                return `<a href="${author.url}" target="${target}" class="cta-button secondary metadata-link" style="margin-right: 5px; margin-bottom: 5px; font-size: 0.85em;">${author.name}</a>`;
+            }).join('');
+        } else {
+            // CASO B: String simple (ahora usamos project.authors directamente) o fallback
+            const authorName = typeof project.authors === 'string' ? project.authors : 'Ver Equipo';
+            authorsHTML = `<a href="#project-team-section" class="cta-button secondary metadata-link">${authorName}</a>`;
         }
 
         this.innerHTML = `
@@ -221,13 +258,20 @@ class ProjectDetail extends HTMLElement {
 
                 <aside class="sidebar">
                     <div class="metadata-box action-buttons">
-                        ${mainButtonHTML}
+                        ${mainButtonsHTML}
                     </div>
                     <div class="metadata-box">
                         <ul class="metadata-list">
                             <li><span class="label">Estado</span> <span class="value">${project.status || 'No Especificado'}</span></li>
                             <li><span class="label">Plataformas</span> <span class="value">${project.platforms || 'No especificado'}</span></li>
-                            <li><span class="label">Autores</span> <span class="value"><a href="#project-team-section" class="cta-button secondary metadata-link">${project.authorText || 'Ver Equipo'}</a></span></li>
+                            
+                            <li style="flex-direction: column; align-items: flex-start;">
+                                <span class="label" style="margin-bottom: 0.5rem;">Autores</span> 
+                                <div class="value" style="display: flex; flex-wrap: wrap;">
+                                    ${authorsHTML}
+                                </div>
+                            </li>
+
                             <li><span class="label">Género</span> <span class="value">${project.genre || 'No especificado'}</span></li>
                             <li><span class="label">Etiquetas</span> <span class="value">${project.tags || 'No especificado'}</span></li>
                         </ul>

@@ -146,6 +146,7 @@ class ProjectTeam extends HTMLElement {
             
             // Lógica para el nombre: usa el override, si no existe usa el nickname, y si no, el nombre completo.
             const displayName = teamMember.displayName || personData.nickname || personData.fullName;
+            const displayRole = teamMember.displayRole || personData.role;
 
             teamCardsHTML += `
                 <div class="team-card">
@@ -154,7 +155,7 @@ class ProjectTeam extends HTMLElement {
                         <img src="../${personData.avatarUrl}" alt="Avatar de ${personData.fullName}" class="team-image team-avatar" onerror="this.src='https://placehold.co/300x300/1a1a1a/FFF?text=Avatar'">
                     </div>
                     <h3>${displayName}</h3>
-                    <p class="role">${teamMember.role}</p>
+                    <p class="role">${displayRole}</p>
                     <div class="team-card-footer">
                         ${linkButton}
                     </div>

@@ -6,7 +6,7 @@
     "image": "../IMG/Portfolio/VideoGames/Ana/ANA_Logo_azul_1.webp",
     "description": "Un viaje Beat 'em Up, donde tu estilo de pelea impacta en recuperar la consciencia humana.",
     "buttons": [
-      { "text": "Habitar la Comunidad", "url": "https://discord.gg/3nMe29jHzn", "style": "primary" },
+      { "text": "Habitar Comunidad", "url": "https://discord.gg/3nMe29jHzn", "style": "primary" },
       { "text": "Jugar", "url": "https://luisfmp.itch.io/ana", "style": "secondary" }
     ],
     "detailsUrl": "portfolio/ana",
@@ -40,7 +40,13 @@
     "headerImage": "../IMG/Portfolio/VideoGames/Ana/fondo_ANA.webp",
     "status": "En Desarrollo",
     "platforms": "Android, Web & PC",
-    "authors": "Filo Games",
+    "authors": [
+      {"name": "Filo Games", "url": "#project-team-section"},
+      {"name": "Jam Rats", "url": "https://www.instagram.com/jam_rats_games/"},
+      {"name": "Pixel Jamp", "url": "https://www.instagram.com/pixel_jamp/"},
+      {"name": "Bellseboss", "url": "https://bellseboss.itch.io/"},
+      {"name": "Origen brand&business", "url": "#project-team-section"}
+    ],
     "genre": "Acción, Beat 'em Up, Cyberpunk, Narrativa",
     "tags": "Beat 'em Up, 2.5D, 2D, Acción, Cyberpunk, Futurista, Distopía, Narrativa, Filosofía, IA, Tecnología"
   },

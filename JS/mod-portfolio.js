@@ -192,7 +192,7 @@ class ProjectDetail extends HTMLElement {
     async connectedCallback() {
         const projectId = this.getAttribute('project-id');
         if (!projectId) return;
-
+        
         const portfolioResponse = await fetch('../data/portfolio.json');
         const portfolio = await portfolioResponse.json();
         const project = portfolio.find(p => p.id === projectId);

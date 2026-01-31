@@ -117,6 +117,11 @@ body.ana-theme .project-detail {
     border-radius: 10px;
 }
 
+.game-header {
+  margin-bottom: 14px;
+  background-image: linear-gradient(rgba(10, 10, 26, 0.8), rgba(10, 10, 26, 0.6));
+}
+
 img {
   max-width: 100%;
   height: auto;

@@ -15,7 +15,27 @@ body {
   40%,100% { text-shadow: 2px 0 var(--neon-blue), -2px 0 var(--neon-magenta); }
 }
 
+/* Animaciones del Glitch*/
+@keyframes glitch-anim {
+    0% { clip: rect(38px, 9999px, 84px, 0); }
+    20% { clip: rect(12px, 9999px, 68px, 0); }
+    40% { clip: rect(65px, 9999px, 8px, 0); }
+    60% { clip: rect(2px, 9999px, 95px, 0); }
+    80% { clip: rect(56px, 9999px, 24px, 0); }
+    100% { clip: rect(23px, 9999px, 1px, 0); }
+}
+
+@keyframes glitch-anim-2 {
+    0% { clip: rect(15px, 9999px, 61px, 0); }
+    20% { clip: rect(82px, 9999px, 34px, 0); }
+    40% { clip: rect(3px, 9999px, 12px, 0); }
+    60% { clip: rect(54px, 9999px, 78px, 0); }
+    80% { clip: rect(22px, 9999px, 6px, 0); }
+    100% { clip: rect(91px, 9999px, 44px, 0); }
+}
+
 @keyframes blink {
+  0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
 
@@ -318,6 +338,54 @@ a img {
   transform: translateY(-2px);
 }
 
+/* --- ESTILOS DEL TÍTULO HACKER --- */
+
+/* El cursor parpadeante */
+body.ana-theme .custom-typing-cursor {
+    display: inline-block;
+    color: var(--neon-magenta);
+    animation: blink 1s step-end infinite;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+/* El Título Glitch Base */
+body.ana-theme .custom-glitch-title {
+    position: relative;
+    font-family: 'Share Tech Mono', monospace; /* Fuente tecnológica */
+    color: var(--neon-white);
+    font-size: 2.5rem; /* Ajusta según necesites */
+    letter-spacing: 2px;
+}
+
+/* Efecto Glitch (Sombra duplicada) */
+body.ana-theme .custom-glitch-title::before,
+body.ana-theme .custom-glitch-title::after {
+    content: attr(data-text); /* Usa el texto que inyectamos en JS */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent; /* Importante que sea transparente */
+}
+
+/* Capa Cyan desplazada */
+body.ana-theme .custom-glitch-title::before {
+    left: 2px;
+    text-shadow: -1px 0 var(--neon-cyan);
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+/* Capa Magenta desplazada */
+body.ana-theme .custom-glitch-title::after {
+    left: -2px;
+    text-shadow: -1px 0 var(--neon-magenta);
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim-2 5s infinite linear alternate-reverse;
+}
+
 /* --- ITCH EMBED VIDEO FIX --- */
 /*
 iframe,
@@ -343,7 +411,7 @@ iframe {
     max-width: 100%;
     height: auto;
   }
-  
+
   .gallery-image {
     width: 100%;
     height: auto;

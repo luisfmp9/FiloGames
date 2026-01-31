@@ -1,3 +1,4 @@
+/* --- VARIABLES DE COLOR NEÓN --- */
 body {
   --neon-cyan: #00ffff;
   --neon-magenta: #ff00ff;
@@ -23,10 +24,26 @@ body {
   to { background-position: 0 100%; }
 }
 
+@keyframes scan-move {
+    0% { background-position: 0 -120vh; }
+    100% { background-position: 0 120vh; }
+}
+
 /* --- COLUMNA PRINCIPAL --- */
 main {
   box-sizing: border-box;
-  background: radial-gradient(circle at 50% 20%, rgba(0,0,0,0.9), var(--neon-black) 90%);
+  /*background: radial-gradient(circle at 50% 20%, rgba(0,0,0,0.9), var(--neon-black) 90%);
+  background-image: linear-gradient(rgba(255,255,255,0.06) 50%, transparent 50%);
+  background-size: 100% 300px;
+  background-repeat: repeat-y;
+  animation: scan 85s linear infinite;
+  */
+  background-color: var(--neon-black);
+  background-image: url('../IMG/Portfolio/VideoGames/Ana/fondo_ANA.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
   color: var(--neon-white);
   font-family: 'Share Tech Mono', 'Consolas', monospace;
   border: 2px solid var(--neon-blue);
@@ -36,11 +53,48 @@ main {
   box-sizing: border-box;
   max-width: 100%;
   overflow-x: hidden;
-  /* --- SCAN EFFECT --- */
-  animation: scan 85s linear infinite;
-  background-image: linear-gradient(rgba(255,255,255,0.06) 50%, transparent 50%);
-  background-size: 100% 300px;
-  background-repeat: repeat-y;
+}
+
+body.ana-theme::before {
+    content: "";
+    position: fixed; /* Se queda fijo en la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Importante: Detrás del texto, encima del fondo */
+    
+    /* GRADIENTE DE LA BARRA DE ESCANEO */
+    background: linear-gradient(
+        to bottom,
+        transparent 50%, 
+        rgba(0, 255, 255, 0.05) 50%,  /* Un toque sutil de cyan */
+        rgba(255, 255, 255, 0.2) 51%, /* Línea blanca brillante (el "haz" de luz) */
+        rgba(0, 255, 255, 0.05) 52%, 
+        transparent 52%
+    );
+    
+    background-size: 100% 120vh; /* El tamaño del ciclo de la barra */
+    animation: scan-move 6s linear infinite; /* Velocidad del escaneo */
+    
+    /* ESTO ES LO QUE PIDES: El modo de fusión */
+    /* 'overlay' o 'hard-light' hacen que la barra blanca "ilumine" la imagen de fondo */
+    mix-blend-mode: overlay; 
+    pointer-events: none; /* Para que puedas hacer clic a través del efecto */
+}
+
+body.ana-theme .project-detail {
+    position: relative;
+    z-index: 1; /* Asegura que el contenido esté sobre el efecto */
+    background: rgba(7, 7, 23, 0.85); /* Fondo semitransparente oscuro para leer el texto */
+    border: 1px solid var(--neon-blue);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    backdrop-filter: blur(2px); /* Un desenfoque leve detrás del texto estilo cristal */
+    
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 img {
@@ -49,6 +103,13 @@ img {
 }
 
 /* --- TÍTULOS --- */
+h1, h2, .project-title {
+  color: var(--neon-cyan);
+  text-shadow: var(--neon-glow);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
 h2, h3 {
   color: var(--neon-cyan);
   text-shadow: 0 0 10px var(--neon-cyan);
@@ -58,13 +119,13 @@ h2, h3 {
   letter-spacing: 1px;
 }
 
-h2.custom-glitch-title {
+h2 {
   text-align: center;
   font-size: 1.6em;
   animation: glitch 2s infinite;
 }
 
-h3.custom-glitch-effect:hover {
+h3:hover {
   color: var(--neon-magenta);
   animation: glitch 0.6s infinite;
   text-shadow: 0 0 12px var(--neon-magenta), 0 0 25px var(--neon-cyan);
@@ -80,6 +141,7 @@ h3.custom-glitch-effect:hover {
 }
 
 /* --- SECCIONES --- */
+/*
 .custom-section-container {
   border: 1px dashed var(--neon-blue);
   padding: 18px;
@@ -89,24 +151,22 @@ h3.custom-glitch-effect:hover {
   transition: 0.3s;
 }
 
+
 .custom-section-container:hover {
   background: rgba(0, 20, 50, 0.5);
   box-shadow: 0 0 25px rgba(0, 180, 255, 0.5);
 }
+*/
 
 /* --- IMAGEN PRINCIPAL --- */
-.custom-game-media {
-  text-align: center;
-  margin: 25px 0;
-}
 
-.custom-game-media img {
+.gallery-image {
   width: 85%;
   transition: transform 0.3s ease, filter 0.3s ease;
   filter: drop-shadow(0 0 10px rgba(255, 0, 255, 0.6));
 }
 
-.custom-game-media img:hover {
+.gallery-image:hover {
   transform: scale(1.02);
   filter: 
     drop-shadow(0 0 14px var(--neon-cyan))
@@ -138,7 +198,7 @@ h3.custom-glitch-effect:hover {
   gap: 15px;
 }
 
-.custom-credit-card {
+.team-card {
   border: 1px solid var(--neon-cyan);
   background: rgba(0, 0, 30, 0.4);
   padding: 15px;
@@ -148,25 +208,25 @@ h3.custom-glitch-effect:hover {
   transition: 0.3s ease;
 }
 
-a.custom-credit-card {
+a.team-card {
   transition: 
     transform 0.3s ease,
     box-shadow 0.3s ease,
     border-color 0.3s ease;
 }
 
-.custom-credit-card:hover {
+.team-card:hover {
   border: 1px solid var(--neon-magenta) !important;
   box-shadow: 0 0 15px var(--neon-magenta) !important;
   transform: translateY(-5px);
 }
 
-.custom-credit-card h4 {
+.team-card h4 {
   margin-bottom: 5px;
   color: var(--neon-cyan);
 }
 
-.custom-credit-card p {
+.team-card p {
   font-size: 0.9em;
   color: var(--neon-white);
 }
@@ -202,6 +262,7 @@ margin-bottom: 15px;
   padding: 6px;
 }
 
+/*
 a,
 a:focus,
 a:focus-visible,
@@ -210,14 +271,16 @@ a:hover {
   outline: none !important;
   box-shadow: none !important;
   border: none !important;
-}
+}*/
 
 /* Para imágenes dentro de enlaces */
+/*
 a img {
   outline: none !important;
   box-shadow: none !important;
   border: none !important;
 }
+*/
 
 .custom-imgEmpresa {
   max-width: 256px;
@@ -239,31 +302,24 @@ a img {
 }
 
 /* --- BANNER --- */
-.custom-banner {
+.body.ana-theme .project-header {
   text-align: center;
   margin-bottom: 25px;
 }
 
-.custom-banner img {
+.body.ana-theme .project-header img {
   max-width: 80%;
   filter: drop-shadow(0 0 6px var(--neon-blue));
   transition: 0.3s ease;
 }
 
-.custom-banner img:hover {
+.body.ana-theme .project-header img:hover {
   filter: drop-shadow(0 0 6px var(--neon-magenta));
   transform: translateY(-2px);
 }
 
-html, body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-}
-
 /* --- ITCH EMBED VIDEO FIX --- */
+/*
 iframe,
 .video_embed,
 .embed,
@@ -279,50 +335,21 @@ iframe {
   aspect-ratio: 16 / 9;
   height: auto;
 }
+*/
 
 @media (max-width: 768px) {
 
-  body {
-    display: block !important;
-    flex-direction: column-reverse !important;
-    padding: 10px !important;
-    border: none !important;
-    overflow-x: hidden !important;
-  }
-
   img {
-    max-width: 100% !important;
-    height: auto !important;
+    max-width: 100%;
+    height: auto;
   }
-
-  .left_col,
-  .right_col {
-    width: 100% !important;
-    max-width: 100% !important;
-    flex: 0 0 100% !important; /* Evita que flexbox calcule mal el ancho */
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
- .right_col {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important; /* Esto elimina el espacio a la izquierda */
-    padding: 0 !important;
-  }
-
-  .left_col {
-    width: 100% !important;
-    margin-top: 20px !important;
-  }
-
-  .custom-game-media img {
+  
+  .gallery-image {
     width: 100%;
     height: auto;
   }
 
-  .custom-banner img {
+  .body.ana-theme .project-header img {
     max-width: 100%;
     width: 100%;
     height: auto;
@@ -334,9 +361,9 @@ iframe {
   }
 
   .custom-section-container {
-    width: 100% !important;
-    margin: 20px 0 !important;
-    padding: 15px !important;
+    width: 100%;
+    margin: 20px 0;
+    padding: 15px;
   }
 
   h2,
@@ -347,12 +374,12 @@ iframe {
   .video_embed, 
   .video_embed_widget,
   iframe[src*="youtube"] {
-    width: 100vw !important; /* Ocupa el ancho de pantalla */
-    margin-left: 0px !important; /* Compensa el padding del contenedor */
-    max-width: none !important;
+    width: 100vw; /* Ocupa el ancho de pantalla */
+    margin-left: 0px; /* Compensa el padding del contenedor */
+    max-width: none;
   }
 
   .video_embed iframe {
-    width: 100% !important;
+    width: 100%;
   }
 }

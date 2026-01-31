@@ -208,7 +208,7 @@ class ProjectDetail extends HTMLElement {
             project.gallery.forEach(imgUrl => {
                 // Aseguramos que las rutas de la galería también sean relativas a la raíz
                 const correctedUrl = imgUrl.startsWith('../') ? imgUrl : `../${imgUrl}`;
-                galleryHTML += `<img src="${correctedUrl}" alt="Imagen de la galería de ${project.title}">`;
+                galleryHTML += `<img src="${correctedUrl}" alt="Imagen de la galería de ${project.title}" class="gallery-image">`;
             });
         }
 

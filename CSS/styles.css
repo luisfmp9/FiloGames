@@ -1028,10 +1028,10 @@ img {
     gap: 15px;
     margin: 30px 0;
 }
-.gallery-grid img { 
+
+.gallery-grid img {
     width: 100%; 
-    border-radius: 8px; 
-    aspect-ratio: 16 / 9;
+    border-radius: 8px;
     object-fit: cover;
 }
 

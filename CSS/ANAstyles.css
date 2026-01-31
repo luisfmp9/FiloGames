@@ -24,7 +24,7 @@ body {
 }
 
 /* --- COLUMNA PRINCIPAL --- */
-body {
+main {
   box-sizing: border-box;
   background: radial-gradient(circle at 50% 20%, rgba(0,0,0,0.9), var(--neon-black) 90%);
   color: var(--neon-white);

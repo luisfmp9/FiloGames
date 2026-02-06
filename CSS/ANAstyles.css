@@ -181,9 +181,21 @@ h3:hover {
 }
 
 body.ana-theme .tagline {
-    font-style: italic;
     color: var(--neon-magenta);
     text-shadow: 0 0 10px var(--neon-magenta);
+    /*
+    color: var(--neon-white);
+    text-shadow: 0 0 5px var(--neon-blue); Pequeño resplandor azul en el texto */
+
+    font-weight: 500;               /* Letra un poco más gruesa */
+    background: rgba(0, 0, 0, 0.7); /* Fondo negro al 70% de opacidad */
+    padding: 12px;                  /* Espacio interno para que respire */
+    border-left: 4px solid var(--neon-magenta); /* Borde decorativo neón a la izquierda */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Sombra para despegarlo del fondo */
+    
+    /* Para que la caja no ocupe todo el ancho si el texto es corto */
+    display: inline-block; 
+    max-width: 100%;
 }
 
 .custom-typing-cursor {
@@ -304,7 +316,7 @@ body.ana-theme .team-card h3 {
 }
 
 .custom-empresa p {
-margin-bottom: 15px;
+  margin-bottom: 15px;
   font-weight: 500;
   color: var(--neon-white);
 }

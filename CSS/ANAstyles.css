@@ -188,7 +188,7 @@ body.ana-theme .tagline {
     text-shadow: 0 0 5px var(--neon-blue); Pequeño resplandor azul en el texto */
 
     font-weight: 500;               /* Letra un poco más gruesa */
-    background: rgba(0, 0, 0, 0.7); /* Fondo negro al 70% de opacidad */
+    background: rgba(0, 0, 0, 0.5); /* Fondo negro al 70% de opacidad */
     padding: 12px;                  /* Espacio interno para que respire */
     border-left: 4px solid var(--neon-magenta); /* Borde decorativo neón a la izquierda */
     box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Sombra para despegarlo del fondo */

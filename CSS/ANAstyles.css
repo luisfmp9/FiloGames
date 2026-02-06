@@ -81,25 +81,34 @@ main {
 
 body.ana-theme::before {
     content: "";
+    display: block;
     position: fixed; /* Se queda fijo en la pantalla */
     top: 0;
     left: 0;
+    right: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Importante: Detrás del texto, encima del fondo */
+    z-index: 1; /* Importante: Detrás del texto, encima del fondo */
     
-    /* GRADIENTE DE LA BARRA DE ESCANEO */
-    background: linear-gradient(
-        to bottom,
-        transparent 50%, 
-        rgba(0, 255, 255, 0.05) 50%,  /* Un toque sutil de cyan */
-        rgba(255, 255, 255, 0.2) 51%, /* Línea blanca brillante (el "haz" de luz) */
-        rgba(0, 255, 255, 0.05) 52%, 
-        transparent 52%
-    );
+    /* --- AQUÍ ESTÁ LA MAGIA DE LA TV ANTIGUA --- */
+    background: 
+        /* Capa 1: Scanlines (Las líneas finas horizontales de TV vieja) */
+        linear-gradient(
+            rgba(18, 16, 16, 0) 50%, 
+            rgba(0, 0, 0, 0.4) 50%
+        ),
+        /* Capa 2: El haz de luz cyan que baja (Escaner) */
+        linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0) 50%,
+            rgba(0, 255, 255, 0.2) 50%,
+            rgba(0, 255, 255, 0.2)
+        );
     
-    background-size: 100% 120vh; /* El tamaño del ciclo de la barra */
-    animation: scan-move 6s linear infinite; /* Velocidad del escaneo */
+    /* Tamaño: El primero define el grosor de las líneas de TV (4px) */
+    background-size: 100% 4px, 100% 100%;
+    animation: scan-move 8s linear infinite; /* Velocidad del escaneo */
     
     /* ESTO ES LO QUE PIDES: El modo de fusión */
     /* 'overlay' o 'hard-light' hacen que la barra blanca "ilumine" la imagen de fondo */

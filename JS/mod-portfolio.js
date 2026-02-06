@@ -244,7 +244,7 @@ class ProjectDetail extends HTMLElement {
 
         this.innerHTML = `
             <header class="game-header" style="background-image: linear-gradient(rgba(10, 10, 26, 0.8), rgba(10, 10, 26, 0.6)), url('${project.headerImage}');">
-                <h1>${project.title}</h1>
+                <h1 class="project-title">${project.title}</h1>
                 <p class="tagline">${project.tagline}</p>
             </header>
 

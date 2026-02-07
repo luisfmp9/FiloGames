@@ -1,3 +1,14 @@
+.container {
+    width: auto !important;
+    max-width: none !important;
+}
+
+main {
+    background-image: 
+        radial-gradient(circle, rgba(7, 7, 23, 0.7) 0%, rgba(7, 7, 23, 1) 100%),
+        url(../IMG/Portfolio/VideoGames/Ana/fondo_ANA.webp);
+}
+
 .roadmap-container {
         padding: 60px 20px;
         max-width: 1000px;

@@ -38,6 +38,12 @@ body.ana-theme {
     100% { clip: rect(91px, 9999px, 44px, 0); }
 }
 
+@keyframes glitch-blue-only {
+  0% { text-shadow: 2px 0 var(--neon-blue), -2px 0 var(--neon-cyan); }
+  20% { text-shadow: -2px 0 var(--neon-white), 2px 0 var(--neon-blue); }
+  40%, 100% { text-shadow: 2px 0 var(--neon-cyan), -2px 0 var(--neon-blue); }
+}
+
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
@@ -154,6 +160,10 @@ body.ana-theme h3 {
     letter-spacing: 2px;
 }
 
+body.ana-theme .project-title {
+    margin-bottom: 16px;
+}
+
 h1, h2, .project-title {
   color: var(--neon-cyan);
   text-shadow: var(--neon-glow);
@@ -188,7 +198,7 @@ body.ana-theme .tagline {
     text-shadow: 0 0 5px var(--neon-blue); Pequeño resplandor azul en el texto */
 
     font-weight: 500;               /* Letra un poco más gruesa */
-    background: rgba(0, 0, 0, 0.5); /* Fondo negro al 70% de opacidad */
+    background: rgba(0, 0, 0, 0.5); /* Fondo negro al 50% de opacidad */
     padding: 12px;                  /* Espacio interno para que respire */
     border-left: 4px solid var(--neon-magenta); /* Borde decorativo neón a la izquierda */
     box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Sombra para despegarlo del fondo */
@@ -411,10 +421,19 @@ body.ana-theme .custom-glitch-title {
     position: relative;
     display: inline-block;
     font-family: 'Share Tech Mono', monospace; /* Fuente tecnológica */
-    color: var(--neon-white);
+    color: var(--neon-cyan);
+    animation: glitch-blue-only 1.5s infinite;
+    text-shadow: 
+        /* Capa 1: Sombra negra sólida pegada al texto (Crea un borde de lectura) */
+        3px 3px 0px #000000,
+        /* Capa 2: Resplandor Azul (Aquí está el color que querías) */
+        0 0 10px var(--neon-blue),
+        /* Capa 3: Resplandor Cyan (Para brillo intenso) */
+        0 0 25px var(--neon-cyan);
     font-size: 2.5rem; /* Ajusta según necesites */
     letter-spacing: 2px;
     font-weight: bold;
+    -webkit-text-stroke: 1px rgba(0, 255, 255, 0.3);
 }
 
 /* Efecto Glitch (Sombra duplicada) */
@@ -441,7 +460,7 @@ body.ana-theme .custom-glitch-title::before {
 /* Capa Magenta desplazada */
 body.ana-theme .custom-glitch-title::after {
     left: -2px;
-    text-shadow: -1px 0 var(--neon-magenta);
+    text-shadow: -1px 0 var(--neon-blue);
     clip: rect(44px, 450px, 56px, 0);
     animation: glitch-anim-2 3s infinite linear alternate-reverse;
 }
@@ -489,8 +508,13 @@ iframe {
   }
 
   body.ana-theme .custom-glitch-title {
-    font-size: 1.5rem !important;
+    font-size: 2rem !important;
     word-wrap: break-word;
+  }
+
+  body.ana-theme .tagline {
+    font-size: 1.3rem !important;
+    padding: 10px;
   }
 
   img {

@@ -277,14 +277,23 @@ body.ana-theme .tagline {
 }
 
 /* --- TARJETAS DE EQUIPO (TRANSPARENTES / HOLOGRÁFICAS) --- */
+body.ana-theme .team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Esto asegura que todos estén centrados siempre */
+    gap: 20px;
+    max-width: 1400px; /* Un máximo más generoso para 14 personas */
+    margin: 0 auto;
+}
+
 body.ana-theme .team-card {
   background: rgba(7, 7, 23, 0.6) !important; /* Fondo translúcido */
   backdrop-filter: blur(10px); /* Efecto de desenfoque */
   border-radius: 14px;
   padding: 15px;
   text-align: center;
-  flex: 1 1 200px;
-  max-width: 250px;
+  flex: 1 1 300px;
+  max-width: 350px;
   border: 1px solid var(--neon-blue);
   box-shadow: 0 0 15px rgba(0, 179, 255, 0.2);
   transition: all 0.3s ease;

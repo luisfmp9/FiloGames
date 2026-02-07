@@ -1,0 +1,70 @@
+.roadmap-container {
+        padding: 60px 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+}
+
+        .roadmap-timeline {
+            position: relative;
+            border-left: 2px solid var(--neon-cyan);
+            padding-left: 30px;
+            margin-left: 20px;
+        }
+
+        .roadmap-step {
+            position: relative;
+            margin-bottom: 50px;
+            opacity: 0.6; /* Por defecto apagado */
+            transition: 0.3s;
+        }
+
+        .roadmap-step.active {
+            opacity: 1;
+            filter: drop-shadow(0 0 10px var(--neon-cyan));
+        }
+
+        .roadmap-step::before {
+            content: '';
+            position: absolute;
+            left: -41px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background: var(--neon-black);
+            border: 2px solid var(--neon-cyan);
+            border-radius: 50%;
+        }
+
+        .roadmap-step.active::before {
+            background: var(--neon-magenta);
+            box-shadow: 0 0 15px var(--neon-magenta);
+        }
+
+        .status-badge {
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            border: 1px solid var(--neon-cyan);
+            border-radius: 4px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 40px 0;
+        }
+
+        .btn-prebuy {
+            background: var(--neon-magenta);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 0 10px var(--neon-magenta);
+        }
+        /* Responsive: En PC podrías usar Grid, pero Vertical es más claro para 8 niveles */

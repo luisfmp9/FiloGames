@@ -305,8 +305,8 @@ body.ana-theme .team-card .role {
 }
 
 body.ana-theme .team-link-button {
-  border-color: var(--neon-blue);
-  color: var(--neon-white);
+  border-color: var(--neon-blue) !important;
+  color: var(--neon-white) !important;
 }
 
 a.team-card {
@@ -333,8 +333,8 @@ body.ana-theme .team-card h3 {
 }
 
 .team-card p {
-  font-size: 0.9em;
-  color: var(--neon-white);
+  font-size: 0.9rem !important;
+  color: var(--neon-white) !important;
 }
 
 /* --- EMPRESA --- */

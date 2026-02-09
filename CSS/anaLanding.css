@@ -25,7 +25,7 @@ main {
 .roadmap-step {
     position: relative;
     margin-bottom: 50px;
-    opacity: 0.6; /* Por defecto apagado */
+    opacity: 0.74; /* Por defecto apagado */
     transition: 0.3s;
 }
 
@@ -88,4 +88,31 @@ main {
     font-weight: bold;
     box-shadow: 0 0 10px var(--neon-cyan);
 }
+
+.btn-jugar:hover, .btn-prebuy:hover {
+    transform: scale(1.05); /* Un pequeño aumento de tamaño */
+    box-shadow: 0 0 20px var(--neon-cyan); /* Resplandor */
+    background-color: var(--neon-cyan);
+    color: var(--neon-black);
+    cursor: pointer;
+}
 /* Responsive: En PC podrías usar Grid, pero Vertical es más claro para 8 niveles */
+
+#waitlist {
+    background: rgba(7, 7, 23, 0.8) !important;
+    backdrop-filter: blur(10px); /* Efecto de cristal */
+    border: 2px solid var(--neon-magenta) !important;
+    box-shadow: 0 0 15px var(--neon-magenta);
+    border-radius: 8px;
+    padding: 60px 40px !important;
+    text-align: center;
+    padding: 40px;
+}
+
+#waitlist input {
+    background: transparent;
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-white);
+    padding: 12px;
+    margin-bottom: 15px;
+}

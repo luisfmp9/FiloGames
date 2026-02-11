@@ -69,6 +69,13 @@ main {
     margin: 40px 0;
 }
 
+.btn-prebuy, 
+.btn-jugar, 
+.btn-unirme {
+    position: relative; /* Necesario para que el z-index funcione */
+    z-index: 950;       /* Mayor que el 900/901 del efecto de fondo */
+}
+
 .btn-prebuy {
     background: var(--neon-glow);
     color: white;

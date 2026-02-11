@@ -124,19 +124,10 @@ body.ana-theme::before {
         linear-gradient(
             rgba(18, 16, 16, 0) 50%, 
             rgba(0, 0, 0, 0.2) 50%
-        ),
-        /* Capa 2: El haz de luz cyan que baja (Escaner) */
-        linear-gradient(
-            to bottom,
-            rgba(255, 255, 255, 0),
-            rgba(255, 255, 255, 0) 50%,
-            rgba(0, 255, 255, 0.2) 50%,
-            rgba(0, 255, 255, 0.2)
         );
     
     /* Tamaño: El primero define el grosor de las líneas de TV (4px) */
-    background-size: 100% 4px, 100% 100%;
-    animation: scan-move 8s linear infinite; /* Velocidad del escaneo */
+    background-size: 100% 4px;
     
     /* ESTO ES LO QUE PIDES: El modo de fusión */
     /* 'overlay' o 'hard-light' hacen que la barra blanca "ilumine" la imagen de fondo */

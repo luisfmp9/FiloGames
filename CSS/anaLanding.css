@@ -70,23 +70,25 @@ main {
 }
 
 .btn-prebuy {
-    background: var(--neon-magenta);
+    background: var(--neon-glow);
     color: white;
     padding: 15px 30px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 0 10px var(--neon-magenta);
-}
-
-.btn-jugar {
-    background: var(--neon-cyan);
-    color: white;
-    padding: 15px 30px;
-    border-radius: 5px;
+    border-radius: 6px;
     text-decoration: none;
     font-weight: bold;
     box-shadow: 0 0 10px var(--neon-cyan);
+    transition: all 0.3s ease;
+}
+
+.btn-jugar {
+    background: var(--neon-glow);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 0 10px var(--neon-blue);
+    transition: all 0.3s ease;
 }
 
 .btn-jugar:hover, .btn-prebuy:hover {
@@ -115,4 +117,25 @@ main {
     color: var(--neon-white);
     padding: 12px;
     margin-bottom: 15px;
+}
+
+.emailCyber {
+    background: transparent;
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-white);
+    padding: 12px;
+    margin-bottom: 15px;
+    min-width: 300px;
+    border-radius: 14px;
+}
+
+.btn-unirme {
+    background: var(--neon-magenta);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 0 10px var(--neon-magenta);
+    transition: all 0.3s ease;
 }

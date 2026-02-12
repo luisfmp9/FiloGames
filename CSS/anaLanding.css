@@ -149,3 +149,11 @@ main {
     box-shadow: 0 0 10px var(--neon-magenta);
     transition: all 0.3s ease;
 }
+
+.btn-unirme:hover {
+    transform: scale(1.05); /* Un pequeño aumento de tamaño */
+    box-shadow: 0 0 20px var(--neon-magenta); /* Resplandor */
+    background-color: var(--neon-magenta);
+    color: var(--neon-black);
+    cursor: pointer;
+}

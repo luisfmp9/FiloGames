@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luis Mercado | Filo Games Connect</title>
+    <meta name="description" content="Connect with Luis Mercado, CEO of Filo Games.">
+    
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/ANAstyles.css">
+    <link rel="stylesheet" href="CSS/connect.css">
+    <link rel="icon" href="IMG/logoFilo.ico" type="image/x-icon">
+
+    <!-- Iconos (Lucide) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/umd/lucide.min.js"></script>
+</head>
+
+<body class="connect-page">
+
+    <div class="profile-container">
+        <header class="profile-header" style="text-align: center;">
+            <div class="profile-pic-wrapper">
+                <div class="profile-ring"></div>
+                <img src="IMG/Team/luisfmp.webp" alt="Luis Mercado" class="profile-pic" id="profileImage">
+            </div>
+            
+            <h1>Luis Mercado</h1>
+            <div class="role-badge">CEO & Founder</div>
+            <div class="company-name">
+                <i data-lucide="cpu" style="width: 16px; height: 16px;"></i>
+                Filo Games
+            </div>
+        </header>
+
+        <div class="action-buttons">
+            <button onclick="downloadVCard()" class="btn-action primary">
+                <i data-lucide="user-plus" style="width: 18px;"></i>
+                Save Contact
+            </button>
+            <a href="mailto:luis@filogames.com" class="btn-action secondary">
+                <i data-lucide="mail" style="width: 18px;"></i>
+                Email
+            </a>
+        </div>
+
+        <div class="links-grid">
+            <a href="https://luisfmp.itch.io/ana" target="_blank" class="link-card ana-card">
+                <div class="link-content">
+                    <i data-lucide="gamepad-2" style="color: var(--neon-cyan); width: 28px; height: 28px;"></i>
+                    <div>
+                        <div class="link-title" style="letter-spacing: 1px;">PLAY A.N.A.</div>
+                        <span class="link-subtitle" style="color: var(--neon-magenta);">The Broken Link (Demo v0.2)</span>
+                    </div>
+                </div>
+                <div class="glitch-badge">LIVE</div>
+            </a>
+
+            <a href="https://wa.me/51999999999" target="_blank" class="link-card">
+                <div class="link-content">
+                    <i data-lucide="message-circle" style="color: #25D366; width: 24px; height: 24px;"></i>
+                    <div>
+                        <div class="link-title">WhatsApp</div>
+                        <span class="link-subtitle">Chat directo</span>
+                    </div>
+                </div>
+                <i data-lucide="chevron-right" class="chevron" style="width: 20px;"></i>
+            </a>
+
+            <a href="https://instagram.com/filogames" target="_blank" class="link-card">
+                <div class="link-content">
+                    <i data-lucide="instagram" style="color: #E1306C; width: 24px; height: 24px;"></i>
+                    <div>
+                        <div class="link-title">Instagram</div>
+                        <span class="link-subtitle">@filogames</span>
+                    </div>
+                </div>
+                <i data-lucide="chevron-right" class="chevron" style="width: 20px;"></i>
+            </a>
+
+            <a href="https://discord.gg/3nMe29jHzn" target="_blank" class="link-card">
+                <div class="link-content">
+                    <i data-lucide="users" style="color: #5865F2; width: 24px; height: 24px;"></i>
+                    <div>
+                        <div class="link-title">Join the Colony</div>
+                        <span class="link-subtitle">Comunidad Discord</span>
+                    </div>
+                </div>
+                <i data-lucide="chevron-right" class="chevron" style="width: 20px;"></i>
+            </a>
+
+            <a href="https://filogames.com" target="_blank" class="link-card" style="border: 1px dashed #444; background: transparent;">
+                <div class="link-content">
+                    <i data-lucide="globe" style="color: var(--color-text-secondary); width: 24px; height: 24px;"></i>
+                    <div>
+                        <div class="link-title">Website Oficial</div>
+                        <span class="link-subtitle">filogames.com</span>
+                    </div>
+                </div>
+                <i data-lucide="external-link" class="chevron" style="width: 18px;"></i>
+            </a>
+
+        </div>
+    </div>
+
+    <footer class="connect-footer">
+        <p>© 2025 Filo Games Studio</p>
+        <p style="margin-top: 5px; opacity: 0.6;">Trujillo, Perú 🇵🇪 • Brasil 🇧🇷</p>
+    </footer>
+
+    <script>
+        // Inicializar Iconos Lucide
+        lucide.createIcons();
+
+        // Fallback imagen perfil
+        const img = document.getElementById('profileImage');
+        img.onerror = function() {
+            this.style.display = 'none';
+            this.parentNode.style.backgroundColor = '#222';
+            this.parentNode.style.display = 'flex';
+            this.parentNode.style.alignItems = 'center';
+            this.parentNode.style.justifyContent = 'center';
+            this.parentNode.innerHTML += '<span style="color:white; font-size:2.5rem; font-weight:bold; position: relative; z-index: 2;">LM</span><div class="profile-ring"></div>';
+        };
+
+        // --- Lógica vCard ---
+        function downloadVCard() {
+            // EDITAR AQUI TUS DATOS REALES PARA BRASIL
+            const contact = {
+                name: "Luis Mercado",
+                org: "Filo Games",
+                title: "CEO & Founder",
+                tel: "+51999999999", 
+                email: "luis@filogames.com",
+                url: "https://filogames.com"
+            };
+
+            const vCardData = [
+                "BEGIN:VCARD",
+                "VERSION:3.0",
+                `N:Mercado;Luis;;;`,
+                `FN:${contact.name}`,
+                `ORG:${contact.org}`,
+                `TITLE:${contact.title}`,
+                `TEL;TYPE=CELL:${contact.tel}`,
+                `EMAIL:${contact.email}`,
+                `URL:${contact.url}`,
+                "END:VCARD"
+            ].join("\n");
+
+            const blob = new Blob([vCardData], { type: "text/vcard" });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = "Luis_Mercado_FiloGames.vcf";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+</html>

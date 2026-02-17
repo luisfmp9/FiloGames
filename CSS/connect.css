@@ -1,0 +1,247 @@
+/* connect.css
+   Estilos específicos para la página de Bio/Linktree.
+   Hereda variables de styles.css y ANAstyles.css 
+*/
+
+/* --- LAYOUT PRINCIPAL --- */
+body.connect-page {
+    /* Usamos el fondo base, pero añadiremos la textura encima */
+    background-color: var(--color-background); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Efecto de fondo sutil (Híbrido) */
+body.connect-page::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Reutilizamos el gradiente oscuro pero con scanlines sutiles */
+    background: 
+        linear-gradient(rgba(10, 10, 10, 0.85) 50%, rgba(0, 0, 0, 0.95) 50%),
+        repeating-linear-gradient(0deg, transparent, transparent 2px, var(--neon-blue, #00b3ff) 3px);
+    background-size: 100% 4px;
+    opacity: 0.05; 
+    pointer-events: none;
+    z-index: 0;
+}
+
+.profile-container {
+    width: 100%;
+    max-width: 480px;
+    padding: 60px 20px 40px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* --- PERFIL Y AVATAR --- */
+.profile-pic-wrapper {
+    width: 130px;
+    height: 130px;
+    margin: 0 auto 15px;
+    position: relative;
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    /* Usamos variable de styles.css para el borde base */
+    border: 3px solid var(--color-surface);
+    /* Usamos variable de ANAstyles.css para el brillo */
+    box-shadow: 0 0 25px rgba(0, 179, 255, 0.25);
+    position: relative;
+    z-index: 2;
+    background-color: #222;
+}
+
+/* Anillo Animado */
+.profile-ring {
+    position: absolute;
+    top: -6px; left: -6px; right: -6px; bottom: -6px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: var(--neon-cyan, #00ffff);
+    border-bottom-color: var(--neon-magenta, #ff00ff);
+    animation: spin 4s linear infinite; /* 'spin' no está definida en los otros CSS, la definimos abajo */
+    z-index: 1;
+}
+
+.profile-header h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+    color: var(--color-primary);
+}
+
+.role-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    color: var(--neon-cyan, #00ffff);
+    font-family: 'Share Tech Mono', monospace; /* Fuente de ANA */
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    margin-bottom: 10px;
+}
+
+.company-name {
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.95rem;
+}
+
+/* --- BOTONES DE ACCIÓN (Save Contact / Email) --- */
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.btn-action {
+    flex: 1;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: transform 0.2s, background-color 0.2s;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+/* Reutilizamos clases de styles.css para colores, pero ajustamos la forma aquí */
+.btn-action.primary {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+}
+
+.btn-action.secondary {
+    background-color: rgba(255,255,255,0.08);
+    color: var(--color-text-primary);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.btn-action:hover {
+    transform: translateY(-2px);
+}
+
+/* --- TARJETAS DE ENLACES --- */
+.links-grid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.link-card {
+    background-color: var(--color-surface); /* De styles.css */
+    padding: 18px 22px;
+    border-radius: 16px;
+    text-decoration: none;
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid rgba(255,255,255,0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.link-card:hover {
+    transform: translateY(-4px);
+    background-color: #222; /* Un poco más claro que surface */
+    border-color: rgba(255,255,255,0.2);
+    box-shadow: 0 10px 25px -10px rgba(0,0,0,0.6);
+}
+
+.link-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.link-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+    line-height: 1.2;
+}
+
+.link-subtitle {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    display: block;
+    margin-top: 2px;
+}
+
+/* --- TARJETA DESTACADA: A.N.A. --- */
+.link-card.ana-card {
+    background: linear-gradient(135deg, rgba(7, 7, 23, 0.9), rgba(15, 15, 40, 0.9));
+    border: 1px solid var(--neon-blue, #00b3ff);
+    box-shadow: 0 0 15px rgba(0, 179, 255, 0.1);
+}
+
+.link-card.ana-card:hover {
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+    border-color: var(--neon-cyan, #00ffff);
+}
+
+.link-card.ana-card .link-title {
+    font-family: 'Share Tech Mono', monospace;
+    color: var(--neon-cyan, #00ffff);
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.glitch-badge {
+    font-size: 0.7rem;
+    background: var(--neon-magenta, #ff00ff);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    animation: blink 2s infinite; /* 'blink' existe en ANAstyles.css */
+}
+
+/* Icono de chevron a la derecha */
+.chevron {
+    opacity: 0.4;
+    transition: 0.3s;
+}
+.link-card:hover .chevron {
+    opacity: 1;
+    transform: translateX(3px);
+}
+
+/* Footer específico */
+.connect-footer {
+    margin-top: auto;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    z-index: 10;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

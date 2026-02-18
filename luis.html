@@ -42,7 +42,7 @@
                 <i data-lucide="user-plus" style="width: 18px;"></i>
                 Save Contact
             </button>
-            <a href="mailto:luisfermepa9@gmail.com" class="btn-action secondary">
+            <a href="mailto:luisfermepa9@gmail.com?subject=Contacto%20desde%20Game%20Jam%20Plus%20Brasil&body=Hola%20Luis%2C%20vi%20tu%20perfil%20en%20Brasil.%20Me%20gustar%C3%ADa%20agendar%20una%20reuni%C3%B3n%20para ..." class="btn-action secondary">
                 <i data-lucide="mail" style="width: 18px;"></i>
                 Email
             </a>
@@ -60,7 +60,7 @@
                 <div class="glitch-badge">LIVE</div>
             </a>
 
-            <a href="https://wa.me/51980664399" target="_blank" class="link-card whatsapp-card">
+            <a href="https://wa.me/51980664399?text=Hola%20Luis!%20Vi%20tu%20perfil%20en%20la%20Game%20Jam%20Plus,%20me%20gustar%C3%ADa%20conectar." target="_blank" class="link-card whatsapp-card">
                 <div class="link-content">
                     <i data-lucide="message-circle" style="color: #25D366; width: 24px; height: 24px;"></i>
                     <div>
@@ -141,6 +141,29 @@
                 lucide.createIcons();
             } else {
                 console.error("La librería Lucide no se cargó correctamente.");
+            }
+
+            // Función para detectar si es móvil
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+            if (isMobile) {
+                // Buscamos todos los enlaces de Instagram
+                const instaLinks = document.querySelectorAll('a[href*="instagram.com"]');
+                
+                instaLinks.forEach(link => {
+                    // Extraemos el username del enlace original
+                    const urlParts = link.href.split('/');
+                    const username = urlParts[urlParts.length - 1] || urlParts[urlParts.length - 2];
+                    
+                    // Cambiamos el href al protocolo de la App
+                    link.href = `instagram://user?username=${username}`;
+                });
+
+                const linkedinLinks = document.querySelectorAll('a[href*="linkedin.com/in/"]');
+                linkedinLinks.forEach(link => {
+                    const profileId = link.href.split('/in/')[1].replace('/', '');
+                    link.href = `linkedin://profile/${profileId}`;
+                });
             }
         });
 

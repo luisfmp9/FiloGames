@@ -105,10 +105,10 @@
             </a>
 
             <div class="copy-container">
-                <button class="btn-copy" onclick="copyToClipboard('luisfmp9', 'Instagram Personal')">
+                <button class="btn-copy" onclick="copyToClipboard('luisfmp9', 'Personal Instagram')">
                     <i data-lucide="copy" style="width:14px;"></i> @luisfmp9
                 </button>
-                <button class="btn-copy" onclick="copyToClipboard('filogamesofficial', 'Instagram Filo Games')">
+                <button class="btn-copy" onclick="copyToClipboard('filogamesofficial', 'Business Instagram')">
                     <i data-lucide="copy" style="width:14px;"></i> @filogames
                 </button>
             </div>
@@ -137,7 +137,7 @@
 
             <div id="copyToast" class="toast-notification">
                 <i data-lucide="check-circle" style="color: var(--neon-magenta); width: 18px;"></i>
-                <span id="toastMessage">Usuario copiado</span>
+                <span id="toastMessage">User Copied</span>
             </div>
         </div>
         </main>
@@ -231,7 +231,7 @@
                 const toast = document.getElementById('copyToast');
                 const message = document.getElementById('toastMessage');
                 
-                message.textContent = `${context} copiado: ${text}`;
+                message.textContent = `${context} copied: ${text}`;
                 toast.classList.add('show');
 
                 // Ocultar después de 3 segundos

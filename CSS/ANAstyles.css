@@ -100,7 +100,7 @@ body.ana-theme {
 }
 
 /* --- COLUMNA PRINCIPAL --- */
-main {
+body.ana-theme main {
   box-sizing: border-box;
   /*background: radial-gradient(circle at 50% 20%, rgba(0,0,0,0.9), var(--neon-black) 90%);
   background-image: linear-gradient(rgba(255,255,255,0.06) 50%, transparent 50%);

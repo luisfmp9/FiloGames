@@ -122,7 +122,7 @@ body.connect-page::before {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    transition: transform 0.2s, background-color 0.2s;
+    transition: transform 0.4s, background-color 0.4s;
     text-decoration: none;
     font-size: 0.95rem;
 }
@@ -160,7 +160,7 @@ body.connect-page::before {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     border: 1px solid rgba(255,255,255,0.05);
     position: relative;
     overflow: hidden;
@@ -224,7 +224,7 @@ body.connect-page::before {
 /* Icono de chevron a la derecha */
 .chevron {
     opacity: 0.4;
-    transition: 0.3s;
+    transition: 0.4s;
 }
 .link-card:hover .chevron {
     opacity: 1;

@@ -179,6 +179,12 @@ body.connect-page::before {
     gap: 16px;
 }
 
+.link-content i {
+    width: 28px; /* Ancho fijo para alinear el texto */
+    display: flex;
+    justify-content: center;
+}
+
 .link-title {
     font-weight: 600;
     font-size: 1.05rem;
@@ -196,7 +202,7 @@ body.connect-page::before {
 .link-card.ana-card {
     background: linear-gradient(135deg, rgba(7, 7, 23, 0.9), rgba(15, 15, 40, 0.9));
     border: 1px solid var(--neon-blue, #00b3ff);
-    box-shadow: 0 0 15px rgba(0, 179, 255, 0.1);
+    animation: pulse-neon 2s infinite ease-in-out;
 }
 
 .link-card.ana-card:hover {
@@ -250,4 +256,17 @@ body.connect-page::before {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+/* Animación de pulso neón */
+@keyframes pulse-neon {
+    0% {
+        box-shadow: 0 0 5px rgba(0, 179, 255, 0.2), 0 0 0 0px rgba(0, 179, 255, 0.1);
+    }
+    70% {
+        box-shadow: 0 0 15px rgba(0, 179, 255, 0.4), 0 0 0 10px rgba(0, 179, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(0, 179, 255, 0.2), 0 0 0 0px rgba(0, 179, 255, 0);
+    }
 }

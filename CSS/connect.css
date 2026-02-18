@@ -140,7 +140,7 @@ body.connect-page::before {
 }
 
 .btn-action:hover {
-    transform: translateY(-4px), translateZ(2px);
+    transform: translate(2px, -4px);
 }
 
 /* --- TARJETAS DE ENLACES --- */
@@ -167,7 +167,7 @@ body.connect-page::before {
 }
 
 .link-card:hover {
-    transform: translateY(-4px), translateX(6px);
+    transform: translate(6px, -4px);
     background-color: #222; /* Un poco más claro que surface */
     border-color: rgba(255,255,255,0.2);
     box-shadow: 0 10px 25px -10px rgba(0,0,0,0.6);

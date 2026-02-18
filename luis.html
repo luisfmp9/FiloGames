@@ -25,7 +25,7 @@
         <header class="profile-header" style="text-align: center;">
             <div class="profile-pic-wrapper">
                 <div class="profile-ring"></div>
-                <img src="IMG/Team/luisfmp.webp" alt="Luis Mercado" class="profile-pic" id="profileImage">
+                <img src="IMG/Team/luisfmp.webp" alt="Luis Mercado" class="profile-pic" id="profileImage" fetchpriority="high" loading="eager" width="217" height="217">
             </div>
             
             <h1>Luis Mercado</h1>
@@ -36,19 +36,20 @@
             </div>
         </header>
 
+        <main>
         <div class="action-buttons">
             <button onclick="downloadVCard()" class="btn-action primary">
                 <i data-lucide="user-plus" style="width: 18px;"></i>
                 Save Contact
             </button>
-            <a href="mailto:luisfermepa9@gmail.com?subject=Contacto%20desde%20Game%20Jam%20Plus%20Brasil&body=Hola%20Luis%2C%20vi%20tu%20perfil%20en%20Brasil.%20Me%20gustar%C3%ADa%20agendar%20una%20reuni%C3%B3n%20para ..." class="btn-action secondary">
+            <a href="mailto:luisfermepa9@gmail.com?subject=Contacto%20desde%20Game%20Jam%20Plus%20Brasil&body=Hola%20Luis%2C%20vi%20tu%20perfil%20en%20Brasil.%20Me%20gustar%C3%ADa%20agendar%20una%20reuni%C3%B3n%20para ..." aria-label="Send Mail" class="btn-action secondary">
                 <i data-lucide="mail" style="width: 18px;"></i>
                 Email
             </a>
         </div>
 
         <div class="links-grid">
-            <a href="https://luisfmp.itch.io/ana" target="_blank" class="link-card ana-card">
+            <a href="https://luisfmp.itch.io/ana" aria-label="Play A.N.A. — The Broken Link" target="_blank" class="link-card ana-card">
                 <div class="link-content">
                     <i data-lucide="gamepad-2" style="color: var(--neon-cyan); width: 28px; height: 28px;"></i>
                     <div>
@@ -59,7 +60,7 @@
                 <div class="glitch-badge">LIVE</div>
             </a>
 
-            <a href="https://wa.me/51980664399?text=Hola%20Luis!%20Vi%20tu%20perfil%20en%20la%20Game%20Jam%20Plus,%20me%20gustar%C3%ADa%20conectar." target="_blank" class="link-card whatsapp-card">
+            <a href="https://wa.me/51980664399?text=Hola%20Luis!%20Vi%20tu%20perfil%20en%20la%20Game%20Jam%20Plus,%20me%20gustar%C3%ADa%20conectar." aria-label="Send WhatsApp Message" target="_blank" class="link-card whatsapp-card">
                 <div class="link-content">
                     <i data-lucide="message-circle" style="color: #25D366; width: 24px; height: 24px;"></i>
                     <div>
@@ -70,7 +71,7 @@
                 <i data-lucide="chevron-right" class="chevron" style="width: 20px;"></i>
             </a>
 
-            <a href="https://www.instagram.com/luisfmp9/" target="_blank" class="link-card">
+            <a href="https://www.instagram.com/luisfmp9/" aria-label="Follow Instagram Profile" target="_blank" class="link-card">
                 <div class="link-content">
                     <i data-lucide="instagram" style="color: #E1306C; width: 24px; height: 24px;"></i>
                     <div>
@@ -81,7 +82,7 @@
                 <i data-lucide="chevron-right" class="chevron" style="width: 20px;"></i>
             </a>
 
-            <a href="https://discord.gg/3nMe29jHzn" target="_blank" class="link-card">
+            <a href="https://discord.gg/3nMe29jHzn" aria-label="Join Discord Community" target="_blank" class="link-card">
                 <div class="link-content">
                     <i data-lucide="users" style="color: #5865F2; width: 24px; height: 24px;"></i>
                     <div>
@@ -92,7 +93,7 @@
                 <i data-lucide="chevron-right" class="chevron" style="width: 20px;"></i>
             </a>
 
-            <a href="https://www.instagram.com/filogamesofficial/" target="_blank" class="link-card">
+            <a href="https://www.instagram.com/filogamesofficial/" aria-label="Follow Filo Games on Instagram" target="_blank" class="link-card">
                 <div class="link-content">
                     <i data-lucide="instagram" style="color: #E1306C; width: 24px; height: 24px;"></i>
                     <div>
@@ -103,7 +104,7 @@
                 <i data-lucide="chevron-right" class="chevron" style="width: 20px;"></i>
             </a>
 
-            <a href="https://www.linkedin.com/in/luisfmp9/" target="_blank" class="link-card">
+            <a href="https://www.linkedin.com/in/luisfmp9/" aria-label="Send LinkedIn Message" target="_blank" class="link-card">
                 <div class="link-content">
                     <i data-lucide="linkedin" style="color: #0077B5; width: 24px; height: 24px;"></i>
                     <div>
@@ -114,7 +115,7 @@
                 <i data-lucide="chevron-right" class="chevron" style="width: 20px;"></i>
             </a>
 
-            <a href="https://www.filogames.com/" target="_blank" class="link-card" style="border: 1px dashed #444; background: transparent;">
+            <a href="https://www.filogames.com/" aria-label="Visit Official Website" target="_blank" class="link-card" style="border: 1px dashed #444; background: transparent;">
                 <div class="link-content">
                     <i data-lucide="globe" style="color: var(--color-text-secondary); width: 24px; height: 24px;"></i>
                     <div>
@@ -126,11 +127,12 @@
             </a>
 
         </div>
+        </main>
     </div>
 
     <footer class="connect-footer">
         <p>© 2026 Filo Games Company</p>
-        <p style="margin-top: 5px; opacity: 0.6;">Perú 🇵🇪 • Brasil 🇧🇷</p>
+        <p style="margin-top: 5px; color: #a1a1a1;">Perú 🇵🇪 • Brasil 🇧🇷</p>
     </footer>
 
     <script>

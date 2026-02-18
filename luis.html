@@ -81,6 +81,7 @@
                 </div>
                 <i data-lucide="chevron-right" class="chevron" style="width: 20px;"></i>
             </a>
+            <span>@luisfmp9</span> <button onclick="copyToClipboard('luisfmp9')">📋</button>
 
             <a href="https://discord.gg/3nMe29jHzn" aria-label="Join Discord Community" target="_blank" class="link-card">
                 <div class="link-content">
@@ -103,6 +104,7 @@
                 </div>
                 <i data-lucide="chevron-right" class="chevron" style="width: 20px;"></i>
             </a>
+            <span>@filogamesofficial</span> <button onclick="copyToClipboard('filogamesofficial')">📋</button>
 
             <a href="https://www.linkedin.com/in/luisfmp9/" aria-label="Send LinkedIn Message" target="_blank" class="link-card">
                 <div class="link-content">
@@ -211,6 +213,12 @@
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Usuario copiado: " + text + ". Pégalo en el buscador de Instagram.");
+            });
         }
     </script>
     <!-- Iconos (Lucide) -->

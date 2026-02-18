@@ -81,7 +81,6 @@
                 </div>
                 <i data-lucide="chevron-right" class="chevron" style="width: 20px;"></i>
             </a>
-            <span>@luisfmp9</span> <button onclick="copyToClipboard('luisfmp9')">📋</button>
 
             <a href="https://discord.gg/3nMe29jHzn" aria-label="Join Discord Community" target="_blank" class="link-card">
                 <div class="link-content">
@@ -104,7 +103,15 @@
                 </div>
                 <i data-lucide="chevron-right" class="chevron" style="width: 20px;"></i>
             </a>
-            <span>@filogamesofficial</span> <button onclick="copyToClipboard('filogamesofficial')">📋</button>
+
+            <div class="copy-container">
+                <button class="btn-copy" onclick="copyToClipboard('luisfmp9', 'Instagram Personal')">
+                    <i data-lucide="copy" style="width:14px;"></i> @luisfmp9
+                </button>
+                <button class="btn-copy" onclick="copyToClipboard('filogamesofficial', 'Instagram Filo Games')">
+                    <i data-lucide="copy" style="width:14px;"></i> @filogames
+                </button>
+            </div>
 
             <a href="https://www.linkedin.com/in/luisfmp9/" aria-label="Send LinkedIn Message" target="_blank" class="link-card">
                 <div class="link-content">
@@ -128,6 +135,10 @@
                 <i data-lucide="external-link" class="chevron" style="width: 18px;"></i>
             </a>
 
+            <div id="copyToast" class="toast-notification">
+                <i data-lucide="check-circle" style="color: var(--neon-magenta); width: 18px;"></i>
+                <span id="toastMessage">Usuario copiado</span>
+            </div>
         </div>
         </main>
     </div>
@@ -215,9 +226,20 @@
             document.body.removeChild(link);
         }
 
-        function copyToClipboard(text) {
+        function copyToClipboard(text, context) {
             navigator.clipboard.writeText(text).then(() => {
-                alert("Usuario copiado: " + text + ". Pégalo en el buscador de Instagram.");
+                const toast = document.getElementById('copyToast');
+                const message = document.getElementById('toastMessage');
+                
+                message.textContent = `${context} copiado: ${text}`;
+                toast.classList.add('show');
+
+                // Ocultar después de 3 segundos
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }).catch(err => {
+                console.error('Error al copiar: ', err);
             });
         }
     </script>

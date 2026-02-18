@@ -243,6 +243,63 @@ body.connect-page::before {
     transform: translateX(3px);
 }
 
+/* Contenedor de botones de copia */
+.copy-container {
+    display: flex;
+    gap: 10px;
+    margin-top: -10px; /* Pegadito a la tarjeta de arriba */
+    margin-bottom: 20px;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.btn-copy {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-cyan);
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.btn-copy:hover {
+    background: var(--neon-blue);
+    color: white;
+    box-shadow: 0 0 10px var(--neon-blue);
+}
+
+/* Notificación tipo Toast */
+.toast-notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--neon-black);
+    border: 1px solid var(--neon-magenta);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    z-index: 1000;
+    font-family: 'Share Tech Mono', monospace;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toast-notification.show {
+    transform: translateX(-50%) translateY(0);
+}
+
 /* Footer específico */
 .connect-footer {
     margin-top: auto;

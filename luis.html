@@ -124,8 +124,14 @@
     </footer>
 
     <script>
-        // Inicializar Iconos Lucide
-        lucide.createIcons();
+        document.addEventListener('DOMContentLoaded', function () {
+            // Inicializar Iconos Lucide
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                console.error("La librería Lucide no se cargó correctamente.");
+            }
+        });
 
         // Fallback imagen perfil
         const img = document.getElementById('profileImage');

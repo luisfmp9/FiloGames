@@ -152,14 +152,17 @@
                 const instaLinks = document.querySelectorAll('a[href*="instagram.com"]');
                 
                 instaLinks.forEach(link => {
-                    // Extraemos el username del enlace original (manejamos si viene con parámetros como ?igsh=...)
-                    const url = new URL(link.href);
-                    const pathParts = url.pathname.split('/').filter(part => part.length > 0);
-                    const username = pathParts[0]; // Esto toma 'filogamesofficial' o 'luisfmp9'
+                    // 1. Extraemos el usuario sin importar si tiene "/" al final o parámetros "?"
+                    let path = new URL(link.href).pathname; // Ejemplo: "/filogamesofficial/"
+                    let username = path.split('/').filter(Boolean)[0];
                     
-                    // ENLACE FORZADO (Protocolo Intent de Android)
-                    // Este formato es mucho más difícil de ignorar para la App
+                    // 2. Usamos el Intent específico de Instagram para perfiles (_u)
+                    // Este comando obliga al sistema a buscar la app de Instagram
                     link.href = `intent://www.instagram.com/_u/${username}/#Intent;package=com.instagram.android;scheme=https;end`;
+                    
+                    // 3. Quitamos el target="_blank" solo en Android
+                    // A veces abrir una pestaña nueva bloquea el salto a la App
+                    link.removeAttribute('target');
                 });
             }
         });

@@ -210,6 +210,11 @@ body.connect-page::before {
     text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
 }
 
+.link-card.whatsapp-card {
+    border-left: 4px solid #25D366; /* Borde verde lateral */
+    background: linear-gradient(90deg, rgba(37, 211, 102, 0.05), transparent); /* Brillo muy sutil */
+}
+
 .glitch-badge {
     font-size: 0.7rem;
     background: var(--neon-magenta, #ff00ff);

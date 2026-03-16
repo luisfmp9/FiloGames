@@ -196,3 +196,17 @@ model-viewer {
     color: var(--neon-black);
     cursor: pointer;
 }
+
+.discord-logo {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 5px var(--neon-cyan));
+    transition: all 0.3s ease;
+}
+
+.social-logo {
+    width: 25%;
+    height: auto;
+    filter: drop-shadow(0 0 5px var(--neon-cyan));
+    transition: all 0.3s ease;
+}

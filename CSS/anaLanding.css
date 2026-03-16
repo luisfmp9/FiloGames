@@ -9,6 +9,45 @@ main {
     url(../IMG/Portfolio/VideoGames/Ana/fondo_ANA.webp);
 }
 
+/* --- Ajuste para la sección de premios --- */
+.award-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap; /* Para que en móvil el trofeo baje */
+    margin: 60px 0;
+}
+
+.award-text { flex: 1; min-width: 300px; }
+.award-3d { flex: 1; min-width: 300px; height: 400px; }
+
+model-viewer {
+    width: 100%;
+    height: 100%;
+    outline: none;
+}
+
+/* --- Tooltip Universal (Sin clases nuevas) --- */
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--neon-cyan);
+    color: var(--neon-black);
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    z-index: 1000;
+    box-shadow: 0 0 10px var(--neon-cyan);
+}
+
 .roadmap-container {
     padding: 60px 20px;
     max-width: 1000px;

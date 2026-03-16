@@ -17,18 +17,38 @@
     <link rel="icon" href="IMG/logoFilo.ico" sizes="16x16 32x32 48x48" type="image/x-icon">
     <link rel="icon" type="image/png" sizes="192x192" href="IMG/logoFilo.png">
     <link rel="apple-touch-icon" sizes="180x180" href="IMG/logoFilo.png">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 </head>
 <body class="ana-theme">
     <mi-header></mi-header>
 
     <main class="container">
         <section class="game-header" style="text-align: center;">
-            <h1 class="custom-glitch-title" data-text="A.N.A. ROADMAP">A.N.A. ROADMAP</h1>
-            <p class="tagline">Explore the evolution of consciousness. From Ignorance to Prime.</p>
+            <h1 class="custom-glitch-title" data-text="A.N.A. — The Broken Link">A.N.A. — The Broken Link</h1>
+            <p class="tagline">Leave the shadows of ignorance behind. Awaken. Evolve.</p>
             
             <div class="cta-group">
                 <a href="https://luisfmp.itch.io/ana" target="_blank" class="btn-jugar">Jugar (Gratis v0.2)</a>
                 <a href="#waitlist" class="btn-prebuy">Pre-Comprar (v0.3 Early Access)</a>
+            </div>
+        </section>
+
+        <section class="award-section container">
+            <div class="award-content">
+                <div class="award-text">
+                    <h2>3° Place LATAM at Game Jam Plus 25/26</h2>
+                    <p>Orgullosos de haber obtenido el <strong>3er Lugar en la Game Jam Plus 25/26</strong> a nivel Latinoamérica. A.N.A. no es solo un juego, es una propuesta técnica y artística que desafía los límites del género Beat 'em Up.</p>
+                    <p>Nuestra visión es fusionar la narrativa profunda con mecánicas de combate que evolucionan según tu estilo de juego.</p>
+                </div>
+                <div class="award-3d">
+                    <model-viewer src="IMG/premio_jam.glb" 
+                                poster="IMG/premio_placeholder.png"
+                                alt="Trofeo Game Jam Plus Filo Games" 
+                                auto-rotate camera-controls 
+                                shadow-intensity="1"
+                                exposure="1.2">
+                    </model-viewer>
+                </div>
             </div>
         </section>
 
@@ -69,30 +89,30 @@
         </section>
 
         <section id="waitlist">
-            <h3>¿Quieres ser el primero en jugar la v0.3?</h3>
-            <p>Déjanos tu correo para avisarte cuando la pre-venta oficial esté activa y obtén un rol exclusivo en Discord.</p>
-            <form action="TU_LINK_DE_GOOGLE_FORMS_O_BACKEND" method="POST" style="margin-top: 20px;">
-                <input type="email" placeholder="tu-email@dominio.com" required class="emailCyber">
-                <button type="submit" class="btn-unirme">Unirme a la lista</button>
+            <h3>Do you want to be the first to play v0.3?</h3>
+            <p>Leave us your email address to stay updated.</p>
+
+            <form id="google-sheet-form" style="margin-top: 20px;">
+                <input type="email" name="email" placeholder="your-email@domain.com" required class="emailCyber">
+                <button type="submit" class="btn-unirme">Join the Waitlist</button>
             </form>
+            <div id="form-status" style="margin-top: 15px; font-size: 0.9rem;"></div>
         </section>
 
-        <section style="text-align: center; margin-top: 50px;">
+        <section class="social-footer" style="text-align: center; margin-top: 50px;">
             <h3>Join the Colony</h3>
             <div class="cta-group">
-                <a href="https://discord.gg/3nMe29jHzn" class="btn-primary">
-                    Habitar Comunidad (Discord)
+                <a href="https://discord.gg/3nMe29jHzn" class="btn-primary" data-tooltip="Living in Community (Discord)">
                     <img src="IMG/SocialMedia/Discord-Logo-Blurple.svg" alt="Discord Logo" class="discord-logo"></a>
-                <a href="https://instagram.com/filogames" class="btn-secondary">
-                    Instagram
-                    <img src="IMG/SocialMedia/Instagram.svg" alt="Instagram Logo" class="social-logo">
-                </a>
+                <a href="https://instagram.com/filogames" class="btn-secondary" data-tooltip="Follow us on Instagram">
+                    <img src="IMG/SocialMedia/Instagram.svg" alt="Instagram Logo" class="social-logo"></a>
             </div>
         </section>
     </main>
 
     <mi-footer></mi-footer>
     
+    <script src="JS/anaLandingPage.js" defer></script>
     <script src="JS/animations.js" defer></script>
     <script type="module" src="JS/modulos.js"></script>
     <script src="JS/script.js" defer></script>

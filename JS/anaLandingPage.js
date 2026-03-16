@@ -10,7 +10,7 @@ document.getElementById('google-sheet-form').addEventListener('submit', function
     status.style.color = "var(--neon-cyan)";
 
     // Esta URL la obtienes al publicar tu Google Apps Script
-    const scriptURL = 'TU_URL_DE_APPS_SCRIPT_AQUI';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxuYzg0-_CB9aYFXiFs4VpT_YTYtkJXFJV2xOZOVvari7urp-P4jTAfGEUoWm85HGCn/exec';
 
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
         .then(response => {

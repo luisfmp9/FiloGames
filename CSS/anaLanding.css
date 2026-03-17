@@ -1,6 +1,6 @@
 .container {
-    width: 90% !important;
-    max-width: 1100px !important; /* Mantiene un límite sano para PC */
+    width: 99% !important;
+    max-width: 1400px !important; /* Mantiene un límite sano para PC */
     margin: 0 auto !important;
     padding: 0 20px; /* Evita que el texto pegue en los bordes */
     box-sizing: border-box;
@@ -14,7 +14,11 @@ html, body {
 main {
     background-image: 
     radial-gradient(circle, rgba(7, 7, 23, 0.7) 0%, rgba(7, 7, 23, 1) 100%),
-    url(../IMG/Portfolio/VideoGames/Ana/fondo_ANA.webp);
+    url(../IMG/Portfolio/VideoGames/Ana/fondo_ANA.webp) !important;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* --- Ajuste para la sección de premios --- */
@@ -215,24 +219,33 @@ model-viewer {
     cursor: pointer;
 }
 
+.social-footer .cta-group {
+    display: flex;
+    align-items: center;      /* <--- Esto los alinea al centro vertical uno respecto al otro */
+    justify-content: center;   /* Centra el grupo en la pantalla */
+    gap: 30px;                /* Espacio entre los dos logos */
+    margin-top: 30px;
+}
+
 .discord-logo, .social-logo {
     display: inline-block; /* Fuerza a que ocupen espacio físico */
     max-width: 100%;
     object-fit: contain;
+    height: auto;
+    filter: drop-shadow(0 0 5px var(--neon-cyan));
+    transition: all 0.3s ease;
 }
 
 .discord-logo {
     width: 250px;
-    height: auto;
-    filter: drop-shadow(0 0 5px var(--neon-cyan));
-    transition: all 0.3s ease;
 }
 
 .social-logo {
     width: 50px;
-    height: auto;
-    filter: drop-shadow(0 0 5px var(--neon-cyan));
-    transition: all 0.3s ease;
+}
+
+.discord-logo:hover, .social-logo:hover {
+    transform: scale(1.1);
 }
 
 @media (min-width: 768px) {

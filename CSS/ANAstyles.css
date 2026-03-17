@@ -654,4 +654,14 @@ iframe {
   .video_embed iframe {
     width: 100%;
   }
+
+  body.ana-theme .game-header {
+    padding: 120px 15px 40px !important; 
+  }
+
+  /* Ajustamos el encuadre del fondo para móviles */
+  body.ana-theme main {
+    background-position: 70% center; /* Juega con este % (ej. 30%, 80%) para mostrar la mejor parte de la imagen */
+    background-size: cover;
+  }
 }

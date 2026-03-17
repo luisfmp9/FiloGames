@@ -1,6 +1,14 @@
 .container {
-    width: auto !important;
-    max-width: none !important;
+    width: 90% !important;
+    max-width: 1100px !important; /* Mantiene un límite sano para PC */
+    margin: 0 auto !important;
+    padding: 0 20px; /* Evita que el texto pegue en los bordes */
+    box-sizing: border-box;
+}
+
+/* Agrega esto para asegurar que Edge no genere scroll horizontal fantasma */
+html, body {
+    overflow-x: hidden;
 }
 
 main {
@@ -24,8 +32,11 @@ main {
     flex: 1;
     min-width: 300px;
     max-width: 500px;
-    height: 400px;
+    height: 500px;
     margin: 0 auto; /* centra */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 model-viewer {
@@ -202,6 +213,12 @@ model-viewer {
     background-color: var(--neon-magenta);
     color: var(--neon-black);
     cursor: pointer;
+}
+
+.discord-logo, .social-logo {
+    display: inline-block; /* Fuerza a que ocupen espacio físico */
+    max-width: 100%;
+    object-fit: contain;
 }
 
 .discord-logo {

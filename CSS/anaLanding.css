@@ -232,7 +232,7 @@ model-viewer {
     max-width: 100%;
     object-fit: contain;
     height: auto;
-    filter: drop-shadow(0 0 5px var(--neon-cyan));
+    filter: drop-shadow(0 0 5px var(--neon-magenta));
     transition: all 0.3s ease;
 }
 

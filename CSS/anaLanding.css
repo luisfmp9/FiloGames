@@ -19,7 +19,14 @@ main {
 }
 
 .award-text { flex: 1; min-width: 300px; }
-.award-3d { flex: 1; min-width: 300px; height: 400px; }
+
+.award-3d { 
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    height: 400px;
+    margin: 0 auto; /* centra */
+}
 
 model-viewer {
     width: 100%;
@@ -209,4 +216,10 @@ model-viewer {
     height: auto;
     filter: drop-shadow(0 0 5px var(--neon-cyan));
     transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    .award-3d {
+        height: 500px;
+    }
 }

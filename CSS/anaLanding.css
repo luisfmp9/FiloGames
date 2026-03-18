@@ -43,10 +43,18 @@ main {
     align-items: center;
 }
 
-model-viewer {
+.award-3d model-viewer {
     width: 100%;
     height: 100%;
     outline: none;
+}
+
+.award-section .cta-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 40px 0;
 }
 
 /* --- Tooltip Universal (Sin clases nuevas) --- */
@@ -120,14 +128,6 @@ model-viewer {
     text-transform: uppercase;
     margin-bottom: 10px;
     display: inline-block;
-}
-
-.cta-group {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 40px 0;
 }
 
 .btn-prebuy, 

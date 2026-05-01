@@ -2,7 +2,7 @@
   {
     "id": "videojuego-marca",
     "title": "Tu Videojuego de Marca",
-    "price": 2999,
+    "price": 5000,
     "currency": "USD",
     "pricePrefix": "desde",
     "features": [
@@ -20,7 +20,7 @@
   {
     "id": "sitio-web-completo",
     "title": "Sitio Web Profesional",
-    "price": 1099,
+    "price": 1999,
     "currency": "USD",
     "pricePrefix": "desde",
     "features": [
@@ -38,7 +38,7 @@
   {
     "id": "experiencias-ar-vr",
     "title": "Tus Experiencias AR/VR",
-    "price": 1499,
+    "price": 2499,
     "currency": "USD",
     "pricePrefix": "desde",
     "features": [
@@ -56,7 +56,7 @@
   {
     "id": "landing-page",
     "title": "Landing Page Profesional",
-    "price": 299,
+    "price": 499,
     "currency": "USD",
     "pricePrefix": "desde",
     "features": [
@@ -74,7 +74,7 @@
   {
     "id": "nfc-premium",
     "title": "Tarjeta NFC Premium",
-    "price": 419,
+    "price": 429,
     "currency": "PEN",
     "pricePrefix": "",
     "features": [
@@ -94,7 +94,7 @@
   {
     "id": "nfc-intermedio",
     "title": "Tarjeta NFC Diseño Express",
-    "price": 119,
+    "price": 129,
     "currency": "PEN",
     "pricePrefix": "",
     "features": [
@@ -112,7 +112,7 @@
   {
     "id": "nfc-ia",
     "title": "Tarjeta NFC Personalizada",
-    "price": 99,
+    "price": 109,
     "currency": "PEN",
     "pricePrefix": "",
     "features": [
@@ -130,7 +130,7 @@
   {
     "id": "nfc-basico",
     "title": "Tarjeta NFC (Solo Tarjeta)",
-    "price": 49,
+    "price": 59,
     "currency": "PEN",
     "pricePrefix": "",
     "features": [

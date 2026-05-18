@@ -31,8 +31,8 @@ function updatePrice() {
     const total = qty * finalUnitPrice;
 
     const discountTag = document.getElementById('discountTag');
-    document.getElementById('unitPrice').innerText = `$${finalUnitPrice.toFixed(2)}`;
-    document.getElementById('totalPrice').innerText = `$${total.toFixed(2)}`;
+    document.getElementById('unitPrice').innerText = `S/ ${finalUnitPrice.toFixed(2)}`;
+    document.getElementById('totalPrice').innerText = `S/ ${total.toFixed(2)}`;
     discountTag.innerText = `${discount * 100}%`;
 
     // Feedback visual: Cambia el color si hay descuento

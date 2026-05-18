@@ -1,3 +1,77 @@
+:root {
+  /* Tipografías e Identidad */
+  --font-title: 'Michroma', sans-serif;
+  --font-body: 'Rajdhani', sans-serif;
+  
+  /* Paleta Dark Tech */
+  --bg-main: #0a0a0a;
+  --bg-card: #121212;
+  --border-color: rgba(255, 255, 255, 0.06);
+  --accent-glow: rgba(0, 255, 204, 0.3); /* Destello cian sutil */
+  --accent-text: #00ffcc;
+  
+  --text-primary: #ffffff;
+  --text-secondary: #aaaaaa;
+}
+
+/* Reset básico y consistencia tipográfica */
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  margin: 0;
+  padding: 0;
+}
+
+/* Alineación del Badge */
+.badge-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.tech-badge {
+  background: rgba(0, 255, 204, 0.08);
+  border: 1px solid rgba(0, 255, 204, 0.2);
+  color: var(--accent-text);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 20px;
+}
+
+/* Título Principal */
+.main-title {
+  font-family: var(--font-title);
+  font-size: 2.6rem;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 1rem auto;
+  line-height: 1.3;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+}
+
+/* El Grid que se reestructura solo */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
 .role-badge {
     display: inline-block;
     background: rgba(255, 255, 255, 0.05) !important;
@@ -12,4 +86,42 @@
 
 .role-badge:hover {
     background: rgba(0, 255, 255, 0.1);
+}
+
+.feature-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  /* Transición suave para múltiples propiedades */
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.4s ease, 
+              box-shadow 0.4s ease;
+}
+
+/* Comportamiento al pasar el mouse */
+.feature-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 255, 204, 0.4);
+  box-shadow: 0 12px 30px rgba(0, 255, 204, 0.04);
+}
+
+.card-icon {
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.feature-card h3 {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  margin: 0 0 0.8rem 0;
+}
+
+.feature-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
 }

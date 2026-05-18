@@ -48,6 +48,6 @@ function updatePrice() {
 function sendToWpp() {
     const qty = document.getElementById('cardQuantity').value;
     const total = document.getElementById('totalPrice').innerText;
-    const msg = `Hola Filo Games! Me interesa adquirir ${qty} Smart E-Cards. El presupuesto estimado es de ${total}. ¿Me dan los pasos para el diseño?`;
+    const msg = `Hola Filo Games! Me interesa adquirir ${qty} Smart E-Cards. El presupuesto estimado es de ${total}. ¿Me dan siguientes pasos?`;
     window.open(`https://wa.me/51980664399?text=${encodeURIComponent(msg)}`);
 }

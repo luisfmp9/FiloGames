@@ -126,7 +126,6 @@ body.connect-page::before {
     object-fit: cover;
     /* Usamos variable de styles.css para el borde base */
     border: 3px solid var(--color-surface);
-    /* Usamos variable de ANAstyles.css para el brillo */
     box-shadow: 0 0 25px rgba(0, 179, 255, 0.25);
     position: relative;
     z-index: 2;
@@ -173,7 +172,7 @@ body.connect-page::before {
     border-radius: 50px;
     font-size: 0.85rem;
     color: var(--neon-cyan, #00ffff);
-    font-family: 'Share Tech Mono', monospace; /* Fuente de ANA */
+    font-family: 'Share Tech Mono', monospace;
     border: 1px solid rgba(0, 255, 255, 0.2);
     margin-bottom: 10px;
 }

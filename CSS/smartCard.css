@@ -23,6 +23,52 @@ body {
   padding: 0;
 }
 
+.product-hero {
+    padding-top: 6px;
+    margin-top: 0;
+    display: flex;
+    align-items: center; /* Alinea verticalmente el 3D con el texto */
+    gap: 30px;
+}
+
+.product-hero .role-badge {
+    background: rgba(0, 255, 255, 0.1);
+    color: var(--neon-cyan, #00ffff);
+    border: 1px solid var(--neon-cyan);
+    margin-bottom: 15px;
+}
+
+.role-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.05) !important;
+    padding: 6px 14px !important;
+    border-radius: 50px !important;
+    font-size: 0.85rem !important;
+    color: var(--neon-cyan, #00ffff) !important;
+    font-family: 'Share Tech Mono', monospace !important;
+    border: 1px solid rgba(0, 255, 255, 0.2) !important;
+    margin-bottom: 10px !important;
+}
+
+.role-badge:hover {
+    background: rgba(0, 255, 255, 0.1);
+}
+
+.zone-3d {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap; /* Para que en móvil el trofeo baje */
+    margin: 10px 0;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 /* Alineación del Badge */
 .badge-container {
   display: flex;
@@ -70,22 +116,6 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
-}
-
-.role-badge {
-    display: inline-block;
-    background: rgba(255, 255, 255, 0.05) !important;
-    padding: 6px 14px !important;
-    border-radius: 50px !important;
-    font-size: 0.85rem !important;
-    color: var(--neon-cyan, #00ffff) !important;
-    font-family: 'Share Tech Mono', monospace !important;
-    border: 1px solid rgba(0, 255, 255, 0.2) !important;
-    margin-bottom: 10px !important;
-}
-
-.role-badge:hover {
-    background: rgba(0, 255, 255, 0.1);
 }
 
 .feature-card {

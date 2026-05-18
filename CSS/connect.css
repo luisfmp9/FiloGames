@@ -154,6 +154,9 @@ body.connect-page::before {
 .product-hero {
     padding-top: 6px;
     margin-top: 0;
+    display: flex;
+    align-items: center; /* Alinea verticalmente el 3D con el texto */
+    gap: 30px;
 }
 
 .product-hero .role-badge {
@@ -173,6 +176,24 @@ body.connect-page::before {
     font-family: 'Share Tech Mono', monospace; /* Fuente de ANA */
     border: 1px solid rgba(0, 255, 255, 0.2);
     margin-bottom: 10px;
+}
+
+.zone-3d {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap; /* Para que en móvil el trofeo baje */
+    margin: 10px 0;
+}
+
+.award-3d {
+    width: 100%;
+    max-width: 500px;
+    height: 400px; /* Define una altura fija para evitar saltos de layout */
+    margin: 0 auto;
+    position: relative;
+    background: radial-gradient(circle, rgba(0, 243, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%; /* Crea un aura circular detrás de la tarjeta */
 }
 
 .company-name {

@@ -216,6 +216,15 @@ body {
   }
 }
 
+.main-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background: var(--bg-card);
+}
+
 .detail-block {
   background: rgba(255, 255, 255, 0.01);
   border-left: 3px solid var(--border-color);
@@ -279,4 +288,45 @@ body {
 
 .btn-action.primary:active {
     transform: translateY(0);
+}
+
+.qty-control-group { margin-bottom: 30px; }
+.qty-input-wrapper { display: flex; align-items: center; justify-content: center; gap: 15px; margin: 15px 0; }
+.qty-btn { background: var(--bg-main); border: 1px solid var(--accent-text); color: var(--accent-text); width: 45px; height: 45px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; transition: 0.3s; }
+.qty-btn:hover { background: rgba(0, 255, 204, 0.2); box-shadow: 0 0 10px var(--accent-glow); }
+#cardQuantity { width: 80px; text-align: center; background: transparent; border: none; color: white; font-size: 2rem; font-family: var(--font-title); outline: none; }
+#cardQuantity::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+/* Slider Neon */
+.slider-neon { -webkit-appearance: none; width: 100%; height: 6px; background: #333; border-radius: 5px; outline: none; margin-top: 10px; }
+.slider-neon::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--accent-text); cursor: pointer; box-shadow: 0 0 10px var(--accent-glow); }
+.slider-guides { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-secondary); margin-top: 8px; font-family: 'Share Tech Mono', monospace; }
+
+.addons-group { margin-bottom: 25px; text-align: left; }
+.neon-select { background: var(--bg-main); color: white; border: 1px solid #444; padding: 12px; border-radius: 8px; width: 100%; margin-top: 10px; cursor: pointer; }
+.neon-select:focus { border-color: var(--accent-text); outline: none; }
+
+.checkbox-container { display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 0.95rem; margin-bottom: 10px;}
+.checkbox-container input { display: none; }
+.checkmark { width: 20px; height: 20px; border: 2px solid #444; border-radius: 4px; display: inline-block; position: relative; transition: 0.3s; }
+.checkbox-container input:checked ~ .checkmark { background-color: var(--accent-text); border-color: var(--accent-text); box-shadow: 0 0 10px var(--accent-glow); }
+
+@media (max-width: 768px) {
+  .product-hero {
+    flex-direction: column;
+    padding-top: 20px;
+  }
+  .zone-3d {
+    flex-direction: column-reverse; /* Pone el texto arriba y el 3D abajo en móviles */
+    gap: 30px;
+  }
+  .main-title {
+    font-size: 2rem; /* Título un poco más manejable */
+  }
+  .award-3d {
+    height: 350px; /* Evita que el 3D ocupe toda la pantalla */
+  }
+  .features-detail-section {
+    grid-template-columns: 1fr;
+  }
 }

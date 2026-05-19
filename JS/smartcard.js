@@ -38,18 +38,16 @@ async function cargarPrecioDesdeJSON() {
 }
 
 // --- FUNCIONES DE MAPEO PARA EL SLIDER SEGMENTADO ---
-// Convierte la posición del slider (0 a 300) en cantidad real (1 a 10000)
 function posToQty(pos) {
     if (pos <= 100) {
-        return Math.round(1 + (pos / 100) * 99); // Tramo 1: 1 a 100
+        return Math.round(1 + (pos / 100) * 99); // 1 a 100
     } else if (pos <= 200) {
-        return Math.round(100 + ((pos - 100) / 100) * 900); // Tramo 2: 100 a 1000
+        return Math.round(100 + ((pos - 100) / 100) * 900); // 100 a 1000
     } else {
-        return Math.round(1000 + ((pos - 200) / 100) * 9000); // Tramo 3: 1000 a 10000
+        return Math.round(1000 + ((pos - 200) / 100) * 9000); // 1000 a 10000
     }
 }
 
-// Convierte la cantidad real (1 a 10000) en la posición del slider (0 a 300)
 function qtyToPos(qty) {
     if (qty <= 1) return 0;
     if (qty <= 100) {
@@ -97,59 +95,76 @@ function syncCalculator() {
     let qty = parseInt(qtyInput.value) || 1;
     let discount = 0;
 
-    // Lógica de descuentos por volumen
-    if (qty >= 10 && qty < 50) discount = 0.10;
-    else if (qty >= 50) discount = 0.25;
+    // Nueva escala de descuentos por volumen solicitada
+    if (qty >= 5000) discount = 0.35;         // 35% a partir de 5000
+    else if (qty >= 1000) discount = 0.30;    // 30% a partir de 1000
+    else if (qty >= 300) discount = 0.25;     // 25% a partir de 300
+    else if (qty >= 100) discount = 0.20;     // 20% a partir de 100
+    else if (qty >= 50) discount = 0.15;      // 15% a partir de 50
+    else if (qty >= 10) discount = 0.10;      // 10% a partir de 10
+    else discount = 0;                        // Sin descuento
 
-    // Cálculos unitarios y subtotales
+    // Cálculos unitarios y subtotales de tarjetas
     let finalUnitPrice = BASE_CARD_PRICE * (1 - discount);
     let normalSubtotal = qty * BASE_CARD_PRICE;
     let finalSubtotal = qty * finalUnitPrice;
 
-    // RESALTADO DE DESCUENTO CON TACHADO
+    // Renderizar Precios de Tarjetas con tachado si aplica descuento
     if (discount > 0) {
-        // Tachamos precio unitario original e iluminamos el nuevo en neón cian
         document.getElementById('unitPriceLabel').innerHTML = 
             `<span style="text-decoration: line-through; color: #555; margin-right: 8px;">S/ ${BASE_CARD_PRICE.toFixed(2)}</span>` +
-            `<span style="color: var(--neon-cyan); font-weight: bold;">S/ ${finalUnitPrice.toFixed(2)}</span>`;
+            `<span style="color: var(--accent-text); font-weight: bold;">S/ ${finalUnitPrice.toFixed(2)}</span>`;
         
-        // Tachamos subtotal original
         document.getElementById('cardsSubtotal').innerHTML = 
             `<span style="text-decoration: line-through; color: #555; margin-right: 8px;">S/ ${normalSubtotal.toFixed(2)}</span>` +
-            `<span style="color: var(--neon-cyan); font-weight: bold;">S/ ${finalSubtotal.toFixed(2)}</span>`;
+            `<span style="color: var(--accent-text); font-weight: bold;">S/ ${finalSubtotal.toFixed(2)}</span>`;
     } else {
         document.getElementById('unitPriceLabel').innerText = `S/ ${BASE_CARD_PRICE.toFixed(2)}`;
         document.getElementById('cardsSubtotal').innerText = `S/ ${normalSubtotal.toFixed(2)}`;
     }
 
-    // Cálculos de Diseño (Gratis desde 50 unidades)
+    // Costo de Diseño (Gratis desde 50 unidades)
     let designSelect = document.getElementById('designTier');
     let rawDesignCost = parseFloat(designSelect.value);
     let finalDesignCost = (qty >= 50) ? 0 : rawDesignCost;
 
     if (qty >= 50) {
-        designSelect.style.borderColor = "var(--neon-cyan)";
+        designSelect.style.borderColor = "var(--accent-text)";
         document.getElementById('designCostLabel').innerHTML = 
             `<span style="text-decoration: line-through; color: #555; margin-right: 8px;">S/ ${rawDesignCost.toFixed(2)}</span>` +
-            `<span style="color: var(--neon-cyan); font-weight: bold;">¡GRATIS!</span>`;
+            `<span style="color: var(--accent-text); font-weight: bold;">¡GRATIS!</span>`;
     } else {
         designSelect.style.borderColor = "#444";
         document.getElementById('designCostLabel').innerText = `S/ ${finalDesignCost.toFixed(2)}`;
     }
 
-    // Costo de Landing Page
+    // Costo de Landing Page (¡NUEVA REGLA: Gratis desde 200 unidades!)
     let isLandingChecked = document.getElementById('addLandingPage').checked;
-    let extrasCost = isLandingChecked ? LANDING_PAGE_PRICE : 0;
-    document.getElementById('extrasCostLabel').innerText = `S/ ${extrasCost.toFixed(2)}`;
+    let extrasCost = 0;
 
-    // Inversión Total
+    if (isLandingChecked) {
+        if (qty >= 200) {
+            extrasCost = 0; // Se vuelve costo cero para la suma total
+            document.getElementById('extrasCostLabel').innerHTML = 
+                `<span style="text-decoration: line-through; color: #555; margin-right: 8px;">S/ ${LANDING_PAGE_PRICE.toFixed(2)}</span>` +
+                `<span style="color: var(--accent-text); font-weight: bold;">¡GRATIS!</span>`;
+        } else {
+            extrasCost = LANDING_PAGE_PRICE;
+            document.getElementById('extrasCostLabel').innerText = `S/ ${extrasCost.toFixed(2)}`;
+        }
+    } else {
+        extrasCost = 0;
+        document.getElementById('extrasCostLabel').innerText = `S/ 0.00`;
+    }
+
+    // Inversión Total Final
     let total = finalSubtotal + finalDesignCost + extrasCost;
     document.getElementById('totalPrice').innerText = `S/ ${total.toFixed(2)}`;
     
-    // Tag de porcentaje de descuento
+    // Tag de porcentaje de descuento en la esquina de la tarjeta de control
     let discountTag = document.getElementById('discountTag');
-    discountTag.innerText = `${(discount * 100)}%`;
-    discountTag.style.color = discount > 0 ? "var(--neon-cyan)" : "white";
+    discountTag.innerText = `${Math.round(discount * 100)}%`;
+    discountTag.style.color = discount > 0 ? "var(--accent-text)" : "white";
     discountTag.style.fontWeight = discount > 0 ? "bold" : "normal";
 }
 
@@ -158,6 +173,11 @@ function sendToWpp() {
     let total = document.getElementById('totalPrice').innerText;
     let designLevel = document.getElementById('designTier').options[document.getElementById('designTier').selectedIndex].text;
     let wantsLanding = document.getElementById('addLandingPage').checked ? "Sí" : "No";
+    
+    // Ajuste en el texto del mensaje si califica para landing gratis
+    if (parseInt(qty) >= 200 && wantsLanding === "Sí") {
+        wantsLanding = "Sí (¡Incluida Gratis por volumen! 🎁)";
+    }
     
     let msg = `¡Hola Filo Games! 🚀 Me interesa cotizar:\n\n` +
               `- ${qty} Smart E-Cards\n` +

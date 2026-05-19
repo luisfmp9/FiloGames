@@ -94,48 +94,56 @@
                 <p>Diseño y acabados de alta fidelidad que reflejan la excelencia de tu marca personal o corporativa. Una integración perfecta entre estética minimalista y tecnología de punta.</p>
             </div>
         </section>
+        
         <section class="container" id="pricing">
             <h2 style="text-align: center;">Calculador de Pedido Masivo</h2>
-            <div class="main-content">
+            <div class="main-content" style="max-width: 600px; margin: 0 auto; padding: 30px; border: 1px solid var(--border-color); border-radius: 12px; background: var(--bg-card);">
+                
                 <div class="qty-control-group">
                     <label>¿Cuántas Smart E-Cards necesitas?</label>
                     <div class="qty-input-wrapper">
                         <button class="qty-btn" onclick="adjustQty(-1)">−</button>
-                        <input type="number" id="cardQuantity" value="1" min="1" oninput="syncCalculator()">
+                        <input type="number" id="cardQuantity" value="1" min="1" max="10000" oninput="handleInputQuantity(this.value)">
                         <button class="qty-btn" onclick="adjustQty(1)">+</button>
                     </div>
-                    <input type="range" id="cardSlider" min="1" max="200" value="1" class="slider-neon" oninput="syncCalculator(this.value)">
-                    <div class="slider-guides"><span>1</span><span>50</span><span>100</span><span>200+</span></div>
+                    <input type="range" id="cardSlider" min="0" max="300" value="0" class="slider-neon" oninput="handleSliderMove(this.value)">
+                    <div class="slider-guides">
+                        <span>1</span>
+                        <span>100</span>
+                        <span>1,000</span>
+                        <span>10,000</span>
+                    </div>
                 </div>
 
                 <div class="addons-group">
                     <label>Nivel de Diseño (¡Gratis desde 50 unidades!)</label>
                     <select id="designTier" class="form-control neon-select" onchange="syncCalculator()">
                         <option value="0">Sin Diseño / Ya tengo el mío (S/ 0)</option>
-                        <option value="50">Diseño Básico Express (S/ 50)</option>
-                        <option value="84">Diseño IA / Intermedio (S/ 84)</option>
+                        <option value="50">Diseño Express (S/ 50)</option>
+                        <option value="84">Diseño Personalizado (S/ 84)</option>
                         <option value="370">Diseño Premium Corporativo (S/ 370)</option>
                     </select>
-                 </div>
+                </div>
 
                 <div class="addons-group checkbox-group">
                     <label class="checkbox-container">
                         <input type="checkbox" id="addLandingPage" onchange="syncCalculator()">
                         <span class="checkmark"></span>
-                        Añadir Landing Page de Contacto (Linktree style) (+S/ 150)
+                        Añadir Landing Page de Contacto (Linktree style) (+S/ 2500)
                     </label>
                     <a href="#demo-linktree" class="tech-badge" style="font-size: 0.7rem;">Ver diseño de ejemplo →</a>
                 </div>
-            
+                
                 <div class="metadata-box" style="margin-top: 30px;">
                     <ul class="metadata-list">
-                        <li><span class="label">Subtotal Tarjetas:</span> <span class="value" id="cardsSubtotal">S/ 25.00</span></li>
+                        <li><span class="label">Precio Unitario Tarjeta:</span> <span class="value" id="unitPriceLabel">S/ 59.00</span></li>
+                        <li><span class="label">Subtotal Tarjetas:</span> <span class="value" id="cardsSubtotal">S/ 59.00</span></li>
                         <li><span class="label">Costo de Diseño:</span> <span class="value" id="designCostLabel">S/ 0.00</span></li>
                         <li><span class="label">Extras (Landing Page):</span> <span class="value" id="extrasCostLabel">S/ 0.00</span></li>
-                        <li><span class="label">Descuento aplicado:</span> <span class="value" id="discountTag">0%</span></li>
-                        <li style="border-top: 2px solid var(--accent-text); padding-top: 20px;">
+                        <li><span class="label">Descuento por volumen:</span> <span class="value" id="discountTag">0%</span></li>
+                        <li style="border-top: 2px solid var(--accent-text); padding-top: 20px; margin-top: 15px;">
                             <span class="label" style="color: white; font-size: 1.2rem;">Inversión Total:</span> 
-                            <span class="value" id="totalPrice" style="color: var(--accent-text); font-size: 1.6rem;">S/ 25.00</span>
+                            <span class="value" id="totalPrice" style="color: var(--accent-text); font-size: 1.6rem;">S/ 59.00</span>
                         </li>
                     </ul>
                     <button class="btn-action primary" style="width: 100%; margin-top: 20px;" onclick="sendToWpp()">

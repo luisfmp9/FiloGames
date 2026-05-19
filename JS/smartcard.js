@@ -1,8 +1,9 @@
-// Precios Base (Idealmente, en un futuro, cargar esto desde services.json con fetch)
-const BASE_CARD_PRICE = 59; 
-const LANDING_PAGE_PRICE = 2500;
+// Declaramos la variable de precio base con un fallback (por si el JSON tarda en cargar o falla)
+let BASE_CARD_PRICE = 59; 
+let LANDING_PAGE_PRICE = 2500;
 
 document.addEventListener("DOMContentLoaded", () => {
+    cargarPrecioDesdeJSON();
     syncCalculator();
     const cards = document.querySelectorAll('.feature-card');
   
@@ -19,6 +20,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }, index * 120);
   });
 });
+
+async function cargarPrecioDesdeJSON() {
+    try {
+        const response = await fetch('../data/services.json'); 
+        
+        if (!response.ok) {
+            throw new Error(`Error HTTP: ${response.status}`);
+        }
+        
+        const servicios = await response.json();
+        
+        // Buscamos el servicio básico por su ID definido en tu JSON
+        const servicioNFC = servicios.find(servicio => servicio.id === "nfc-basico");
+        
+        if (servicioNFC) {
+            BASE_CARD_PRICE = servicioNFC.price; // Aquí toma el valor dinámicamente
+            console.log(`✅ Precio base actualizado desde JSON: S/ ${BASE_CARD_PRICE}`);
+            
+            // Forzamos al calculador a refrescarse con el nuevo precio real
+            syncCalculator(); 
+        }
+    } catch (error) {
+        console.error("❌ No se pudo cargar el precio desde services.json, usando precio de respaldo:", error);
+    }
+}
 
 function adjustQty(change) {
     let input = document.getElementById('cardQuantity');

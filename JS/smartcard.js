@@ -111,12 +111,12 @@ function syncCalculator() {
         // Tachamos precio unitario original e iluminamos el nuevo en neón cian
         document.getElementById('unitPriceLabel').innerHTML = 
             `<span style="text-decoration: line-through; color: #555; margin-right: 8px;">S/ ${BASE_CARD_PRICE.toFixed(2)}</span>` +
-            `<span style="color: var(--accent-text); font-weight: bold;">S/ ${finalUnitPrice.toFixed(2)}</span>`;
+            `<span style="color: var(--neon-cyan); font-weight: bold;">S/ ${finalUnitPrice.toFixed(2)}</span>`;
         
         // Tachamos subtotal original
         document.getElementById('cardsSubtotal').innerHTML = 
             `<span style="text-decoration: line-through; color: #555; margin-right: 8px;">S/ ${normalSubtotal.toFixed(2)}</span>` +
-            `<span style="color: var(--accent-text); font-weight: bold;">S/ ${finalSubtotal.toFixed(2)}</span>`;
+            `<span style="color: var(--neon-cyan); font-weight: bold;">S/ ${finalSubtotal.toFixed(2)}</span>`;
     } else {
         document.getElementById('unitPriceLabel').innerText = `S/ ${BASE_CARD_PRICE.toFixed(2)}`;
         document.getElementById('cardsSubtotal').innerText = `S/ ${normalSubtotal.toFixed(2)}`;
@@ -128,10 +128,10 @@ function syncCalculator() {
     let finalDesignCost = (qty >= 50) ? 0 : rawDesignCost;
 
     if (qty >= 50) {
-        designSelect.style.borderColor = "var(--accent-text)";
+        designSelect.style.borderColor = "var(--neon-cyan)";
         document.getElementById('designCostLabel').innerHTML = 
             `<span style="text-decoration: line-through; color: #555; margin-right: 8px;">S/ ${rawDesignCost.toFixed(2)}</span>` +
-            `<span style="color: var(--accent-text); font-weight: bold;">¡GRATIS!</span>`;
+            `<span style="color: var(--neon-cyan); font-weight: bold;">¡GRATIS!</span>`;
     } else {
         designSelect.style.borderColor = "#444";
         document.getElementById('designCostLabel').innerText = `S/ ${finalDesignCost.toFixed(2)}`;
@@ -149,7 +149,7 @@ function syncCalculator() {
     // Tag de porcentaje de descuento
     let discountTag = document.getElementById('discountTag');
     discountTag.innerText = `${(discount * 100)}%`;
-    discountTag.style.color = discount > 0 ? "var(--accent-text)" : "white";
+    discountTag.style.color = discount > 0 ? "var(--neon-cyan)" : "white";
     discountTag.style.fontWeight = discount > 0 ? "bold" : "normal";
 }
 

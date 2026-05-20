@@ -398,6 +398,32 @@ body.connect-page::before {
     z-index: 10;
 }
 
+::-webkit-scrollbar {
+    width: 6px; /* Una barra delgada y elegante */
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0a; /* Fondo oscuro que hace match con el cuerpo */
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--neon-cyan, #00ffcc); /* Tu cian neón característico */
+    border-radius: 10px;
+    border: 1px solid #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-magenta, #ff007f); /* Efecto interactivo cambia a magenta */
+    box-shadow: 0 0 8px var(--neon-magenta);
+}
+
+/* Soporte estándar para Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--neon-cyan, #00ffcc) #0a0a0a;
+}
+
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }

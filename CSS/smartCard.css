@@ -24,31 +24,36 @@ body {
 }
 
 .product-hero {
-    padding-top: 6px;
-    margin-top: 0;
-    display: flex;
-    align-items: center; /* Alinea verticalmente el 3D con el texto */
-    gap: 30px;
-    position: relative;
-    width: 100%;
-    min-height: 85vh; /* Le da una altura cinemática imponente */
-    padding: 80px 5% 60px 5%;
-    box-sizing: border-box;
-    overflow: hidden;
+  padding-top: 6px;
+  margin-top: 0;
+  display: flex;
+  align-items: center; /* Alinea verticalmente el 3D con el texto */
+  gap: 30px;
+  position: relative;
+  width: 100%;
+  min-height: 85vh; /* Le da una altura cinemática imponente */
+  padding: 80px 5% 60px 5%;
+  box-sizing: border-box;
+  overflow: hidden;
 
-    /* --- EFECTO DE FONDO ULTRA-PREMIUM --- */
-    /* El gradiente va desde un negro sólido en la izquierda (protege tu texto) a un cian muy sutil a la derecha */
-    background-image: 
-        linear-gradient(to right, #0a0a0a 45%, rgba(10, 10, 10, 0.7) 70%, rgba(0, 255, 204, 0.08) 100%),
-        linear-gradient(to bottom, transparent 70%, #0a0a0a 100%),
-        url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1920');
-    
-    background-size: cover;
-    background-position: center right;
-    background-repeat: no-repeat;
-    
-    /* Línea divisoria sutil abajo estilo Filo Games */
-    border-bottom: 1px solid rgba(0, 255, 204, 0.1);
+  /* --- EFECTO DE FONDO ULTRA-PREMIUM --- */
+  /* El gradiente va desde un negro sólido en la izquierda (protege tu texto) a un cian muy sutil a la derecha */
+  background-image: 
+      linear-gradient(to right, #0a0a0a 45%, rgba(10, 10, 10, 0.7) 70%, rgba(0, 255, 204, 0.08) 100%),
+      linear-gradient(to bottom, transparent 70%, #0a0a0a 100%),
+      url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1920');
+  
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  
+  /* Línea divisoria sutil abajo estilo Filo Games */
+  border-bottom: 1px solid rgba(0, 255, 204, 0.1);
+}
+
+.hero-content, .zone-3d {
+    position: relative;
+    z-index: 2;
 }
 
 .interactive-badge {
@@ -76,11 +81,11 @@ body {
 }
 
 .zone-3d {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-    flex-wrap: wrap; /* Para que en móvil el trofeo baje */
-    margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap; /* Para que en móvil el trofeo baje */
+  margin: 10px 0;
 }
 
 .hero-content {
@@ -279,29 +284,29 @@ body {
 
 /* --- ESTILOS ESPECÍFICOS PARA EL BOTÓN DE WHATSAPP --- */
 .btn-action.primary {
-    background: var(--accent-text, #00ffcc);
-    color: #0a0a0a;
-    border: none;
-    padding: 14px 28px;
-    font-family: var(--font-title), sans-serif;
-    font-size: 0.9rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 6px;
-    cursor: pointer;
-    box-sizing: border-box;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background: var(--accent-text, #00ffcc);
+  color: #0a0a0a;
+  border: none;
+  padding: 14px 28px;
+  font-family: var(--font-title), sans-serif;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-action.primary:hover {
-    background: #ffffff;
-    box-shadow: 0 0 20px rgba(0, 255, 204, 0.6);
-    transform: translateY(-2px);
+  background: #ffffff;
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.6);
+  transform: translateY(-2px);
 }
 
 .btn-action.primary:active {
-    transform: translateY(0);
+  transform: translateY(0);
 }
 
 .qty-control-group { margin-bottom: 30px; }
@@ -334,83 +339,83 @@ body {
 .checkbox-container input:checked ~ .checkmark { background-color: var(--accent-text); border-color: var(--accent-text); box-shadow: 0 0 10px var(--accent-glow); }
 
 .smartphone-mockup {
-    width: 400px;
-    height: 600px;
-    margin: 40px auto;
-    border: 14px solid #161616;
-    border-radius: 44px;
-    position: relative;
-    box-shadow: 0 0 30px rgba(0, 255, 204, 0.15), inset 0 0 10px rgba(0,0,0,0.8);
-    background: #0a0a0a;
-    overflow: hidden;
+  width: 400px;
+  height: 600px;
+  margin: 40px auto;
+  border: 14px solid #161616;
+  border-radius: 44px;
+  position: relative;
+  box-shadow: 0 0 30px rgba(0, 255, 204, 0.15), inset 0 0 10px rgba(0,0,0,0.8);
+  background: #0a0a0a;
+  overflow: hidden;
 }
 
 .smartphone-mockup::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 140px;
-    height: 28px;
-    background: #161616;
-    border-bottom-left-radius: 18px;
-    border-bottom-right-radius: 18px;
-    z-index: 10;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 28px;
+  background: #161616;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  z-index: 10;
 }
 
 .smartphone-mockup iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    border-radius: 28px;
-    background-color: #0a0a0a;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 28px;
+  background-color: #0a0a0a;
 }
 
 .steps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
 }
 
 .step-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(0, 255, 204, 0.1);
-    padding: 30px 20px;
-    border-radius: 16px;
-    text-align: center;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(0, 255, 204, 0.1);
+  padding: 30px 20px;
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .step-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-text);
-    box-shadow: 0 10px 25px rgba(0, 255, 204, 0.1);
-    background: rgba(0, 255, 204, 0.02);
+  transform: translateY(-5px);
+  border-color: var(--accent-text);
+  box-shadow: 0 10px 25px rgba(0, 255, 204, 0.1);
+  background: rgba(0, 255, 204, 0.02);
 }
 
 .step-number {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 3rem;
-    color: rgba(0, 255, 204, 0.2);
-    font-weight: bold;
-    margin-bottom: 15px;
-    line-height: 1;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 3rem;
+  color: rgba(0, 255, 204, 0.2);
+  font-weight: bold;
+  margin-bottom: 15px;
+  line-height: 1;
 }
 
 .step-card h3 {
-    font-size: 1.3rem;
-    color: var(--text-primary);
-    margin-bottom: 10px;
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  margin-bottom: 10px;
 }
 
 .step-card p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    line-height: 1.5;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 @media (max-width: 768px) {
@@ -458,28 +463,29 @@ body {
   }
 
   .smartphone-mockup {
-        width: 100%;
-        max-width: 370px;
-        height: 600px;
-        border-width: 10px;
-        border-radius: 34px;
-    }
-    .smartphone-mockup::before {
-        width: 110px;
-        height: 22px;
-    }
+    width: 100%;
+    max-width: 370px;
+    height: 600px;
+    border-width: 10px;
+    border-radius: 34px;
+  }
+
+  .smartphone-mockup::before {
+    width: 110px;
+    height: 22px;
+  }
 }
 
 @media (max-width: 400px) {
-    .smartphone-mockup {
-        width: 100%;
-        max-width: 320px;
-        height: 600px;
-        border-width: 10px;
-        border-radius: 34px;
-    }
-    .smartphone-mockup::before {
-        width: 110px;
-        height: 22px;
-    }
+  .smartphone-mockup {
+      width: 100%;
+      max-width: 320px;
+      height: 600px;
+      border-width: 10px;
+      border-radius: 34px;
+  }
+  .smartphone-mockup::before {
+      width: 110px;
+      height: 22px;
+  }
 }

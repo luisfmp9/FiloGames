@@ -424,23 +424,54 @@ body {
   }
 
   .product-hero {
+    display: flex;
     flex-direction: column;
-    padding-top: 20px;
+    /* Damos un padding generoso arriba y abajo, y un 20px estándar a los lados para que no pegue al borde de la pantalla */
+    padding: 80px 20px 60px 20px;
+    min-height: 90vh; /* Mantiene el impacto visual cubriendo casi toda la pantalla inicial */
+    align-items: center;
+
+    /* --- TRATAMIENTO DE IMAGEN PARA MÓVIL --- */
+    /* Cambiamos el gradiente de "horizontal" (to right) a "vertical" (to bottom). 
+        Esto deja la parte superior más limpia para que se aprecie la imagen/arte, 
+        y la oscurece hacia abajo para que el texto encima mantenga un contraste del 100%. */
+    background-image: 
+        linear-gradient(to bottom, rgba(10, 10, 10, 0.3) 0%, rgba(10, 10, 10, 0.85) 60%, #0a0a0a 100%),
+        url('https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=1000'); /* <-- Aquí puedes meter tu URL de imagen vertical/móvil cuando la tengas */
+    
+    /* Forzamos a que el centro de la imagen se alinee arriba */
+    background-position: center top; 
+    background-size: cover;
   }
+
   .zone-3d {
     flex-direction: column-reverse; /* El 3D abajo, texto arriba */
     gap: 20px;
     width: 100%;
+    max-width: 360px; /* Controlamos el contenedor del mockup/3D para que no sea gigante en celulares */
+    margin: 0 auto;
   }
 
   .hero-content {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     text-align: center;
     width: 100%;
   }
 
+  .hero-content h2,
+  .hero-content p,
+  .hero-content .interactive-badge {
+      max-width: 480px; 
+      width: 100%;
+  }
+
   .main-title {
     font-size: 2.2rem; /* Título un poco más manejable */
+    line-height: 1.2;
+    margin-bottom: 15px;
   }
 
   .cards-grid.compact-grid {

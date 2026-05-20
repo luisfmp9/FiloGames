@@ -458,10 +458,6 @@ body {
     width: 100%;
   }
 
-  .features-detail-section {
-    grid-template-columns: 1fr;
-  }
-
   .smartphone-mockup {
     width: 100%;
     max-width: 370px;

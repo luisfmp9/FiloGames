@@ -165,7 +165,7 @@ body.connect-page::before {
 .award-3d {
     width: 100%;
     max-width: 500px;
-    height: 400px; /* Define una altura fija para evitar saltos de layout */
+    height: 600px; /* Define una altura fija para evitar saltos de layout */
     margin: 0 auto;
     position: relative;
     background: radial-gradient(circle, rgba(0, 243, 255, 0.1) 0%, transparent 70%);

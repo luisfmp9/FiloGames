@@ -485,8 +485,10 @@ body {
   }
 
   .award-3d {
+    flex: none;
     height: 350px; /* Evita que el 3D ocupe toda la pantalla */
     width: 100%;
+    margin: 0 auto;
   }
 
   .smartphone-mockup {

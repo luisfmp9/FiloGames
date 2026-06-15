@@ -139,21 +139,25 @@ function syncCalculator() {
     }
 
     // Costo de Landing Page (¡NUEVA REGLA: Gratis desde 200 unidades!)
-    let isLandingChecked = document.getElementById('addLandingPage').checked;
+    let landingSelect = document.getElementById('landingTier');
+    let rawLandingCost = parseFloat(landingSelect.value);
     let extrasCost = 0;
 
-    if (isLandingChecked) {
+    if (rawLandingCost > 0) {
         if (qty >= 200) {
-            extrasCost = 0; // Se vuelve costo cero para la suma total
+            extrasCost = 0; // Se vuelve costo cero por volumen
+            landingSelect.style.borderColor = "var(--accent-text)";
             document.getElementById('extrasCostLabel').innerHTML = 
-                `<span style="text-decoration: line-through; color: #555; margin-right: 8px;">S/ ${LANDING_PAGE_PRICE.toFixed(2)}</span>` +
+                `<span style="text-decoration: line-through; color: #555; margin-right: 8px;">S/ ${rawLandingCost.toFixed(2)}</span>` +
                 `<span style="color: var(--accent-text); font-weight: bold;">¡GRATIS!</span>`;
         } else {
-            extrasCost = LANDING_PAGE_PRICE;
+            extrasCost = rawLandingCost;
+            landingSelect.style.borderColor = "#444";
             document.getElementById('extrasCostLabel').innerText = `S/ ${extrasCost.toFixed(2)}`;
         }
     } else {
         extrasCost = 0;
+        landingSelect.style.borderColor = "#444";
         document.getElementById('extrasCostLabel').innerText = `S/ 0.00`;
     }
 
@@ -172,17 +176,21 @@ function sendToWpp() {
     let qty = document.getElementById('cardQuantity').value;
     let total = document.getElementById('totalPrice').innerText;
     let designLevel = document.getElementById('designTier').options[document.getElementById('designTier').selectedIndex].text;
-    let wantsLanding = document.getElementById('addLandingPage').checked ? "Sí" : "No";
+    
+    // Capturamos el nivel de landing page
+    let landingTierElement = document.getElementById('landingTier');
+    let landingLevel = landingTierElement.options[landingTierElement.selectedIndex].text;
+    let rawLandingCost = parseFloat(landingTierElement.value);
     
     // Ajuste en el texto del mensaje si califica para landing gratis
-    if (parseInt(qty) >= 200 && wantsLanding === "Sí") {
-        wantsLanding = "Sí (¡Incluida Gratis por volumen! 🎁)";
+    if (parseInt(qty) >= 200 && rawLandingCost > 0) {
+        landingLevel += " (¡Incluida Gratis por volumen! 🎁)";
     }
     
     let msg = `¡Hola Filo Games! 🚀 Me interesa cotizar:\n\n` +
               `- ${qty} Smart E-Cards\n` +
               `- Nivel de Diseño: ${designLevel}\n` +
-              `- Landing Page Corporativa: ${wantsLanding}\n\n` +
+              `- Ecosistema Digital: ${landingLevel}\n\n` +
               `Inversión total estimada: ${total}\n\n¿Me ayudan con los detalles para iniciar el pedido?`;
               
     window.open(`https://wa.me/51980664399?text=${encodeURIComponent(msg)}`);

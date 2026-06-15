@@ -313,7 +313,7 @@ body {
 .qty-input-wrapper { display: flex; align-items: center; justify-content: center; gap: 15px; margin: 15px 0; }
 .qty-btn { background: var(--bg-main); border: 1px solid var(--accent-text); color: var(--accent-text); width: 45px; height: 45px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; transition: 0.3s; }
 .qty-btn:hover { background: rgba(0, 255, 204, 0.2); box-shadow: 0 0 10px var(--accent-glow); }
-#cardQuantity { width: 80px; text-align: center; background: transparent; border: none; color: white; font-size: 2rem; font-family: var(--font-title); outline: none; }
+#cardQuantity { width: 90px; text-align: center; background: transparent; border: none; color: white; font-size: 2rem; font-family: var(--font-title); outline: none; }
 #cardQuantity::-webkit-inner-spin-button { -webkit-appearance: none; }
 
 /* Slider Neon */
@@ -445,7 +445,7 @@ body {
   }
 
   .zone-3d {
-    flex-direction: column-reverse; /* El 3D abajo, texto arriba */
+    flex-direction: column; /* Ahora sí: Texto arriba, 3D abajo */
     gap: 20px;
     width: 100%;
     max-width: 360px; /* Controlamos el contenedor del mockup/3D para que no sea gigante en celulares */

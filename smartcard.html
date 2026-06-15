@@ -12,8 +12,8 @@
 
     <!-- Enlaces a CSS y Fonts (Rutas relativas corregidas) -->
     <link rel="stylesheet" href="CSS/styles.css">
-    <link rel="stylesheet" href="CSS/smartCard.css">
     <link rel="stylesheet" href="CSS/connect.css">
+    <link rel="stylesheet" href="CSS/smartCard.css">
     <link rel="icon" href="IMG/logoFilo.ico" sizes="16x16 32x32 48x48" type="image/x-icon">
     <link rel="icon" type="image/png" sizes="192x192" href="IMG/logoFilo.png">
     <link rel="apple-touch-icon" sizes="180x180" href="IMG/logoFilo.png">
@@ -61,7 +61,7 @@
                                 environment-image="neutral"
                                 auto-rotate-delay="0"
                                 interaction-prompt="none"
-                                camera-orbit="0deg 75deg auto"
+                                camera-orbit="5deg 75deg auto"
                                 field-of-view="auto"
                                 ar
                                 ar-modes="webxr scene-viewer quick-look"
@@ -157,13 +157,15 @@
                     </select>
                 </div>
 
-                <div class="addons-group checkbox-group">
-                    <label class="checkbox-container">
-                        <input type="checkbox" id="addLandingPage" onchange="syncCalculator()">
-                        <span class="checkmark"></span>
-                        Añadir Landing Page de Contacto (Linktree style) (+S/ 2500)
-                    </label>
-                    <a href="#demo-linktree" class="tech-badge" style="font-size: 0.7rem;">Ver diseño de ejemplo →</a>
+                <div class="addons-group">
+                    <label>Ecosistema Digital (¡Gratis desde 200 unidades!)</label>
+                    <select id="landingTier" class="form-control neon-select" onchange="syncCalculator()">
+                        <option value="0">Sin Ecosistema / Ya tengo el mío (S/ 0)</option>
+                        <option value="70">Configurar un Linktree (S/ 70)</option>
+                        <option value="1500">Landing Page Privada Estándar (S/ 1500)</option>
+                        <option value="3500">Landing Page Estilo Personalizado Premium (S/ 3500)</option>
+                    </select>
+                    <a href="#demo-linktree" class="tech-badge" style="font-size: 0.7rem; display: inline-block; margin-top: 10px;">Ver diseño de ejemplo →</a>
                 </div>
                 
                 <div class="metadata-box" style="margin-top: 30px;">

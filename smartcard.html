@@ -17,6 +17,7 @@
     <link rel="icon" href="IMG/logoFilo.ico" sizes="16x16 32x32 48x48" type="image/x-icon">
     <link rel="icon" type="image/png" sizes="192x192" href="IMG/logoFilo.png">
     <link rel="apple-touch-icon" sizes="180x180" href="IMG/logoFilo.png">
+    <link rel="preload" href="3D/tarjeta3D.glb" as="fetch" crossorigin="anonymous">
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 </head>
 <body>
@@ -133,7 +134,7 @@
             <div class="main-content" style="max-width: 600px; margin: 0 auto; padding: 30px; border: 1px solid var(--border-color); border-radius: 12px; background: var(--bg-card);">
                 
                 <div class="qty-control-group">
-                    <label>¿Cuántas Smart E-Cards necesitas?</label>
+                    <label for="cardQuantity">¿Cuántas Smart E-Cards necesitas?</label>
                     <div class="qty-input-wrapper">
                         <button class="qty-btn" onclick="adjustQty(-1)">−</button>
                         <input type="number" id="cardQuantity" value="1" min="1" max="10000" oninput="handleInputQuantity(this.value)">
@@ -149,7 +150,7 @@
                 </div>
 
                 <div class="addons-group">
-                    <label>Nivel de Diseño (¡Gratis desde 50 unidades!)</label>
+                    <label for="designTier">Nivel de Diseño (¡Gratis desde 50 unidades!)</label>
                     <select id="designTier" class="form-control neon-select" onchange="syncCalculator()">
                         <option value="0">Sin Diseño / Ya tengo el mío (S/ 0)</option>
                         <option value="50">Diseño Express (S/ 50)</option>
@@ -159,7 +160,7 @@
                 </div>
 
                 <div class="addons-group">
-                    <label>Ecosistema Digital (¡Gratis desde 200 unidades!)</label>
+                    <label for="landingTier">Ecosistema Digital (¡Gratis desde 200 unidades!)</label>
                     <select id="landingTier" class="form-control neon-select" onchange="syncCalculator()">
                         <option value="0">Sin Ecosistema / Ya tengo el mío (S/ 0)</option>
                         <option value="70">Configurar un Linktree (S/ 70)</option>

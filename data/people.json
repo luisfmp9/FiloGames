@@ -19,7 +19,7 @@
     "photoUrl": "IMG/Team/FotoDaigoro.webp",
     "avatarUrl": "IMG/Team/DaigoroAvatar.webp",
     "externalUrl": "https://www.instagram.com/daigoro_ventura/",
-    "type": "core"
+    "type": "ally"
   },
   {
     "id": "alvaro-r",
@@ -30,7 +30,7 @@
     "photoUrl": "IMG/Team/Alvaro.webp",
     "avatarUrl": "IMG/Team/AlvaroAvatar.webp",
     "externalUrl": "https://supergamer15.itch.io/",
-    "type": "core"
+    "type": "ally"
   },
   {
     "id": "joaquinO",
@@ -52,7 +52,7 @@
     "photoUrl": "IMG/Team/Fernanda.webp",
     "avatarUrl": "https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+F",
     "externalUrl": null,
-    "type": "core"
+    "type": "ally"
   },
   {
     "id": "milagros-s",
@@ -63,7 +63,7 @@
     "photoUrl": "https://placehold.co/300x300/EEE/333?text=Foto+M",
     "avatarUrl": "https://placehold.co/300x300/1a1a1a/FFF?text=Avatar+M",
     "externalUrl": null,
-    "type": "core"
+    "type": "ally"
   },
   {
     "id": "csilva",
